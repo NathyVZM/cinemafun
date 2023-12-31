@@ -1,0 +1,46 @@
+@use 'colors' as c
+@use 'mixins' as m
+@use 'variables' as v
+
+main
+    @include m.size(39rem, 46rem)
+    background: linear-gradient(to bottom, rgb(100, 100, 136, 0.3), rgb(58, 58, 80, 0.3) 60%)
+    border-radius: 2rem
+    padding: v.$sp-big
+    @include m.flex(space-between, stretch, column, wrap)
+
+    > header
+        flex: 1
+        @include m.flex(center, stretch, column, wrap, 1.5rem)
+
+        > section:first-child
+            @include m.flex($align: center, $gap: 0.5rem)
+
+        > section:last-child
+            @include m.flex(center, stretch, column, wrap, 0.5rem)
+
+        h1
+            font-size: v.$fs-extra-large
+            color: c.$primary
+            font-weight: 600
+
+        h2
+            font-weight: 500
+            font-size: v.$fs-large
+
+        h3
+            font-weight: 500
+            color: c.$text-secondary
+            font-size: v.$fs-regular
+
+        i
+            font-size: v.$fs-extra-large
+            color: c.$primary
+
+    > form
+        flex: 2
+        @include m.flex(center, stretch, column, $gap: 2rem)
+
+    > footer
+        flex: 1
+        @include m.flex(flex-end, flex-end)

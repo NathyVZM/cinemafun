@@ -4,7 +4,7 @@
     "bracketSpacing": true,
     "embeddedLanguageFormatting": "auto",
     "endOfLine": "crlf",
-    "printWidth": 120,
+    "printWidth": 140,
     "quoteProps": "as-needed",
     "semi": false,
     "singleQuote": true,

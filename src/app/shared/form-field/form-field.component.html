@@ -1,1 +1,43 @@
-<p>form-field works!</p>
+<label [htmlFor]="id" [tuiLabel]="label">
+	@switch (type) {
+		@case ('text') {
+			<ng-container *ngTemplateOutlet="textFormField"></ng-container>
+		}
+
+		@case ('email') {
+			<ng-container *ngTemplateOutlet="textFormField"></ng-container>
+		}
+
+		@case ('number') {
+			<tui-input-number
+				[id]="id"
+				[tuiTextfieldLabelOutside]="true"
+				[tuiTextfieldIconLeft]="iconLeft"
+				[tuiTextfieldIcon]="iconRight"
+				[(ngModel)]="value"
+				(input)="onInput($event)">
+				{{ placeholder }}
+			</tui-input-number>
+		}
+	}
+</label>
+
+<ng-template #textFormField>
+	<tui-input
+		[tuiTextfieldLabelOutside]="true"
+		[tuiTextfieldCleaner]="showCleaner"
+		[tuiTextfieldIconLeft]="iconLeft"
+		[tuiTextfieldIcon]="iconRight"
+		[(ngModel)]="value">
+		{{ placeholder }}
+		<input
+			tuiTextfield
+			[id]="id"
+			[type]="type"
+			[placeholder]="placeholder"
+			(input)="onInput($event)"
+			[value]="value"
+			[disabled]="isDisabled" />
+	</tui-input>
+</ng-template>
+

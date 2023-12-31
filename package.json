@@ -29,6 +29,7 @@
     "@taiga-ui/addon-tablebars": "^3.59.0",
     "@taiga-ui/cdk": "^3.59.0",
     "@taiga-ui/core": "^3.59.0",
+    "@taiga-ui/i18n": "^3.61.0",
     "@taiga-ui/icons": "^3.59.0",
     "@taiga-ui/kit": "^3.59.0",
     "@taiga-ui/layout": "^3.59.0",
@@ -48,6 +49,7 @@
     "@angular-eslint/template-parser": "17.1.1",
     "@angular/cli": "^17.0.6",
     "@angular/compiler-cli": "^17.0.0",
+    "@angular/localize": "^17.0.7",
     "@types/dompurify": "2.2.3",
     "@types/jasmine": "~5.1.0",
     "@typescript-eslint/eslint-plugin": "6.13.1",
@@ -59,6 +61,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "prettier": "^3.1.1",
     "typescript": "~5.2.2"
   }
 }

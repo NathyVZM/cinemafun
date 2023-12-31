@@ -11,3 +11,10 @@
     @each $name, $value in $positions
         @if $value != null
             #{$name}: $value
+
+@mixin flex($justify: flex-start, $align: flex-start, $direction: row, $wrap: nowrap, $gap: 0)
+    display: flex
+    justify-content: $justify
+    align-items: $align
+    flex-flow: $direction $wrap
+    gap: $gap

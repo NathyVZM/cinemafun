@@ -1,0 +1,41 @@
+<main>
+	<header>
+		<section>
+			<i class="ph-duotone ph-film-slate"></i>
+			<h1 class="tui-text_h1">CINEMAFUN</h1>
+		</section>
+		<section>
+			<h2>Welcome!</h2>
+			<h3>Enter your name, email and the ticket price to continue</h3>
+		</section>
+	</header>
+
+	<form [formGroup]="form" (ngSubmit)="onSubmit()" id="form-modal">
+		<cf-form-field
+			[id]="'name'"
+			[type]="'text'"
+			[placeholder]="'Jane Doe'"
+			[label]="'Name'"
+			[iconLeft]="'tuiIconUser'"
+			formControlName="name" />
+		<cf-form-field
+			[id]="'email'"
+			[type]="'email'"
+			[placeholder]="'janedoe@gmail.com'"
+			[label]="'Email'"
+			[iconLeft]="'tuiIconMail'"
+			formControlName="email" />
+		<cf-form-field
+			[id]="'ticket'"
+			[type]="'number'"
+			[placeholder]="'4.45'"
+			[label]="'Ticket price'"
+			[iconLeft]="'tuiIconDollarSign'"
+			formControlName="ticket" />
+	</form>
+
+	<footer>
+		<cf-button label="Sign up" type="submit" />
+	</footer>
+</main>
+

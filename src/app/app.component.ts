@@ -1,8 +1,8 @@
 import { TuiRootModule, TuiDialogModule, TuiAlertModule, TuiModeModule, TuiThemeNightModule } from '@taiga-ui/core'
-import { Component } from '@angular/core'
+import { Component, inject } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { RouterOutlet } from '@angular/router'
-import { NavbarComponent, FooterComponent, ButtonComponent } from '@components'
+import { Router, RouterLink, RouterOutlet } from '@angular/router'
+import { NavbarComponent, FooterComponent } from '@components'
 
 @Component({
 	selector: 'app-root',
@@ -17,12 +17,18 @@ import { NavbarComponent, FooterComponent, ButtonComponent } from '@components'
 		TuiThemeNightModule,
 		NavbarComponent,
 		FooterComponent,
-		ButtonComponent
+		RouterLink
 	],
 	templateUrl: './app.component.html',
 	styleUrl: './app.component.sass'
 })
 export class AppComponent {
 	title = 'cinemafun'
+	route = 'sign-up'
+	router = inject(Router)
+
+	hasRoute() {
+		return this.router.url.includes(this.route)
+	}
 }
 

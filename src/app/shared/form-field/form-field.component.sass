@@ -1,0 +1,19 @@
+@use 'colors' as c
+
+:host
+    --tui-height-l: 42px
+    --tui-text-02-night: #{c.$text-secondary}
+    --tui-text-03-night: #{lighten(c.$text-secondary, 10%)}
+    --tui-clear-active: #{c.$container}
+    --tui-clear-inverse: #{c.$container}
+    --tui-clear-inverse-hover: #{opacify(c.$container, 0.01)}
+    --tui-clear-inverse-active: #{red}
+    --tui-autofill-night: #{desaturate(darken(c.$secondary, 40%), 70%)}
+
+tui-input, tui-input-number
+    border-radius: 2rem
+    border: none !important
+    backdrop-filter: blur(1rem)
+
+    input::placeholder
+        color: c.$text-secondary

@@ -5,5 +5,15 @@
     --tui-primary: #{c.$primary}
     --tui-primary-hover: #{darken(c.$primary, 7%)}
     --tui-primary-active: #{darken(c.$primary, 10%)}
-    --tui-text-font: 'Hind Madurai', sans-serif
-    --tui-text-heading: 'Hind Madurai', sans-serif
+    --tui-text-font: 'Hind', sans-serif
+    --tui-text-heading: 'Montserrat', sans-serif
+    --tui-font-heading: 'Montserrat', sans-serif
+
+[tuiWrapper]::after
+    border: none !important
+
+[tuiWrapper][data-appearance=textfield][data-mode=onDark]
+    box-shadow: none
+
+    &:hover
+        box-shadow: none

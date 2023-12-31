@@ -1,5 +1,6 @@
 <button
 	tuiButton
+	[type]="type"
 	[appearance]="appearance"
 	[icon]="icon"
 	[iconRight]="iconRight"
@@ -7,6 +8,8 @@
 	[size]="size"
 	[disabled]="isDisabled"
 	[showLoader]="isLoading"
-	(click)="onClick()">
+	(click)="onClick()"
+	form="form-modal">
 	{{ label }}
 </button>
+
