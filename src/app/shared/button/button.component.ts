@@ -19,6 +19,7 @@ export class ButtonComponent {
 	@Input() size: TuiSizeXS | TuiSizeXL = 'l'
 	@Input({ transform: booleanAttribute }) isDisabled = false
 	@Input({ transform: booleanAttribute }) isLoading = false
+	@Input() formId = ''
 	@Output() buttonClick = new EventEmitter<any>()
 
 	onClick() {

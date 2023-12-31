@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms'
-import { ModalComponent } from '@components/index'
+import { ModalComponent } from '@components'
+import { FormField } from '@models'
 
 @Component({
 	selector: 'cf-sign-up',
@@ -15,6 +16,7 @@ export class SignUpComponent {
 		email: new FormControl(''),
 		ticket: new FormControl(0)
 	})
+	formFields: FormField[] = []
 
 	onSubmit() {
 		console.log(this.form.value)

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { FormGroup, ReactiveFormsModule } from '@angular/forms'
 import { ButtonComponent, FormFieldComponent } from '@components'
+import { FormField } from '@models'
 
 @Component({
 	selector: 'cf-modal',
@@ -11,6 +12,8 @@ import { ButtonComponent, FormFieldComponent } from '@components'
 })
 export class ModalComponent {
 	@Input() form!: FormGroup
+	@Input() formId = ''
+	@Input() formFields: FormField[] = []
 	@Output() submitModal = new EventEmitter()
 
 	onSubmit() {

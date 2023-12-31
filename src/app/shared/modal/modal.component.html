@@ -10,7 +10,7 @@
 		</section>
 	</header>
 
-	<form [formGroup]="form" (ngSubmit)="onSubmit()" id="form-modal">
+	<form [formGroup]="form" (ngSubmit)="onSubmit()" [id]="formId">
 		<cf-form-field
 			[id]="'name'"
 			[type]="'text'"
@@ -35,7 +35,7 @@
 	</form>
 
 	<footer>
-		<cf-button label="Sign up" type="submit" />
+		<cf-button [label]="'Sign up'" [type]="'submit'" [formId]="formId" />
 	</footer>
 </main>
 

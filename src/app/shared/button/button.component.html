@@ -9,7 +9,7 @@
 	[disabled]="isDisabled"
 	[showLoader]="isLoading"
 	(click)="onClick()"
-	form="form-modal">
+	[attr.form]="formId">
 	{{ label }}
 </button>
 
