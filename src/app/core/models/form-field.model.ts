@@ -3,9 +3,9 @@ export interface FormField {
 	formControlName: string
 	placeholder: string
 	type: string
-	label?: string
-	showCleaner?: boolean
-	iconLeft?: string
+	label: string
+	iconLeft: string
 	iconRight?: string
+	showCleaner?: boolean
 }
 

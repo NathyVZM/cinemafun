@@ -11,31 +11,19 @@
 	</header>
 
 	<form [formGroup]="form" (ngSubmit)="onSubmit()" [id]="formId">
-		<cf-form-field
-			[id]="'name'"
-			[type]="'text'"
-			[placeholder]="'Jane Doe'"
-			[label]="'Name'"
-			[iconLeft]="'tuiIconUser'"
-			formControlName="name" />
-		<cf-form-field
-			[id]="'email'"
-			[type]="'email'"
-			[placeholder]="'janedoe@gmail.com'"
-			[label]="'Email'"
-			[iconLeft]="'tuiIconMail'"
-			formControlName="email" />
-		<cf-form-field
-			[id]="'ticket'"
-			[type]="'number'"
-			[placeholder]="'4.45'"
-			[label]="'Ticket price'"
-			[iconLeft]="'tuiIconDollarSign'"
-			formControlName="ticket" />
+		@for (field of formFields; track field.id) {
+			<cf-form-field
+				[id]="field.id"
+				[type]="field.type"
+				[placeholder]="field.placeholder"
+				[label]="field.label"
+				[iconLeft]="field.iconLeft"
+				[formControlName]="field.formControlName" />
+		}
 	</form>
 
 	<footer>
-		<cf-button [label]="'Sign up'" [type]="'submit'" [formId]="formId" />
+		<cf-button [label]="'Sign up'" [type]="'submit'" [form]="formId" />
 	</footer>
 </main>
 

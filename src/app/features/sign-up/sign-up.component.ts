@@ -16,7 +16,32 @@ export class SignUpComponent {
 		email: new FormControl(''),
 		ticket: new FormControl(0)
 	})
-	formFields: FormField[] = []
+	formFields: FormField[] = [
+		{
+			id: 'name',
+			formControlName: 'name',
+			placeholder: 'Jane Doe',
+			type: 'text',
+			label: 'Name',
+			iconLeft: 'tuiIconUser'
+		},
+		{
+			id: 'email',
+			formControlName: 'email',
+			placeholder: 'janedoe@example.com',
+			type: 'email',
+			label: 'Email',
+			iconLeft: 'tuiIconMail'
+		},
+		{
+			id: 'ticket',
+			formControlName: 'ticket',
+			placeholder: '4.45',
+			type: 'number',
+			label: 'Ticket price',
+			iconLeft: 'tuiIconDollarSign'
+		}
+	]
 
 	onSubmit() {
 		console.log(this.form.value)

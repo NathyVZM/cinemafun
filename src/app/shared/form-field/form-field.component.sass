@@ -1,4 +1,5 @@
 @use 'colors' as c
+@use 'variables' as v
 
 :host
     --tui-height-l: 42px
@@ -9,6 +10,7 @@
     --tui-clear-inverse-hover: #{opacify(c.$container, 0.01)}
     --tui-clear-inverse-active: #{red}
     --tui-autofill-night: #{desaturate(darken(c.$secondary, 40%), 70%)}
+    --tui-font-text-s: normal #{v.$fs-regular} var(--tui-font-text)
 
 tui-input, tui-input-number
     border-radius: 2rem
@@ -17,3 +19,6 @@ tui-input, tui-input-number
 
     input::placeholder
         color: c.$text-secondary
+
+label
+    gap: .5rem
