@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, Output, booleanAttribute } from '@angular/core'
+import { CoreService } from '@services'
 import { TuiAppearance, TuiButtonModule, TuiSizeXL, TuiSizeXS } from '@taiga-ui/core'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
+import { combineLatest } from 'rxjs'
 
 @Component({
 	selector: 'cf-button',
@@ -21,8 +24,16 @@ export class ButtonComponent {
 	@Input({ transform: booleanAttribute }) isLoading = false
 	@Output() buttonClick = new EventEmitter<any>()
 
+	constructor(private coreService: CoreService) {
+		combineLatest({ _isDisabled: this.coreService.getIsButtonDisabled(), _isLoading: this.coreService.getIsButtonLoading() })
+			.pipe(takeUntilDestroyed())
+			.subscribe(({ _isDisabled, _isLoading }) => {
+				this.isDisabled = _isDisabled
+				this.isLoading = _isLoading
+			})
+	}
+
 	onClick() {
 		this.buttonClick.emit()
 	}
 }
-

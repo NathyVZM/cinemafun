@@ -1,7 +1,10 @@
 import { Component } from '@angular/core'
-import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms'
+import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms'
+import { Router } from '@angular/router'
+import { first, of, timer } from 'rxjs'
 import { ModalComponent } from '@components'
-import { FormField } from '@models'
+import { FormField, User } from '@models'
+import { AuthService, CoreService } from '@services'
 
 @Component({
 	selector: 'cf-sign-up',
@@ -12,9 +15,9 @@ import { FormField } from '@models'
 })
 export class SignUpComponent {
 	form = new FormGroup({
-		name: new FormControl(''),
-		email: new FormControl(''),
-		ticket: new FormControl(0)
+		name: new FormControl('', Validators.required),
+		email: new FormControl('', [Validators.required, Validators.email]),
+		ticket: new FormControl<number | null>(null, Validators.required)
 	})
 	formFields: FormField[] = [
 		{
@@ -43,8 +46,33 @@ export class SignUpComponent {
 		}
 	]
 
+	constructor(
+		private coreService: CoreService,
+		private authService: AuthService,
+		private router: Router
+	) {}
+
 	onSubmit() {
-		console.log(this.form.value)
+		this.coreService.setButtonDisabled(true)
+		this.coreService.setButtonLoading(true)
+		this.coreService.setFormFieldDisabled(true)
+
+		const user: User = {
+			name: this.form.get('name')?.value!,
+			email: this.form.get('email')?.value!,
+			ticket: this.form.get('ticket')?.value!
+		}
+
+		this.authService.setUser(user)
+
+		timer(400)
+			.pipe(first())
+			.subscribe(() => {
+				this.coreService.setFormFieldDisabled(false)
+				this.coreService.setButtonDisabled(false)
+				this.coreService.setButtonLoading(false)
+				this.router.navigateByUrl('/home')
+			})
 	}
 }
 

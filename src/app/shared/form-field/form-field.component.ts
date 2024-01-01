@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common'
 import { Component, Input, forwardRef } from '@angular/core'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms'
 import { TuiLabelModule, TuiTextfieldControllerModule, tuiNumberFormatProvider } from '@taiga-ui/core'
 import { TuiInputModule, TuiInputNumberModule } from '@taiga-ui/kit'
+import { CoreService } from '@services'
 
 @Component({
 	selector: 'cf-form-field',
@@ -40,6 +42,13 @@ export class FormFieldComponent implements ControlValueAccessor {
 	@Input() iconRight = ''
 	isDisabled = false
 	value!: string | number | null
+
+	constructor(private coreService: CoreService) {
+		this.coreService
+			.getIsFormFieldDisabled()
+			.pipe(takeUntilDestroyed())
+			.subscribe({ next: _isDisabled => (this.isDisabled = _isDisabled) })
+	}
 
 	onInput(event: Event) {
 		const value = (event.target as HTMLInputElement).value

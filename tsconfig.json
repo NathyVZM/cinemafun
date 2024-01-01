@@ -25,7 +25,11 @@
 			"@components/*": ["app/shared/*"],
 			"@components": ["app/shared/index"],
 			"@models/*": ["app/core/models/*"],
-			"@models": ["app/core/models/index"]
+			"@models": ["app/core/models/index"],
+			"@guards/*": ["app/core/guards/*"],
+			"@guards": ["app/core/guards/index"],
+			"@services/*": ["app/core/services/*"],
+			"@services": ["app/core/services/index"]
 		}
 	},
 	"angularCompilerOptions": {

@@ -14,10 +14,10 @@ export class ModalComponent {
 	@Input() form!: FormGroup
 	@Input() formId = ''
 	@Input() formFields: FormField[] = []
-	@Output() submitModal = new EventEmitter()
+	@Output() modalSubmit = new EventEmitter()
 
 	onSubmit() {
-		this.submitModal.emit(this.form)
+		this.modalSubmit.emit(this.form)
 	}
 }
 

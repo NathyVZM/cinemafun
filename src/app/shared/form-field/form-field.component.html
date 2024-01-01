@@ -1,19 +1,21 @@
 <label [htmlFor]="id" [tuiLabel]="label">
 	@switch (type) {
 		@case ('text') {
-			<ng-container *ngTemplateOutlet="textFormField"></ng-container>
+			<ng-container *ngTemplateOutlet="textFormField" />
 		}
 
 		@case ('email') {
-			<ng-container *ngTemplateOutlet="textFormField"></ng-container>
+			<ng-container *ngTemplateOutlet="textFormField" />
 		}
 
 		@case ('number') {
 			<tui-input-number
 				[id]="id"
+				[nativeId]="id"
 				[tuiTextfieldLabelOutside]="true"
 				[tuiTextfieldIconLeft]="iconLeft"
 				[tuiTextfieldIcon]="iconRight"
+				[disabled]="isDisabled"
 				[(ngModel)]="value"
 				(input)="onInput($event)">
 				{{ placeholder }}
@@ -28,16 +30,10 @@
 		[tuiTextfieldCleaner]="showCleaner"
 		[tuiTextfieldIconLeft]="iconLeft"
 		[tuiTextfieldIcon]="iconRight"
-		[(ngModel)]="value">
+		[(ngModel)]="value"
+		[disabled]="isDisabled">
 		{{ placeholder }}
-		<input
-			tuiTextfield
-			[id]="id"
-			[type]="type"
-			[placeholder]="placeholder"
-			(input)="onInput($event)"
-			[value]="value"
-			[disabled]="isDisabled" />
+		<input tuiTextfield [id]="id" [type]="type" [placeholder]="placeholder" (input)="onInput($event)" [value]="value" />
 	</tui-input>
 </ng-template>
 
