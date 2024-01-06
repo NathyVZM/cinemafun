@@ -12,6 +12,7 @@
     --tui-autofill-night: #{desaturate(darken(c.$secondary, 40%), 70%)}
     --tui-font-text-s: normal #{v.$fs-regular} var(--tui-font-text)
     --tui-disabled-opacity: 0.5
+    --tui-negative-night: #{c.$error}
 
 tui-input, tui-input-number
     border-radius: 2rem
@@ -23,3 +24,7 @@ tui-input, tui-input-number
 
 label
     gap: .5rem
+
+tui-error
+    margin-top: 0.5rem
+    margin-left: 0.5rem

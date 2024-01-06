@@ -20,6 +20,7 @@
 				(input)="onInput($event)">
 				{{ placeholder }}
 			</tui-input-number>
+			<tui-error [error]="[] | tuiFieldError | async"></tui-error>
 		}
 	}
 </label>
@@ -35,5 +36,6 @@
 		{{ placeholder }}
 		<input tuiTextfield [id]="id" [type]="type" [placeholder]="placeholder" (input)="onInput($event)" [value]="value" />
 	</tui-input>
+	<tui-error [error]="[] | tuiFieldError | async"></tui-error>
 </ng-template>
 

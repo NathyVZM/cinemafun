@@ -1,22 +1,33 @@
 import { Component } from '@angular/core'
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
-import { first, of, timer } from 'rxjs'
+import { first, timer } from 'rxjs'
 import { ModalComponent } from '@components'
 import { FormField, User } from '@models'
 import { AuthService, CoreService } from '@services'
+import { TUI_VALIDATION_ERRORS } from '@taiga-ui/kit'
 
 @Component({
 	selector: 'cf-sign-up',
 	standalone: true,
 	imports: [ModalComponent, ReactiveFormsModule],
 	templateUrl: './sign-up.component.html',
-	styleUrl: './sign-up.component.sass'
+	styleUrl: './sign-up.component.sass',
+	providers: [
+		{
+			provide: TUI_VALIDATION_ERRORS,
+			useValue: {
+				required: 'Field is required',
+				email: 'Enter a valid email',
+				minlength: ({ requiredLength }: { requiredLength: number }) => `Name must have at least ${requiredLength} characters`
+			}
+		}
+	]
 })
 export class SignUpComponent {
 	form = new FormGroup({
-		name: new FormControl('', Validators.required),
-		email: new FormControl('', [Validators.required, Validators.email]),
+		name: new FormControl<string | null>(null, [Validators.required, Validators.minLength(2)]),
+		email: new FormControl<string | null>(null, [Validators.required, Validators.email]),
 		ticket: new FormControl<number | null>(null, Validators.required)
 	})
 	formFields: FormField[] = [
@@ -68,10 +79,11 @@ export class SignUpComponent {
 		timer(400)
 			.pipe(first())
 			.subscribe(() => {
-				this.coreService.setFormFieldDisabled(false)
-				this.coreService.setButtonDisabled(false)
 				this.coreService.setButtonLoading(false)
 				this.router.navigateByUrl('/home')
+
+				this.coreService.setFormFieldDisabled(false)
+				this.coreService.setButtonDisabled(false)
 			})
 	}
 }

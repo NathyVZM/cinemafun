@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common'
 import { Component, Input, forwardRef } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms'
-import { TuiLabelModule, TuiTextfieldControllerModule, tuiNumberFormatProvider } from '@taiga-ui/core'
-import { TuiInputModule, TuiInputNumberModule } from '@taiga-ui/kit'
+import { TuiErrorModule, TuiLabelModule, TuiTextfieldControllerModule, tuiNumberFormatProvider } from '@taiga-ui/core'
+import { TuiFieldErrorPipeModule, TuiInputModule, TuiInputNumberModule } from '@taiga-ui/kit'
 import { CoreService } from '@services'
 
 @Component({
@@ -15,6 +15,8 @@ import { CoreService } from '@services'
 		TuiInputNumberModule,
 		TuiLabelModule,
 		TuiTextfieldControllerModule,
+		TuiErrorModule,
+		TuiFieldErrorPipeModule,
 		ReactiveFormsModule,
 		FormsModule
 	],
@@ -47,15 +49,15 @@ export class FormFieldComponent implements ControlValueAccessor {
 		this.coreService
 			.getIsFormFieldDisabled()
 			.pipe(takeUntilDestroyed())
-			.subscribe({ next: _isDisabled => (this.isDisabled = _isDisabled) })
+			.subscribe(_isDisabled => (this.isDisabled = _isDisabled))
 	}
 
 	onInput(event: Event) {
 		const value = (event.target as HTMLInputElement).value
 		const valueNumber = Number(value.replace(/ /g, ''))
 
-		if (isNaN(valueNumber)) this.value = value
-		else this.value = valueNumber
+		if (isNaN(valueNumber)) this.value = value || null
+		else this.value = valueNumber || null
 
 		this.onTouched()
 		this.propagateChange(this.value)
