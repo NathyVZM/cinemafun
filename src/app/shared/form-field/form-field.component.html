@@ -34,7 +34,15 @@
 		[(ngModel)]="value"
 		[disabled]="isDisabled">
 		{{ placeholder }}
-		<input tuiTextfield [id]="id" [type]="type" [placeholder]="placeholder" (input)="onInput($event)" [value]="value" />
+		<input
+			tuiTextfield
+			[id]="id"
+			[type]="type"
+			[placeholder]="placeholder"
+			(input)="onInput($event)"
+			[value]="value"
+			[spellcheck]="spellCheck ?? false"
+			[autocapitalize]="autoCapitalize ?? false" />
 	</tui-input>
 	<tui-error [error]="[] | tuiFieldError | async"></tui-error>
 </ng-template>

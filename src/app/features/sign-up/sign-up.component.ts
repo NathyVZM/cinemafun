@@ -1,11 +1,11 @@
 import { Component } from '@angular/core'
-import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms'
+import { FormGroup, FormControl, ReactiveFormsModule, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms'
 import { Router } from '@angular/router'
 import { first, timer } from 'rxjs'
+import { TUI_VALIDATION_ERRORS } from '@taiga-ui/kit'
 import { ModalComponent } from '@components'
 import { FormField, User } from '@models'
 import { AuthService, CoreService } from '@services'
-import { TUI_VALIDATION_ERRORS } from '@taiga-ui/kit'
 
 @Component({
 	selector: 'cf-sign-up',
@@ -17,7 +17,6 @@ import { TUI_VALIDATION_ERRORS } from '@taiga-ui/kit'
 		{
 			provide: TUI_VALIDATION_ERRORS,
 			useValue: {
-				required: 'Field is required',
 				email: 'Enter a valid email',
 				minlength: ({ requiredLength }: { requiredLength: number }) => `Name must have at least ${requiredLength} characters`
 			}
@@ -26,9 +25,9 @@ import { TUI_VALIDATION_ERRORS } from '@taiga-ui/kit'
 })
 export class SignUpComponent {
 	form = new FormGroup({
-		name: new FormControl<string | null>(null, [Validators.required, Validators.minLength(2)]),
-		email: new FormControl<string | null>(null, [Validators.required, Validators.email]),
-		ticket: new FormControl<number | null>(null, Validators.required)
+		name: new FormControl<string | null>(null, [Validators.minLength(2), requiredValidator('Name')]),
+		email: new FormControl<string | null>(null, [Validators.email, requiredValidator('Email')]),
+		ticket: new FormControl<number | null>(null, requiredValidator('Ticket'))
 	})
 	formFields: FormField[] = [
 		{
@@ -37,7 +36,9 @@ export class SignUpComponent {
 			placeholder: 'Jane Doe',
 			type: 'text',
 			label: 'Name',
-			iconLeft: 'tuiIconUser'
+			iconLeft: 'tuiIconUser',
+			spellCheck: false,
+			autoCapitalize: true
 		},
 		{
 			id: 'email',
@@ -45,7 +46,8 @@ export class SignUpComponent {
 			placeholder: 'janedoe@example.com',
 			type: 'email',
 			label: 'Email',
-			iconLeft: 'tuiIconMail'
+			iconLeft: 'tuiIconMail',
+			spellCheck: false
 		},
 		{
 			id: 'ticket',
@@ -85,6 +87,15 @@ export class SignUpComponent {
 				this.coreService.setFormFieldDisabled(false)
 				this.coreService.setButtonDisabled(false)
 			})
+	}
+}
+
+export function requiredValidator(field: string): ValidatorFn {
+	return (control: AbstractControl): ValidationErrors | null => {
+		const result = Validators.required(control)
+
+		if (result !== null) return { required: `${field} is required` }
+		return null
 	}
 }
 

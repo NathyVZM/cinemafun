@@ -7,5 +7,7 @@ export interface FormField {
 	iconLeft: string
 	iconRight?: string
 	showCleaner?: boolean
+	spellCheck?: boolean
+	autoCapitalize?: boolean
 }
 
