@@ -1,11 +1,12 @@
 import { Component } from '@angular/core'
-import { FormGroup, FormControl, ReactiveFormsModule, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms'
+import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
 import { first, timer } from 'rxjs'
 import { TUI_VALIDATION_ERRORS } from '@taiga-ui/kit'
 import { ModalComponent } from '@components'
 import { FormField, User } from '@models'
 import { AuthService, CoreService } from '@services'
+import { customRequiredValidator } from '@validators'
 
 @Component({
 	selector: 'cf-sign-up',
@@ -17,6 +18,7 @@ import { AuthService, CoreService } from '@services'
 		{
 			provide: TUI_VALIDATION_ERRORS,
 			useValue: {
+				required: ({ message }: { message: string }) => message,
 				email: 'Enter a valid email',
 				minlength: ({ requiredLength }: { requiredLength: number }) => `Name must have at least ${requiredLength} characters`
 			}
@@ -25,9 +27,9 @@ import { AuthService, CoreService } from '@services'
 })
 export class SignUpComponent {
 	form = new FormGroup({
-		name: new FormControl<string | null>(null, [Validators.minLength(2), requiredValidator('Name')]),
-		email: new FormControl<string | null>(null, [Validators.email, requiredValidator('Email')]),
-		ticket: new FormControl<number | null>(null, requiredValidator('Ticket'))
+		name: new FormControl<string | null>(null, [Validators.minLength(2), customRequiredValidator('Name')]),
+		email: new FormControl<string | null>(null, [Validators.email, customRequiredValidator('Email')]),
+		ticket: new FormControl<number | null>(null, customRequiredValidator('Ticket'))
 	})
 	formFields: FormField[] = [
 		{
@@ -66,6 +68,10 @@ export class SignUpComponent {
 	) {}
 
 	onSubmit() {
+		if (this.form.invalid) {
+			this.form.markAllAsTouched()
+			return
+		}
 		this.coreService.setButtonDisabled(true)
 		this.coreService.setButtonLoading(true)
 		this.coreService.setFormFieldDisabled(true)
@@ -87,15 +93,6 @@ export class SignUpComponent {
 				this.coreService.setFormFieldDisabled(false)
 				this.coreService.setButtonDisabled(false)
 			})
-	}
-}
-
-export function requiredValidator(field: string): ValidatorFn {
-	return (control: AbstractControl): ValidationErrors | null => {
-		const result = Validators.required(control)
-
-		if (result !== null) return { required: `${field} is required` }
-		return null
 	}
 }
 

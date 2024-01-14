@@ -9,14 +9,6 @@
 		<div class="yellow"></div>
 	</div>
 
-	@if (!hasRoute()) {
-		<cf-navbar />
-	}
-
 	<router-outlet />
-
-	@if (!hasRoute()) {
-		<cf-footer />
-	}
 </tui-root>
 

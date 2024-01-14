@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output, booleanAttribute } from '@angular/core'
-import { CoreService } from '@services'
 import { TuiAppearance, TuiButtonModule, TuiSizeXL, TuiSizeXS } from '@taiga-ui/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { combineLatest } from 'rxjs'
+import { CoreService } from '@services'
 
 @Component({
 	selector: 'cf-button',

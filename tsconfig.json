@@ -22,14 +22,18 @@
 		"useDefineForClassFields": false,
 		"lib": ["ES2022", "dom"],
 		"paths": {
-			"@components/*": ["app/shared/*"],
-			"@components": ["app/shared/index"],
+			"@components/*": ["app/shared/components/*"],
+			"@components": ["app/shared/components/components.index"],
+			"@features/*": ["app/features/*"],
+			"@features": ["app/features/features.index"],
 			"@models/*": ["app/core/models/*"],
-			"@models": ["app/core/models/index"],
+			"@models": ["app/core/models/models.index"],
 			"@guards/*": ["app/core/guards/*"],
-			"@guards": ["app/core/guards/index"],
+			"@guards": ["app/core/guards/guards.index"],
 			"@services/*": ["app/core/services/*"],
-			"@services": ["app/core/services/index"]
+			"@services": ["app/core/services/services.index"],
+			"@validators/*": ["app/shared/validators/*"],
+			"@validators": ["app/shared/validators/validators.index"]
 		}
 	},
 	"angularCompilerOptions": {

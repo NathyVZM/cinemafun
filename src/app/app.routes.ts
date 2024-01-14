@@ -9,23 +9,14 @@ export const routes: Routes = [
 		canMatch: [noAuthGuard]
 	},
 	{
-		path: 'home',
-		loadComponent: () => import('./features/home/home.component').then(c => c.HomeComponent),
-		title: 'Home',
+		path: '',
+		loadChildren: () => import('./features/main/main.routes').then(r => r.mainRoutes),
 		canMatch: [authGuard]
 	},
 	{
-		path: 'movies',
-		loadComponent: () => import('./features/movies/movies.component').then(c => c.MoviesComponent),
-		title: 'Movies',
-		canMatch: [authGuard]
-	},
-	{
-		path: 'movie/:id',
-		loadComponent: () => import('./features/movie-details/movie-details.component').then(c => c.MovieDetailsComponent),
-		title: 'Movie details',
-		canMatch: [authGuard]
-	},
-	{ path: '', redirectTo: 'home', pathMatch: 'full' }
+		path: '',
+		redirectTo: '/home',
+		pathMatch: 'full'
+	}
 ]
 
