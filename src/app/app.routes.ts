@@ -10,13 +10,13 @@ export const routes: Routes = [
 	},
 	{
 		path: '',
-		loadChildren: () => import('./features/main/main.routes').then(r => r.mainRoutes),
-		canMatch: [authGuard]
+		redirectTo: '/home',
+		pathMatch: 'full'
 	},
 	{
 		path: '',
-		redirectTo: '/home',
-		pathMatch: 'full'
+		loadChildren: () => import('./features/main/main.routes').then(r => r.mainRoutes),
+		canMatch: [authGuard]
 	}
 ]
 

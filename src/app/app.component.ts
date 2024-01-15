@@ -10,5 +10,7 @@ import { RouterLink, RouterOutlet } from '@angular/router'
 	templateUrl: './app.component.html',
 	styleUrl: './app.component.sass'
 })
-export class AppComponent {}
+export class AppComponent {
+	title = 'cinemafun'
+}
 

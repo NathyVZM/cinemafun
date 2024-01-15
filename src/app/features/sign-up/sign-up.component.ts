@@ -29,7 +29,7 @@ export class SignUpComponent {
 	form = new FormGroup({
 		name: new FormControl<string | null>(null, [Validators.minLength(2), customRequiredValidator('Name')]),
 		email: new FormControl<string | null>(null, [Validators.email, customRequiredValidator('Email')]),
-		ticket: new FormControl<number | null>(null, customRequiredValidator('Ticket'))
+		ticket: new FormControl<number | null>(null, customRequiredValidator('Ticket price'))
 	})
 	formFields: FormField[] = [
 		{

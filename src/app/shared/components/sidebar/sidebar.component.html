@@ -1,1 +1,9 @@
-<p>sidebar works!</p>
+<aside>
+	<div></div>
+	<ul>
+		@for (item of navigation; track $index) {
+			<li><cf-navigation-item [name]="item.name" [icon]="item.icon" [link]="item.link" /></li>
+		}
+	</ul>
+</aside>
+

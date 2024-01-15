@@ -20,12 +20,13 @@
 				[iconLeft]="field.iconLeft"
 				[formControlName]="field.formControlName"
 				[spellCheck]="field.spellCheck"
-				[autoCapitalize]="field.autoCapitalize" />
+				[autoCapitalize]="field.autoCapitalize"
+				[isRequired]="isFieldRequired(field.formControlName)" />
 		}
 	</form>
 
 	<footer>
-		<cf-button [label]="'Sign up'" [type]="'submit'" [form]="formId" [isDisabled]="form.invalid" />
+		<cf-button [label]="'Sign up'" [type]="'submit'" [form]="formId" />
 	</footer>
 </main>
 

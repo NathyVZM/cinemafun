@@ -42,6 +42,7 @@ export class FormFieldComponent implements ControlValueAccessor {
 	@Input() showCleaner = false
 	@Input() iconLeft = ''
 	@Input() iconRight = ''
+	@Input() isRequired = false
 	@Input() spellCheck: boolean | undefined = false
 	@Input() autoCapitalize: boolean | undefined = false
 	isDisabled = false

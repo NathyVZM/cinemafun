@@ -1,9 +1,10 @@
 @use 'colors' as c
 @use 'mixins' as m
+@use 'variables' as v
 
 header
     width: 100%
-    @include m.flex(space-between, stretch, row, wrap, 5rem)
+    @include m.flex(space-between, stretch, row, wrap, v.$sp-big)
 
     > section
         @include m.flex(center, center, row, wrap, 0.5rem)

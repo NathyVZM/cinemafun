@@ -1,4 +1,4 @@
-<label [htmlFor]="id" [tuiLabel]="label">
+<label [htmlFor]="id" [tuiLabel]="formFieldLabel">
 	@switch (type) {
 		@case ('text') {
 			<ng-container *ngTemplateOutlet="textFormField" />
@@ -45,5 +45,13 @@
 			[autocapitalize]="autoCapitalize ?? false" />
 	</tui-input>
 	<tui-error [error]="[] | tuiFieldError | async"></tui-error>
+</ng-template>
+
+<ng-template #formFieldLabel>
+	{{ label }}
+
+	@if (isRequired) {
+		<span class="required">*</span>
+	}
 </ng-template>
 
