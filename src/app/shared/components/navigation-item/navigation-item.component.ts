@@ -1,11 +1,13 @@
+import { CommonModule } from '@angular/common'
 import { Component, Input } from '@angular/core'
 import { RouterLink } from '@angular/router'
-import { TuiActionModule } from '@taiga-ui/kit'
+import { TuiSvgModule } from '@taiga-ui/core'
+import { TuiActionModule, TuiMarkerIconModule } from '@taiga-ui/kit'
 
 @Component({
 	selector: 'cf-navigation-item',
 	standalone: true,
-	imports: [TuiActionModule, RouterLink],
+	imports: [RouterLink, TuiActionModule, TuiMarkerIconModule, TuiSvgModule, CommonModule],
 	templateUrl: './navigation-item.component.html',
 	styleUrl: './navigation-item.component.sass'
 })

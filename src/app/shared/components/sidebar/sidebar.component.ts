@@ -1,20 +1,17 @@
-import { Component } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { Component, inject } from '@angular/core'
 import { NavigationItemComponent } from '@components/components.index'
-import { Navigation } from '@models/navigation.model'
+import { CoreService } from '@services/core.service'
 
 @Component({
 	selector: 'cf-sidebar',
 	standalone: true,
-	imports: [NavigationItemComponent],
+	imports: [NavigationItemComponent, CommonModule],
 	templateUrl: './sidebar.component.html',
 	styleUrl: './sidebar.component.sass'
 })
 export class SidebarComponent {
-	navigation: Navigation[] = [
-		{ name: 'Home', icon: '', link: '/' },
-		{ name: 'Movies', icon: '', link: '/movies' },
-		{ name: 'Favorites', icon: '', link: '/favorites' },
-		{ name: 'Foods and drinks', icon: '', link: '/food-drinks' }
-	]
+	coreService = inject(CoreService)
+	navigation = this.coreService.getNavigation()
 }
 

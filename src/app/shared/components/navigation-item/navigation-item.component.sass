@@ -1,3 +1,25 @@
+@use 'mixins' as m
+@use 'variables' as v
+@use 'colors' as c
+
+a
+    @include m.flex($align: center, $gap: 1rem)
+    transition: all 0.4s ease-in-out
+    font-weight: 600
+
+    i
+        font-size: v.$fs-large
+        transition: all 0.4s ease-in-out
+        color: c.$primary
+
+    &:hover
+        background-color: c.$primary
+        transform: none
+        color: c.$background
+
+        i
+            color: c.$background
+
 .no-shadow
     box-shadow: none
 

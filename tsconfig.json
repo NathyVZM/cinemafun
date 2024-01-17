@@ -33,7 +33,9 @@
 			"@services/*": ["app/core/services/*"],
 			"@services": ["app/core/services/services.index"],
 			"@validators/*": ["app/shared/validators/*"],
-			"@validators": ["app/shared/validators/validators.index"]
+			"@validators": ["app/shared/validators/validators.index"],
+			"@mock/*": ["app/core/mock/*"],
+			"@mock": ["app/core/mock/mock.index"]
 		}
 	},
 	"angularCompilerOptions": {

@@ -1,1 +1,5 @@
-<a tuiAction [routerLink]="link" [icon]="icon" class="no-shadow">{{ name }}</a>
+<a tuiAction [routerLink]="link" class="no-shadow">
+	<i [ngClass]="['ph-duotone', icon]"></i>
+	<span>{{ name }}</span>
+</a>
+

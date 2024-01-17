@@ -4,7 +4,7 @@
 
 header
     width: 100%
-    @include m.flex(space-between, stretch, row, wrap, v.$sp-big)
+    @include m.flex(space-between, stretch, row, wrap, v.$sp-large)
 
     > section
         @include m.flex(center, center, row, wrap, 0.5rem)
@@ -16,7 +16,7 @@ header
         > h1
             color: c.$primary
             font-weight: 600
-            font-size: 1.5rem
+            font-size: v.$fs-extra-large
             line-height: 1
 
     > cf-form-field

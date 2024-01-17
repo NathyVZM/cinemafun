@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core'
-import { BehaviorSubject } from 'rxjs'
+import { NAVIGATION } from '@mock/navigation'
+import { BehaviorSubject, of } from 'rxjs'
 
 @Injectable({
 	providedIn: 'root'
@@ -11,6 +12,7 @@ export class CoreService {
 
 	constructor() {}
 
+	// Button
 	setButtonDisabled(isDisabled: boolean) {
 		this.isButtonDisabled.next(isDisabled)
 	}
@@ -27,12 +29,18 @@ export class CoreService {
 		return this.isButtonLoading.asObservable()
 	}
 
+	// Form field
 	setFormFieldDisabled(isDisabled: boolean) {
 		this.isFormFieldDisabled.next(isDisabled)
 	}
 
 	getIsFormFieldDisabled() {
 		return this.isFormFieldDisabled.asObservable()
+	}
+
+	// Navigation
+	getNavigation() {
+		return of(NAVIGATION)
 	}
 }
 
