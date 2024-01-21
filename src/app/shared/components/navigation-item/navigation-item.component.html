@@ -1,5 +1,14 @@
-<a tuiAction [routerLink]="link" class="no-shadow">
+@if (hasRouting) {
+	<a tuiAction [routerLink]="link">
+		<ng-container *ngTemplateOutlet="content"></ng-container>
+	</a>
+} @else {
+	<button tuiAction>
+		<ng-container *ngTemplateOutlet="content"></ng-container>
+	</button>
+}
+
+<ng-template #content>
 	<i [ngClass]="['ph-duotone', icon]"></i>
 	<span>{{ name }}</span>
-</a>
-
+</ng-template>

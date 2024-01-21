@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common'
-import { Component, Input } from '@angular/core'
+import { Component, Input, booleanAttribute } from '@angular/core'
 import { RouterLink } from '@angular/router'
 import { TuiSvgModule } from '@taiga-ui/core'
 import { TuiActionModule, TuiMarkerIconModule } from '@taiga-ui/kit'
@@ -14,6 +14,7 @@ import { TuiActionModule, TuiMarkerIconModule } from '@taiga-ui/kit'
 export class NavigationItemComponent {
 	@Input({ required: true }) name = ''
 	@Input({ required: true }) icon = ''
-	@Input({ required: true }) link = ''
+	@Input({ transform: booleanAttribute }) hasRouting = true
+	@Input() link = ''
 }
 

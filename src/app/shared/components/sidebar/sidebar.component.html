@@ -2,8 +2,13 @@
 	<div></div>
 	<ul>
 		@for (item of navigation | async; track $index) {
-			<li><cf-navigation-item [name]="item.name" [icon]="item.icon" [link]="item.link" /></li>
+			<li>
+				<cf-navigation-item [name]="item.name" [icon]="item.icon" [link]="item.link" />
+			</li>
 		}
 	</ul>
+	<footer>
+		<cf-navigation-item [name]="'Log out'" [icon]="'ph-sign-out'" [hasRouting]="false" />
+	</footer>
 </aside>
 
