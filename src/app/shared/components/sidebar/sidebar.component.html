@@ -1,5 +1,29 @@
 <aside>
-	<div></div>
+	<section>
+		@if (user$ | async; as user) {
+			<div id="first">
+				<figure>
+					<i class="ph-duotone ph-user"></i>
+				</figure>
+				<div>
+					<p>{{ user.name }}</p>
+					<p>{{ user.email }}</p>
+				</div>
+			</div>
+			<div id="second">
+				<div>
+					<p>Ticket price</p>
+					<div>
+						<i class="ph-duotone ph-ticket"></i>
+						<p>{{ user.ticket }}</p>
+					</div>
+				</div>
+				<cf-button [icon]="'tuiIconEdit2'" [isIconButton]="true" />
+			</div>
+		} @else {
+			<p>User loading...</p>
+		}
+	</section>
 	<ul>
 		@for (item of navigation | async; track $index) {
 			<li>
@@ -8,7 +32,7 @@
 		}
 	</ul>
 	<footer>
-		<cf-navigation-item [name]="'Log out'" [icon]="'ph-sign-out'" [hasRouting]="false" (buttonClick)="logOut()" [isLoading]="isLoading" />
+		<cf-navigation-item [name]="'Log out'" [icon]="'ph-sign-out'" [hasRouting]="false" (buttonClick)="logOut()" />
 	</footer>
 </aside>
 

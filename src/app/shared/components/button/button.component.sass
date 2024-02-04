@@ -4,15 +4,16 @@
 :host
     --tui-primary-text: #{c.$background}
     --tui-height-l: 3rem
+    width: 12rem
 
     @media (width <= v.$bp-desktop)
         --tui-height-l: 42px
-        --tui-font-text-m: normal #{v.$fs-small} var(--tui-font-text)
+        --tui-font-text-m: normal #{v.$fs-semi-regular} var(--tui-font-text)
 
 button
-    width: 12rem
+    width: inherit !important
     font-weight: 500 !important
-    font-size: 14px
+    font-size: v.$fs-semi-regular
 
     @media (width <= v.$bp-desktop)
         width: 10rem

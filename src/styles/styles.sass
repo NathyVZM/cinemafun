@@ -15,7 +15,8 @@ body
     position: relative
 
 tui-root
-    padding: v.$sp-medium
+    padding: v.$sp-extra-medium
+    width: 100%
     min-height: 100%
     height: 100%
 
@@ -31,8 +32,11 @@ label
 
     .t-placeholder
         @media (width <= v.$bp-desktop)
-            font-size: v.$fs-small !important
+            font-size: v.$fs-semi-regular !important
 
     &:has(tui-input._disabled, tui-input-number._disabled)
         .t-text
             color: c.$text-secondary !important
+
+.t-loader
+    stroke: c.$background !important

@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common'
 import { Component, EventEmitter, Input, Output, booleanAttribute } from '@angular/core'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { RouterLink } from '@angular/router'
-import { ButtonComponent } from '@components/components.index'
+import { ButtonComponent } from '@components'
+import { CoreService } from '@services/core.service'
 import { TuiLoaderModule, TuiSvgModule } from '@taiga-ui/core'
 import { TuiActionModule, TuiMarkerIconModule } from '@taiga-ui/kit'
 
@@ -19,6 +21,13 @@ export class NavigationItemComponent {
 	@Input({ transform: booleanAttribute }) isLoading = false
 	@Input() link = ''
 	@Output() buttonClick = new EventEmitter()
+
+	constructor(private coreService: CoreService) {
+		this.coreService
+			.getIsNavigationItemLoading()
+			.pipe(takeUntilDestroyed())
+			.subscribe(_isLoading => (this.isLoading = _isLoading))
+	}
 
 	onClick() {
 		this.buttonClick.emit()

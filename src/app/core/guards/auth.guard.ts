@@ -6,7 +6,7 @@ export const authGuard: CanMatchFn = (route, segments) => {
 	const authService = inject(AuthService)
 	const router = inject(Router)
 
-	if (!authService.getUser()) {
+	if (!authService.hasUser()) {
 		router.navigateByUrl('/sign-up')
 		return false
 	}

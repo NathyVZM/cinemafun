@@ -1,15 +1,32 @@
-<button
-	tuiButton
-	[type]="type"
-	[appearance]="appearance"
-	[icon]="icon"
-	[iconRight]="iconRight"
-	[shape]="shape"
-	[size]="size"
-	[disabled]="isDisabled"
-	[showLoader]="isLoading"
-	(click)="onClick()"
-	[attr.form]="form">
-	{{ label }}
-</button>
+@if (!isIconButton) {
+	<button
+		tuiButton
+		[type]="type"
+		[appearance]="appearance"
+		[icon]="icon"
+		[iconRight]="iconRight"
+		[shape]="shape"
+		[size]="size"
+		[disabled]="isDisabled"
+		[showLoader]="isLoading"
+		(click)="onClick()"
+		[attr.form]="form">
+		{{ label }}
+	</button>
+} @else {
+	<button
+		tuiIconButton
+		[type]="type"
+		[appearance]="appearance"
+		[icon]="icon"
+		[iconRight]="iconRight"
+		[shape]="shape"
+		[size]="size"
+		[disabled]="isDisabled"
+		[showLoader]="isLoading"
+		(click)="onClick()"
+		[attr.form]="form">
+		{{ label }}
+	</button>
+}
 

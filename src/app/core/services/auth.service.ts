@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { User } from '@models'
-import { of } from 'rxjs'
+import { Observable, first, of } from 'rxjs'
 
 @Injectable({
 	providedIn: 'root'
@@ -8,16 +8,26 @@ import { of } from 'rxjs'
 export class AuthService {
 	constructor() {}
 
-	getUser(): User {
-		return JSON.parse(sessionStorage.getItem('user')!)
+	getUser(): Observable<User> {
+		return of(JSON.parse(sessionStorage.getItem('user')!))
 	}
 
 	setUser(user: User) {
-		sessionStorage.setItem('user', JSON.stringify(user))
+		return of(sessionStorage.setItem('user', JSON.stringify(user)))
 	}
 
 	removeUser() {
 		return of(sessionStorage.removeItem('user'))
+	}
+
+	hasUser() {
+		let userExist = false
+
+		this.getUser()
+			.pipe(first())
+			.subscribe(user => (userExist = Boolean(user)))
+
+		return userExist
 	}
 }
 

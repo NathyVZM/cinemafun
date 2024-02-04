@@ -9,6 +9,7 @@ export class CoreService {
 	private isButtonDisabled = new BehaviorSubject<boolean>(false)
 	private isButtonLoading = new BehaviorSubject<boolean>(false)
 	private isFormFieldDisabled = new BehaviorSubject<boolean>(false)
+	private isNavigationItemLoading = new BehaviorSubject<boolean>(false)
 
 	constructor() {}
 
@@ -41,6 +42,15 @@ export class CoreService {
 	// Navigation
 	getNavigation() {
 		return of(NAVIGATION)
+	}
+
+	// Navigation Item
+	setNagivationItemLoading(isLoading: boolean) {
+		this.isNavigationItemLoading.next(isLoading)
+	}
+
+	getIsNavigationItemLoading() {
+		return this.isNavigationItemLoading.asObservable()
 	}
 }
 

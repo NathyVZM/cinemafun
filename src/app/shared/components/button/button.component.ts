@@ -12,8 +12,8 @@ import { CoreService } from '@services'
 	styleUrl: './button.component.sass'
 })
 export class ButtonComponent {
-	@Input({ required: true }) label = ''
-	@Input({ required: true }) type = 'button'
+	@Input() label = ''
+	@Input() type = 'button'
 	@Input() form = ''
 	@Input() appearance: TuiAppearance = TuiAppearance.Primary
 	@Input() icon = ''
@@ -22,6 +22,7 @@ export class ButtonComponent {
 	@Input() size: TuiSizeXS | TuiSizeXL = 'l'
 	@Input({ transform: booleanAttribute }) isDisabled = false
 	@Input({ transform: booleanAttribute }) isLoading = false
+	@Input({ transform: booleanAttribute }) isIconButton = false
 	@Output() buttonClick = new EventEmitter<any>()
 
 	constructor(private coreService: CoreService) {

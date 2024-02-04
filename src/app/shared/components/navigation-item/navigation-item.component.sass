@@ -3,12 +3,12 @@
 @use 'colors' as c
 
 a, button
-    @include m.flex($align: center, $gap: v.$sp-small)
+    @include m.flex($align: center, $gap: v.$sp-semi-regular)
     transition: all 0.4s ease-in-out
     font-weight: 600
     padding-inline: 1.5rem
     width: 100%
-    height: 100%
+    height: 3.25rem
     box-shadow: none
 
     i
@@ -24,3 +24,10 @@ a, button
 
         i
             color: c.$background
+
+.is-loading
+    background-color: c.$primary
+    color: c.$background
+
+    i
+        color: c.$background

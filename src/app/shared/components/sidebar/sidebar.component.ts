@@ -1,15 +1,14 @@
 import { CommonModule } from '@angular/common'
-import { Component, inject } from '@angular/core'
+import { Component, OnInit, inject } from '@angular/core'
 import { Router } from '@angular/router'
-import { NavigationItemComponent } from '@components/components.index'
-import { AuthService } from '@services/auth.service'
-import { CoreService } from '@services/core.service'
+import { ButtonComponent, NavigationItemComponent } from '@components/components.index'
+import { AuthService, CoreService } from '@services'
 import { concatMap, first, timer } from 'rxjs'
 
 @Component({
 	selector: 'cf-sidebar',
 	standalone: true,
-	imports: [NavigationItemComponent, CommonModule],
+	imports: [NavigationItemComponent, CommonModule, ButtonComponent],
 	templateUrl: './sidebar.component.html',
 	styleUrl: './sidebar.component.sass'
 })
@@ -18,18 +17,18 @@ export class SidebarComponent {
 	authService = inject(AuthService)
 	router = inject(Router)
 	navigation = this.coreService.getNavigation()
-	isLoading = false
+	user$ = this.authService.getUser()
 
 	logOut() {
-		this.isLoading = true
+		this.coreService.setNagivationItemLoading(true)
 		timer(400)
 			.pipe(
 				concatMap(() => this.authService.removeUser()),
 				first()
 			)
-			.subscribe(() => {
-				this.isLoading = false
-				this.router.navigateByUrl('/sign-in')
+			.subscribe({
+				next: () => this.router.navigateByUrl('/sign-up'),
+				complete: () => this.coreService.setNagivationItemLoading(false)
 			})
 	}
 }

@@ -12,9 +12,12 @@
         @if $value != null
             #{$name}: $value
 
-@mixin flex($justify: flex-start, $align: flex-start, $direction: row, $wrap: nowrap, $gap: 0)
-    display: flex
+@mixin flex($justify: flex-start, $align: flex-start, $direction: row, $wrap: nowrap, $gap: 0, $important: false)
+    display: is-important(flex, $important)
     justify-content: $justify
     align-items: $align
     flex-flow: $direction $wrap
     gap: $gap
+
+@function is-important($value, $important)
+    @return $value if($important, !important, null)

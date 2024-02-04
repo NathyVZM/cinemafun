@@ -4,7 +4,7 @@
 	</a>
 } @else {
 	<tui-loader [showLoader]="isLoading" [overlay]="isLoading">
-		<button tuiAction (click)="onClick()">
+		<button tuiAction (click)="onClick()" [ngClass]="{ 'is-loading': isLoading }">
 			@if (!isLoading) {
 				<ng-container *ngTemplateOutlet="content"></ng-container>
 			}

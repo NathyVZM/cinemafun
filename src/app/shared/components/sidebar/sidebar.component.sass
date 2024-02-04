@@ -1,19 +1,70 @@
 @use 'mixins' as m
 @use 'variables' as v
+@use 'colors' as c
 
 aside
-    width: 15rem
+    width: 14rem
     height: 100%
     @include m.flex($align: stretch, $direction: column, $gap: v.$sp-regular)
 
-    > div
-        width: 100%
-        height: 200px
-        background-color: red
-        border-radius: 40px
-
     > ul
         flex: 1
+
+section
+    width: 100%
+    background-color: c.$container
+    border-radius: 40px
+    padding: v.$sp-regular
+    @include m.flex(space-between, stretch, column, wrap, v.$sp-semi-regular)
+
+    > #first
+        @include m.flex(space-between, center)
+
+        figure
+            background-color: c.$primary
+            border-radius: 50%
+            @include m.square(3rem)
+            @include m.flex(center, center)
+
+            i
+                color: c.$background
+                font-size: v.$fs-large-plus
+
+        > div
+            @include m.flex(center, stretch, column, wrap, v.$sp-tiny)
+
+            p:first-child
+                font-size: v.$fs-semi-regular
+
+            p:last-child
+                font-size: v.$fs-small
+                opacity: 0.75
+
+    #second
+        @include m.flex(space-between, flex-end)
+
+        > div
+            @include m.flex(center, stretch, column, wrap, v.$sp-small)
+
+            > p
+                opacity: 0.75
+                font-size: v.$fs-small
+
+            > div
+                @include m.flex(flex-start, center, $gap: v.$sp-small)
+
+                i
+                    font-size: v.$fs-large-plus
+                    color: c.$primary
+
+                p
+                    font-size: v.$fs-regular
+                    font-weight: 500
+                    color: c.$primary
+
+        cf-button
+            width: 3rem
+            --tui-height-l: 3.5rem
 
 footer
     @include m.flex(center, stretch, column)
