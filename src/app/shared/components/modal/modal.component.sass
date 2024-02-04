@@ -20,7 +20,7 @@ main
         padding: v.$sp-extra-medium
 
     @media (width <= v.$bp-tablet)
-        @include m.square(100%)
+        @include m.size(100%, 100dvh)
         border-radius: 0
 
     > header
@@ -55,6 +55,7 @@ main
 
             @media (width <= v.$bp-desktop)
                 font-size: v.$fs-semi-regular
+                text-wrap: pretty
 
         i
             font-size: v.$fs-extra-large
@@ -65,10 +66,7 @@ main
 
     > form
         flex: 2
-        @include m.flex(center, stretch, column, $gap: 2rem)
-
-        @media (width <= v.$bp-desktop)
-            gap: 1rem
+        @include m.flex(center, stretch, column, wrap, v.$sp-regular)
 
     > footer
         flex: 1
@@ -76,3 +74,8 @@ main
 
         @media (width <= v.$bp-lg-desktop)
             flex: 0.8
+            align-items: center
+
+            cf-button
+                flex: 1
+                width: 100%

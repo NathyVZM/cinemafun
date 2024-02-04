@@ -2,7 +2,7 @@
 @use 'variables' as v
 
 :host
-    --tui-height-l: 42px
+    --tui-height-l: 48px
     --tui-text-02-night: #{c.$text-secondary}
     --tui-text-03-night: #{lighten(c.$text-secondary, 10%)}
     --tui-clear-active: #{c.$container}
@@ -14,7 +14,7 @@
     --tui-negative-night: #{c.$error}
 
     @media (width <= v.$bp-desktop)
-        --tui-height-l: 38px
+        // --tui-height-l: 38px
         --tui-font-text-s: normal #{v.$fs-semi-regular} var(--tui-font-text)
 
 tui-input, tui-input-number

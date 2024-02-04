@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { NAVIGATION } from '@mock/navigation'
+import { NAVIGATION, SOCIAL_MEDIA } from '@data'
 import { BehaviorSubject, of } from 'rxjs'
 
 @Injectable({
@@ -42,6 +42,10 @@ export class CoreService {
 	// Navigation
 	getNavigation() {
 		return of(NAVIGATION)
+	}
+
+	getSocialMedia() {
+		return of(SOCIAL_MEDIA)
 	}
 
 	// Navigation Item

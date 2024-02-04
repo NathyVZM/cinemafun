@@ -1,0 +1,39 @@
+@use 'variables' as v
+@use 'mixins' as m
+@use 'colors' as c
+
+footer
+    @include m.flex(space-between, stretch, column, wrap, v.$sp-regular)
+
+    > section
+        @include m.flex(center, center)
+
+#first
+    gap: v.$sp-small
+
+    i
+        font-size: v.$fs-large-plus
+        color: c.$primary
+
+    h2
+        font-size: v.$fs-large-plus
+        font-weight: 600
+        color: c.$primary
+
+#second
+    gap: v.$sp-regular
+
+    a, i
+        vertical-align: middle
+        font-size: v.$fs-large-plus
+        color: c.$text-secondary
+        text-decoration: none
+
+#third
+    flex-flow: column
+    gap: v.$sp-small
+
+    small
+        font-size: v.$fs-small
+        color: c.$text-secondary
+        line-height: 1

@@ -1,1 +1,18 @@
-<p>footer works!</p>
+<footer>
+	<section id="first">
+		<i class="ph-duotone ph-film-slate"></i>
+		<h2 class="tui-text_h2">CINEMAFUN</h2>
+	</section>
+	<section id="second">
+		@for (media of socialMedia | async; track $index) {
+			<a [href]="media.link" target="_blank" rel="author">
+				<i [ngClass]="['ph-duotone', media.icon]"></i>
+			</a>
+		}
+	</section>
+	<section id="third">
+		<small>©Copyright {{ year }}. CINEMAFUN - Nathalie Zambrano</small>
+		<small>All rights reserved.</small>
+	</section>
+</footer>
+

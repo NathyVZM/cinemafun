@@ -5,6 +5,10 @@
     height: 100%
     @include m.flex($align: stretch, $direction: column, $gap: v.$sp-regular)
 
-div
+#main
     flex: 1
-    @include m.flex($align: stretch, $gap: v.$sp-semi-regular)
+    @include m.flex($align: stretch, $gap: v.$sp-regular)
+
+    > div
+        flex: 1
+        @include m.flex($align: stretch, $direction: column, $gap: v.$sp-regular)
