@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core'
 import { User } from '@models'
+import { of } from 'rxjs'
 
 @Injectable({
 	providedIn: 'root'
@@ -16,7 +17,7 @@ export class AuthService {
 	}
 
 	removeUser() {
-		sessionStorage.removeItem('user')
+		return of(sessionStorage.removeItem('user'))
 	}
 }
 

@@ -2,6 +2,10 @@
 @use 'mixins' as m
 @use 'variables' as v
 
+:host
+    @media (width <= v.$bp-tablet)
+        @include m.square(100%)
+
 main
     @include m.size(39rem, 46rem)
     background: linear-gradient(to bottom, rgb(100, 100, 136, 0.3), rgb(58, 58, 80, 0.3) 60%)
@@ -9,9 +13,19 @@ main
     padding: v.$sp-big
     @include m.flex(space-between, stretch, column, wrap)
 
+    @media (width <= v.$bp-lg-desktop)
+        @include m.size(46dvmax, 53dvmax)
+
+    @media (width <= v.$bp-desktop)
+        padding: v.$sp-extra-medium
+
+    @media (width <= v.$bp-tablet)
+        @include m.square(100%)
+        border-radius: 0
+
     > header
         flex: 1.2
-        @include m.flex(center, stretch, column, wrap, 1.5rem)
+        @include m.flex(center, stretch, column, wrap, 2rem)
 
         > section:first-child
             @include m.flex($align: center, $gap: 0.5rem)
@@ -24,23 +38,41 @@ main
             color: c.$primary
             font-weight: 600
 
+            @media (width <= v.$bp-desktop)
+                font-size: v.$fs-large
+
         h2
             font-weight: 500
             font-size: v.$fs-large
+
+            @media (width <= v.$bp-desktop)
+                font-size: v.$fs-regular
 
         h3
             font-weight: 500
             color: c.$text-secondary
             font-size: v.$fs-regular
 
+            @media (width <= v.$bp-desktop)
+                font-size: v.$fs-small
+
         i
             font-size: v.$fs-extra-large
             color: c.$primary
+
+            @media (width <= v.$bp-desktop)
+                font-size: v.$fs-large
 
     > form
         flex: 2
         @include m.flex(center, stretch, column, $gap: 2rem)
 
+        @media (width <= v.$bp-desktop)
+            gap: 1rem
+
     > footer
         flex: 1
         @include m.flex(flex-end, flex-end)
+
+        @media (width <= v.$bp-lg-desktop)
+            flex: 0.8

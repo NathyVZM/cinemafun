@@ -1,9 +1,18 @@
 @use 'colors' as c
+@use 'variables' as v
 
 :host
     --tui-primary-text: #{c.$background}
     --tui-height-l: 3rem
 
+    @media (width <= v.$bp-desktop)
+        --tui-height-l: 42px
+        --tui-font-text-m: normal #{v.$fs-small} var(--tui-font-text)
+
 button
     width: 12rem
     font-weight: 500 !important
+    font-size: 14px
+
+    @media (width <= v.$bp-desktop)
+        width: 10rem

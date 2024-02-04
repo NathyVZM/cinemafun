@@ -3,12 +3,17 @@
 		<ng-container *ngTemplateOutlet="content"></ng-container>
 	</a>
 } @else {
-	<button tuiAction>
-		<ng-container *ngTemplateOutlet="content"></ng-container>
-	</button>
+	<tui-loader [showLoader]="isLoading" [overlay]="isLoading">
+		<button tuiAction (click)="onClick()">
+			@if (!isLoading) {
+				<ng-container *ngTemplateOutlet="content"></ng-container>
+			}
+		</button>
+	</tui-loader>
 }
 
 <ng-template #content>
 	<i [ngClass]="['ph-duotone', icon]"></i>
 	<span>{{ name }}</span>
 </ng-template>
+

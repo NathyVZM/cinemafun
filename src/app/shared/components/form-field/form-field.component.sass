@@ -13,13 +13,21 @@
     --tui-disabled-opacity: 0.5
     --tui-negative-night: #{c.$error}
 
+    @media (width <= v.$bp-desktop)
+        --tui-height-l: 38px
+        --tui-font-text-s: normal #{v.$fs-small} var(--tui-font-text)
+
 tui-input, tui-input-number
     border-radius: 2rem
     border: none !important
     backdrop-filter: blur(1rem)
 
-    input::placeholder
-        color: c.$text-secondary
+    input
+        @media (width <= v.$bp-desktop)
+            font-size: v.$fs-small
+
+        &::placeholder
+            color: c.$text-secondary
 
 label
     gap: .5rem
