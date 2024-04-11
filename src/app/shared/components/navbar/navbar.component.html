@@ -1,0 +1,13 @@
+<header>
+	<cf-logo [isSubtitle]="false" />
+	<form [formGroup]="form" (ngSubmit)="onSubmit()">
+		<cf-form-field
+			[id]="'search'"
+			[type]="'text'"
+			[placeholder]="'Search movies...'"
+			[iconLeft]="'tuiIconSearch'"
+			[showCleaner]="true"
+			[formControlName]="'search'" />
+		<button type="submit"></button>
+	</form>
+</header>

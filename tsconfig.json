@@ -22,7 +22,9 @@
 		"lib": ["ES2022", "dom"],
 		"paths": {
 			"@components/*": ["app/shared/components/*"],
-			"@components": ["app/shared/components/components.index"]
+			"@components": ["app/shared/components/components.index"],
+			"@features/*": ["app/features/*"],
+			"@features": ["app/features/features.index"]
 		}
 	},
 	"angularCompilerOptions": {

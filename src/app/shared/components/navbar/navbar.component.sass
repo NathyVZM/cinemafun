@@ -1,0 +1,12 @@
+@use 'mixins' as m
+@use 'variables' as v
+
+header
+    padding: v.$sp-regular
+    @include m.flex(space-between, stretch, row, wrap, v.$sp-regular)
+
+form
+    flex: 1
+
+button
+    display: none

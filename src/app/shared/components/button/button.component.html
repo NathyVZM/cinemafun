@@ -10,6 +10,7 @@
 		[size]="size"
 		[disabled]="isDisabled"
 		[showLoader]="isLoading"
+		[attr.form]="form"
 		(click)="onButtonClick()">
 		{{ label }}
 	</button>
@@ -24,6 +25,6 @@
 		[size]="size"
 		[disabled]="isDisabled"
 		[showLoader]="isLoading"
-		(click)="onButtonClick()">
-	</button>
+		[attr.form]="form"
+		(click)="onButtonClick()"></button>
 }

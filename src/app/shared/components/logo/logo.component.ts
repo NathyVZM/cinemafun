@@ -1,12 +1,11 @@
-import { CommonModule } from '@angular/common'
 import { booleanAttribute, Component, Input } from '@angular/core'
-import { TuiTitleModule, TuiIconModule, tuiIconResolverProvider } from '@taiga-ui/experimental'
+import { TuiTitleModule } from '@taiga-ui/experimental'
+import { IconComponent } from '@components'
 
 @Component({
 	selector: 'cf-logo',
 	standalone: true,
-	imports: [CommonModule, TuiTitleModule, TuiIconModule],
-	providers: [tuiIconResolverProvider(icon => `/assets/icons/${icon}.svg`)],
+	imports: [TuiTitleModule, IconComponent],
 	templateUrl: './logo.component.html',
 	styleUrl: './logo.component.sass'
 })

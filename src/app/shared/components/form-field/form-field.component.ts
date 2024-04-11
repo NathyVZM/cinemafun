@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common'
-import { booleanAttribute, Component, Input } from '@angular/core'
-import { FormsModule } from '@angular/forms'
+import { booleanAttribute, Component, forwardRef, Input } from '@angular/core'
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms'
+import { IconComponent } from '@components/components.index'
 import {
 	TuiLabelModule,
 	TuiTextfieldControllerModule,
@@ -14,16 +15,22 @@ import { TuiInputModule, TuiInputNumberModule, TuiInputPasswordModule } from '@t
 	selector: 'cf-form-field',
 	standalone: true,
 	imports: [
-		FormsModule,
 		CommonModule,
+		FormsModule,
 		TuiInputModule,
 		TuiInputNumberModule,
 		TuiInputPasswordModule,
 		TuiTextfieldControllerModule,
 		TuiLabelModule,
-		TuiHintModule
+		TuiHintModule,
+		IconComponent
 	],
 	providers: [
+		{
+			provide: NG_VALUE_ACCESSOR,
+			useExisting: forwardRef(() => FormFieldComponent),
+			multi: true
+		},
 		tuiNumberFormatProvider({
 			decimalSeparator: '.',
 			thousandSeparator: ' '
@@ -32,7 +39,7 @@ import { TuiInputModule, TuiInputNumberModule, TuiInputPasswordModule } from '@t
 	templateUrl: './form-field.component.html',
 	styleUrl: './form-field.component.sass'
 })
-export class FormFieldComponent {
+export class FormFieldComponent implements ControlValueAccessor {
 	@Input({ required: true }) id = ''
 	@Input({ required: true }) placeholder = ''
 	@Input({ required: true }) type: 'text' | 'email' | 'password' | 'number' = 'text'
@@ -50,4 +57,35 @@ export class FormFieldComponent {
 	@Input({ transform: booleanAttribute }) isRequired = false
 	isDisabled = false
 	value!: string | number | null
+
+	onInput(event: Event) {
+		const value = (event.target as HTMLInputElement).value
+		const valueNumber = Number(value.replace(/ /g, ''))
+
+		if (isNaN(valueNumber)) this.value = value || null
+		else this.value = valueNumber || null
+
+		this.onTouched()
+		this.onChange(this.value)
+	}
+
+	onChange = (_: any) => {}
+	onTouched = () => {}
+
+	writeValue(value: string): void {
+		if (value === undefined) return
+		this.value = value || null
+	}
+
+	registerOnChange(fn: any): void {
+		this.onChange = fn
+	}
+
+	registerOnTouched(fn: any): void {
+		this.onTouched = fn
+	}
+
+	setDisabledState(isDisabled: boolean): void {
+		this.isDisabled = isDisabled
+	}
 }

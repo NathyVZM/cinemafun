@@ -1,3 +1,7 @@
 export * from './button/button.component'
 export * from './form-field/form-field.component'
+export * from './icon/icon.component'
 export * from './logo/logo.component'
+export * from './navbar/navbar.component'
+export * from './sidebar/sidebar.component'
+export * from './footer/footer.component'

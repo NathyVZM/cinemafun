@@ -11,6 +11,7 @@ import { TuiAppearance, TuiButtonModule, TuiSizeXL, TuiSizeXS } from '@taiga-ui/
 export class ButtonComponent {
 	@Input({ required: true }) type: 'submit' | 'reset' | 'button' = 'button'
 	@Input() label = ''
+	@Input() form = ''
 	@Input() appearance: TuiAppearance = TuiAppearance.Primary
 	@Input() icon = ''
 	@Input() iconRight = ''
