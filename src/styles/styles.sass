@@ -1,0 +1,42 @@
+@forward 'reset'
+@forward 'override'
+@forward 'fonts'
+@use 'variables' as v
+@use 'colors' as c
+
+:root
+    scroll-behavior: smooth
+
+html, body
+    width: 100%
+    font-size: v.$fs-regular
+
+body
+    position: relative
+
+// tui-root
+//     padding: v.$sp-medium
+//     width: 100%
+//     min-height: 100%
+//     height: 100%
+
+//     @media (width <= v.$bp-tablet)
+//         padding: 0
+
+// label
+//     .t-label
+//         margin-left: 0.5rem
+
+//     .t-text
+//         color: white !important
+
+//     .t-placeholder
+//         @media (width <= v.$bp-desktop)
+//             font-size: v.$fs-semi-regular !important
+
+//     &:has(tui-input._disabled, tui-input-number._disabled)
+//         .t-text
+//             color: c.$text-secondary !important
+
+// .t-loader
+//     stroke: c.$background !important

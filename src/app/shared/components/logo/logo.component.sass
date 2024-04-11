@@ -1,0 +1,22 @@
+@use 'colors' as c
+@use 'variables' as v
+@use 'mixins' as m
+
+:host
+    --tui-font-heading-5: 600 1.5rem/1.75rem var(--tui-font-heading)
+    --tui-font-text-s: 600 18px/1 var(--tui-font-heading)
+    @include m.flex($align: center, $gap: 0.5rem)
+
+h1, h2
+    color: c.$primary
+
+tui-icon
+    color: c.$primary
+    font-size: v.$fs-extra-large
+    width: v.$fs-extra-large
+    height: v.$fs-extra-large
+
+    &.subtitle
+        font-size: 18px
+        width: 18px
+        height: 18px

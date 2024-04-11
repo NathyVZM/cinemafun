@@ -1,0 +1,74 @@
+<label [tuiLabel]="formFieldLabel" [htmlFor]="id">
+	@switch (type) {
+		@case ('number') {
+			<tui-input-number
+				[nativeId]="id"
+				[tuiTextfieldLabelOutside]="true"
+				[tuiTextfieldCleaner]="showCleaner"
+				[tuiTextfieldIconLeft]="iconLeft"
+				[tuiTextfieldIcon]="iconRight"
+				[tuiTextfieldFiller]="filler"
+				[tuiTextfieldPrefix]="prefix"
+				[tuiTextfieldPostfix]="postfix"
+				[tuiHintContent]="hint"
+				[tuiHintDirection]="hintDirection"
+				[(ngModel)]="value"
+				[disabled]="isDisabled">
+				{{ placeholder }}
+			</tui-input-number>
+		}
+
+		@case ('password') {
+			<tui-input-password
+				[nativeId]="id"
+				[tuiTextfieldLabelOutside]="true"
+				[tuiTextfieldCleaner]="showCleaner"
+				[tuiTextfieldIconLeft]="iconLeft"
+				[tuiTextfieldIcon]="iconRight"
+				[tuiTextfieldFiller]="filler"
+				[tuiTextfieldPrefix]="prefix"
+				[tuiTextfieldPostfix]="postfix"
+				[tuiHintContent]="hint"
+				[tuiHintDirection]="hintDirection"
+				[(ngModel)]="value"
+				[disabled]="isDisabled">
+				{{ placeholder }}
+			</tui-input-password>
+		}
+
+		@default {
+			<tui-input
+				[nativeId]="id"
+				[tuiTextfieldLabelOutside]="true"
+				[tuiTextfieldCleaner]="showCleaner"
+				[tuiTextfieldIconLeft]="iconLeft"
+				[tuiTextfieldIcon]="iconRight"
+				[tuiTextfieldFiller]="filler"
+				[tuiTextfieldPrefix]="prefix"
+				[tuiTextfieldPostfix]="postfix"
+				[tuiHintContent]="hint"
+				[tuiHintDirection]="hintDirection"
+				[(ngModel)]="value"
+				[disabled]="isDisabled">
+				{{ placeholder }}
+				<input
+					tuiTextfield
+					[id]="id"
+					[type]="type"
+					[value]="value"
+					[placeholder]="placeholder"
+					[disabled]="isDisabled"
+					[spellcheck]="spellCheck"
+					[autocapitalize]="autoCapitalize" />
+			</tui-input>
+		}
+	}
+</label>
+
+<ng-template #formFieldLabel>
+	{{ label }}
+
+	@if (isRequired) {
+		<span class="required">*</span>
+	}
+</ng-template>

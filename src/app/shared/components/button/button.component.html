@@ -1,0 +1,29 @@
+@if (!isIconButton) {
+	<button
+		tuiButton
+		class="cf-button"
+		[type]="type"
+		[appearance]="appearance"
+		[icon]="icon"
+		[iconRight]="iconRight"
+		[shape]="shape"
+		[size]="size"
+		[disabled]="isDisabled"
+		[showLoader]="isLoading"
+		(click)="onButtonClick()">
+		{{ label }}
+	</button>
+} @else {
+	<button
+		tuiIconButton
+		class="cf-fab-button"
+		[type]="type"
+		[appearance]="appearance"
+		[icon]="icon"
+		[shape]="shape"
+		[size]="size"
+		[disabled]="isDisabled"
+		[showLoader]="isLoading"
+		(click)="onButtonClick()">
+	</button>
+}
