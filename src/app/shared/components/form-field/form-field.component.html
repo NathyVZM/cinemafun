@@ -14,7 +14,7 @@
 				[tuiHintDirection]="hintDirection"
 				[disabled]="isDisabled"
 				[(ngModel)]="value"
-				(input)="onInput($event)">
+				(ngModelChange)="onNgModelChange($event)">
 				{{ placeholder }}
 			</tui-input-number>
 		}
@@ -33,7 +33,7 @@
 				[tuiHintDirection]="hintDirection"
 				[disabled]="isDisabled"
 				[(ngModel)]="value"
-				(input)="onInput($event)">
+				(ngModelChange)="onNgModelChange($event)">
 				{{ placeholder }}
 			</tui-input-password>
 		}
@@ -50,19 +50,18 @@
 				[tuiTextfieldPostfix]="postfix"
 				[tuiHintContent]="hint"
 				[tuiHintDirection]="hintDirection"
+				[disabled]="isDisabled"
 				[(ngModel)]="value"
-				[disabled]="isDisabled">
+				(ngModelChange)="onNgModelChange($event)">
 				{{ placeholder }}
 				<input
 					tuiTextfield
 					[id]="id"
 					[type]="type"
-					[value]="value"
 					[placeholder]="placeholder"
 					[disabled]="isDisabled"
 					[spellcheck]="spellCheck"
-					[autocapitalize]="autoCapitalize"
-					(input)="onInput($event)" />
+					[autocapitalize]="autoCapitalize" />
 			</tui-input>
 		}
 	}

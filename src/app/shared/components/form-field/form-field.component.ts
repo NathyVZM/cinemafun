@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common'
 import { booleanAttribute, Component, forwardRef, Input } from '@angular/core'
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms'
-import { IconComponent } from '@components/components.index'
 import {
 	TuiLabelModule,
 	TuiTextfieldControllerModule,
@@ -22,8 +21,7 @@ import { TuiInputModule, TuiInputNumberModule, TuiInputPasswordModule } from '@t
 		TuiInputPasswordModule,
 		TuiTextfieldControllerModule,
 		TuiLabelModule,
-		TuiHintModule,
-		IconComponent
+		TuiHintModule
 	],
 	providers: [
 		{
@@ -58,13 +56,8 @@ export class FormFieldComponent implements ControlValueAccessor {
 	isDisabled = false
 	value!: string | number | null
 
-	onInput(event: Event) {
-		const value = (event.target as HTMLInputElement).value
-		const valueNumber = Number(value.replace(/ /g, ''))
-
-		if (isNaN(valueNumber)) this.value = value || null
-		else this.value = valueNumber || null
-
+	onNgModelChange(value: string | number) {
+		this.value = value || null
 		this.onTouched()
 		this.onChange(this.value)
 	}
