@@ -6,7 +6,7 @@ import { TuiAppearance, TuiButtonModule, TuiSizeXL, TuiSizeXS } from '@taiga-ui/
 	standalone: true,
 	imports: [TuiButtonModule],
 	templateUrl: './button.component.html',
-	styleUrl: './button.component.sass'
+	styleUrl: './button.component.scss'
 })
 export class ButtonComponent {
 	@Input({ required: true }) type: 'submit' | 'reset' | 'button' = 'button'

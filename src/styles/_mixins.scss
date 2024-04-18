@@ -1,0 +1,35 @@
+@mixin size($width, $height) {
+	width: $width;
+	height: $height;
+}
+
+@mixin square($size) {
+	@include size($size, $size);
+}
+
+@mixin position($top: null, $bottom: null, $left: null, $right: null) {
+	$positions: (
+		'top': $top,
+		'bottom': $bottom,
+		'left': $left,
+		'right': $right
+	);
+
+	@each $name, $value in $positions {
+		@if $value !=null {
+			#{$name}: $value;
+		}
+	}
+}
+
+@mixin flex($justify: flex-start, $align: flex-start, $direction: row, $wrap: nowrap, $gap: 0, $important: false) {
+	display: is-important(flex, $important);
+	justify-content: $justify;
+	align-items: $align;
+	flex-flow: $direction $wrap;
+	gap: $gap;
+}
+
+@function is-important($value, $important) {
+	@return $value if($important, !important, null);
+}

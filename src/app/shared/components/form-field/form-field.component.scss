@@ -1,0 +1,27 @@
+@use 'colors' as c;
+@use 'variables' as v;
+
+:host {
+	--tui-height-l: 3rem;
+	--tui-radius-m: 6.25rem;
+	--tui-text-02-night: #{c.$text-secondary};
+	--tui-text-03-night: #{lighten(c.$text-secondary, 10%)};
+	--tui-clear-active: #{c.$container};
+	--tui-clear-inverse: #{c.$container};
+	--tui-clear-inverse-hover: #{opacify(c.$container, 0.02)};
+	--tui-autofill-night: #{desaturate(darken(c.$secondary, 40%), 70%)};
+	--tui-font-text-s: normal #{v.$fs-regular} var(--tui-font-text);
+	--tui-disabled-opacity: 0.5;
+}
+
+tui-input {
+	backdrop-filter: blur(1rem);
+
+	input::placeholder {
+		color: c.$text-secondary;
+	}
+}
+
+.required {
+	color: c.$error;
+}

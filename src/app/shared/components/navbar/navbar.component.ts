@@ -9,7 +9,7 @@ import { TuiTextfieldControllerModule } from '@taiga-ui/core'
 	standalone: true,
 	imports: [ReactiveFormsModule, LogoComponent, FormFieldComponent, TuiInputModule, TuiTextfieldControllerModule],
 	templateUrl: './navbar.component.html',
-	styleUrl: './navbar.component.sass'
+	styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
 	form = new FormGroup({

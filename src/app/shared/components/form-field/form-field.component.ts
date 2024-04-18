@@ -35,7 +35,7 @@ import { TuiInputModule, TuiInputNumberModule, TuiInputPasswordModule } from '@t
 		})
 	],
 	templateUrl: './form-field.component.html',
-	styleUrl: './form-field.component.sass'
+	styleUrl: './form-field.component.scss'
 })
 export class FormFieldComponent implements ControlValueAccessor {
 	@Input({ required: true }) id = ''

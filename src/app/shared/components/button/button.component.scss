@@ -1,0 +1,32 @@
+@use 'colors' as c;
+@use 'variables' as v;
+
+:host {
+	--tui-primary-text: #{c.$background};
+	--tui-font-text-m: 500 #{v.$fs-regular} var(--tui-font-text);
+	width: fit-content;
+	display: inline-block;
+
+	.cf-button {
+		--tui-height-l: 3rem;
+		min-width: 9rem;
+	}
+
+	.cf-fab-button {
+		--tui-height-l: 4rem;
+	}
+}
+
+button {
+	font-weight: 500 !important;
+	font-size: v.$fs-regular;
+
+	&.cf-button {
+		width: inherit !important;
+		min-width: 9rem;
+	}
+
+	&.cf-fab-button {
+		border-radius: 1.5rem;
+	}
+}

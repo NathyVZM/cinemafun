@@ -8,7 +8,7 @@ import { TuiIconModule, tuiIconResolverProvider } from '@taiga-ui/experimental'
 	imports: [CommonModule, TuiIconModule],
 	providers: [tuiIconResolverProvider(icon => `/assets/icons/${icon}-duotone.svg`)],
 	templateUrl: './icon.component.html',
-	styleUrl: './icon.component.sass'
+	styleUrl: './icon.component.scss'
 })
 export class IconComponent {
 	@Input({ required: true }) icon = ''

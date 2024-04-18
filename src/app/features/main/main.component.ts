@@ -1,12 +1,10 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
-  selector: 'cf-main',
-  standalone: true,
-  imports: [],
-  templateUrl: './main.component.html',
-  styleUrl: './main.component.sass'
+	selector: 'cf-main',
+	standalone: true,
+	imports: [],
+	templateUrl: './main.component.html',
+	styleUrl: './main.component.scss'
 })
-export class MainComponent {
-
-}
+export class MainComponent {}

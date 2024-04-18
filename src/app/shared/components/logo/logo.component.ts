@@ -7,7 +7,7 @@ import { IconComponent } from '@components'
 	standalone: true,
 	imports: [TuiTitleModule, IconComponent],
 	templateUrl: './logo.component.html',
-	styleUrl: './logo.component.sass'
+	styleUrl: './logo.component.scss'
 })
 export class LogoComponent {
 	@Input({ transform: booleanAttribute }) isSubtitle = false

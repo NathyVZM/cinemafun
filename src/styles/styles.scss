@@ -1,18 +1,22 @@
-@forward 'reset'
-@forward 'override'
-@forward 'fonts'
-@use 'variables' as v
-@use 'colors' as c
+@forward 'reset';
+@forward 'override';
+@forward 'fonts';
+@use 'variables' as v;
+@use 'colors' as c;
 
-:root
-    scroll-behavior: smooth
+:root {
+	scroll-behavior: smooth;
+}
 
-html, body
-    width: 100%
-    font-size: v.$fs-regular
+html,
+body {
+	width: 100%;
+	font-size: v.$fs-regular;
+}
 
-body
-    position: relative
+body {
+	position: relative;
+}
 
 // tui-root
 //     padding: v.$sp-medium

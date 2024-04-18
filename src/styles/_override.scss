@@ -1,0 +1,55 @@
+@use 'colors' as c;
+@use 'variables' as v;
+
+:root {
+	--tui-base-01: #{c.$background} !important;
+	--tui-primary: #{c.$primary};
+	--tui-primary-hover: #{darken(c.$primary, 5%)};
+	--tui-primary-active: #{darken(c.$primary, 10%)};
+	--tui-text-font: 'Hind Madurai', sans-serif;
+	--tui-text-heading: 'Montserrat', sans-serif;
+	--tui-font-heading: 'Montserrat', sans-serif;
+}
+
+[tuiWrapper]::after {
+	border: none !important;
+}
+
+[tuiWrapper][data-appearance='textfield'][data-mode='onDark'] {
+	box-shadow: none;
+
+	&:hover {
+		box-shadow: none;
+	}
+}
+
+button {
+	&.cf-button .t-wrapper {
+		padding: 16px 24px !important;
+	}
+
+	&.cf-fab-button .t-wrapper {
+		padding: 16px !important;
+	}
+}
+
+.t-filler {
+	line-height: 48px !important;
+}
+
+cf-form-field {
+	.t-icon_left tui-svg {
+		width: v.$fs-medium !important;
+		height: v.$fs-medium !important;
+	}
+}
+
+.t-src svg {
+	fill: var(--tui-text-01-night);
+	width: inherit;
+	height: inherit;
+}
+
+tui-hint {
+	line-height: 20px !important;
+}
