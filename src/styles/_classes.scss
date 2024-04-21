@@ -1,0 +1,70 @@
+@use 'variables' as v;
+@use 'colors' as c;
+
+// font sizes
+
+.fs-tiny {
+	font-size: v.$fs-tiny;
+	width: v.$fs-tiny;
+	height: v.$fs-tiny;
+}
+.fs-small {
+	font-size: v.$fs-small;
+	width: v.$fs-small;
+	height: v.$fs-small;
+}
+.fs-semi-regular {
+	font-size: v.$fs-semi-regular;
+	width: v.$fs-semi-regular;
+	height: v.$fs-semi-regular;
+}
+
+.fs-regular {
+	font-size: v.$fs-regular;
+	width: v.$fs-regular;
+	height: v.$fs-regular;
+}
+
+.fs-medium {
+	font-size: v.$fs-medium;
+	width: v.$fs-medium;
+	height: v.$fs-medium;
+}
+
+.fs-large {
+	font-size: v.$fs-large;
+	width: v.$fs-large;
+	height: v.$fs-large;
+}
+
+.fs-large-plus {
+	font-size: v.$fs-large-plus;
+	width: v.$fs-large-plus;
+	height: v.$fs-large-plus;
+}
+
+.fs-extra-large {
+	font-size: v.$fs-extra-large;
+	width: v.$fs-extra-large;
+	height: v.$fs-extra-large;
+}
+
+.fs-big {
+	font-size: v.$fs-big;
+	width: v.$fs-big;
+	height: v.$fs-big;
+}
+
+// colors
+
+.primary {
+	color: c.$primary;
+}
+
+.secondary {
+	color: c.$secondary;
+}
+
+.tertiary {
+	color: c.$tertiary;
+}

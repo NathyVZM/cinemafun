@@ -23,8 +23,14 @@
 		"paths": {
 			"@components/*": ["app/shared/components/*"],
 			"@components": ["app/shared/components/components.index"],
+			"@data/*": ["app/core/data/*"],
+			"@data": ["app/core/data/data.index"],
 			"@features/*": ["app/features/*"],
-			"@features": ["app/features/features.index"]
+			"@features": ["app/features/features.index"],
+			"@models/*": ["app/core/models/*"],
+			"@models": ["app/core/models/models.index"],
+			"@services/*": ["app/core/services/*"],
+			"@services": ["app/core/services/services.index"]
 		}
 	},
 	"angularCompilerOptions": {

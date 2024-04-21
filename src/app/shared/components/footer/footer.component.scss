@@ -1,0 +1,30 @@
+@use 'mixins' as m;
+@use 'variables' as v;
+@use 'colors' as c;
+
+footer {
+	width: 100%;
+	@include m.flex(center, center, column, wrap, v.$sp-medium);
+}
+
+ul {
+	@include m.flex(center, center, row, wrap, v.$sp-regular);
+}
+
+li {
+	display: inline-block;
+}
+
+a {
+	color: c.$text-secondary;
+}
+
+section {
+	@include m.flex(center, stretch, column, wrap, v.$sp-semi-small);
+	text-align: center;
+
+	> small {
+		font-size: v.$sp-semi-regular;
+		color: c.$text-secondary;
+	}
+}
