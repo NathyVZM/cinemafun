@@ -1,8 +1,10 @@
 import { Component } from '@angular/core'
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms'
-import { LogoComponent, FormFieldComponent } from '@components'
-import { TuiInputModule } from '@taiga-ui/kit'
+
 import { TuiTextfieldControllerModule } from '@taiga-ui/core'
+import { TuiInputModule } from '@taiga-ui/kit'
+
+import { FormFieldComponent, LogoComponent } from '@components'
 
 @Component({
 	selector: 'cf-navbar',
@@ -15,10 +17,6 @@ export class NavbarComponent {
 	form = new FormGroup({
 		search: new FormControl('')
 	})
-
-	constructor() {
-		this.form.valueChanges.subscribe(res => console.log(res))
-	}
 
 	onSubmit() {
 		console.log(this.form.value)

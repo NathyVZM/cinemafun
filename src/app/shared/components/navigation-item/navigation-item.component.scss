@@ -1,0 +1,29 @@
+@use 'colors' as c;
+@use 'mixins' as m;
+@use 'variables' as v;
+
+a {
+	box-shadow: none;
+	font-weight: 500;
+	transition: all 0.4s ease;
+	@include m.flex(flex-start, center, row, wrap, v.$sp-semi-small);
+	padding-inline: v.$sp-extra-medium;
+
+	span {
+		color: c.$white;
+	}
+
+	cf-icon {
+		color: c.$primary;
+	}
+
+	&:hover {
+		background-color: c.$primary;
+		transform: none;
+		box-shadow: none;
+
+		> * {
+			color: c.$background;
+		}
+	}
+}

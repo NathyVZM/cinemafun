@@ -4,11 +4,10 @@ export const routes: Routes = [
 	{
 		path: 'sign-up',
 		loadComponent: () => import('./features/sign-up/sign-up.component').then(c => c.SignUpComponent),
-		title: 'Sign up'
+		title: 'Sign up - CINEMAFUN'
 	},
 	{
 		path: '',
-		redirectTo: 'sign-up',
-		pathMatch: 'full'
+		loadChildren: () => import('./features/main/main.routes').then(m => m.mainRoutes)
 	}
 ]

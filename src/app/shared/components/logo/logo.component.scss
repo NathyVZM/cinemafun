@@ -5,6 +5,13 @@
 :host {
 	--tui-font-heading-5: 600 #{v.$fs-extra-large}/ 1.75rem var(--tui-font-heading);
 	--tui-font-text-s: 600 #{v.$fs-large}/ 1 var(--tui-font-heading);
+	@include m.flex(center, center);
+}
+
+a {
+	color: c.$primary;
+	text-decoration: none;
+	outline: none;
 	@include m.flex($align: center, $gap: 0.5rem);
 }
 
