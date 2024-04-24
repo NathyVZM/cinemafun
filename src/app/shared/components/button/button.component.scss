@@ -3,7 +3,7 @@
 
 :host {
 	--tui-primary-text: #{c.$background};
-	--tui-font-text-m: 500 #{v.$fs-regular} var(--tui-font-text);
+	--tui-font-text-m: 500 #{v.$fs-regular}/ 1 var(--tui-font-text);
 	width: fit-content;
 	display: inline-block;
 

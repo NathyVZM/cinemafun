@@ -1,5 +1,6 @@
 @use 'colors' as c;
 @use 'variables' as v;
+@use 'mixins' as m;
 
 :root {
 	--tui-base-01: #{c.$background} !important;
@@ -39,15 +40,40 @@ button {
 
 cf-form-field {
 	.t-icon_left tui-svg {
-		width: v.$fs-medium !important;
-		height: v.$fs-medium !important;
+		@include m.square(v.$fs-medium, true);
+	}
+
+	.t-src svg {
+		fill: var(--tui-text-01-night);
+		@include m.square(inherit);
 	}
 }
 
-.t-src svg {
-	fill: var(--tui-text-01-night);
-	width: inherit;
-	height: inherit;
+cf-button {
+	.cf-button {
+		.t-left {
+			@include m.square(v.$fs-medium, true);
+
+			tui-svg {
+				@include m.square(v.$fs-medium, true);
+			}
+		}
+	}
+
+	.cf-fab-button {
+		.t-left {
+			@include m.square(v.$fs-extra-large, true);
+
+			tui-svg {
+				@include m.square(v.$fs-extra-large, true);
+			}
+		}
+	}
+
+	.t-src svg {
+		fill: #{c.$background};
+		@include m.square(inherit);
+	}
 }
 
 tui-hint {

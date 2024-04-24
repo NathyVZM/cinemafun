@@ -1,5 +1,28 @@
 <aside>
-	<cf-navigation-item />
-	<cf-navigation-item />
-	<cf-navigation-item />
+	<section>
+		<article id="info">
+			<cf-icon [icon]="'user'" />
+			<div>
+				<p>{{ 'Nathalie Zambrano' }}</p>
+				<p>{{ 'nathalievzm@gmail.com' }}</p>
+			</div>
+		</article>
+		<article id="balance">
+			<div>
+				<p>Balance</p>
+				<div>
+					<cf-icon [icon]="'credit-card'" />
+					<p>{{ '$4.45' }}</p>
+				</div>
+			</div>
+			<cf-button [type]="'button'" [label]="'A button'" [icon]="'pencil-simple'" [isIconButton]="true" />
+		</article>
+	</section>
+	<ul>
+		@for (item of navigation | async; track item.id) {
+			<li>
+				<cf-navigation-item [item]="item" />
+			</li>
+		}
+	</ul>
 </aside>

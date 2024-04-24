@@ -3,7 +3,7 @@
 	<ul>
 		@for (media of socialMedia | async; track media.id) {
 			<li>
-				<a [href]="media.link">
+				<a [href]="media.link" target="_blank">
 					<cf-icon [icon]="media.icon" />
 				</a>
 			</li>

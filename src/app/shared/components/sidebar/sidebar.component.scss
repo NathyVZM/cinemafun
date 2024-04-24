@@ -1,4 +1,6 @@
 @use 'mixins' as m;
+@use 'colors' as c;
+@use 'variables' as v;
 
 :host {
 	width: 15rem;
@@ -6,5 +8,75 @@
 
 aside {
 	width: 100%;
+	@include m.flex(flex-start, stretch, column, nowrap, 20px);
+}
+
+ul {
+	width: 100%;
 	@include m.flex(flex-start, stretch, column, nowrap);
+	list-style-type: none;
+}
+
+section {
+	background-color: c.$container;
+	border-radius: 2rem;
+	padding: 20px;
+	width: 100%;
+	@include m.flex(space-between, stretch, column, wrap, 12px);
+
+	> #info {
+		width: 100%;
+		flex: 1;
+		@include m.flex(space-between, center, row, wrap);
+
+		> cf-icon {
+			background-color: c.$primary;
+			color: c.$background;
+			padding: 14px;
+			border-radius: 100%;
+		}
+
+		> div {
+			@include m.flex(center, flex-start, column, wrap, 4px);
+
+			p:first-child {
+				font-size: 16px;
+			}
+
+			p:last-child {
+				font-size: 12px;
+				color: c.$text-secondary;
+				font-weight: 500;
+			}
+		}
+	}
+
+	> #balance {
+		width: 100%;
+		flex: 1;
+		@include m.flex(space-between, flex-end, row, wrap);
+
+		> div {
+			@include m.flex(center, stretch, column, wrap);
+
+			> p {
+				font-size: 12px;
+				color: c.$text-secondary;
+			}
+
+			> div {
+				@include m.flex(flex-start, center, row, wrap, 8px);
+
+				p {
+					font-size: 20px;
+					font-weight: 500;
+					color: c.$primary;
+				}
+
+				cf-icon {
+					color: c.$primary;
+				}
+			}
+		}
+	}
 }

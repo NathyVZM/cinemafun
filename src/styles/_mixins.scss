@@ -1,10 +1,10 @@
-@mixin size($width, $height) {
-	width: $width;
-	height: $height;
+@mixin size($width, $height, $important: false) {
+	width: is-important($width, $important);
+	height: is-important($height, $important);
 }
 
-@mixin square($size) {
-	@include size($size, $size);
+@mixin square($size, $important: false) {
+	@include size($size, $size, $important);
 }
 
 @mixin position($top: null, $bottom: null, $left: null, $right: null) {

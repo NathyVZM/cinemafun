@@ -1,4 +1,4 @@
-<a href="" tuiAction>
-	<cf-icon [icon]="'magnifying-glass'" [classes]="'fs-medium'" />
-	<span>A link</span>
+<a [routerLink]="navigationItem.link" tuiAction>
+	<cf-icon [icon]="navigationItem.icon" [classes]="'fs-medium'" />
+	<span>{{ navigationItem.label }}</span>
 </a>

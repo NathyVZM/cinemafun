@@ -2,7 +2,7 @@
 @use 'variables' as v;
 
 header {
-	padding: v.$sp-medium;
+	// padding: v.$sp-medium;
 	@include m.flex(space-between, stretch, row, wrap, v.$sp-medium);
 }
 

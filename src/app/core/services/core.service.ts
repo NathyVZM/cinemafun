@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { SOCIAL_MEDIA } from '@data'
+import { NAVIGATION, SOCIAL_MEDIA } from '@data'
 import { of } from 'rxjs'
 
 @Injectable({
@@ -8,7 +8,11 @@ import { of } from 'rxjs'
 export class CoreService {
 	constructor() {}
 
-	getNavigation() {
+	getSocialMedia() {
 		return of(SOCIAL_MEDIA)
+	}
+
+	getNavigation() {
+		return of(NAVIGATION)
 	}
 }

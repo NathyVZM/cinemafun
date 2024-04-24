@@ -12,6 +12,6 @@ import { CoreService } from '@services'
 })
 export class FooterComponent {
 	coreService = inject(CoreService)
-	socialMedia = this.coreService.getNavigation()
+	socialMedia = this.coreService.getSocialMedia()
 	currentYear = new Date().getFullYear()
 }
