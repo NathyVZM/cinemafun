@@ -4,7 +4,7 @@
 
 footer {
 	width: 100%;
-	@include m.flex(center, center, column, wrap, v.$sp-medium);
+	@include m.flex(center, center, column, wrap, v.$sp-regular);
 }
 
 ul {

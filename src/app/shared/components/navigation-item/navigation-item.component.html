@@ -1,4 +1,14 @@
-<a [routerLink]="navigationItem.link" tuiAction>
-	<cf-icon [icon]="navigationItem.icon" [classes]="'fs-medium'" />
-	<span>{{ navigationItem.label }}</span>
-</a>
+@if (isButton) {
+	<button tuiAction type="button" (click)="onClick()">
+		<ng-container *ngTemplateOutlet="content"></ng-container>
+	</button>
+} @else {
+	<a [routerLink]="route" tuiAction>
+		<ng-container *ngTemplateOutlet="content"></ng-container>
+	</a>
+}
+
+<ng-template #content>
+	<cf-icon [icon]="icon" [classes]="'fs-medium'" />
+	<span>{{ label }}</span>
+</ng-template>

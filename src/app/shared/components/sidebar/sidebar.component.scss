@@ -3,15 +3,17 @@
 @use 'variables' as v;
 
 :host {
-	width: 15rem;
+	width: 14.5rem;
 }
 
 aside {
 	width: 100%;
-	@include m.flex(flex-start, stretch, column, nowrap, 20px);
+	height: 100%;
+	@include m.flex(flex-start, stretch, column, nowrap, v.$sp-medium);
 }
 
 ul {
+	flex: 1;
 	width: 100%;
 	@include m.flex(flex-start, stretch, column, nowrap);
 	list-style-type: none;
@@ -20,33 +22,36 @@ ul {
 section {
 	background-color: c.$container;
 	border-radius: 2rem;
-	padding: 20px;
+	padding: v.$fs-medium;
 	width: 100%;
-	@include m.flex(space-between, stretch, column, wrap, 12px);
+	@include m.flex(space-between, stretch, column, wrap, 10px);
 
 	> #info {
 		width: 100%;
 		flex: 1;
-		@include m.flex(space-between, center, row, wrap);
+		@include m.flex(space-between, center, row, wrap, v.$sp-semi-small);
 
 		> cf-icon {
 			background-color: c.$primary;
 			color: c.$background;
-			padding: 14px;
+			padding: v.$sp-semi-regular;
 			border-radius: 100%;
 		}
 
 		> div {
-			@include m.flex(center, flex-start, column, wrap, 4px);
+			@include m.flex(center, flex-start, column, wrap, v.$sp-tiny);
+			flex: 1;
 
 			p:first-child {
-				font-size: 16px;
+				font-size: v.$fs-regular;
+				width: 100%;
 			}
 
 			p:last-child {
-				font-size: 12px;
+				font-size: v.$fs-small;
 				color: c.$text-secondary;
 				font-weight: 500;
+				width: 100%;
 			}
 		}
 	}
@@ -60,15 +65,15 @@ section {
 			@include m.flex(center, stretch, column, wrap);
 
 			> p {
-				font-size: 12px;
+				font-size: v.$fs-small;
 				color: c.$text-secondary;
 			}
 
 			> div {
-				@include m.flex(flex-start, center, row, wrap, 8px);
+				@include m.flex(flex-start, center, row, wrap, v.$sp-semi-small);
 
 				p {
-					font-size: 20px;
+					font-size: v.$fs-large;
 					font-weight: 500;
 					color: c.$primary;
 				}
@@ -79,4 +84,8 @@ section {
 			}
 		}
 	}
+}
+
+footer {
+	@include m.flex(center, stretch, column, wrap);
 }

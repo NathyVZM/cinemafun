@@ -13,7 +13,7 @@
 	}
 
 	.cf-fab-button {
-		--tui-height-l: 4rem;
+		--tui-height-l: 3.5rem;
 	}
 }
 
@@ -27,6 +27,6 @@ button {
 	}
 
 	&.cf-fab-button {
-		border-radius: 1.5rem;
+		border-radius: v.$sp-medium;
 	}
 }

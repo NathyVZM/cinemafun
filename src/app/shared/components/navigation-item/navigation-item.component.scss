@@ -2,7 +2,13 @@
 @use 'mixins' as m;
 @use 'variables' as v;
 
-a {
+:host {
+	@include m.flex(center, stretch, column, wrap);
+}
+
+a,
+button {
+	outline: none;
 	box-shadow: none;
 	font-weight: 500;
 	transition: all 0.4s ease;

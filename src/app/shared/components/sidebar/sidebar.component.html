@@ -21,8 +21,11 @@
 	<ul>
 		@for (item of navigation | async; track item.id) {
 			<li>
-				<cf-navigation-item [item]="item" />
+				<cf-navigation-item [label]="item.label" [icon]="item.icon" [route]="item.route" />
 			</li>
 		}
 	</ul>
+	<footer>
+		<cf-navigation-item [label]="'Log out'" [icon]="'sign-out'" [isButton]="true" />
+	</footer>
 </aside>

@@ -1,5 +1,5 @@
 export interface SocialMedia {
-	id: string
+	readonly id: string
 	icon: string
 	link: string
 }

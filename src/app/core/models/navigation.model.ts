@@ -1,6 +1,6 @@
 export interface Navigation {
-	id: string
+	readonly id: string
 	label: string
 	icon: string
-	link: string
+	route: string
 }

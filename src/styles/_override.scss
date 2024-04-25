@@ -44,7 +44,7 @@ cf-form-field {
 	}
 
 	.t-src svg {
-		fill: var(--tui-text-01-night);
+		fill: c.$white;
 		@include m.square(inherit);
 	}
 }
