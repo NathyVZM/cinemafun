@@ -10,12 +10,17 @@ div {
 	flex: 1;
 	@include m.flex(space-between, stretch, $gap: 20px);
 
-	main {
+	section {
 		flex: 1;
 		@include m.flex(flex-start, stretch, column, wrap);
 
-		p {
+		main {
 			flex: 1;
+			display: grid;
+			grid-template-columns: repeat(5, 1fr);
+			grid-gap: 16px;
+
+			// @include m.flex(flex-start, flex-start, row, wrap, 20px);
 		}
 	}
 }

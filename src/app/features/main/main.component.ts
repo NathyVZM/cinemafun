@@ -1,11 +1,11 @@
 import { Component } from '@angular/core'
 import { RouterOutlet } from '@angular/router'
-import { FooterComponent, NavbarComponent, SidebarComponent } from '@components'
+import { ButtonComponent, FooterComponent, MovieComponent, NavbarComponent, SidebarComponent } from '@components'
 
 @Component({
 	selector: 'cf-main',
 	standalone: true,
-	imports: [RouterOutlet, NavbarComponent, SidebarComponent, FooterComponent],
+	imports: [RouterOutlet, NavbarComponent, SidebarComponent, FooterComponent, MovieComponent, ButtonComponent],
 	templateUrl: './main.component.html',
 	styleUrl: './main.component.scss'
 })

@@ -25,11 +25,11 @@ a {
 }
 
 section {
-	@include m.flex(center, stretch, column, wrap, v.$sp-semi-small);
+	@include m.flex(center, stretch, column, wrap, v.$sp-small);
 	text-align: center;
 
 	> small {
-		font-size: v.$sp-semi-regular;
+		font-size: v.$fs-extra-small;
 		color: c.$text-secondary;
 	}
 }

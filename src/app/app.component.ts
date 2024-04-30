@@ -9,7 +9,7 @@ import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify'
 @Component({
 	selector: 'app-root',
 	standalone: true,
-	imports: [CommonModule, RouterOutlet, TuiRootModule, TuiModeModule, TuiThemeNightModule, RouterOutlet],
+	imports: [CommonModule, RouterOutlet, TuiRootModule, TuiModeModule, TuiThemeNightModule],
 	providers: [
 		{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer },
 		tuiSvgSrcInterceptors((svg: TuiSafeHtml) => (!String(svg).includes('tui') ? `assets/icons/${svg}-duotone.svg` : svg))

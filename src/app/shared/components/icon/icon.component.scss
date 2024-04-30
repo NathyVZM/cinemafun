@@ -1,13 +1,13 @@
 @use 'variables' as v;
 
 tui-icon {
-	font-size: v.$fs-extra-large;
-	width: v.$fs-extra-large;
-	height: v.$fs-extra-large;
+	font-size: v.$fs-big;
+	width: v.$fs-big;
+	height: v.$fs-big;
 }
 
 .subtitle {
-	font-size: v.$fs-large;
-	width: v.$fs-large;
-	height: v.$fs-large;
+	font-size: v.$fs-medium;
+	width: v.$fs-medium;
+	height: v.$fs-medium;
 }

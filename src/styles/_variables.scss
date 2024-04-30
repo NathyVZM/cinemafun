@@ -1,23 +1,46 @@
 // Spacing
 $sp-tiny: 0.25rem;
-$sp-semi-small: 0.5rem;
-$sp-small: 0.75rem;
-$sp-semi-regular: 0.875rem;
+$sp-small: 0.5rem;
+$sp-semi-small: 0.75rem;
+$sp-extra-small: 0.875rem;
 $sp-regular: 1rem;
+$fs-extra-regular: 1.125rem;
 $sp-medium: 1.25rem;
-$sp-extra-medium: 1.5rem;
-$sp-big: 2rem;
+$sp-big: 1.5rem;
+$sp-extra-big: 1.75rem;
+$sp-large: 2rem;
+$sp-semi-large: 2.25rem;
+$sp-extra-large: 2.5rem;
+$sp-great: 2.75rem;
+$sp-extra-great: 3rem;
+$sp-huge: 3.25rem;
+$sp-extra-huge: 3.5rem;
+$sp-massive: 3.75rem;
+$sp-extra-massive: 4rem;
+$sp-giant: 4.25rem;
+$sp-colossal: 4.5rem;
 
 // Font sizes
-$fs-tiny: 0.625rem;
-$fs-small: 0.75rem;
-$fs-semi-regular: 0.875rem;
+$fs-tiny: 0.25rem;
+$fs-small: 0.5rem;
+$fs-semi-small: 0.75rem;
+$fs-extra-small: 0.875rem;
 $fs-regular: 1rem;
-$fs-medium: 1.125rem;
-$fs-large: 1.25rem;
-$fs-large-plus: 1.375rem;
-$fs-extra-large: 1.5rem;
-$fs-big: 1.75rem;
+$fs-extra-regular: 1.125rem;
+$fs-medium: 1.25rem;
+$fs-big: 1.5rem;
+$fs-extra-big: 1.75rem;
+$fs-large: 2rem;
+$fs-semi-large: 2.25rem;
+$fs-extra-large: 2.5rem;
+$fs-great: 2.75rem;
+$fs-extra-great: 3rem;
+$fs-huge: 3.25rem;
+$fs-extra-huge: 3.5rem;
+$fs-massive: 3.75rem;
+$fs-extra-massive: 4rem;
+$fs-giant: 4.25rem;
+$fs-colossal: 4.5rem;
 
 // Breakpoints
 $bp-phone: 36rem;
@@ -25,3 +48,32 @@ $bp-sm-tablet: 48rem;
 $bp-tablet: 62rem;
 $bp-desktop: 75rem;
 $bp-lg-desktop: 87.5rem;
+
+// ...
+// rules for spacing/fonts
+// 0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72
+//
+
+// Export font sizes as a list
+$font-sizes: (
+	'fs-tiny': $fs-tiny,
+	'fs-small': $fs-small,
+	'fs-semi-small': $fs-semi-small,
+	'fs-extra-small': $fs-extra-small,
+	'fs-regular': $fs-regular,
+	'fs-extra-regular': $fs-extra-regular,
+	'fs-medium': $fs-medium,
+	'fs-big': $fs-big,
+	'fs-extra-big': $fs-extra-big,
+	'fs-large': $fs-large,
+	'fs-semi-large': $fs-semi-large,
+	'fs-extra-large': $fs-extra-large,
+	'fs-great': $fs-great,
+	'fs-extra-great': $fs-extra-great,
+	'fs-huge': $fs-huge,
+	'fs-extra-huge': $fs-extra-huge,
+	'fs-massive': $fs-massive,
+	'fs-extra-massive': $fs-extra-massive,
+	'fs-giant': $fs-giant,
+	'fs-colossal': $fs-colossal
+);

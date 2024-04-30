@@ -1,62 +1,16 @@
 @use 'variables' as v;
 @use 'colors' as c;
 
-// font sizes
-
-.fs-tiny {
-	font-size: v.$fs-tiny;
-	width: v.$fs-tiny;
-	height: v.$fs-tiny;
-}
-.fs-small {
-	font-size: v.$fs-small;
-	width: v.$fs-small;
-	height: v.$fs-small;
-}
-.fs-semi-regular {
-	font-size: v.$fs-semi-regular;
-	width: v.$fs-semi-regular;
-	height: v.$fs-semi-regular;
-}
-
-.fs-regular {
-	font-size: v.$fs-regular !important;
-	width: v.$fs-regular !important;
-	height: v.$fs-regular !important;
-}
-
-.fs-medium {
-	font-size: v.$fs-medium !important;
-	width: v.$fs-medium !important;
-	height: v.$fs-medium !important;
-}
-
-.fs-large {
-	font-size: v.$fs-large !important;
-	width: v.$fs-large !important;
-	height: v.$fs-large !important;
-}
-
-.fs-large-plus {
-	font-size: v.$fs-large-plus !important;
-	width: v.$fs-large-plus !important;
-	height: v.$fs-large-plus !important;
-}
-
-.fs-extra-large {
-	font-size: v.$fs-extra-large !important;
-	width: v.$fs-extra-large !important;
-	height: v.$fs-extra-large !important;
-}
-
-.fs-big {
-	font-size: v.$fs-big !important;
-	width: v.$fs-big !important;
-	height: v.$fs-big !important;
+// Font sizes
+@each $name, $size in v.$font-sizes {
+	.#{$name} {
+		width: $size !important;
+		height: $size !important;
+		font-size: $size !important;
+	}
 }
 
 // colors
-
 .primary {
 	color: c.$primary;
 }

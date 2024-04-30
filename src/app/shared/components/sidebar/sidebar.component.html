@@ -1,4 +1,4 @@
-<aside>
+<nav>
 	<section>
 		<article id="info">
 			<cf-icon [icon]="'user'" />
@@ -18,14 +18,14 @@
 			<cf-button [type]="'button'" [label]="'A button'" [icon]="'pencil-simple'" [isIconButton]="true" />
 		</article>
 	</section>
-	<ul>
+	<menu>
 		@for (item of navigation | async; track item.id) {
 			<li>
 				<cf-navigation-item [label]="item.label" [icon]="item.icon" [route]="item.route" />
 			</li>
 		}
-	</ul>
+	</menu>
 	<footer>
 		<cf-navigation-item [label]="'Log out'" [icon]="'sign-out'" [isButton]="true" />
 	</footer>
-</aside>
+</nav>

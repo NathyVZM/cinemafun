@@ -6,35 +6,35 @@
 	width: 14.5rem;
 }
 
-aside {
+nav {
 	width: 100%;
 	height: 100%;
 	@include m.flex(flex-start, stretch, column, nowrap, v.$sp-medium);
 }
 
-ul {
+menu {
 	flex: 1;
 	width: 100%;
-	@include m.flex(flex-start, stretch, column, nowrap);
 	list-style-type: none;
+	@include m.flex(flex-start, stretch, column, nowrap);
 }
 
 section {
 	background-color: c.$container;
 	border-radius: 2rem;
-	padding: v.$fs-medium;
+	padding: 18px;
 	width: 100%;
-	@include m.flex(space-between, stretch, column, wrap, 10px);
+	@include m.flex(space-between, stretch, column, wrap, v.$sp-small);
 
 	> #info {
 		width: 100%;
 		flex: 1;
-		@include m.flex(space-between, center, row, wrap, v.$sp-semi-small);
+		@include m.flex(space-between, center, row, wrap, v.$sp-small);
 
 		> cf-icon {
 			background-color: c.$primary;
 			color: c.$background;
-			padding: v.$sp-semi-regular;
+			padding: v.$fs-extra-small;
 			border-radius: 100%;
 		}
 
@@ -48,7 +48,7 @@ section {
 			}
 
 			p:last-child {
-				font-size: v.$fs-small;
+				font-size: v.$fs-semi-small;
 				color: c.$text-secondary;
 				font-weight: 500;
 				width: 100%;
@@ -62,18 +62,18 @@ section {
 		@include m.flex(space-between, flex-end, row, wrap);
 
 		> div {
-			@include m.flex(center, stretch, column, wrap);
+			@include m.flex(center, stretch, column, wrap, v.$sp-tiny);
 
 			> p {
-				font-size: v.$fs-small;
+				font-size: v.$fs-semi-small;
 				color: c.$text-secondary;
 			}
 
 			> div {
-				@include m.flex(flex-start, center, row, wrap, v.$sp-semi-small);
+				@include m.flex(flex-start, center, row, wrap, v.$sp-small);
 
 				p {
-					font-size: v.$fs-large;
+					font-size: v.$fs-medium;
 					font-weight: 500;
 					color: c.$primary;
 				}

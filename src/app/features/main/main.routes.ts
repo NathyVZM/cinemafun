@@ -5,6 +5,6 @@ export const mainRoutes: Routes = [
 	{
 		path: '',
 		component: MainComponent,
-		title: 'Home - CINEMAFUN'
+		title: 'Home'
 	}
 ]

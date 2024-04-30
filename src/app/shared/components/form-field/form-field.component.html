@@ -1,4 +1,4 @@
-<label [tuiLabel]="formFieldLabel" [htmlFor]="id">
+<label [tuiLabel]="formFieldLabel" [htmlFor]="id" [ngClass]="{ 'no-margin': label === '' }">
 	@switch (type) {
 		@case ('number') {
 			<tui-input-number

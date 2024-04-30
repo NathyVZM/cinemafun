@@ -4,6 +4,7 @@
 
 :host {
 	@include m.flex(center, stretch, column, wrap);
+	--tui-radius-xl: 100px;
 }
 
 a,
@@ -12,8 +13,8 @@ button {
 	box-shadow: none;
 	font-weight: 500;
 	transition: all 0.4s ease;
-	padding-inline: 2.5rem;
-	@include m.flex(center, center, row, wrap, v.$sp-small);
+	padding: v.$sp-extra-small v.$sp-semi-large;
+	@include m.flex(center, center, row, wrap, v.$sp-semi-small);
 
 	span {
 		color: c.$white;
@@ -33,4 +34,9 @@ button {
 			color: c.$background;
 		}
 	}
+}
+
+.is-loading {
+	background-color: c.$primary;
+	color: c.$background;
 }

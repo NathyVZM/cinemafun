@@ -10,7 +10,7 @@
 	--tui-clear-inverse: #{c.$container};
 	--tui-clear-inverse-hover: #{opacify(c.$container, 0.02)};
 	--tui-autofill-night: #{desaturate(darken(c.$secondary, 40%), 70%)};
-	--tui-font-text-s: normal #{v.$fs-regular} var(--tui-font-text);
+	--tui-font-text-s: normal v.$fs-regular var(--tui-font-text);
 	--tui-disabled-opacity: 0.5;
 }
 

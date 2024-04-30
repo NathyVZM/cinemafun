@@ -12,6 +12,70 @@
 	--tui-font-heading: 'Montserrat', sans-serif;
 }
 
+// button
+
+cf-button {
+	.cf-button {
+		.t-left {
+			@include m.square(v.$fs-extra-regular, true);
+
+			tui-svg {
+				@include m.square(v.$fs-extra-regular, true);
+			}
+		}
+	}
+
+	.cf-fab-button {
+		.t-left {
+			@include m.square(v.$fs-big, true);
+
+			tui-svg {
+				@include m.square(v.$fs-big, true);
+			}
+		}
+	}
+
+	.t-src svg {
+		fill: #{c.$background};
+		@include m.square(inherit);
+	}
+}
+
+button {
+	&.cf-button .t-wrapper {
+		padding: v.$sp-regular v.$sp-big !important;
+	}
+
+	&.cf-fab-button .t-wrapper {
+		padding: v.$sp-regular !important;
+	}
+}
+
+tui-loader {
+	.t-content {
+		@include m.flex(center, stretch, column, wrap, $important: true);
+		outline: none;
+		border: none;
+	}
+
+	.t-content_loading {
+		@include m.flex(center, stretch, column, wrap, $important: true);
+	}
+}
+
+// form field
+
+cf-form-field {
+	.t-icon_left tui-svg {
+		@include m.square(v.$fs-extra-regular, true);
+	}
+
+	.t-src svg {
+		fill: c.$white;
+		@include m.square(inherit);
+	}
+}
+
 [tuiWrapper]::after {
 	border: none !important;
 }
@@ -24,58 +88,16 @@
 	}
 }
 
-button {
-	&.cf-button .t-wrapper {
-		padding: 16px 24px !important;
-	}
-
-	&.cf-fab-button .t-wrapper {
-		padding: 16px !important;
-	}
-}
-
 .t-filler {
-	line-height: 48px !important;
-}
-
-cf-form-field {
-	.t-icon_left tui-svg {
-		@include m.square(v.$fs-medium, true);
-	}
-
-	.t-src svg {
-		fill: c.$white;
-		@include m.square(inherit);
-	}
-}
-
-cf-button {
-	.cf-button {
-		.t-left {
-			@include m.square(v.$fs-medium, true);
-
-			tui-svg {
-				@include m.square(v.$fs-medium, true);
-			}
-		}
-	}
-
-	.cf-fab-button {
-		.t-left {
-			@include m.square(v.$fs-extra-large, true);
-
-			tui-svg {
-				@include m.square(v.$fs-extra-large, true);
-			}
-		}
-	}
-
-	.t-src svg {
-		fill: #{c.$background};
-		@include m.square(inherit);
-	}
+	line-height: v.$fs-extra-great !important;
 }
 
 tui-hint {
-	line-height: 20px !important;
+	line-height: v.$fs-medium !important;
+}
+
+.no-margin {
+	.t-label {
+		margin-bottom: 0 !important;
+	}
 }
