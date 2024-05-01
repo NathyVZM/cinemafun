@@ -22,21 +22,21 @@ button {
 	}
 
 	cf-icon {
-		color: c.$primary;
+		color: c.$brilliant-rose;
 	}
 
 	&:hover {
-		background-color: c.$primary;
+		background-color: c.$brilliant-rose;
 		transform: none;
 		box-shadow: none;
 
 		> * {
-			color: c.$background;
+			color: c.$night;
 		}
 	}
 }
 
 .is-loading {
-	background-color: c.$primary;
-	color: c.$background;
+	background-color: c.$brilliant-rose;
+	color: c.$night;
 }

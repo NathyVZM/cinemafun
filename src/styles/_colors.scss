@@ -1,10 +1,76 @@
-$background: #0f0f15;
-$container: #ffffff0d;
-$container-lighter: #ffffff12;
-$primary: #ff4ab0;
-$secondary: #5cc8ff;
-$tertiary: #ffcc70;
-$success: #40f99b;
-$error: #ff384f;
-$text-secondary: #8e92aa;
+/// Color for the app background and texts
+/// @type Color
+/// @access public
+/// @group Colors
+$night: #0f0f15;
+
+/// Color for the containers and sections
+/// @type Color
+/// @access public
+/// @group Colors
+$platinum: #ffffff0d;
+
+/// Lighter color for containers and sections
+/// @type Color
+/// @access public
+/// @group Colors
+$ghost-white: #ffffff12;
+
+/// Primary color for CTAs and buttons
+/// @type Color
+/// @access public
+/// @group Colors
+$brilliant-rose: #ff4ab0;
+
+/// Secondary color for CTAs and buttons
+/// @type Color
+/// @access public
+/// @group Colors
+$deep-sky-blue: #5cc8ff;
+
+/// Tertiary color for CTAs, buttons and warning events
+/// @type Color
+/// @access public
+/// @group Colors
+$sunglow: #ffcc70;
+
+/// Color for successful events
+/// @type Color
+/// @access public
+/// @group Colors
+$spring-green: #40f99b;
+
+/// Color for faulty events
+/// @type Color
+/// @access public
+/// @group Colors
+$folly: #ff384f;
+
+/// Color for primary texts
+/// @type Color
+/// @access public
+/// @group Colors
 $white: white;
+
+// Color for secondary texts
+/// @type Color
+/// @access public
+/// @group Colors
+$cool-gray: #8e92aa;
+
+/// List of colors used in the app
+/// @type List
+/// @access public
+/// @group Colors
+$colors: (
+	'bg-primary': $night,
+	'bg-secondary': $platinum,
+	'bg-secondary-light': $ghost-white,
+	'primary': $brilliant-rose,
+	'secondary': $deep-sky-blue,
+	'tertiary': $sunglow,
+	'success': $spring-green,
+	'error': $folly,
+	'text-primary': $white,
+	'text-secondary': $cool-gray
+);

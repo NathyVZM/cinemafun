@@ -10,15 +10,9 @@
 	}
 }
 
-// colors
-.primary {
-	color: c.$primary;
-}
-
-.secondary {
-	color: c.$secondary;
-}
-
-.tertiary {
-	color: c.$tertiary;
+// Colors
+@each $name, $color in c.$colors {
+	.#{$name} {
+		width: $color !important;
+	}
 }

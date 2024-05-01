@@ -3,10 +3,10 @@
 @use 'mixins' as m;
 
 :root {
-	--tui-base-01: #{c.$background} !important;
-	--tui-primary: #{c.$primary};
-	--tui-primary-hover: #{darken(c.$primary, 5%)};
-	--tui-primary-active: #{darken(c.$primary, 10%)};
+	--tui-base-01: #{c.$night} !important;
+	--tui-primary: #{c.$brilliant-rose};
+	--tui-primary-hover: #{darken(c.$brilliant-rose, 5%)};
+	--tui-primary-active: #{darken(c.$brilliant-rose, 10%)};
 	--tui-text-font: 'Hind Madurai', sans-serif;
 	--tui-text-heading: 'Montserrat', sans-serif;
 	--tui-font-heading: 'Montserrat', sans-serif;
@@ -36,7 +36,7 @@ cf-button {
 	}
 
 	.t-src svg {
-		fill: #{c.$background};
+		fill: #{c.$night};
 		@include m.square(inherit);
 	}
 }

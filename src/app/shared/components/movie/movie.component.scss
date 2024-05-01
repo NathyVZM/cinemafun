@@ -3,7 +3,7 @@
 @use 'mixins' as m;
 
 :host {
-	--tui-elevation-02: #{c.$background};
+	--tui-elevation-02: #{c.$night};
 	--tui-font-heading-6: 500 #{v.$fs-regular}/ 1 var(--tui-font-text);
 	width: 100%;
 	height: 32rem;
@@ -47,7 +47,7 @@ a {
 		@include m.flex(space-between, stretch, column, wrap, 8px);
 
 		> div {
-			@include m.flex(flex-start, stretch, column, wrap);
+			@include m.flex(flex-start, stretch, column, wrap, 4px);
 		}
 	}
 }

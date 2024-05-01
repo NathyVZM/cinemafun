@@ -9,7 +9,7 @@
 }
 
 a {
-	color: c.$primary;
+	color: c.$brilliant-rose;
 	text-decoration: none;
 	outline: none;
 	@include m.flex($align: center, $gap: v.$fs-small);
@@ -17,5 +17,5 @@ a {
 
 h1,
 h2 {
-	color: c.$primary;
+	color: c.$brilliant-rose;
 }

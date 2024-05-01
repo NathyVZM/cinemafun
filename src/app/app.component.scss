@@ -3,7 +3,7 @@
 @use 'variables' as v;
 
 #lights {
-	background-color: c.$background;
+	background-color: c.$night;
 	@include m.square(100%);
 	position: fixed;
 	@include m.position(0, $left: 0);
@@ -48,6 +48,5 @@
 
 tui-root {
 	min-height: 100dvh;
-	height: 100dvh;
 	padding: v.$sp-medium;
 }

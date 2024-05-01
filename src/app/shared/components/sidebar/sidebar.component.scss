@@ -20,7 +20,7 @@ menu {
 }
 
 section {
-	background-color: c.$container;
+	background-color: c.$platinum;
 	border-radius: 2rem;
 	padding: 18px;
 	width: 100%;
@@ -32,8 +32,8 @@ section {
 		@include m.flex(space-between, center, row, wrap, v.$sp-small);
 
 		> cf-icon {
-			background-color: c.$primary;
-			color: c.$background;
+			background-color: c.$brilliant-rose;
+			color: c.$night;
 			padding: v.$fs-extra-small;
 			border-radius: 100%;
 		}
@@ -49,7 +49,7 @@ section {
 
 			p:last-child {
 				font-size: v.$fs-semi-small;
-				color: c.$text-secondary;
+				color: c.$cool-gray;
 				font-weight: 500;
 				width: 100%;
 			}
@@ -66,7 +66,7 @@ section {
 
 			> p {
 				font-size: v.$fs-semi-small;
-				color: c.$text-secondary;
+				color: c.$cool-gray;
 			}
 
 			> div {
@@ -75,11 +75,11 @@ section {
 				p {
 					font-size: v.$fs-medium;
 					font-weight: 500;
-					color: c.$primary;
+					color: c.$brilliant-rose;
 				}
 
 				cf-icon {
-					color: c.$primary;
+					color: c.$brilliant-rose;
 				}
 			}
 		}

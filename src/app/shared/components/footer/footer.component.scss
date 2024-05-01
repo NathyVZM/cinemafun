@@ -16,11 +16,11 @@ li {
 }
 
 a {
-	color: c.$text-secondary;
+	color: c.$cool-gray;
 	transition: all 0.2s ease;
 
 	&:hover {
-		color: lighten($color: c.$text-secondary, $amount: 10%);
+		color: lighten($color: c.$cool-gray, $amount: 10%);
 	}
 }
 
@@ -30,6 +30,6 @@ section {
 
 	> small {
 		font-size: v.$fs-extra-small;
-		color: c.$text-secondary;
+		color: c.$cool-gray;
 	}
 }
