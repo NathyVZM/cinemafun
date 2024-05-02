@@ -6,10 +6,6 @@
 	min-width: 0;
 }
 
-body {
-	min-height: 100dvh;
-}
-
 h1,
 h2,
 h3,
@@ -19,6 +15,7 @@ h6 {
 	text-wrap: balance;
 }
 
-p {
+p,
+span {
 	text-wrap: pretty;
 }

@@ -4,6 +4,12 @@
 
 :host {
 	width: 14.5rem;
+	height: 88.608dvh;
+	position: sticky;
+	top: 88px;
+	border-radius: 2rem;
+	animation: on-scroll linear;
+	animation-timeline: scroll(root block);
 }
 
 nav {

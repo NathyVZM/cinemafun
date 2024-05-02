@@ -1,26 +1,27 @@
 @use 'mixins' as m;
+@use 'variables' as v;
 
 :host {
 	width: 100%;
 	height: 100%;
-	@include m.flex($align: stretch, $direction: column, $gap: 20px);
+	position: relative;
+	@include m.flex($align: stretch, $direction: column);
 }
 
 div {
 	flex: 1;
-	@include m.flex(space-between, stretch, $gap: 20px);
+	padding-inline: v.$sp-medium;
+	@include m.flex(space-between, stretch, $gap: v.$sp-medium);
 
 	section {
 		flex: 1;
-		@include m.flex(flex-start, stretch, column, wrap);
+		@include m.flex(flex-start, stretch, column, wrap, v.$sp-medium);
 
 		main {
 			flex: 1;
 			display: grid;
 			grid-template-columns: repeat(5, 1fr);
-			grid-gap: 16px;
-
-			// @include m.flex(flex-start, flex-start, row, wrap, 20px);
+			grid-gap: v.$sp-regular;
 		}
 	}
 }

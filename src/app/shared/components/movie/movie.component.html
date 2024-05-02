@@ -1,15 +1,15 @@
 <a tuiIsland [hoverable]="true">
 	<figure class="tui-island__figure">
-		<img src="assets/descargar.jpeg" alt="" />
+		<img [src]="'assets/' + poster" [alt]="title + 'poster'" />
 	</figure>
 	<section class="tui-island__content">
 		<div>
-			<p class="tui-island__title">{{ 'A movie here' }}</p>
-			<p class="tui-island__paragraph">{{ 'Action/Adventure' }}</p>
+			<tui-line-clamp class="tui-island__title" [content]="title" [lineHeight]="16" [linesLimit]="1"></tui-line-clamp>
+			<p class="tui-island__paragraph">{{ genre | genre }}</p>
 		</div>
 		<p class="tui-island__paragraph">
-			<span>{{ '2 hr 11 min' | uppercase }}</span>
-			<span>{{ ' | PG' }}</span>
+			<span>{{ runtime | runtime }}</span>
+			<span>{{ classification | classification }}</span>
 		</p>
 	</section>
 </a>

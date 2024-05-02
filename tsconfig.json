@@ -29,6 +29,8 @@
 			"@features": ["app/features/features.index"],
 			"@models/*": ["app/core/models/*"],
 			"@models": ["app/core/models/models.index"],
+			"@pipes/*": ["app/shared/pipes/*"],
+			"@pipes": ["app/shared/pipes/pipes.index"],
 			"@services/*": ["app/core/services/*"],
 			"@services": ["app/core/services/services.index"]
 		}

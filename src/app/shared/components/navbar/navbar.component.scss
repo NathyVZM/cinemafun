@@ -1,8 +1,18 @@
 @use 'mixins' as m;
 @use 'variables' as v;
+@use 'colors' as c;
+
+:host {
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	animation: on-scroll linear;
+	animation-timeline: scroll(root block);
+}
 
 header {
 	@include m.flex(space-between, stretch, row, wrap, v.$fs-medium);
+	padding: v.$sp-medium;
 }
 
 form {
@@ -11,4 +21,47 @@ form {
 
 button {
 	display: none;
+}
+
+cf-form-field {
+	animation: on-scroll-input linear;
+	animation-timeline: scroll();
+}
+
+@keyframes on-scroll {
+	5% {
+		// background-color: rgba(77, 70, 95, 0.2);
+		backdrop-filter: blur(5rem);
+		border-bottom: 1px solid c.$brilliant-rose;
+	}
+
+	50% {
+		border-bottom: 1px solid c.$deep-sky-blue;
+	}
+
+	100% {
+		// background-color: rgba(77, 70, 95, 0.2);
+		backdrop-filter: blur(5rem);
+		border-bottom: 1px solid c.$sunglow;
+	}
+}
+
+@keyframes on-scroll-input {
+	5% {
+		--tui-clear-active: #{opacify(c.$platinum, 0.06)};
+		--tui-clear-inverse: #{opacify(c.$platinum, 0.06)};
+		--tui-clear-inverse-hover: #{opacify(c.$platinum, 0.08)};
+		--tui-text-02-night: #{lighten(c.$cool-gray, 20%)};
+		--tui-text-03-night: #{lighten(c.$cool-gray, 25%)};
+		--tui-autofill-night: #{desaturate(darken(c.$deep-sky-blue, 30%), 70%)};
+	}
+
+	100% {
+		--tui-clear-active: #{opacify(c.$platinum, 0.06)};
+		--tui-clear-inverse: #{opacify(c.$platinum, 0.06)};
+		--tui-clear-inverse-hover: #{opacify(c.$platinum, 0.08)};
+		--tui-text-02-night: #{lighten(c.$cool-gray, 20%)};
+		--tui-text-03-night: #{lighten(c.$cool-gray, 25%)};
+		--tui-autofill-night: #{desaturate(darken(c.$deep-sky-blue, 30%), 70%)};
+	}
 }

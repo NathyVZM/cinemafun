@@ -4,14 +4,14 @@
 	<cf-sidebar />
 	<section>
 		<main>
-			<!-- <p>main works!</p> -->
-			<cf-movie />
-			<cf-movie />
-			<cf-movie />
-			<cf-movie />
-			<cf-movie />
-			<cf-movie />
-			<cf-movie />
+			@for (movie of movies; track movie.id) {
+				<cf-movie
+					[title]="movie.title"
+					[poster]="movie.poster"
+					[genre]="movie.genre"
+					[runtime]="movie.runtime"
+					[classification]="movie.classification" />
+			}
 		</main>
 		<cf-footer />
 	</section>
