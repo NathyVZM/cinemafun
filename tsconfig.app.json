@@ -1,14 +1,24 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "outDir": "./out-tsc/app",
-    "types": []
-  },
-  "files": [
-    "src/main.ts"
-  ],
-  "include": [
-    "src/**/*.d.ts"
-  ]
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"outDir": "./out-tsc/app",
+		"types": [],
+		"paths": {
+			"@components/*": ["app/shared/components/*"],
+			"@components": ["app/shared/components/components.index"],
+			"@data/*": ["app/core/data/*"],
+			"@data": ["app/core/data/data.index"],
+			"@features/*": ["app/features/*"],
+			"@features": ["app/features/features.index"],
+			"@models/*": ["app/core/models/*"],
+			"@models": ["app/core/models/models.index"],
+			"@pipes/*": ["app/shared/pipes/*"],
+			"@pipes": ["app/shared/pipes/pipes.index"],
+			"@services/*": ["app/core/services/*"],
+			"@services": ["app/core/services/services.index"]
+		}
+	},
+	"files": ["src/main.ts"],
+	"include": ["src/**/*.d.ts"]
 }

@@ -1,7 +1,7 @@
 import { booleanAttribute, Component, Input } from '@angular/core'
 import { RouterLink } from '@angular/router'
 import { TuiTitleModule } from '@taiga-ui/experimental'
-import { IconComponent } from '@components'
+import { IconComponent } from '../icon/icon.component'
 
 @Component({
 	selector: 'cf-logo',

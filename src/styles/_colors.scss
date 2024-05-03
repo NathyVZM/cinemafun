@@ -2,7 +2,7 @@
 /// @type Color
 /// @access public
 /// @group Colors
-$night: #0f0f15;
+$night: #171720;
 
 /// Color for the containers and sections
 /// @type Color
@@ -57,20 +57,3 @@ $white: white;
 /// @access public
 /// @group Colors
 $cool-gray: #8e92aa;
-
-/// List of colors used in the app
-/// @type List
-/// @access public
-/// @group Colors
-$colors: (
-	'bg-primary': $night,
-	'bg-secondary': $platinum,
-	'bg-secondary-light': $ghost-white,
-	'primary': $brilliant-rose,
-	'secondary': $deep-sky-blue,
-	'tertiary': $sunglow,
-	'success': $spring-green,
-	'error': $folly,
-	'text-primary': $white,
-	'text-secondary': $cool-gray
-);

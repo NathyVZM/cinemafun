@@ -5,23 +5,20 @@
 	width: 100%;
 	height: 100%;
 	position: relative;
-	@include m.flex($align: stretch, $direction: column);
+	@include m.flex($align: stretch, $direction: column, $gap: v.$sp-tiny);
 }
 
 div {
 	flex: 1;
 	padding-inline: v.$sp-medium;
-	@include m.flex(space-between, stretch, $gap: v.$sp-medium);
+	@include m.flex(space-between, stretch, $gap: v.$sp-big);
 
 	section {
 		flex: 1;
-		@include m.flex(flex-start, stretch, column, wrap, v.$sp-medium);
+		@include m.flex(flex-start, stretch, column, wrap, v.$sp-big);
 
 		main {
 			flex: 1;
-			display: grid;
-			grid-template-columns: repeat(5, 1fr);
-			grid-gap: v.$sp-regular;
 		}
 	}
 }

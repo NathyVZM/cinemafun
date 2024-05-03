@@ -4,14 +4,7 @@
 	<cf-sidebar />
 	<section>
 		<main>
-			@for (movie of movies; track movie.id) {
-				<cf-movie
-					[title]="movie.title"
-					[poster]="movie.poster"
-					[genre]="movie.genre"
-					[runtime]="movie.runtime"
-					[classification]="movie.classification" />
-			}
+			<router-outlet />
 		</main>
 		<cf-footer />
 	</section>

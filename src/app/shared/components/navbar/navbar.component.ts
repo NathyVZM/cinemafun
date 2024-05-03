@@ -4,7 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms'
 import { TuiTextfieldControllerModule } from '@taiga-ui/core'
 import { TuiInputModule } from '@taiga-ui/kit'
 
-import { FormFieldComponent, LogoComponent } from '@components'
+import { FormFieldComponent, LogoComponent } from '@components/components.index'
 
 @Component({
 	selector: 'cf-navbar',

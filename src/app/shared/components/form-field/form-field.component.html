@@ -1,8 +1,8 @@
-<label [tuiLabel]="formFieldLabel" [htmlFor]="id" [ngClass]="{ 'no-margin': label === '' }">
+<label [tuiLabel]="formFieldLabel" [htmlFor]="nativeId" [ngClass]="{ 'no-margin': label === '' }">
 	@switch (type) {
 		@case ('number') {
 			<tui-input-number
-				[nativeId]="id"
+				[nativeId]="nativeId"
 				[tuiTextfieldLabelOutside]="true"
 				[tuiTextfieldCleaner]="showCleaner"
 				[tuiTextfieldIconLeft]="iconLeft"
@@ -21,7 +21,7 @@
 
 		@case ('password') {
 			<tui-input-password
-				[nativeId]="id"
+				[nativeId]="nativeId"
 				[tuiTextfieldLabelOutside]="true"
 				[tuiTextfieldCleaner]="showCleaner"
 				[tuiTextfieldIconLeft]="iconLeft"
@@ -40,7 +40,7 @@
 
 		@default {
 			<tui-input
-				[nativeId]="id"
+				[nativeId]="nativeId"
 				[tuiTextfieldLabelOutside]="true"
 				[tuiTextfieldCleaner]="showCleaner"
 				[tuiTextfieldIconLeft]="iconLeft"
@@ -56,7 +56,7 @@
 				{{ placeholder }}
 				<input
 					tuiTextfield
-					[id]="id"
+					[id]="nativeId"
 					[type]="type"
 					[placeholder]="placeholder"
 					[disabled]="isDisabled"

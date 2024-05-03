@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router'
 import { CommonModule } from '@angular/common'
 import { TuiLoaderModule } from '@taiga-ui/core'
 import { TuiActionModule } from '@taiga-ui/kit'
-import { IconComponent } from '@components'
+import { IconComponent } from '@components/components.index'
 
 @Component({
 	selector: 'cf-navigation-item',

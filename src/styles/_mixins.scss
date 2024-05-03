@@ -1,12 +1,42 @@
+/// Mixin for setting width and height
+/// @access public
+/// @group Mixins
+/// @param {Number} $width - The width to set
+/// @param {Number} $height - The height to set
+/// @param {Boolean} $important - Whether to add !important to the property
+/// @example scss - Using the size mixin
+///   .element {
+///     @include size(100px, 200px);
+///   }
 @mixin size($width, $height, $important: false) {
 	width: is-important($width, $important);
 	height: is-important($height, $important);
 }
 
+/// Mixin for setting equal width and height
+/// @access public
+/// @group Mixins
+/// @param {Number} $size - The size to set for both width and height
+/// @param {Boolean} $important - Whether to add !important to the property
+/// @example scss - Using the square mixin
+///   .element {
+///     @include square(100px);
+///   }
 @mixin square($size, $important: false) {
 	@include size($size, $size, $important);
 }
 
+/// Mixin for setting position properties
+/// @access public
+/// @group Mixins
+/// @param {Number} $top - The top position
+/// @param {Number} $bottom - The bottom position
+/// @param {Number} $left - The left position
+/// @param {Number} $right - The right position
+/// @example scss - Using the position mixin
+///   .element {
+///     @include position($top: 10px, $left: 20px);
+///   }
 @mixin position($top: null, $bottom: null, $left: null, $right: null) {
 	$positions: (
 		'top': $top,
@@ -22,6 +52,19 @@
 	}
 }
 
+/// Mixin for setting flex properties
+/// @access public
+/// @group Mixins
+/// @param {String} $justify - The justify-content property
+/// @param {String} $align - The align-items property
+/// @param {String} $direction - The flex-direction property
+/// @param {String} $wrap - The flex-wrap property
+/// @param {Number} $gap - The gap property
+/// @param {Boolean} $important - Whether to add !important to the property
+/// @example scss - Using the flex mixin
+///   .element {
+///     @include flex($justify: center, $align: center);
+///   }
 @mixin flex($justify: flex-start, $align: flex-start, $direction: row, $wrap: nowrap, $gap: 0, $important: false) {
 	display: is-important(flex, $important);
 	justify-content: $justify;
@@ -30,6 +73,12 @@
 	gap: $gap;
 }
 
+/// Function to add !important to a property if needed
+/// @access private
+/// @group Mixins
+/// @param {*} $value - The value of the property
+/// @param {Boolean} $important - Whether to add !important
+/// @return {*} - The value with or without !important
 @function is-important($value, $important) {
 	@return $value if($important, !important, null);
 }

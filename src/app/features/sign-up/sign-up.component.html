@@ -1,1 +1,36 @@
-<p>sign-up works!</p>
+<header id="header">
+	<cf-logo />
+</header>
+
+<main>
+	<section id="form-box">
+		<header>
+			<h3 [tuiTitle]="'m'">Start for free</h3>
+			<h2 [tuiTitle]="'l'">Create new account</h2>
+		</header>
+
+		<form [formGroup]="form" id="form">
+			@for (field of formFields; track field.id) {
+				<cf-form-field
+					[id]="field.id"
+					[nativeId]="field.id"
+					[formControlName]="field.formControlName"
+					[id]="field.id"
+					[type]="field.type"
+					[placeholder]="field.placeholder"
+					[iconLeft]="field.icon"
+					[label]="field.label"
+					[isRequired]="field.isRequired" />
+			}
+		</form>
+
+		<footer>
+			<cf-button [type]="'submit'" [label]="'Create account'" [form]="'form'" />
+		</footer>
+	</section>
+	<section id="carousel-box">
+		<figure>
+			<img src="assets/descargar.jpeg" alt="" />
+		</figure>
+	</section>
+</main>

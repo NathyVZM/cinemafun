@@ -38,10 +38,10 @@ import { TuiInputModule, TuiInputNumberModule, TuiInputPasswordModule } from '@t
 	styleUrl: './form-field.component.scss'
 })
 export class FormFieldComponent implements ControlValueAccessor {
-	@Input({ required: true }) id = ''
+	@Input({ required: true }) nativeId = ''
 	@Input({ required: true }) placeholder = ''
 	@Input({ required: true }) type: 'text' | 'email' | 'password' | 'number' = 'text'
-	@Input() label = ''
+	@Input() label: string = ''
 	@Input() iconLeft = ''
 	@Input() iconRight = ''
 	@Input() filler = ''

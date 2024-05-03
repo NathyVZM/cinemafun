@@ -1,15 +1,15 @@
-<a tuiIsland [hoverable]="true">
+<a tuiIsland [hoverable]="true" [routerLink]="['movie', id]">
 	<figure class="tui-island__figure">
 		<img [src]="'assets/' + poster" [alt]="title + 'poster'" />
 	</figure>
 	<section class="tui-island__content">
 		<div>
-			<tui-line-clamp class="tui-island__title" [content]="title" [lineHeight]="16" [linesLimit]="1"></tui-line-clamp>
+			<tui-line-clamp class="tui-island__title" [content]="title" [lineHeight]="16" [linesLimit]="1" />
 			<p class="tui-island__paragraph">{{ genre | genre }}</p>
 		</div>
 		<p class="tui-island__paragraph">
 			<span>{{ runtime | runtime }}</span>
-			<span>{{ classification | classification }}</span>
+			<span [ngClass]="getClassificationColor()">{{ classification | classification }}</span>
 		</p>
 	</section>
 </a>

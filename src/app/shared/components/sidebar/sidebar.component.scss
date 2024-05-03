@@ -6,7 +6,7 @@
 	width: 14.5rem;
 	height: 88.608dvh;
 	position: sticky;
-	top: 88px;
+	top: 92px;
 	border-radius: 2rem;
 	animation: on-scroll linear;
 	animation-timeline: scroll(root block);
@@ -35,7 +35,7 @@ section {
 	> #info {
 		width: 100%;
 		flex: 1;
-		@include m.flex(space-between, center, row, wrap, v.$sp-small);
+		@include m.flex(space-between, center, row, wrap, v.$sp-semi-small);
 
 		> cf-icon {
 			background-color: c.$brilliant-rose;
@@ -48,12 +48,12 @@ section {
 			@include m.flex(center, flex-start, column, wrap, v.$sp-tiny);
 			flex: 1;
 
-			p:first-child {
+			tui-line-clamp:first-child {
 				font-size: v.$fs-regular;
 				width: 100%;
 			}
 
-			p:last-child {
+			tui-line-clamp:last-child {
 				font-size: v.$fs-semi-small;
 				color: c.$cool-gray;
 				font-weight: 500;

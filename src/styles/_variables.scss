@@ -4,7 +4,7 @@ $sp-small: 0.5rem;
 $sp-semi-small: 0.75rem;
 $sp-extra-small: 0.875rem;
 $sp-regular: 1rem;
-$fs-extra-regular: 1.125rem;
+$sp-extra-regular: 1.125rem;
 $sp-medium: 1.25rem;
 $sp-big: 1.5rem;
 $sp-extra-big: 1.75rem;
@@ -53,27 +53,3 @@ $bp-lg-desktop: 87.5rem;
 // rules for spacing/fonts
 // 0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72
 //
-
-// Export font sizes as a list
-$font-sizes: (
-	'fs-tiny': $fs-tiny,
-	'fs-small': $fs-small,
-	'fs-semi-small': $fs-semi-small,
-	'fs-extra-small': $fs-extra-small,
-	'fs-regular': $fs-regular,
-	'fs-extra-regular': $fs-extra-regular,
-	'fs-medium': $fs-medium,
-	'fs-big': $fs-big,
-	'fs-extra-big': $fs-extra-big,
-	'fs-large': $fs-large,
-	'fs-semi-large': $fs-semi-large,
-	'fs-extra-large': $fs-extra-large,
-	'fs-great': $fs-great,
-	'fs-extra-great': $fs-extra-great,
-	'fs-huge': $fs-huge,
-	'fs-extra-huge': $fs-extra-huge,
-	'fs-massive': $fs-massive,
-	'fs-extra-massive': $fs-extra-massive,
-	'fs-giant': $fs-giant,
-	'fs-colossal': $fs-colossal
-);

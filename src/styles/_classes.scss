@@ -1,18 +1,71 @@
 @use 'variables' as v;
 @use 'colors' as c;
 
-// Font sizes
-@each $name, $size in v.$font-sizes {
+/// Font sizes
+/// List of font sizes used in the app
+/// @type List
+/// @access private
+/// @group FontSizes
+$-font-sizes: (
+	'fs-tiny': v.$fs-tiny,
+	'fs-small': v.$fs-small,
+	'fs-semi-small': v.$fs-semi-small,
+	'fs-extra-small': v.$fs-extra-small,
+	'fs-regular': v.$fs-regular,
+	'fs-extra-regular': v.$fs-extra-regular,
+	'fs-medium': v.$fs-medium,
+	'fs-big': v.$fs-big,
+	'fs-extra-big': v.$fs-extra-big,
+	'fs-large': v.$fs-large,
+	'fs-semi-large': v.$fs-semi-large,
+	'fs-extra-large': v.$fs-extra-large,
+	'fs-great': v.$fs-great,
+	'fs-extra-great': v.$fs-extra-great,
+	'fs-huge': v.$fs-huge,
+	'fs-extra-huge': v.$fs-extra-huge,
+	'fs-massive': v.$fs-massive,
+	'fs-extra-massive': v.$fs-extra-massive,
+	'fs-giant': v.$fs-giant,
+	'fs-colossal': v.$fs-colossal
+);
+
+@each $name, $size in $-font-sizes {
 	.#{$name} {
 		width: $size !important;
 		height: $size !important;
 		font-size: $size !important;
+
+		svg {
+			width: $size !important;
+			height: $size !important;
+		}
 	}
 }
 
-// Colors
-@each $name, $color in c.$colors {
+/// Colors
+/// List of colors used in the app
+/// @type List
+/// @access private
+/// @group Colors
+$-colors: (
+	'bg-primary': c.$night,
+	'bg-secondary': c.$platinum,
+	'bg-secondary-light': c.$ghost-white,
+	'primary': c.$brilliant-rose,
+	'secondary': c.$deep-sky-blue,
+	'tertiary': c.$sunglow,
+	'success': c.$spring-green,
+	'error': c.$folly,
+	'text-primary': c.$white,
+	'text-secondary': c.$cool-gray
+);
+
+@each $name, $color in $-colors {
 	.#{$name} {
-		width: $color !important;
+		color: $color !important;
+
+		svg {
+			fill: $color !important;
+		}
 	}
 }

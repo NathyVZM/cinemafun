@@ -1,0 +1,7 @@
+@use 'variables' as v;
+
+:host {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-gap: v.$sp-regular;
+}

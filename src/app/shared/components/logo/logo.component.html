@@ -2,8 +2,8 @@
 	<cf-icon [icon]="'film-slate'" [classes]="{ subtitle: isSubtitle, primary: true, 'fs-extra-big': true }" />
 
 	@if (isSubtitle) {
-		<h2 tuiTitle="s">CINEMAFUN</h2>
+		<h2 [tuiTitle]="'s'">Cinemafun</h2>
 	} @else {
-		<h1 tuiTitle="m">CINEMAFUN</h1>
+		<h1 [tuiTitle]="'m'">Cinemafun</h1>
 	}
 </a>

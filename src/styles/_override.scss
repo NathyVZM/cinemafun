@@ -43,7 +43,7 @@ cf-button {
 
 button {
 	&.cf-button .t-wrapper {
-		padding: v.$sp-regular v.$sp-big !important;
+		padding: v.$sp-regular v.$sp-large !important;
 	}
 
 	&.cf-fab-button .t-wrapper {
@@ -87,6 +87,27 @@ cf-form-field {
 		box-shadow: none;
 	}
 }
+
+label .t-label {
+	margin-left: v.$sp-semi-small;
+	margin-bottom: v.$sp-small !important;
+}
+
+// .t-text {
+// 	color: white !important
+// }
+
+// .t-placeholder {
+// 	@media (width <= v.$bp-desktop) {
+// 		font-size: v.$fs-semi-regular !important
+// 	}
+// }
+
+// &:has(tui-input._disabled, tui-input-number._disabled) {
+// 	.t-text {
+// 		color: c.$cool-gray !important
+// 	}
+// }
 
 .t-filler {
 	line-height: v.$fs-extra-great !important;
