@@ -4,11 +4,11 @@
 
 :host {
 	--tui-font-heading-5: 700 #{v.$fs-regular}/ 1 var(--tui-font-heading);
-	--tui-font-heading-3: bold #{v.$fs-great}/ 1 var(--tui-font-heading);
+	--tui-font-heading-3: bold #{v.$fs-extra-large}/ 1 var(--tui-font-heading);
 	padding: v.$sp-great 5rem;
+	position: relative;
 	@include m.size(100%, 100dvh);
 	@include m.flex(flex-start, stretch, column, wrap);
-	position: relative;
 }
 
 #header {
@@ -21,12 +21,12 @@ main {
 }
 
 #form-box {
-	width: 45rem;
+	width: 40dvw;
 	@include m.flex(flex-start, stretch, column, wrap, v.$sp-semi-large);
 
 	> header {
 		width: 100%;
-		@include m.flex(center, stretch, column, wrap, v.$sp-regular);
+		@include m.flex(center, stretch, column, wrap, v.$sp-semi-small);
 
 		h3 {
 			text-transform: uppercase;
@@ -68,24 +68,15 @@ main {
 	position: absolute;
 	right: 0;
 	bottom: 0;
+	width: 65dvw;
 	height: 100dvh;
 	z-index: -1;
 	@include m.flex(center, center);
 
-	figure {
-		// flex: 1;
-		// width: 50dvw;
-		// height: 100%;
+	> img {
 		width: 100%;
 		height: 100%;
-		// border-radius: 50px;
-		@include m.flex(center, stretch);
-
-		> img {
-			width: 100%;
-			object-fit: cover;
-			border-radius: inherit;
-			mask-image: linear-gradient(to left, black 0%, transparent 90%);
-		}
+		object-fit: cover;
+		mask-image: linear-gradient(260deg, black 0%, transparent 80%);
 	}
 }

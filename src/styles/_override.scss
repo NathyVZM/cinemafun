@@ -10,6 +10,8 @@
 	--tui-text-font: 'Hind Madurai', sans-serif;
 	--tui-text-heading: 'Montserrat', sans-serif;
 	--tui-font-heading: 'Montserrat', sans-serif;
+	--tui-negative: #{c.$folly};
+	--tui-negative-night: #{c.$folly};
 }
 
 // button
@@ -93,32 +95,25 @@ label .t-label {
 	margin-bottom: v.$sp-small !important;
 }
 
-// .t-text {
-// 	color: white !important
-// }
-
-// .t-placeholder {
-// 	@media (width <= v.$bp-desktop) {
-// 		font-size: v.$fs-semi-regular !important
-// 	}
-// }
-
-// &:has(tui-input._disabled, tui-input-number._disabled) {
-// 	.t-text {
-// 		color: c.$cool-gray !important
-// 	}
-// }
-
 .t-filler {
 	line-height: v.$fs-extra-great !important;
 }
 
 tui-hint {
 	line-height: v.$fs-medium !important;
+	--tui-elevation-02: #{c.$night};
 }
 
 .no-margin {
 	.t-label {
 		margin-bottom: 0 !important;
+	}
+}
+
+tui-error {
+	--tui-font-text-s: 500 #{v.$fs-regular}/ 1 var(--tui-font-text);
+
+	.t-message-text {
+		margin-left: v.$sp-semi-small;
 	}
 }

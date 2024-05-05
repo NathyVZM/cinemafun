@@ -9,7 +9,7 @@
 			<h2 [tuiTitle]="'l'">Create new account</h2>
 		</header>
 
-		<form [formGroup]="form" id="form">
+		<form [formGroup]="form" id="form" (ngSubmit)="signUp()">
 			@for (field of formFields; track field.id) {
 				<cf-form-field
 					[id]="field.id"
@@ -20,7 +20,8 @@
 					[placeholder]="field.placeholder"
 					[iconLeft]="field.icon"
 					[label]="field.label"
-					[isRequired]="field.isRequired" />
+					[isRequired]="field.isRequired"
+					[hint]="field.hint" />
 			}
 		</form>
 
@@ -28,9 +29,8 @@
 			<cf-button [type]="'submit'" [label]="'Create account'" [form]="'form'" />
 		</footer>
 	</section>
-	<section id="carousel-box">
-		<figure>
-			<img src="assets/descargar.jpeg" alt="" />
-		</figure>
-	</section>
 </main>
+
+<figure id="carousel-box">
+	<img src="assets/descargar.jpeg" alt="" />
+</figure>

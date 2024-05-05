@@ -6,4 +6,5 @@ export interface FormField {
 	placeholder: string
 	icon: string
 	isRequired: boolean
+	hint?: string
 }

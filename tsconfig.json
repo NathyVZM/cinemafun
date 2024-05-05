@@ -32,7 +32,9 @@
 			"@pipes/*": ["app/shared/pipes/*"],
 			"@pipes": ["app/shared/pipes/pipes.index"],
 			"@services/*": ["app/core/services/*"],
-			"@services": ["app/core/services/services.index"]
+			"@services": ["app/core/services/services.index"],
+			"@validators/*": ["app/shared/validators/*"],
+			"@validators": ["app/shared/validators/validators.index"]
 		}
 	},
 	"angularCompilerOptions": {

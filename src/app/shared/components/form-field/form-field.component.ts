@@ -6,9 +6,10 @@ import {
 	TuiTextfieldControllerModule,
 	TuiHintDirection,
 	TuiHintModule,
-	tuiNumberFormatProvider
+	tuiNumberFormatProvider,
+	TuiErrorModule
 } from '@taiga-ui/core'
-import { TuiInputModule, TuiInputNumberModule, TuiInputPasswordModule } from '@taiga-ui/kit'
+import { TuiFieldErrorPipeModule, TuiInputModule, TuiInputNumberModule, TuiInputPasswordModule } from '@taiga-ui/kit'
 
 @Component({
 	selector: 'cf-form-field',
@@ -21,7 +22,9 @@ import { TuiInputModule, TuiInputNumberModule, TuiInputPasswordModule } from '@t
 		TuiInputPasswordModule,
 		TuiTextfieldControllerModule,
 		TuiLabelModule,
-		TuiHintModule
+		TuiHintModule,
+		TuiErrorModule,
+		TuiFieldErrorPipeModule
 	],
 	providers: [
 		{
@@ -41,11 +44,11 @@ export class FormFieldComponent implements ControlValueAccessor {
 	@Input({ required: true }) nativeId = ''
 	@Input({ required: true }) placeholder = ''
 	@Input({ required: true }) type: 'text' | 'email' | 'password' | 'number' = 'text'
-	@Input() label: string = ''
+	@Input() label = ''
 	@Input() iconLeft = ''
 	@Input() iconRight = ''
 	@Input() filler = ''
-	@Input() hint = ''
+	@Input() hint: string | undefined = ''
 	@Input() hintDirection: TuiHintDirection = 'bottom'
 	@Input() prefix = ''
 	@Input() postfix = ''
