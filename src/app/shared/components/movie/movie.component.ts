@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core'
-import { NgClass, UpperCasePipe } from '@angular/common'
+import { NgClass } from '@angular/common'
 import { RouterLink } from '@angular/router'
 import { TuiIslandModule, TuiLineClampModule } from '@taiga-ui/kit'
 import { ClassificationPipe, GenrePipe, RuntimePipe } from '@pipes'
@@ -7,16 +7,7 @@ import { ClassificationPipe, GenrePipe, RuntimePipe } from '@pipes'
 @Component({
 	selector: 'cf-movie',
 	standalone: true,
-	imports: [
-		NgClass,
-		RouterLink,
-		UpperCasePipe,
-		TuiIslandModule,
-		TuiLineClampModule,
-		GenrePipe,
-		RuntimePipe,
-		ClassificationPipe
-	],
+	imports: [NgClass, RouterLink, TuiIslandModule, TuiLineClampModule, GenrePipe, RuntimePipe, ClassificationPipe],
 	templateUrl: './movie.component.html',
 	styleUrl: './movie.component.scss'
 })

@@ -1,5 +1,5 @@
 import { booleanAttribute, Component, Input, output } from '@angular/core'
-import { RouterLink } from '@angular/router'
+import { RouterLink, RouterLinkActive } from '@angular/router'
 import { CommonModule } from '@angular/common'
 import { TuiLoaderModule } from '@taiga-ui/core'
 import { TuiActionModule } from '@taiga-ui/kit'
@@ -8,7 +8,7 @@ import { IconComponent } from '@components/components.index'
 @Component({
 	selector: 'cf-navigation-item',
 	standalone: true,
-	imports: [CommonModule, RouterLink, TuiActionModule, TuiLoaderModule, IconComponent],
+	imports: [CommonModule, RouterLink, RouterLinkActive, TuiActionModule, TuiLoaderModule, IconComponent],
 	templateUrl: './navigation-item.component.html',
 	styleUrl: './navigation-item.component.scss'
 })

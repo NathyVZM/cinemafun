@@ -7,7 +7,7 @@
 		</button>
 	</tui-loader>
 } @else {
-	<a [routerLink]="route" tuiAction>
+	<a tuiAction [routerLink]="route" routerLinkActive="active" ariaCurrentWhenActive="page">
 		<ng-container *ngTemplateOutlet="content"></ng-container>
 	</a>
 }

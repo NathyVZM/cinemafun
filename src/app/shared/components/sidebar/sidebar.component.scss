@@ -22,7 +22,7 @@ menu {
 	flex: 1;
 	width: 100%;
 	list-style-type: none;
-	@include m.flex(flex-start, stretch, column, nowrap);
+	@include m.flex(flex-start, stretch, column, nowrap, v.$sp-small);
 }
 
 section {

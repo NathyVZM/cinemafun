@@ -40,3 +40,15 @@ button {
 	background-color: c.$brilliant-rose;
 	color: c.$night;
 }
+
+.active {
+	background-color: c.$brilliant-rose;
+
+	span {
+		color: c.$night;
+	}
+
+	cf-icon {
+		color: c.$night;
+	}
+}
