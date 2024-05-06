@@ -1,0 +1,5 @@
+export * from './favorites/favorites.component'
+export * from './food-drinks/food-drinks.component'
+export * from './home/home.component'
+export * from './movies/movies.component'
+export * from './main.component'

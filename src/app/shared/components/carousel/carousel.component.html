@@ -1,0 +1,8 @@
+@if (items() | async; as items) {
+	<tui-carousel [duration]="duration()" [draggable]="isDraggable()" [(index)]="index" [ngClass]="{ fade: addFade() }">
+		@for (item of items; track item.id) {
+			<img *tuiItem [src]="item.image" [alt]="item.alt" />
+		}
+	</tui-carousel>
+	<tui-pagination [size]="paginationSize()" [(index)]="index" [length]="items.length" />
+}

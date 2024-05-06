@@ -117,3 +117,22 @@ tui-error {
 		margin-left: v.$sp-semi-small;
 	}
 }
+
+// carousel
+
+tui-carousel {
+	.t-scroller,
+	.t-wrapper,
+	.t-items {
+		@include m.square(100%);
+	}
+
+	.t-item {
+		--tui-carousel-padding: 0;
+	}
+
+	img {
+		@include m.square(100%);
+		object-fit: cover;
+	}
+}

@@ -2,14 +2,16 @@ import { Component } from '@angular/core'
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 import { TuiTitleModule } from '@taiga-ui/experimental'
 import { TUI_VALIDATION_ERRORS } from '@taiga-ui/kit'
-import { FormField } from '@models'
-import { ButtonComponent, FormFieldComponent, LogoComponent } from '@components'
+import { CarouselItem, FormField } from '@models'
+import { ButtonComponent, CarouselComponent, FormFieldComponent, LogoComponent } from '@components'
 import { customMinLengthValidator, customRequiredValidator } from '@validators'
+import { v4 as uuid } from 'uuid'
+import { CoreService } from '@services/core.service'
 
 @Component({
 	selector: 'cf-sign-up',
 	standalone: true,
-	imports: [ReactiveFormsModule, TuiTitleModule, LogoComponent, FormFieldComponent, ButtonComponent],
+	imports: [ReactiveFormsModule, TuiTitleModule, LogoComponent, FormFieldComponent, ButtonComponent, CarouselComponent],
 	providers: [
 		{
 			provide: TUI_VALIDATION_ERRORS,
@@ -61,7 +63,7 @@ export class SignUpComponent {
 			placeholder: '100',
 			icon: 'money',
 			isRequired: true,
-			hint: 'This would be your initial balance when you sign up.'
+			hint: 'Your initial balance when you sign up'
 		},
 		{
 			id: 'ticket',
@@ -71,9 +73,13 @@ export class SignUpComponent {
 			placeholder: '4.45',
 			icon: 'ticket',
 			isRequired: true,
-			hint: 'The base price for the tickets of movies you want to watch.'
+			hint: 'The base price for the tickets of movies you want to watch'
 		}
 	]
+
+	carouselItems = this.coreService.getCarousel()
+
+	constructor(private coreService: CoreService) {}
 
 	signUp() {
 		console.log(this.form.value)

@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router'
-import { HomeComponent } from './home/home.component'
-import { MainComponent } from './main.component'
+import { MainComponent, HomeComponent, MoviesComponent, FavoritesComponent, FoodDrinksComponent } from '@features'
 
 export const mainRoutes: Routes = [
 	{
@@ -14,19 +13,19 @@ export const mainRoutes: Routes = [
 		children: [
 			{
 				path: 'home',
-				loadComponent: () => import('./home/home.component').then(m => m.HomeComponent)
+				component: HomeComponent
 			},
 			{
 				path: 'movies',
-				loadComponent: () => import('./movies/movies.component').then(m => m.MoviesComponent)
+				component: MoviesComponent
 			},
 			{
 				path: 'favorites',
-				loadComponent: () => import('./favorites/favorites.component').then(m => m.FavoritesComponent)
+				component: FavoritesComponent
 			},
 			{
 				path: 'food-drinks',
-				loadComponent: () => import('./food-drinks/food-drinks.component').then(m => m.FoodDrinksComponent)
+				component: FoodDrinksComponent
 			}
 		]
 	}

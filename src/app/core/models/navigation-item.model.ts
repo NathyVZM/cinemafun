@@ -1,4 +1,4 @@
-export interface Navigation {
+export interface NavigationItem {
 	readonly id: string
 	label: string
 	icon: string
