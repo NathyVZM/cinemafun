@@ -1,8 +1,8 @@
-import { AsyncPipe } from '@angular/common'
 import { Component, inject } from '@angular/core'
-import { ButtonComponent, IconComponent, NavigationItemComponent } from '@components/components.index'
-import { CoreService } from '@services/core.service'
+import { AsyncPipe } from '@angular/common'
 import { TuiLineClampModule } from '@taiga-ui/kit'
+import { ButtonComponent, IconComponent, NavigationItemComponent } from '@components'
+import { CoreService } from '@services'
 
 @Component({
 	selector: 'cf-sidebar',

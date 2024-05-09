@@ -1,10 +1,12 @@
 import { Routes } from '@angular/router'
+import { movieResolver, apiConfigurationResolver } from '@services'
 
 export const routes: Routes = [
 	{
 		path: 'sign-up',
 		loadComponent: () => import('./features/sign-up/sign-up.component').then(c => c.SignUpComponent),
-		title: 'Sign up'
+		title: 'Sign up',
+		resolve: { movies: movieResolver, apiConfiguration: apiConfigurationResolver }
 	},
 	{
 		path: '',

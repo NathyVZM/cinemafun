@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core'
 import { User } from '@models/user.model'
 import { first, map, of } from 'rxjs'
 import { v4 as uuid } from 'uuid'
-import { UserService } from './user.service'
+import { UserService } from '../user/user.service'
 
 @Injectable({
 	providedIn: 'root'

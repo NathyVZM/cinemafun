@@ -1,7 +1,7 @@
 <a routerLink="/">
-	<cf-icon [icon]="'film-slate'" [classes]="{ subtitle: isSubtitle, primary: true, 'fs-extra-big': true }" />
+	<cf-icon [icon]="'film-slate'" [classes]="{ subtitle: isSubtitle(), primary: true, 'fs-extra-big': true }" />
 
-	@if (isSubtitle) {
+	@if (isSubtitle()) {
 		<h2 [tuiTitle]="'s'">Cinemafun</h2>
 	} @else {
 		<h1 [tuiTitle]="'m'">Cinemafun</h1>

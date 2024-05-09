@@ -1,67 +1,67 @@
-<label [tuiLabel]="formFieldLabel" [htmlFor]="nativeId" [ngClass]="{ 'no-margin': label === '' }">
-	@switch (type) {
+<label [tuiLabel]="formFieldLabel" [htmlFor]="nativeId()" [ngClass]="{ 'no-margin': label() === '' }">
+	@switch (type()) {
 		@case ('number') {
 			<tui-input-number
-				[nativeId]="nativeId"
+				[nativeId]="nativeId()"
 				[tuiTextfieldLabelOutside]="true"
-				[tuiTextfieldCleaner]="showCleaner"
-				[tuiTextfieldIconLeft]="iconLeft"
-				[tuiTextfieldIcon]="iconRight"
-				[tuiTextfieldFiller]="filler"
-				[tuiTextfieldPrefix]="prefix"
-				[tuiTextfieldPostfix]="postfix"
-				[tuiHintContent]="hint"
-				[tuiHintDirection]="hintDirection"
+				[tuiTextfieldCleaner]="showCleaner()"
+				[tuiTextfieldIconLeft]="iconLeft()"
+				[tuiTextfieldIcon]="iconRight()"
+				[tuiTextfieldFiller]="filler()"
+				[tuiTextfieldPrefix]="prefix()"
+				[tuiTextfieldPostfix]="postfix()"
+				[tuiHintContent]="hint()"
+				[tuiHintDirection]="hintDirection()"
 				[disabled]="isDisabled"
 				[(ngModel)]="value"
 				(ngModelChange)="onNgModelChange($event)">
-				{{ placeholder }}
+				{{ placeholder() }}
 			</tui-input-number>
 		}
 
 		@case ('password') {
 			<tui-input-password
-				[nativeId]="nativeId"
+				[nativeId]="nativeId()"
 				[tuiTextfieldLabelOutside]="true"
-				[tuiTextfieldCleaner]="showCleaner"
-				[tuiTextfieldIconLeft]="iconLeft"
-				[tuiTextfieldIcon]="iconRight"
-				[tuiTextfieldFiller]="filler"
-				[tuiTextfieldPrefix]="prefix"
-				[tuiTextfieldPostfix]="postfix"
-				[tuiHintContent]="hint"
-				[tuiHintDirection]="hintDirection"
+				[tuiTextfieldCleaner]="showCleaner()"
+				[tuiTextfieldIconLeft]="iconLeft()"
+				[tuiTextfieldIcon]="iconRight()"
+				[tuiTextfieldFiller]="filler()"
+				[tuiTextfieldPrefix]="prefix()"
+				[tuiTextfieldPostfix]="postfix()"
+				[tuiHintContent]="hint()"
+				[tuiHintDirection]="hintDirection()"
 				[disabled]="isDisabled"
 				[(ngModel)]="value"
 				(ngModelChange)="onNgModelChange($event)">
-				{{ placeholder }}
+				{{ placeholder() }}
 			</tui-input-password>
 		}
 
 		@default {
 			<tui-input
-				[nativeId]="nativeId"
+				[nativeId]="nativeId()"
 				[tuiTextfieldLabelOutside]="true"
-				[tuiTextfieldCleaner]="showCleaner"
-				[tuiTextfieldIconLeft]="iconLeft"
-				[tuiTextfieldIcon]="iconRight"
-				[tuiTextfieldFiller]="filler"
-				[tuiTextfieldPrefix]="prefix"
-				[tuiTextfieldPostfix]="postfix"
-				[tuiHintContent]="hint"
-				[tuiHintDirection]="hintDirection"
+				[tuiTextfieldCleaner]="showCleaner()"
+				[tuiTextfieldIconLeft]="iconLeft()"
+				[tuiTextfieldIcon]="iconRight()"
+				[tuiTextfieldFiller]="filler()"
+				[tuiTextfieldPrefix]="prefix()"
+				[tuiTextfieldPostfix]="postfix()"
+				[tuiHintContent]="hint()"
+				[tuiHintDirection]="hintDirection()"
 				[disabled]="isDisabled"
 				[(ngModel)]="value"
 				(ngModelChange)="onNgModelChange($event)">
-				{{ placeholder }}
+				{{ placeholder() }}
 				<input
 					tuiTextfield
-					[id]="nativeId"
-					[type]="type"
-					[placeholder]="placeholder"
+					[id]="nativeId()"
+					[type]="type()"
+					[placeholder]="placeholder()"
 					[disabled]="isDisabled"
-					[spellcheck]="spellCheck"
-					[autocapitalize]="autoCapitalize" />
+					[spellcheck]="spellCheck()"
+					[autocapitalize]="autoCapitalize()" />
 			</tui-input>
 		}
 	}
@@ -69,9 +69,9 @@
 </label>
 
 <ng-template #formFieldLabel>
-	{{ label }}
+	{{ label() }}
 
-	@if (isRequired) {
+	@if (isRequired()) {
 		<span class="required">*</span>
 	}
 </ng-template>

@@ -1,5 +1,5 @@
+import { Component, input } from '@angular/core'
 import { NgClass } from '@angular/common'
-import { Component, Input } from '@angular/core'
 import { TuiIconModule, tuiIconResolverProvider } from '@taiga-ui/experimental'
 
 @Component({
@@ -11,6 +11,6 @@ import { TuiIconModule, tuiIconResolverProvider } from '@taiga-ui/experimental'
 	styleUrl: './icon.component.scss'
 })
 export class IconComponent {
-	@Input({ required: true }) icon = ''
-	@Input() classes: string | string[] | Set<string> | { [klass: string]: any } | null | undefined = null
+	icon = input.required<string>()
+	classes = input<string | string[] | Set<string> | { [klass: string]: any } | null | undefined>(null)
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, computed, input } from '@angular/core'
 import { NgClass } from '@angular/common'
 import { RouterLink } from '@angular/router'
 import { TuiIslandModule, TuiLineClampModule } from '@taiga-ui/kit'
@@ -12,12 +12,14 @@ import { ClassificationPipe, GenrePipe, RuntimePipe } from '@pipes'
 	styleUrl: './movie.component.scss'
 })
 export class MovieComponent {
-	@Input({ required: true }) id = ''
-	@Input({ required: true }) title = ''
-	@Input({ required: true }) poster = ''
-	@Input({ required: true }) genre: string[] = []
-	@Input({ required: true }) runtime = 0
-	@Input({ required: true }) classification = ''
+	id = input.required<number>()
+	title = input.required<string>()
+	poster = input.required<string>()
+	genre = input.required<string[]>()
+	runtime = input.required<number>()
+	classification = input.required<string>()
+
+	classificationColor = computed(() => this.classifications.get(this.classification()))
 	classifications = new Map([
 		['G', 'general'],
 		['PG', 'parental-guidance'],
@@ -25,8 +27,4 @@ export class MovieComponent {
 		['R', 'restricted'],
 		['NC-17', 'adults-only']
 	])
-
-	getClassificationColor() {
-		return this.classifications.get(this.classification)
-	}
 }

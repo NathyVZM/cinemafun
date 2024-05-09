@@ -1,9 +1,10 @@
+import { Component, input, model } from '@angular/core'
 import { AsyncPipe, NgClass } from '@angular/common'
-import { Component, Input, input } from '@angular/core'
-import { CarouselItem } from '@models'
 import { TuiSizeL, TuiSizeS } from '@taiga-ui/core'
 import { TuiCarouselModule, TuiPaginationModule } from '@taiga-ui/kit'
 import { Observable } from 'rxjs'
+import { CarouselItem } from '@models'
+import { ApiConfigurationService } from '@services'
 
 @Component({
 	selector: 'cf-carousel',
@@ -13,11 +14,20 @@ import { Observable } from 'rxjs'
 	styleUrl: './carousel.component.scss'
 })
 export class CarouselComponent {
-	@Input() index = 0
-
 	items = input.required<Observable<CarouselItem[]>>()
-	duration = input<number>(6000)
-	isDraggable = input<boolean>(false)
-	addFade = input<boolean>(false)
+	index = model(0)
+	duration = input(10000)
+	isDraggable = input(false)
+	addFade = input(false)
 	paginationSize = input<TuiSizeS | TuiSizeL>('s')
+
+	imagesPath$ = this.apiConfigurationService.getImagesPath()
+	backdropSizes$ = this.apiConfigurationService.getBackdropSizes()
+
+	constructor(private apiConfigurationService: ApiConfigurationService) {}
+
+	getMediaQuery(size: string) {
+		const formattedSize = size.replace('w', '')
+		return `(max-width: ${formattedSize}px)`
+	}
 }

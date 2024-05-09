@@ -1,17 +1,25 @@
 import { Component } from '@angular/core'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
-import { TuiTitleModule } from '@taiga-ui/experimental'
+import { TuiTitleModule, TuiSkeletonModule } from '@taiga-ui/experimental'
 import { TUI_VALIDATION_ERRORS } from '@taiga-ui/kit'
-import { CarouselItem, FormField } from '@models'
+import { FormField } from '@models'
 import { ButtonComponent, CarouselComponent, FormFieldComponent, LogoComponent } from '@components'
 import { customMinLengthValidator, customRequiredValidator } from '@validators'
-import { v4 as uuid } from 'uuid'
-import { CoreService } from '@services/core.service'
+import { MovieService } from '@services'
 
 @Component({
 	selector: 'cf-sign-up',
 	standalone: true,
-	imports: [ReactiveFormsModule, TuiTitleModule, LogoComponent, FormFieldComponent, ButtonComponent, CarouselComponent],
+	imports: [
+		ReactiveFormsModule,
+		TuiTitleModule,
+		TuiSkeletonModule,
+		LogoComponent,
+		FormFieldComponent,
+		ButtonComponent,
+		CarouselComponent
+	],
 	providers: [
 		{
 			provide: TUI_VALIDATION_ERRORS,
@@ -77,9 +85,15 @@ export class SignUpComponent {
 		}
 	]
 
-	carouselItems = this.coreService.getCarousel()
+	carouselItems$ = this.movieService.getMoviesCarousel()
+	isCarouselLoading = false
 
-	constructor(private coreService: CoreService) {}
+	constructor(private movieService: MovieService) {
+		this.movieService
+			.getIsCarouselLoading()
+			.pipe(takeUntilDestroyed())
+			.subscribe(isLoading => (this.isCarouselLoading = isLoading))
+	}
 
 	signUp() {
 		console.log(this.form.value)

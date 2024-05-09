@@ -1,4 +1,4 @@
-import { booleanAttribute, Component, Input, output } from '@angular/core'
+import { booleanAttribute, Component, input, output } from '@angular/core'
 import { TuiAppearance, TuiButtonModule, TuiSizeXL, TuiSizeXS } from '@taiga-ui/core'
 
 @Component({
@@ -9,17 +9,17 @@ import { TuiAppearance, TuiButtonModule, TuiSizeXL, TuiSizeXS } from '@taiga-ui/
 	styleUrl: './button.component.scss'
 })
 export class ButtonComponent {
-	@Input({ required: true }) type: 'submit' | 'reset' | 'button' = 'button'
-	@Input() label = ''
-	@Input() form = ''
-	@Input() appearance: TuiAppearance = TuiAppearance.Primary
-	@Input() icon = ''
-	@Input() iconRight = ''
-	@Input() shape: 'rounded' | 'square' = 'rounded'
-	@Input() size: TuiSizeXS | TuiSizeXL = 'l'
-	@Input({ transform: booleanAttribute }) isDisabled = false
-	@Input({ transform: booleanAttribute }) isLoading = false
-	@Input({ transform: booleanAttribute }) isIconButton = false
+	type = input.required<'submit' | 'reset' | 'button'>()
+	label = input('')
+	form = input('')
+	appearance = input<TuiAppearance>(TuiAppearance.Primary)
+	icon = input('')
+	iconRight = input('')
+	shape = input<'rounded' | 'square'>('rounded')
+	size = input<TuiSizeXS | TuiSizeXL>('l')
+	isDisabled = input(false, { transform: booleanAttribute })
+	isLoading = input(false, { transform: booleanAttribute })
+	isIconButton = input(false, { transform: booleanAttribute })
 
 	buttonClick = output()
 

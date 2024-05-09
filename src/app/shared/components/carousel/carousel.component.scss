@@ -13,9 +13,13 @@ tui-carousel {
 
 tui-pagination {
 	position: absolute;
-	@include m.position($right: 50%, $bottom: 1rem);
+	@include m.position($right: 35%, $bottom: 1rem);
 }
 
 .fade {
-	mask-image: linear-gradient(260deg, black 0%, transparent 85%);
+	mask-image: linear-gradient(260deg, black 0%, transparent 80%);
+
+	img {
+		object-position: 20% 0;
+	}
 }

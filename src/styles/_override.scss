@@ -131,6 +131,10 @@ tui-carousel {
 		--tui-carousel-padding: 0;
 	}
 
+	picture {
+		@include m.square(100%);
+	}
+
 	img {
 		@include m.square(100%);
 		object-fit: cover;

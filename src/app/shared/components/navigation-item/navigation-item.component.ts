@@ -1,9 +1,9 @@
-import { booleanAttribute, Component, Input, output } from '@angular/core'
-import { RouterLink, RouterLinkActive } from '@angular/router'
+import { booleanAttribute, Component, input, output } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { RouterLink, RouterLinkActive } from '@angular/router'
 import { TuiLoaderModule } from '@taiga-ui/core'
 import { TuiActionModule } from '@taiga-ui/kit'
-import { IconComponent } from '@components/components.index'
+import { IconComponent } from '@components'
 
 @Component({
 	selector: 'cf-navigation-item',
@@ -13,11 +13,11 @@ import { IconComponent } from '@components/components.index'
 	styleUrl: './navigation-item.component.scss'
 })
 export class NavigationItemComponent {
-	@Input({ required: true }) label = ''
-	@Input() icon = ''
-	@Input() route = ''
-	@Input({ transform: booleanAttribute }) isButton = false
-	@Input({ transform: booleanAttribute }) isLoading = false
+	label = input.required<string>()
+	icon = input('')
+	route = input('')
+	isButton = input(false, { transform: booleanAttribute })
+	isLoading = input(false, { transform: booleanAttribute })
 
 	buttonClick = output()
 

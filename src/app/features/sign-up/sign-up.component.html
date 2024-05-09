@@ -31,4 +31,10 @@
 	</section>
 </main>
 
-<cf-carousel id="carousel" [items]="carouselItems" [addFade]="true" />
+@defer (when !isCarouselLoading) {
+	<cf-carousel id="carousel" [items]="carouselItems$" [addFade]="true" />
+} @loading {
+	<div class="carousel-skeleton" [tuiSkeleton]="true"></div>
+} @placeholder {
+	<div class="carousel-skeleton" [tuiSkeleton]="true"></div>
+}

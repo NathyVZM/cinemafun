@@ -1,5 +1,5 @@
 export interface FormField {
-	id: string
+	readonly id: string
 	formControlName: string
 	type: 'text' | 'email' | 'password' | 'number'
 	label: string

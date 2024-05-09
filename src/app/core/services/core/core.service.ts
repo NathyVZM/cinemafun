@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { CAROUSEL, NAVIGATION, SOCIAL_MEDIA } from '@data'
+import { NAVIGATION, SOCIAL_MEDIA } from '@data'
 import { of } from 'rxjs'
 
 @Injectable({
@@ -14,9 +14,5 @@ export class CoreService {
 
 	getNavigation() {
 		return of(NAVIGATION)
-	}
-
-	getCarousel() {
-		return of(CAROUSEL)
 	}
 }

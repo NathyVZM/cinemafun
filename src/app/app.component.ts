@@ -1,9 +1,8 @@
-import { CommonModule } from '@angular/common'
 import { Component } from '@angular/core'
+import { CommonModule } from '@angular/common'
 import { RouterOutlet } from '@angular/router'
-
-import { TuiSafeHtml } from '@taiga-ui/cdk'
 import { TUI_SANITIZER, TuiModeModule, TuiRootModule, tuiSvgSrcInterceptors, TuiThemeNightModule } from '@taiga-ui/core'
+import { TuiSafeHtml } from '@taiga-ui/cdk'
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify'
 
 @Component({

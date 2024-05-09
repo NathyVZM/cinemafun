@@ -33,6 +33,8 @@
 			"@pipes": ["app/shared/pipes/pipes.index"],
 			"@services/*": ["app/core/services/*"],
 			"@services": ["app/core/services/services.index"],
+			"@schemas/*": ["app/core/schemas/*"],
+			"@schemas": ["app/core/schemas/schemas.index"],
 			"@validators/*": ["app/shared/validators/*"],
 			"@validators": ["app/shared/validators/validators.index"]
 		}

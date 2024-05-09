@@ -1,6 +1,6 @@
-import { AsyncPipe } from '@angular/common'
 import { Component, inject } from '@angular/core'
-import { IconComponent, LogoComponent } from '@components/components.index'
+import { AsyncPipe } from '@angular/common'
+import { IconComponent, LogoComponent } from '@components'
 import { CoreService } from '@services'
 
 @Component({

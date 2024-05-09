@@ -1,5 +1,5 @@
+import { booleanAttribute, Component, forwardRef, input } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { booleanAttribute, Component, forwardRef, Input } from '@angular/core'
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms'
 import {
 	TuiLabelModule,
@@ -41,21 +41,22 @@ import { TuiFieldErrorPipeModule, TuiInputModule, TuiInputNumberModule, TuiInput
 	styleUrl: './form-field.component.scss'
 })
 export class FormFieldComponent implements ControlValueAccessor {
-	@Input({ required: true }) nativeId = ''
-	@Input({ required: true }) placeholder = ''
-	@Input({ required: true }) type: 'text' | 'email' | 'password' | 'number' = 'text'
-	@Input() label = ''
-	@Input() iconLeft = ''
-	@Input() iconRight = ''
-	@Input() filler = ''
-	@Input() hint: string | undefined = ''
-	@Input() hintDirection: TuiHintDirection = 'bottom'
-	@Input() prefix = ''
-	@Input() postfix = ''
-	@Input({ transform: booleanAttribute }) showCleaner = false
-	@Input({ transform: booleanAttribute }) spellCheck = false
-	@Input({ transform: booleanAttribute }) autoCapitalize = false
-	@Input({ transform: booleanAttribute }) isRequired = false
+	nativeId = input.required<string>()
+	placeholder = input.required<string>()
+	type = input.required<'text' | 'email' | 'password' | 'number'>()
+	label = input('')
+	iconLeft = input('')
+	iconRight = input('')
+	filler = input('')
+	hint = input<string | undefined>('')
+	hintDirection = input<TuiHintDirection>('bottom')
+	prefix = input('')
+	postfix = input('')
+	showCleaner = input(false, { transform: booleanAttribute })
+	spellCheck = input(false, { transform: booleanAttribute })
+	autoCapitalize = input(false, { transform: booleanAttribute })
+	isRequired = input(false, { transform: booleanAttribute })
+
 	isDisabled = false
 	value!: string | number | null
 

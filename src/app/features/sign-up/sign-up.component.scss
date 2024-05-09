@@ -67,11 +67,16 @@ main {
 #carousel {
 	position: absolute;
 	z-index: -1;
+	border-radius: 50px;
 	@include m.position($right: 0, $bottom: 0);
-	@include m.size(68dvw, 100dvh);
+	@include m.size(70dvw, 100dvh);
 	@include m.flex(center, center);
+}
 
-	cf-carousel {
-		@include m.square(100%);
-	}
+.carousel-skeleton {
+	position: absolute;
+	z-index: -1;
+	border-radius: 50px;
+	@include m.position($right: 2rem, $bottom: 1.6rem);
+	@include m.size(52dvw, 94dvh);
 }

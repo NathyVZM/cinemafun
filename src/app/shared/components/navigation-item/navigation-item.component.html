@@ -1,18 +1,18 @@
-@if (isButton) {
-	<tui-loader [overlay]="true" [showLoader]="isLoading">
-		<button tuiAction type="button" (click)="onClick()" [ngClass]="{ 'is-loading': isLoading }">
-			@if (!isLoading) {
+@if (isButton()) {
+	<tui-loader [overlay]="true" [showLoader]="isLoading()">
+		<button tuiAction type="button" (click)="onClick()" [ngClass]="{ 'is-loading': isLoading() }">
+			@if (!isLoading()) {
 				<ng-container *ngTemplateOutlet="content"></ng-container>
 			}
 		</button>
 	</tui-loader>
 } @else {
-	<a tuiAction [routerLink]="route" routerLinkActive="active" ariaCurrentWhenActive="page">
+	<a tuiAction [routerLink]="route()" routerLinkActive="active" ariaCurrentWhenActive="page">
 		<ng-container *ngTemplateOutlet="content"></ng-container>
 	</a>
 }
 
 <ng-template #content>
-	<cf-icon [icon]="icon" [classes]="'fs-medium'" />
-	<span>{{ label }}</span>
+	<cf-icon [icon]="icon()" [classes]="'fs-medium'" />
+	<span>{{ label() }}</span>
 </ng-template>
