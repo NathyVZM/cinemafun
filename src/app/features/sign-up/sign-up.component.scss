@@ -13,11 +13,15 @@
 
 #header {
 	@include m.flex(flex-start, center, row);
+	position: relative;
+	z-index: 1;
 }
 
 main {
 	flex: 1;
 	@include m.flex(space-between, center, row, wrap, v.$sp-medium);
+	position: relative;
+	z-index: 1;
 }
 
 #form-box {
@@ -66,8 +70,9 @@ main {
 
 #carousel {
 	position: absolute;
-	z-index: -1;
+	z-index: 0;
 	border-radius: 50px;
+	animation: fadeIn 1s ease-in-out;
 	@include m.position($right: 0, $bottom: 0);
 	@include m.size(70dvw, 100dvh);
 	@include m.flex(center, center);
@@ -75,8 +80,17 @@ main {
 
 .carousel-skeleton {
 	position: absolute;
-	z-index: -1;
+	z-index: 0;
 	border-radius: 50px;
-	@include m.position($right: 2rem, $bottom: 1.6rem);
-	@include m.size(52dvw, 94dvh);
+	@include m.position($right: 1.5rem, $bottom: 1.6rem);
+	@include m.size(53dvw, 95dvh);
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }

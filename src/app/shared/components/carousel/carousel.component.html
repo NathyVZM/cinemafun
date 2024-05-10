@@ -3,10 +3,10 @@
 		@for (item of items; track item.id) {
 			<picture *tuiItem>
 				@for (size of backdropSizes$ | async; track $index) {
-					<source [srcset]="(imagesPath$ | async) + size + item.image" [media]="getMediaQuery(size)" />
-
 					@if (size.includes('original')) {
 						<img [src]="(imagesPath$ | async) + size + item.image" [alt]="item.alt" />
+					} @else {
+						<source [srcset]="(imagesPath$ | async) + size + item.image" [media]="getMediaQuery(size)" />
 					}
 				}
 			</picture>

@@ -55,12 +55,13 @@ export class MovieService {
 			return {
 				id: uuid(),
 				image: movie.banner || movie.poster,
-				alt: movie.title
+				alt: movie.title,
+				hint: movie.title
 			}
 		})
 
 		this.setIsCarouselLoading(false)
-		return of(posters.sort(() => Math.random() - 0.5).slice(0, 10))
+		return of(posters.sort(() => Math.random() - 0.5).slice(0, 5))
 	}
 
 	setIsCarouselLoading(isLoading: boolean) {

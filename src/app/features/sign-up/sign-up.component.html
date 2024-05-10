@@ -31,7 +31,7 @@
 	</section>
 </main>
 
-@defer (when !isCarouselLoading) {
+@defer {
 	<cf-carousel id="carousel" [items]="carouselItems$" [addFade]="true" />
 } @loading {
 	<div class="carousel-skeleton" [tuiSkeleton]="true"></div>
