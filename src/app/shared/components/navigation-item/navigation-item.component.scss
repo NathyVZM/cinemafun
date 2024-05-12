@@ -4,7 +4,7 @@
 
 :host {
 	@include m.flex(center, stretch, column, wrap);
-	--tui-radius-xl: 100px;
+	--tui-radius-xl: 6.25rem;
 }
 
 a,
@@ -39,6 +39,7 @@ button {
 .is-loading {
 	background-color: c.$brilliant-rose;
 	color: c.$night;
+	height: 3.25rem;
 }
 
 .active {

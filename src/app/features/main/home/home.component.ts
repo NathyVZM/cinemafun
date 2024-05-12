@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { MovieComponent } from '@components/components.index'
+import { MovieComponent } from '@components'
 import { Movie } from '@models'
 
 @Component({

@@ -1,4 +1,4 @@
-import { NavigationItem } from '@models'
+import { NavigationItem } from '@models/models.index'
 import { v4 as uuid } from 'uuid'
 
 export const NAVIGATION: NavigationItem[] = [

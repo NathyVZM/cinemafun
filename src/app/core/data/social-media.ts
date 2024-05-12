@@ -1,4 +1,4 @@
-import { SocialMedia } from '@models'
+import { SocialMedia } from '@models/models.index'
 import { v4 as uuid } from 'uuid'
 
 export const SOCIAL_MEDIA: SocialMedia[] = [

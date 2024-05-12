@@ -12,16 +12,17 @@
 }
 
 #header {
-	@include m.flex(flex-start, center, row);
 	position: relative;
 	z-index: 1;
+	@include m.flex(flex-start, center, row);
 }
 
 main {
 	flex: 1;
-	@include m.flex(space-between, center, row, wrap, v.$sp-medium);
 	position: relative;
 	z-index: 1;
+	width: fit-content;
+	@include m.flex(space-between, center, row, wrap, v.$sp-medium);
 }
 
 #form-box {

@@ -2,7 +2,7 @@ import { Component, computed, input } from '@angular/core'
 import { NgClass } from '@angular/common'
 import { RouterLink } from '@angular/router'
 import { TuiIslandModule, TuiLineClampModule } from '@taiga-ui/kit'
-import { ClassificationPipe, GenrePipe, RuntimePipe } from '@pipes'
+import { ClassificationPipe, GenrePipe, RuntimePipe } from '@pipes/pipes.index'
 
 @Component({
 	selector: 'cf-movie',

@@ -1,31 +1,33 @@
 <nav>
-	<section>
-		<article id="info">
-			<cf-icon [icon]="'user'" />
-			<div>
-				<tui-line-clamp [content]="'Nathalie Zambrano'" [lineHeight]="16" [linesLimit]="1" />
-				<tui-line-clamp [content]="'nathalievzm@gmail.com'" [lineHeight]="12" [linesLimit]="1" />
-			</div>
-		</article>
-		<article id="balance">
-			<div>
-				<p>Balance</p>
+	@if (user$ | async; as user) {
+		<section>
+			<article id="info">
+				<cf-icon [icon]="'user'" />
 				<div>
-					<cf-icon [icon]="'money'" />
-					<p>{{ '$4.45' }}</p>
+					<tui-line-clamp [content]="user.name" [lineHeight]="16" [linesLimit]="1" />
+					<tui-line-clamp [content]="user.email" [lineHeight]="12" [linesLimit]="1" />
 				</div>
-			</div>
-			<cf-button [type]="'button'" [label]="'A button'" [icon]="'pencil-simple'" [isIconButton]="true" />
-		</article>
-	</section>
+			</article>
+			<article id="balance">
+				<div>
+					<p>Balance</p>
+					<div>
+						<cf-icon [icon]="'money'" />
+						<tui-money [currency]="'USD'" [currencyAlign]="'left'" [value]="user.balance" />
+					</div>
+				</div>
+				<cf-button [type]="'button'" [label]="'A button'" [icon]="'pencil-simple'" [isIconButton]="true" />
+			</article>
+		</section>
+	}
 	<menu>
-		@for (item of navigation | async; track item.id) {
+		@for (item of navigation$ | async; track item.id) {
 			<li>
 				<cf-navigation-item [label]="item.label" [icon]="item.icon" [route]="item.route" />
 			</li>
 		}
 	</menu>
 	<footer>
-		<cf-navigation-item [label]="'Log out'" [icon]="'sign-out'" [isButton]="true" />
+		<cf-navigation-item [label]="'Log out'" [icon]="'sign-out'" [isButton]="true" (buttonClick)="signOut()" />
 	</footer>
 </nav>

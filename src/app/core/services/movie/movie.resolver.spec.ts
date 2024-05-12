@@ -1,17 +1,18 @@
-import { TestBed } from '@angular/core/testing';
-import { ResolveFn } from '@angular/router';
+import { TestBed } from '@angular/core/testing'
+import { ResolveFn } from '@angular/router'
 
-import { movieResolver } from './movie.resolver';
+import { movieResolver } from './movie.resolver'
+import { Movie } from '@models/movie.model'
 
 describe('movieResolver', () => {
-  const executeResolver: ResolveFn<boolean> = (...resolverParameters) => 
-      TestBed.runInInjectionContext(() => movieResolver(...resolverParameters));
+	const executeResolver: ResolveFn<Movie[]> = (...resolverParameters) =>
+		TestBed.runInInjectionContext(() => movieResolver(...resolverParameters))
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-  });
+	beforeEach(() => {
+		TestBed.configureTestingModule({})
+	})
 
-  it('should be created', () => {
-    expect(executeResolver).toBeTruthy();
-  });
-});
+	it('should be created', () => {
+		expect(executeResolver).toBeTruthy()
+	})
+})

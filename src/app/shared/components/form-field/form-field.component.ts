@@ -10,6 +10,8 @@ import {
 	TuiErrorModule
 } from '@taiga-ui/core'
 import { TuiFieldErrorPipeModule, TuiInputModule, TuiInputNumberModule, TuiInputPasswordModule } from '@taiga-ui/kit'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
+import { CoreService } from '@services'
 
 @Component({
 	selector: 'cf-form-field',
@@ -59,6 +61,13 @@ export class FormFieldComponent implements ControlValueAccessor {
 
 	isDisabled = false
 	value!: string | number | null
+
+	constructor(private coreService: CoreService) {
+		this.coreService
+			.getIsFormFieldDisabled()
+			.pipe(takeUntilDestroyed())
+			.subscribe(_isDisabled => (this.isDisabled = _isDisabled))
+	}
 
 	onNgModelChange(value: string | number) {
 		this.value = value || null

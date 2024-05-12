@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router'
-import { movieResolver, apiConfigurationResolver } from '@services'
+import { movieResolver, apiConfigurationResolver } from '@services/services.index'
 
 export const routes: Routes = [
 	{

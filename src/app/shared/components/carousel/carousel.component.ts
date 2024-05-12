@@ -1,15 +1,16 @@
 import { Component, input, model } from '@angular/core'
 import { AsyncPipe, NgClass } from '@angular/common'
-import { TuiSizeL, TuiSizeS } from '@taiga-ui/core'
+import { TuiHintModule, TuiSizeL, TuiSizeS } from '@taiga-ui/core'
 import { TuiCarouselModule, TuiPaginationModule } from '@taiga-ui/kit'
 import { Observable } from 'rxjs'
 import { CarouselItem } from '@models'
 import { ApiConfigurationService } from '@services'
+import { IconComponent } from '../icon/icon.component'
 
 @Component({
 	selector: 'cf-carousel',
 	standalone: true,
-	imports: [AsyncPipe, NgClass, TuiCarouselModule, TuiPaginationModule],
+	imports: [AsyncPipe, NgClass, TuiCarouselModule, TuiPaginationModule, TuiHintModule, IconComponent],
 	templateUrl: './carousel.component.html',
 	styleUrl: './carousel.component.scss'
 })

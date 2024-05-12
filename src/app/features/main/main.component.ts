@@ -1,12 +1,6 @@
 import { Component } from '@angular/core'
 import { RouterOutlet } from '@angular/router'
-import {
-	ButtonComponent,
-	FooterComponent,
-	MovieComponent,
-	NavbarComponent,
-	SidebarComponent
-} from '@components/components.index'
+import { ButtonComponent, FooterComponent, MovieComponent, NavbarComponent, SidebarComponent } from '@components'
 
 @Component({
 	selector: 'cf-main',

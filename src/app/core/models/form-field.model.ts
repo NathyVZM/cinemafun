@@ -7,4 +7,6 @@ export interface FormField {
 	icon: string
 	isRequired: boolean
 	hint?: string
+	prefix?: string
+	postfix?: string
 }

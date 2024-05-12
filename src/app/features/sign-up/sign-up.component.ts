@@ -1,12 +1,13 @@
 import { Component } from '@angular/core'
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
+import { Router } from '@angular/router'
 import { TuiTitleModule, TuiSkeletonModule } from '@taiga-ui/experimental'
 import { TUI_VALIDATION_ERRORS } from '@taiga-ui/kit'
-import { FormField } from '@models'
+import { catchError, delay, EMPTY, first } from 'rxjs'
+import { FormField, User } from '@models'
 import { ButtonComponent, CarouselComponent, FormFieldComponent, LogoComponent } from '@components'
 import { customMinLengthValidator, customRequiredValidator } from '@validators'
-import { MovieService } from '@services'
+import { AuthService, CoreService, MovieService } from '@services'
 
 @Component({
 	selector: 'cf-sign-up',
@@ -71,7 +72,8 @@ export class SignUpComponent {
 			placeholder: '100',
 			icon: 'money',
 			isRequired: true,
-			hint: 'Your initial balance when you sign up'
+			hint: 'Your initial balance when you sign up',
+			prefix: '$'
 		},
 		{
 			id: 'ticket',
@@ -81,25 +83,62 @@ export class SignUpComponent {
 			placeholder: '4.45',
 			icon: 'ticket',
 			isRequired: true,
-			hint: 'The base price for the tickets of movies you want to watch'
+			hint: 'The base price for the tickets of movies you want to watch',
+			prefix: '$'
 		}
 	]
 
 	carouselItems$ = this.movieService.getMoviesCarousel()
-	isCarouselLoading = false
 
-	constructor(private movieService: MovieService) {
-		this.movieService
-			.getIsCarouselLoading()
-			.pipe(takeUntilDestroyed())
-			.subscribe(isLoading => (this.isCarouselLoading = isLoading))
-	}
+	constructor(
+		private movieService: MovieService,
+		private coreService: CoreService,
+		private authService: AuthService,
+		private router: Router
+	) {}
 
 	signUp() {
-		console.log(this.form.value)
 		if (this.form.invalid) {
 			this.form.markAllAsTouched()
 			return
 		}
+
+		this.coreService.setIsButtonDisabled(true)
+		this.coreService.setIsButtonLoading(true)
+		this.coreService.setIsFormFieldDisabled(true)
+
+		const user: User = {
+			id: '',
+			name: this.form.get('name')?.value!,
+			email: this.form.get('email')?.value!,
+			balance: this.form.get('balance')?.value!,
+			ticket: this.form.get('ticket')?.value!
+		}
+
+		this.authService
+			.signUp(user)
+			.pipe(
+				delay(1200),
+				first(),
+				catchError(() => {
+					this.toggleButtonAndFormFieldState(false)
+					return EMPTY
+				})
+			)
+			.subscribe({
+				next: () => this.router.navigate(['/home']),
+				error: () => {
+					this.toggleButtonAndFormFieldState(false)
+				},
+				complete: () => {
+					this.toggleButtonAndFormFieldState(false)
+				}
+			})
+	}
+
+	toggleButtonAndFormFieldState(state: boolean) {
+		this.coreService.setIsButtonDisabled(state)
+		this.coreService.setIsButtonLoading(state)
+		this.coreService.setIsFormFieldDisabled(state)
 	}
 }

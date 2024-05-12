@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { ConfigurationSchema } from '@schemas/configuration.schema'
 import { environment } from 'environments/environment'
 import { BehaviorSubject, map, tap } from 'rxjs'
+import { ConfigurationSchema } from '@schemas'
 
 @Injectable({
 	providedIn: 'root'

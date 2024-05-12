@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core'
 import { AsyncPipe } from '@angular/common'
-import { IconComponent, LogoComponent } from '@components'
 import { CoreService } from '@services'
+import { IconComponent } from '../icon/icon.component'
+import { LogoComponent } from '../logo/logo.component'
 
 @Component({
 	selector: 'cf-footer',

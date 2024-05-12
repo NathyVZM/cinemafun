@@ -78,14 +78,14 @@ section {
 			> div {
 				@include m.flex(flex-start, center, row, wrap, v.$sp-small);
 
-				p {
-					font-size: v.$fs-medium;
-					font-weight: 500;
+				cf-icon {
 					color: c.$brilliant-rose;
 				}
 
-				cf-icon {
+				tui-money {
 					color: c.$brilliant-rose;
+					font-size: v.$fs-medium;
+					font-weight: 500;
 				}
 			}
 		}

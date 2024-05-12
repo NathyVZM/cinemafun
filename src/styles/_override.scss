@@ -140,3 +140,9 @@ tui-carousel {
 		object-fit: cover;
 	}
 }
+
+// loader
+
+tui-loader .t-loader {
+	stroke: c.$night !important;
+}

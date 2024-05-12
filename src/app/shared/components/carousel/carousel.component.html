@@ -1,7 +1,13 @@
 @if (items() | async; as items) {
 	<tui-carousel [duration]="duration()" [draggable]="isDraggable()" [(index)]="index" [ngClass]="{ fade: addFade() }">
 		@for (item of items; track item.id) {
-			<picture *tuiItem>
+			<picture
+				*tuiItem
+				[tuiHint]="item.hint"
+				[tuiHintDescribe]="item.id"
+				[tuiHintDirection]="'top-left'"
+				[tuiHintShowDelay]="1200"
+				tuiHintPointer>
 				@for (size of backdropSizes$ | async; track $index) {
 					@if (size.includes('original')) {
 						<img [src]="(imagesPath$ | async) + size + item.image" [alt]="item.alt" />

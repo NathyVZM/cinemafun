@@ -12,7 +12,6 @@ import { CarouselItem, Movie } from '@models'
 export class MovieService {
 	private apiUrl = environment.apiUrl
 	private movies$ = new BehaviorSubject<Movie[]>([])
-	private isCarouselLoading$ = new BehaviorSubject<boolean>(true)
 
 	constructor(private http: HttpClient) {}
 
@@ -39,7 +38,6 @@ export class MovieService {
 			}),
 			tap(movies => this.movies$.next(movies)),
 			catchError(() => {
-				this.setIsCarouselLoading(false)
 				return EMPTY
 			})
 		)
@@ -56,19 +54,10 @@ export class MovieService {
 				id: uuid(),
 				image: movie.banner || movie.poster,
 				alt: movie.title,
-				hint: movie.title
+				hint: `🎬 Movie: ${movie.title}`
 			}
 		})
 
-		this.setIsCarouselLoading(false)
 		return of(posters.sort(() => Math.random() - 0.5).slice(0, 5))
-	}
-
-	setIsCarouselLoading(isLoading: boolean) {
-		this.isCarouselLoading$.next(isLoading)
-	}
-
-	getIsCarouselLoading() {
-		return this.isCarouselLoading$.asObservable()
 	}
 }
