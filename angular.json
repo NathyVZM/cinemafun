@@ -37,6 +37,11 @@
                 "glob": "**/*",
                 "input": "node_modules/@taiga-ui/icons/src",
                 "output": "assets/taiga-ui/icons"
+              },
+              {
+                "glob": "_redirects",
+                "input": "src",
+                "output": "/"
               }
             ],
             "styles": [
@@ -111,7 +116,17 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@taiga-ui/icons/src",
+                "output": "assets/taiga-ui/icons"
+              },
+              {
+                "glob": "_redirects",
+                "input": "src",
+                "output": "/"
+              }
             ],
             "styles": [
               "src/styles/styles.scss"
