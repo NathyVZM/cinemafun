@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
 import { TuiTitleModule, TuiSkeletonModule } from '@taiga-ui/experimental'
@@ -7,7 +7,7 @@ import { catchError, delay, EMPTY, first } from 'rxjs'
 import { FormField, User } from '@models'
 import { ButtonComponent, CarouselComponent, FormFieldComponent, LogoComponent } from '@components'
 import { customMinLengthValidator, customRequiredValidator } from '@validators'
-import { AuthService, CoreService, MovieService } from '@services'
+import { AuthService, CoreService, MovieService, UserService } from '@services'
 
 @Component({
 	selector: 'cf-sign-up',
@@ -34,7 +34,7 @@ import { AuthService, CoreService, MovieService } from '@services'
 	templateUrl: './sign-up.component.html',
 	styleUrl: './sign-up.component.scss'
 })
-export class SignUpComponent {
+export class SignUpComponent implements OnInit {
 	form = new FormGroup({
 		name: new FormControl<string | null>(null, [
 			customMinLengthValidator('Full name'),
@@ -72,7 +72,7 @@ export class SignUpComponent {
 			placeholder: '100',
 			icon: 'money',
 			isRequired: true,
-			hint: 'Your initial balance when you sign up',
+			hint: '💵 Your initial balance when you sign up',
 			prefix: '$'
 		},
 		{
@@ -83,7 +83,7 @@ export class SignUpComponent {
 			placeholder: '4.45',
 			icon: 'ticket',
 			isRequired: true,
-			hint: 'The base price for the tickets of movies you want to watch',
+			hint: '💰 The base price for the tickets of movies you want to watch',
 			prefix: '$'
 		}
 	]
@@ -94,8 +94,13 @@ export class SignUpComponent {
 		private movieService: MovieService,
 		private coreService: CoreService,
 		private authService: AuthService,
+		private userService: UserService,
 		private router: Router
 	) {}
+
+	ngOnInit(): void {
+		this.userService.setUser(null)
+	}
 
 	signUp() {
 		if (this.form.invalid) {

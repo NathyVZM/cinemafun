@@ -11,6 +11,8 @@
 			"@data": ["app/core/data/data.index"],
 			"@features/*": ["app/features/*"],
 			"@features": ["app/features/features.index"],
+			"@guards/*": ["app/core/guards/*"],
+			"@guards": ["app/core/guards/guards.index"],
 			"@models/*": ["app/core/models/*"],
 			"@models": ["app/core/models/models.index"],
 			"@pipes/*": ["app/shared/pipes/*"],

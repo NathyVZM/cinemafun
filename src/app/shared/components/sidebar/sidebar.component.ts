@@ -4,7 +4,8 @@ import { Router } from '@angular/router'
 import { tuiNumberFormatProvider } from '@taiga-ui/core'
 import { TuiLineClampModule } from '@taiga-ui/kit'
 import { TuiMoneyModule } from '@taiga-ui/addon-commerce'
-import { catchError, delay, EMPTY, first } from 'rxjs'
+import { TuiSkeletonModule } from '@taiga-ui/experimental'
+import { catchError, concatMap, delay, EMPTY, first, map, timer } from 'rxjs'
 import { AuthService, CoreService, UserService } from '@services'
 import { ButtonComponent } from '../button/button.component'
 import { IconComponent } from '../icon/icon.component'
@@ -13,7 +14,15 @@ import { NavigationItemComponent } from '../navigation-item/navigation-item.comp
 @Component({
 	selector: 'cf-sidebar',
 	standalone: true,
-	imports: [AsyncPipe, TuiLineClampModule, TuiMoneyModule, NavigationItemComponent, IconComponent, ButtonComponent],
+	imports: [
+		AsyncPipe,
+		TuiLineClampModule,
+		TuiMoneyModule,
+		TuiSkeletonModule,
+		NavigationItemComponent,
+		IconComponent,
+		ButtonComponent
+	],
 	providers: [
 		tuiNumberFormatProvider({
 			decimalSeparator: '.',
@@ -37,10 +46,9 @@ export class SidebarComponent {
 	signOut() {
 		this.coreService.setIsNavigationItemLoading(true)
 
-		this.authService
-			.signOut()
+		timer(1000)
 			.pipe(
-				delay(1000),
+				map(() => this.authService.signOut()),
 				first(),
 				catchError(() => {
 					this.coreService.setIsNavigationItemLoading(false)

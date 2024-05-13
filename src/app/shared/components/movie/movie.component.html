@@ -1,7 +1,13 @@
 <a tuiIsland [hoverable]="true" [routerLink]="['/movie', id()]">
-	<figure class="tui-island__figure">
-		<img [src]="'assets/' + poster()" [alt]="title() + 'poster'" />
-	</figure>
+	<picture class="tui-island__figure">
+		@for (size of posterSizes$ | async; track $index) {
+			@if (size.includes('original')) {
+				<img [src]="(imagesPath$ | async) + size + poster()" [alt]="title() + 'poster'" />
+			} @else {
+				<source [srcset]="(imagesPath$ | async) + size + poster()" [media]="getMediaQuery(size)" />
+			}
+		}
+	</picture>
 	<section class="tui-island__content">
 		<div>
 			<tui-line-clamp class="tui-island__title" [content]="title()" [lineHeight]="16" [linesLimit]="1" />

@@ -15,6 +15,14 @@ export class MovieService {
 
 	constructor(private http: HttpClient) {}
 
+	/**
+	 * Movies
+	 */
+
+	/**
+	 * Fetches the list of movies currently playing in theaters.
+	 * @returns {Observable<Movie[]>} An Observable that emits an array of `Movie` objects.
+	 */
 	loadMovies(): Observable<Movie[]> {
 		return this.http.get<{ results: MovieSchema[] }>(`${this.apiUrl}/movie/now_playing`).pipe(
 			map(({ results }) => {
@@ -43,10 +51,32 @@ export class MovieService {
 		)
 	}
 
+	/**
+	 * Returns the list of movies currently playing in theaters.
+	 * @returns {Observable<Movie[]>} An Observable that emits an array of `Movie` objects.
+	 */
 	getMovies() {
 		return this.movies$.asObservable()
 	}
 
+	/**
+	 * Checks if the movies are already loaded.
+	 * @returns {boolean} A boolean value indicating whether the movies are loaded.
+	 */
+	areMoviesLoaded() {
+		return this.movies$.value.length > 0
+	}
+
+	/**
+	 * Carousel
+	 */
+
+	/**
+	 * It generates a carousel of movies for display.
+	 * @returns {Observable<CarouselItem[]>} An Observable that emits an array of `CarouselItem` objects.
+	 *
+	 * The function randomly sorts the movies and selects the first five for the carousel.
+	 */
 	getMoviesCarousel() {
 		const movies = this.movies$.value
 		const posters: CarouselItem[] = movies.flatMap(movie => {

@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router'
 import { MainComponent, HomeComponent, MoviesComponent, FavoritesComponent, FoodDrinksComponent } from '@features'
+import { authGuard } from '@guards'
+import { apiConfigurationResolver, movieResolver, userResolver } from '@services'
 
 export const mainRoutes: Routes = [
 	{
@@ -10,6 +12,8 @@ export const mainRoutes: Routes = [
 	{
 		path: '',
 		component: MainComponent,
+		resolve: { user: userResolver, movies: movieResolver, apiConfiguration: apiConfigurationResolver },
+		canMatch: [authGuard],
 		children: [
 			{
 				path: 'home',

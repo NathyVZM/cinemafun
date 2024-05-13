@@ -1,13 +1,23 @@
 import { Component, computed, input } from '@angular/core'
-import { NgClass } from '@angular/common'
+import { AsyncPipe, NgClass } from '@angular/common'
 import { RouterLink } from '@angular/router'
 import { TuiIslandModule, TuiLineClampModule } from '@taiga-ui/kit'
 import { ClassificationPipe, GenrePipe, RuntimePipe } from '@pipes/pipes.index'
+import { ApiConfigurationService } from '@services/services.index'
 
 @Component({
 	selector: 'cf-movie',
 	standalone: true,
-	imports: [NgClass, RouterLink, TuiIslandModule, TuiLineClampModule, GenrePipe, RuntimePipe, ClassificationPipe],
+	imports: [
+		NgClass,
+		RouterLink,
+		AsyncPipe,
+		TuiIslandModule,
+		TuiLineClampModule,
+		GenrePipe,
+		RuntimePipe,
+		ClassificationPipe
+	],
 	templateUrl: './movie.component.html',
 	styleUrl: './movie.component.scss'
 })
@@ -27,4 +37,14 @@ export class MovieComponent {
 		['R', 'restricted'],
 		['NC-17', 'adults-only']
 	])
+
+	imagesPath$ = this.apiConfigurationService.getImagesPath()
+	posterSizes$ = this.apiConfigurationService.getPosterSizes()
+
+	constructor(private apiConfigurationService: ApiConfigurationService) {}
+
+	getMediaQuery(size: string) {
+		const formattedSize = size.replace('w', '')
+		return `(max-width: ${formattedSize}px)`
+	}
 }

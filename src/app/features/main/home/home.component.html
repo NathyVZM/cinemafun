@@ -1,4 +1,4 @@
-@for (movie of movies; track movie.id) {
+@for (movie of movies$ | async; track movie.id) {
 	<cf-movie
 		[id]="movie.id"
 		[title]="movie.title"

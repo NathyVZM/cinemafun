@@ -16,6 +16,10 @@ export class ApiConfigurationService {
 
 	constructor(private http: HttpClient) {}
 
+	/**
+	 * Fetches the API configuration details.
+	 * @returns {Observable<boolean>} An Observable that emits a boolean value.
+	 */
 	getApiDetails() {
 		return this.http.get<ConfigurationSchema>(`${this.apiUrl}/configuration`).pipe(
 			map(result => result.images),
@@ -28,15 +32,35 @@ export class ApiConfigurationService {
 		)
 	}
 
+	/**
+	 * Returns the base URL for images.
+	 * @returns {Observable<string>} An Observable that emits a string value.
+	 */
 	getImagesPath() {
 		return this.imagesPath$.asObservable()
 	}
 
+	/**
+	 * Returns the list of poster sizes.
+	 * @returns {Observable<string[]>} An Observable that emits an array of strings.
+	 */
 	getPosterSizes() {
 		return this.posterSizes$.asObservable()
 	}
 
+	/**
+	 * Returns the list of backdrop sizes.
+	 * @returns {Observable<string[]>} An Observable that emits an array of strings.
+	 */
 	getBackdropSizes() {
 		return this.backdropSizes$.asObservable()
+	}
+
+	/**
+	 * Determines if the API configuration has been loaded.
+	 * @returns {boolean} Returns `true` if the API configuration has been loaded, `false` otherwise.
+	 */
+	isApiConfigurationLoaded() {
+		return this.imagesPath$.value !== '' && this.posterSizes$.value.length > 0 && this.backdropSizes$.value.length > 0
 	}
 }

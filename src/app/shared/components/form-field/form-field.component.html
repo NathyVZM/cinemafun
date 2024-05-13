@@ -72,6 +72,6 @@
 	{{ label() }}
 
 	@if (isRequired()) {
-		<span class="required">*</span>
+		<span class="required" [tuiHint]="'🔴 Field is required'" [tuiHintDirection]="'top-right'">*</span>
 	}
 </ng-template>

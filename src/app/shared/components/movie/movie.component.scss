@@ -5,13 +5,11 @@
 :host {
 	--tui-elevation-02: #{c.$night};
 	--tui-font-heading-6: 500 #{v.$fs-regular}/ 1 var(--tui-font-text);
-	width: 100%;
-	height: 28rem;
+	@include m.size(100%, 28rem);
 }
 
 a {
-	width: 100%;
-	height: 100%;
+	@include m.square(100%);
 }
 
 .tui-island_size_m {
@@ -28,10 +26,10 @@ a {
 		border-radius: calc(v.$sp-large / 2);
 
 		> img {
-			width: 100%;
-			height: 100%;
 			object-fit: cover;
 			border-radius: calc(v.$sp-large / 2);
+			overflow-clip-margin: unset;
+			@include m.square(100%);
 		}
 	}
 

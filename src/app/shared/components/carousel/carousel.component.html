@@ -6,7 +6,7 @@
 				[tuiHint]="item.hint"
 				[tuiHintDescribe]="item.id"
 				[tuiHintDirection]="'top-left'"
-				[tuiHintShowDelay]="1200"
+				[tuiHintShowDelay]="1000"
 				tuiHintPointer>
 				@for (size of backdropSizes$ | async; track $index) {
 					@if (size.includes('original')) {
