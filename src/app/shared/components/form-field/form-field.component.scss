@@ -1,8 +1,9 @@
 @use 'colors' as c;
 @use 'variables' as v;
+@use 'mixins' as m;
 
 :host {
-	--tui-height-l: 3rem;
+	--tui-height-l: 3.5rem;
 	--tui-radius-m: 6.25rem;
 	--tui-text-02-night: #{c.$cool-gray};
 	--tui-text-03-night: #{lighten(c.$cool-gray, 10%)};

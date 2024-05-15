@@ -6,7 +6,7 @@
 	width: 14.5rem;
 	height: 88.608dvh;
 	position: sticky;
-	top: 92px;
+	top: 100px;
 	border-radius: 2rem;
 	animation: on-scroll linear;
 	animation-timeline: scroll(root block);
@@ -65,10 +65,11 @@ section {
 	> #balance {
 		width: 100%;
 		flex: 1;
-		@include m.flex(space-between, flex-end, row, wrap);
+		@include m.flex(space-between, flex-end, row, wrap, v.$sp-small);
 
 		> div {
 			@include m.flex(center, stretch, column, wrap, v.$sp-tiny);
+			flex: 1;
 
 			> p {
 				font-size: v.$fs-semi-small;
@@ -83,6 +84,7 @@ section {
 				}
 
 				tui-money {
+					flex: 1;
 					color: c.$brilliant-rose;
 					font-size: v.$fs-medium;
 					font-weight: 500;

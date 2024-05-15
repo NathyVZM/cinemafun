@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
-import { TuiTitleModule, TuiSkeletonModule } from '@taiga-ui/experimental'
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
 import { TUI_VALIDATION_ERRORS } from '@taiga-ui/kit'
+import { TuiTitleModule, TuiSkeletonModule } from '@taiga-ui/experimental'
 import { catchError, delay, EMPTY, first } from 'rxjs'
 import { FormField, User } from '@models'
 import { ButtonComponent, CarouselComponent, FormFieldComponent, LogoComponent } from '@components'
 import { customMinLengthValidator, customRequiredValidator } from '@validators'
-import { AuthService, CoreService, MovieService, UserService } from '@services'
+import { AuthService, CoreService, MovieService } from '@services'
 
 @Component({
 	selector: 'cf-sign-up',
@@ -34,7 +36,7 @@ import { AuthService, CoreService, MovieService, UserService } from '@services'
 	templateUrl: './sign-up.component.html',
 	styleUrl: './sign-up.component.scss'
 })
-export class SignUpComponent implements OnInit {
+export class SignUpComponent {
 	form = new FormGroup({
 		name: new FormControl<string | null>(null, [
 			customMinLengthValidator('Full name'),
@@ -89,17 +91,26 @@ export class SignUpComponent implements OnInit {
 	]
 
 	carouselItems$ = this.movieService.getMoviesCarousel()
+	isCarouselVisible = true
 
 	constructor(
 		private movieService: MovieService,
 		private coreService: CoreService,
 		private authService: AuthService,
-		private userService: UserService,
-		private router: Router
-	) {}
+		private router: Router,
+		private responsive: BreakpointObserver
+	) {
+		this.responsive
+			.observe([Breakpoints.Tablet, Breakpoints.Handset])
+			.pipe(takeUntilDestroyed())
+			.subscribe(res => {
+				if (res.matches) {
+					this.isCarouselVisible = false
+					return
+				}
 
-	ngOnInit(): void {
-		this.userService.setUser(null)
+				this.isCarouselVisible = true
+			})
 	}
 
 	signUp() {

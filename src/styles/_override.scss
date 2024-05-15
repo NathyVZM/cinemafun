@@ -146,3 +146,17 @@ tui-carousel {
 tui-loader .t-loader {
 	stroke: c.$night !important;
 }
+
+// money
+
+tui-money {
+	span[automation-id='tui-money__integer-part'],
+	span[automation-id='tui-money__decimal-part'] {
+		@include m.truncate-text;
+	}
+
+	.t-container > span:not([automation-id='tui-money__currency']) {
+		@include m.truncate-text;
+		flex: 1;
+	}
+}

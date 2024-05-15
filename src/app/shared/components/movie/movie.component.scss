@@ -5,7 +5,7 @@
 :host {
 	--tui-elevation-02: #{c.$night};
 	--tui-font-heading-6: 500 #{v.$fs-regular}/ 1 var(--tui-font-text);
-	@include m.size(100%, 28rem);
+	width: 100%;
 }
 
 a {

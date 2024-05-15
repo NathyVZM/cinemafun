@@ -8,7 +8,19 @@
 	padding: v.$sp-great 5rem;
 	position: relative;
 	@include m.size(100%, 100dvh);
-	@include m.flex(flex-start, stretch, column, wrap);
+	@include m.flex(flex-start, stretch, column);
+
+	@media #{v.$bp-tablet} {
+		--tui-font-heading-3: bold #{v.$fs-large}/ 1 var(--tui-font-heading);
+		padding: v.$sp-extra-large;
+	}
+
+	@media #{v.$bp-phone} {
+		--tui-font-heading-5: 700 #{v.$fs-semi-small}/ 1 var(--tui-font-heading);
+		--tui-font-heading-3: bold #{v.$fs-big}/ 1 var(--tui-font-heading);
+		padding: v.$sp-large;
+		gap: v.$sp-big;
+	}
 }
 
 #header {
@@ -21,13 +33,16 @@ main {
 	flex: 1;
 	position: relative;
 	z-index: 1;
-	width: fit-content;
-	@include m.flex(space-between, center, row, wrap, v.$sp-medium);
-}
-
-#form-box {
 	width: 40dvw;
-	@include m.flex(flex-start, stretch, column, wrap, v.$sp-semi-large);
+	@include m.flex(center, stretch, column, wrap, v.$sp-extra-large);
+
+	@media #{v.$bp-phone-tablet} {
+		width: 100%;
+	}
+
+	@media #{v.$bp-phone} {
+		gap: v.$sp-extra-big;
+	}
 
 	> header {
 		width: 100%;
@@ -61,11 +76,24 @@ main {
 		#balance,
 		#ticket {
 			flex: 1;
+
+			@media #{v.$bp-phone-tablet} {
+				width: 100%;
+				flex: none;
+			}
 		}
 	}
 
 	> footer {
 		@include m.flex(flex-end, center, row);
+
+		@media #{v.$bp-phone-tablet} {
+			@include m.flex(center, center, row);
+
+			> cf-button {
+				width: 100%;
+			}
+		}
 	}
 }
 

@@ -43,11 +43,22 @@ $fs-giant: 4.25rem;
 $fs-colossal: 4.5rem;
 
 // Breakpoints
-$bp-phone: 36rem;
-$bp-sm-tablet: 48rem;
-$bp-tablet: 62rem;
-$bp-desktop: 75rem;
-$bp-lg-desktop: 87.5rem;
+$bp-xsmall: '(width <= 599.98px)';
+$bp-small: '(600px <= width <= 959.98px)';
+$bp-medium: '(960px <= width <= 1279.98px)';
+$bp-large: '(1280px <= width <= 1919.98px)';
+$bp-xlarge: '(1920px <= width)';
+$bp-phone: '(width <= 599.98px) and (orientation: portrait), (width <= 959.98px) and (orientation: landscape)';
+$bp-phone-portrait: '(width <= 599.98px) and (orientation: portrait)';
+$bp-phone-landscape: '(width <= 959.98px) and (orientation: landscape)';
+$bp-tablet: '(600px <= width <= 839.98px) and (orientation: portrait), (960px <= width <= 1279.98px) and (orientation: landscape)';
+$bp-tablet-portrait: '(600px <= width <= 839.98px) and (orientation: portrait)';
+$bp-tablet-landscape: '(960px <= width <= 1279.98px) and (orientation: landscape)';
+$bp-desktop: '(840px <= width) and (orientation: portrait), (1280px <= width) and (orientation: landscape)';
+$bp-desktop-portrait: '(840px <= width) and (orientation: portrait)';
+$bp-desktop-landscape: '(1280px <= width) and (orientation: landscape)';
+
+$bp-phone-tablet: $bp-phone + ', ' + $bp-tablet;
 
 // ...
 // rules for spacing/fonts

@@ -3,39 +3,39 @@
 </header>
 
 <main>
-	<section id="form-box">
-		<header>
-			<h3 [tuiTitle]="'m'">Start for free</h3>
-			<h2 [tuiTitle]="'l'">Create new account</h2>
-		</header>
+	<header>
+		<h3 [tuiTitle]="'m'">Start for free</h3>
+		<h2 [tuiTitle]="'l'">Create new account</h2>
+	</header>
 
-		<form [formGroup]="form" id="form" (ngSubmit)="signUp()">
-			@for (field of formFields; track field.id) {
-				<cf-form-field
-					[id]="field.id"
-					[nativeId]="field.id"
-					[formControlName]="field.formControlName"
-					[id]="field.id"
-					[type]="field.type"
-					[placeholder]="field.placeholder"
-					[iconLeft]="field.icon"
-					[label]="field.label"
-					[isRequired]="field.isRequired"
-					[hint]="field.hint"
-					[prefix]="field.prefix || ''" />
-			}
-		</form>
+	<form [formGroup]="form" id="form" (ngSubmit)="signUp()">
+		@for (field of formFields; track field.id) {
+			<cf-form-field
+				[id]="field.id"
+				[nativeId]="field.id"
+				[formControlName]="field.formControlName"
+				[id]="field.id"
+				[type]="field.type"
+				[placeholder]="field.placeholder"
+				[iconLeft]="field.icon"
+				[label]="field.label"
+				[isRequired]="field.isRequired"
+				[hint]="field.hint"
+				[prefix]="field.prefix || ''" />
+		}
+	</form>
 
-		<footer>
-			<cf-button [type]="'submit'" [label]="'Create account'" [form]="'form'" />
-		</footer>
-	</section>
+	<footer>
+		<cf-button [type]="'submit'" [label]="'Create account'" [form]="'form'" />
+	</footer>
 </main>
 
-@defer {
-	<cf-carousel id="carousel" [items]="carouselItems$" [addFade]="true" />
-} @loading {
-	<div class="carousel-skeleton" [tuiSkeleton]="true"></div>
-} @placeholder {
-	<div class="carousel-skeleton" [tuiSkeleton]="true"></div>
+@if (isCarouselVisible) {
+	@defer {
+		<cf-carousel id="carousel" [items]="carouselItems$" [addFade]="true" />
+	} @loading {
+		<div class="carousel-skeleton" [tuiSkeleton]="true"></div>
+	} @placeholder {
+		<div class="carousel-skeleton" [tuiSkeleton]="true"></div>
+	}
 }

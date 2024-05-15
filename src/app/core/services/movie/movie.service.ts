@@ -37,7 +37,7 @@ export class MovieService {
 							classification: 'G',
 							meaning: 'General Audiences'
 						},
-						genre: [],
+						genre: ['Adventure', 'Action', 'Thriller'],
 						runtime: 120
 					}
 				})
@@ -72,7 +72,7 @@ export class MovieService {
 	 */
 
 	/**
-	 * It generates a carousel of movies for display.
+	 * Generates a carousel of movies for display.
 	 * @returns {Observable<CarouselItem[]>} An Observable that emits an array of `CarouselItem` objects.
 	 *
 	 * The function randomly sorts the movies and selects the first five for the carousel.

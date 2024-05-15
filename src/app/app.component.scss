@@ -3,11 +3,11 @@
 @use 'variables' as v;
 
 #lights {
-	@include m.square(100%);
 	position: fixed;
-	@include m.position(0, $left: 0);
 	z-index: -2;
 	filter: blur(7.8rem);
+	@include m.square(100%);
+	@include m.position(0, $left: 0);
 }
 
 .pink {
