@@ -48,3 +48,26 @@
 tui-root {
 	min-height: 100dvh;
 }
+
+@media #{v.$bp-phone-tablet} {
+	.pink {
+		top: -40dvh;
+	}
+
+	.blue {
+		top: 30dvh;
+		right: -200dvw;
+	}
+
+	.second-blue {
+		display: none;
+	}
+
+	.yellow {
+		display: none;
+	}
+
+	.green {
+		display: none;
+	}
+}

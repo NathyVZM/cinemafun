@@ -2,8 +2,9 @@ import { Component, computed, input } from '@angular/core'
 import { AsyncPipe, NgClass } from '@angular/common'
 import { RouterLink } from '@angular/router'
 import { TuiIslandModule, TuiLineClampModule } from '@taiga-ui/kit'
-import { ClassificationPipe, GenrePipe, RuntimePipe } from '@pipes/pipes.index'
-import { ApiConfigurationService } from '@services/services.index'
+import { ClassificationPipe, GenrePipe, RuntimePipe } from '@pipes'
+import { ApiConfigurationService } from '@services'
+import { TuiHintModule } from '@taiga-ui/core'
 
 @Component({
 	selector: 'cf-movie',
@@ -14,6 +15,7 @@ import { ApiConfigurationService } from '@services/services.index'
 		AsyncPipe,
 		TuiIslandModule,
 		TuiLineClampModule,
+		TuiHintModule,
 		GenrePipe,
 		RuntimePipe,
 		ClassificationPipe
@@ -28,6 +30,7 @@ export class MovieComponent {
 	genre = input.required<string[]>()
 	runtime = input.required<number>()
 	classification = input.required<string>()
+	meaning = input('')
 
 	classificationColor = computed(() => this.classifications.get(this.classification()))
 	classifications = new Map([

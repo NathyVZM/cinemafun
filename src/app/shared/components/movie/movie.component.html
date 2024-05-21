@@ -11,11 +11,11 @@
 	<section class="tui-island__content">
 		<div>
 			<tui-line-clamp class="tui-island__title" [content]="title()" [lineHeight]="16" [linesLimit]="1" />
-			<p class="tui-island__paragraph">{{ genre() | genre }}</p>
+			<tui-line-clamp class="tui-island__paragraph" [content]="genre() | genre" [lineHeight]="14" [linesLimit]="1" />
 		</div>
 		<p class="tui-island__paragraph">
 			<span>{{ runtime() | runtime }}</span>
-			<span [ngClass]="classificationColor()">{{ classification() | classification }}</span>
+			<span [ngClass]="classificationColor()" [tuiHint]="meaning()">{{ classification() | classification }}</span>
 		</p>
 	</section>
 </a>

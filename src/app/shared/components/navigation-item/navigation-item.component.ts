@@ -1,4 +1,4 @@
-import { booleanAttribute, Component, Input, input, output } from '@angular/core'
+import { booleanAttribute, Component, Input, input, model, output } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterLink, RouterLinkActive } from '@angular/router'
 import { TuiLoaderModule } from '@taiga-ui/core'
@@ -15,12 +15,11 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 	styleUrl: './navigation-item.component.scss'
 })
 export class NavigationItemComponent {
-	@Input({ transform: booleanAttribute }) isLoading = false
-
 	label = input.required<string>()
 	icon = input('')
 	route = input('')
 	isButton = input(false, { transform: booleanAttribute })
+	isLoading = model(false)
 
 	buttonClick = output()
 
@@ -28,7 +27,7 @@ export class NavigationItemComponent {
 		this.coreService
 			.getIsNavigationItemLoading()
 			.pipe(takeUntilDestroyed())
-			.subscribe(_isLoading => (this.isLoading = _isLoading))
+			.subscribe(_isLoading => this.isLoading.set(_isLoading))
 	}
 
 	onClick() {

@@ -1,4 +1,5 @@
 import { booleanAttribute, Component, forwardRef, input } from '@angular/core'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { CommonModule } from '@angular/common'
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms'
 import {
@@ -10,7 +11,6 @@ import {
 	TuiErrorModule
 } from '@taiga-ui/core'
 import { TuiFieldErrorPipeModule, TuiInputModule, TuiInputNumberModule, TuiInputPasswordModule } from '@taiga-ui/kit'
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { CoreService } from '@services'
 
 @Component({

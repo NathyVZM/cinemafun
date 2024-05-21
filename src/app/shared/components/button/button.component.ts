@@ -1,4 +1,4 @@
-import { booleanAttribute, Component, Input, input, output } from '@angular/core'
+import { booleanAttribute, Component, input, model, output } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { TuiAppearance, TuiButtonModule, TuiSizeXL, TuiSizeXS } from '@taiga-ui/core'
 import { combineLatest } from 'rxjs'
@@ -12,9 +12,6 @@ import { CoreService } from '@services'
 	styleUrl: './button.component.scss'
 })
 export class ButtonComponent {
-	@Input({ transform: booleanAttribute }) isDisabled = false
-	@Input({ transform: booleanAttribute }) isLoading = false
-
 	type = input.required<'submit' | 'reset' | 'button'>()
 	label = input('')
 	form = input('')
@@ -24,6 +21,8 @@ export class ButtonComponent {
 	shape = input<'rounded' | 'square'>('rounded')
 	size = input<TuiSizeXS | TuiSizeXL>('l')
 	isIconButton = input(false, { transform: booleanAttribute })
+	isDisabled = model(false)
+	isLoading = model(false)
 
 	buttonClick = output()
 
@@ -34,8 +33,8 @@ export class ButtonComponent {
 		})
 			.pipe(takeUntilDestroyed())
 			.subscribe(({ _isLoading, _isDisabled }) => {
-				this.isLoading = _isLoading
-				this.isDisabled = _isDisabled
+				this.isLoading.set(_isLoading)
+				this.isDisabled.set(_isDisabled)
 			})
 	}
 

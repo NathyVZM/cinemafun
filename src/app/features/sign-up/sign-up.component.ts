@@ -1,11 +1,12 @@
-import { Component } from '@angular/core'
+import { Component, Inject } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
+import { TuiAlertService } from '@taiga-ui/core'
 import { TUI_VALIDATION_ERRORS } from '@taiga-ui/kit'
 import { TuiTitleModule, TuiSkeletonModule } from '@taiga-ui/experimental'
-import { catchError, delay, EMPTY, first } from 'rxjs'
+import { catchError, delay, EMPTY, first, tap } from 'rxjs'
 import { FormField, User } from '@models'
 import { ButtonComponent, CarouselComponent, FormFieldComponent, LogoComponent } from '@components'
 import { customMinLengthValidator, customRequiredValidator } from '@validators'
@@ -98,7 +99,8 @@ export class SignUpComponent {
 		private coreService: CoreService,
 		private authService: AuthService,
 		private router: Router,
-		private responsive: BreakpointObserver
+		private responsive: BreakpointObserver,
+		@Inject(TuiAlertService) private readonly alerts: TuiAlertService
 	) {
 		this.responsive
 			.observe([Breakpoints.Tablet, Breakpoints.Handset])
@@ -139,6 +141,12 @@ export class SignUpComponent {
 				catchError(() => {
 					this.toggleButtonAndFormFieldState(false)
 					return EMPTY
+				}),
+				tap(() => {
+					this.alerts
+						.open('You have successfully signed up!', { label: 'Success', status: 'success', autoClose: true })
+						.pipe(first())
+						.subscribe()
 				})
 			)
 			.subscribe({
