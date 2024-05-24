@@ -10,7 +10,7 @@
 				tuiHintPointer>
 				@for (size of backdropSizes$ | async; track $index) {
 					@if (size.includes('original')) {
-						<img [src]="(imagesPath$ | async) + size + item.image" [alt]="item.alt" />
+						<img [ngSrc]="(imagesPath$ | async) + size + item.image" [alt]="item.alt" priority fill />
 					} @else {
 						<source [srcset]="(imagesPath$ | async) + size + item.image" [media]="getMediaQuery(size)" />
 					}

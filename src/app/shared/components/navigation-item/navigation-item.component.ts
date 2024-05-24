@@ -1,11 +1,11 @@
-import { booleanAttribute, Component, Input, input, model, output } from '@angular/core'
+import { booleanAttribute, Component, input, model, output } from '@angular/core'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { CommonModule } from '@angular/common'
 import { RouterLink, RouterLinkActive } from '@angular/router'
 import { TuiLoaderModule } from '@taiga-ui/core'
 import { TuiActionModule } from '@taiga-ui/kit'
+import { CoreService } from '@services'
 import { IconComponent } from '../icon/icon.component'
-import { CoreService } from '@services/services.index'
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 
 @Component({
 	selector: 'cf-navigation-item',
@@ -30,7 +30,7 @@ export class NavigationItemComponent {
 			.subscribe(_isLoading => this.isLoading.set(_isLoading))
 	}
 
-	onClick() {
+	onButtonClick() {
 		this.buttonClick.emit()
 	}
 }

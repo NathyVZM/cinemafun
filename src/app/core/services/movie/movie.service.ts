@@ -1,19 +1,7 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { environment } from 'environments/environment'
-import {
-	BehaviorSubject,
-	catchError,
-	concatMap,
-	delay,
-	EMPTY,
-	forkJoin,
-	map,
-	mergeMap,
-	Observable,
-	of,
-	tap
-} from 'rxjs'
+import { BehaviorSubject, catchError, concatMap, delay, EMPTY, forkJoin, map, Observable, of, tap } from 'rxjs'
 import { v4 as uuid } from 'uuid'
 import { MovieSchema } from '@schemas'
 import { CarouselItem, Classification, Movie } from '@models'

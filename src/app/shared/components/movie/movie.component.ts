@@ -1,10 +1,10 @@
 import { Component, computed, input } from '@angular/core'
 import { AsyncPipe, NgClass } from '@angular/common'
 import { RouterLink } from '@angular/router'
+import { TuiHintModule } from '@taiga-ui/core'
 import { TuiIslandModule, TuiLineClampModule } from '@taiga-ui/kit'
 import { ClassificationPipe, GenrePipe, RuntimePipe } from '@pipes'
 import { ApiConfigurationService } from '@services'
-import { TuiHintModule } from '@taiga-ui/core'
 
 @Component({
 	selector: 'cf-movie',

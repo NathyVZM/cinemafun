@@ -1,8 +1,7 @@
 import { AsyncPipe } from '@angular/common'
 import { Component, inject } from '@angular/core'
 import { MovieComponent } from '@components'
-import { Movie } from '@models'
-import { MovieService } from '@services/services.index'
+import { MovieService } from '@services'
 
 @Component({
 	selector: 'cf-home',

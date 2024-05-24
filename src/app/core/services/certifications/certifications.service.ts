@@ -46,6 +46,10 @@ export class CertificationsService {
 		return this.movieCertifications$.asObservable()
 	}
 
+	/**
+	 * Checks if the movie certifications have been loaded.
+	 * @returns A boolean indicating if the movie certifications have been loaded.
+	 */
 	areMovieCertificationsLoaded() {
 		return this.movieCertifications$.value.length > 0
 	}

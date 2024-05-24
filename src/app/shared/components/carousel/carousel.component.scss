@@ -8,7 +8,11 @@
 }
 
 tui-carousel {
-	height: 100%;
+	@include m.square(100%);
+}
+
+picture {
+	position: relative;
 }
 
 tui-pagination {

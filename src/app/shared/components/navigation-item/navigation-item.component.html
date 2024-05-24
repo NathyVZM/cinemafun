@@ -1,6 +1,6 @@
 @if (isButton()) {
 	<tui-loader [overlay]="true" [showLoader]="isLoading()">
-		<button tuiAction type="button" (click)="onClick()" [ngClass]="{ 'is-loading': isLoading() }">
+		<button tuiAction type="button" (click)="onButtonClick()" [ngClass]="{ 'is-loading': isLoading() }">
 			@if (!isLoading()) {
 				<ng-container *ngTemplateOutlet="content"></ng-container>
 			}

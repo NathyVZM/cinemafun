@@ -46,7 +46,7 @@ main {
 
 	> header {
 		width: 100%;
-		@include m.flex(center, stretch, column, wrap, v.$sp-semi-small);
+		@include m.flex(center, stretch, column-reverse, wrap, v.$sp-semi-small);
 
 		h3 {
 			text-transform: uppercase;
@@ -73,8 +73,8 @@ main {
 			width: 100%;
 		}
 
-		#balance,
-		#ticket {
+		.balance,
+		.ticket {
 			flex: 1;
 
 			@media #{v.$bp-phone-tablet} {

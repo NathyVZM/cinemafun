@@ -7,6 +7,6 @@ import { formatDate } from '@angular/common'
 })
 export class RuntimePipe implements PipeTransform {
 	transform(runtime: number): string {
-		return formatDate(runtime * 1000 * 60, "h 'hr' m 'min'", 'en-us', 'z') || ''
+		return runtime > 0 ? formatDate(runtime * 1000 * 60, "h 'hr' m 'min'", 'en-us', 'z') || '' : 'N/A'
 	}
 }
