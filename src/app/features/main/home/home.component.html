@@ -1,10 +1,15 @@
-@for (movie of movies$ | async; track movie.id) {
-	<cf-movie
-		[id]="movie.id"
-		[title]="movie.title"
-		[poster]="movie.poster"
-		[genre]="movie.genre"
-		[runtime]="movie.runtime"
-		[classification]="movie.classification.classification"
-		[meaning]="movie.classification.meaning" />
+@for (movie of movies$ | async; track movie.id; let first = $first) {
+	@defer (on viewport) {
+		<cf-movie
+			[id]="movie.id"
+			[title]="movie.title"
+			[poster]="movie.poster"
+			[genre]="movie.genre"
+			[runtime]="movie.runtime"
+			[classification]="movie.classification.classification"
+			[meaning]="movie.classification.meaning"
+			[isFirst]="first" />
+	} @placeholder {
+		<p>loading</p>
+	}
 }

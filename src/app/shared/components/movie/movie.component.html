@@ -2,9 +2,17 @@
 	<picture class="tui-island__figure">
 		@for (size of posterSizes$ | async; track $index) {
 			@if (size.includes('original')) {
-				<img [ngSrc]="(imagesPath$ | async) + size + poster()" [alt]="title() + 'poster'" fill placeholder />
+				<img
+					[ngSrc]="(imagesPath$ | async) + size + poster()"
+					[loaderParams]="{ width: 320, fit: 'cover' }"
+					[alt]="title() + 'poster'"
+					[priority]="isFirst()"
+					fill
+					placeholder />
 			} @else {
-				<source [srcset]="(imagesPath$ | async) + size + poster()" [media]="getMediaQuery(size)" />
+				<source
+					[srcset]="(imagesPath$ | async) + size + poster() + '&fm=webp&fit=cover&w=640&q=80'"
+					[media]="getMediaQuery(size)" />
 			}
 		}
 	</picture>

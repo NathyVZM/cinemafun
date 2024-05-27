@@ -32,6 +32,7 @@ export class MovieComponent {
 	runtime = input.required<number>()
 	classification = input.required<string>()
 	meaning = input('')
+	isFirst = input(false)
 
 	classificationColor = computed(() => this.classifications.get(this.classification()))
 	classifications = new Map([

@@ -23,6 +23,10 @@ export class MovieService {
 	 * Movies
 	 */
 
+	/**
+	 * Loads the list of movies from the API.
+	 * @returns An Observable that emits an array of Movie objects.
+	 */
 	loadMovies(): Observable<Movie[]> {
 		return this.http.get<{ results: MovieSchema[] }>(`${this.apiUrl}/movie/now_playing`).pipe(
 			map(({ results }) => {

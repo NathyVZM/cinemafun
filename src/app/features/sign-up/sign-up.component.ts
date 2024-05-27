@@ -6,7 +6,7 @@ import { Router } from '@angular/router'
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
 import { TuiAlertService } from '@taiga-ui/core'
 import { TUI_VALIDATION_ERRORS } from '@taiga-ui/kit'
-import { TuiTitleModule, TuiSkeletonModule } from '@taiga-ui/experimental'
+import { TuiSkeletonModule } from '@taiga-ui/experimental'
 import { catchError, delay, EMPTY, first, tap } from 'rxjs'
 import { FormField, User } from '@models'
 import { ButtonComponent, CarouselComponent, FormFieldComponent, LogoComponent } from '@components'
@@ -19,7 +19,6 @@ import { AuthService, CoreService, MovieService } from '@services'
 	imports: [
 		NgClass,
 		ReactiveFormsModule,
-		TuiTitleModule,
 		TuiSkeletonModule,
 		LogoComponent,
 		FormFieldComponent,
