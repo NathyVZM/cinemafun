@@ -1,6 +1,5 @@
 [build]
 base = "/"
-
 publish = "dist/cinemafun/browser"
 
 [context.deploy-preview]
@@ -12,10 +11,4 @@ to = "/index.html"
 status = 200
 
 [images]
-remote_images = [
-    "https://cinemafun.netlify.app",
-    "https://cinemafun.netlify.app/.*",
-    "https://api.themoviedb.org/3/*",
-    "https://image.tmdb.org/t/p/*",
-    "https://image.tmdb.org/t/p/.*",
-]
+remote_images = ["https://image.tmdb.org/t/p/*"]

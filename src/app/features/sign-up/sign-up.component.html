@@ -30,13 +30,11 @@
 </main>
 
 @if (isCarouselVisible) {
-	<!-- @defer {
+	@defer {
 		<cf-carousel id="carousel" [items]="carouselItems$" [addFade]="true" />
 	} @loading {
 		<div class="carousel-skeleton" [tuiSkeleton]="true"></div>
 	} @placeholder {
 		<div class="carousel-skeleton" [tuiSkeleton]="true"></div>
-	} -->
-
-	<cf-carousel id="carousel" [items]="carouselItems$" [addFade]="true" />
+	}
 }

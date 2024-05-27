@@ -10,6 +10,7 @@ import {
 } from '@taiga-ui/core'
 import { TuiSafeHtml } from '@taiga-ui/cdk'
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify'
+import { provideNetlifyLoader } from '@angular/common'
 
 @Component({
 	selector: 'app-root',
@@ -17,7 +18,8 @@ import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify'
 	imports: [RouterOutlet, TuiRootModule, TuiModeModule, TuiThemeNightModule, TuiAlertModule],
 	providers: [
 		{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer },
-		tuiSvgSrcInterceptors((svg: TuiSafeHtml) => (!String(svg).includes('tui') ? `assets/icons/${svg}-duotone.svg` : svg))
+		tuiSvgSrcInterceptors((svg: TuiSafeHtml) => (!String(svg).includes('tui') ? `assets/icons/${svg}-duotone.svg` : svg)),
+		provideNetlifyLoader('https://cinemafun.netlify.app')
 	],
 	templateUrl: './app.component.html',
 	styleUrl: './app.component.scss'
