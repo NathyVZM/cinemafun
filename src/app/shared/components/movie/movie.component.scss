@@ -23,7 +23,9 @@ a {
 		order: 0;
 		margin: 0;
 		flex: 1;
+		flex-basis: 25rem;
 		border-radius: calc(v.$sp-large / 2);
+		position: relative;
 
 		> img {
 			object-fit: cover;

@@ -1,5 +1,5 @@
 import { Component, computed, input } from '@angular/core'
-import { AsyncPipe, NgClass } from '@angular/common'
+import { AsyncPipe, NgClass, NgOptimizedImage } from '@angular/common'
 import { RouterLink } from '@angular/router'
 import { TuiHintModule } from '@taiga-ui/core'
 import { TuiIslandModule, TuiLineClampModule } from '@taiga-ui/kit'
@@ -13,6 +13,7 @@ import { ApiConfigurationService } from '@services'
 		NgClass,
 		RouterLink,
 		AsyncPipe,
+		NgOptimizedImage,
 		TuiIslandModule,
 		TuiLineClampModule,
 		TuiHintModule,

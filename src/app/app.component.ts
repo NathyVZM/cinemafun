@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { provideNetlifyLoader } from '@angular/common'
 import { RouterOutlet } from '@angular/router'
 import {
 	TUI_SANITIZER,
@@ -10,7 +11,6 @@ import {
 } from '@taiga-ui/core'
 import { TuiSafeHtml } from '@taiga-ui/cdk'
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify'
-import { provideNetlifyLoader } from '@angular/common'
 
 @Component({
 	selector: 'app-root',

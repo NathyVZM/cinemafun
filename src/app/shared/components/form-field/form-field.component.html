@@ -54,6 +54,14 @@
 				[(ngModel)]="value"
 				(ngModelChange)="onNgModelChange($event)">
 				{{ placeholder() }}
+				<input
+					tuiTextfield
+					[id]="nativeId()"
+					[type]="type()"
+					[placeholder]="placeholder()"
+					[disabled]="isDisabled"
+					[spellcheck]="spellCheck()"
+					[autocapitalize]="autoCapitalize()" />
 			</tui-input>
 		}
 	}

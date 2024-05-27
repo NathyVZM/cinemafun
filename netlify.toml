@@ -8,4 +8,7 @@ to = "/index.html"
 status = 200
 
 [images]
-remote_images = ["https://image.tmdb.org/t/p/.*"]
+remote_images = [
+    "https://image.tmdb.org/t/p/*",
+    "https://image.tmdb.org/t/p/.*",
+]
