@@ -1,9 +1,8 @@
-import { Component, DestroyRef, inject, input, model } from '@angular/core'
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
+import { Component, input, model } from '@angular/core'
 import { AsyncPipe, NgClass, NgOptimizedImage } from '@angular/common'
 import { TuiHintModule, TuiSizeL, TuiSizeS } from '@taiga-ui/core'
 import { TuiCarouselModule, TuiPaginationModule } from '@taiga-ui/kit'
-import { map, Observable } from 'rxjs'
+import { Observable } from 'rxjs'
 import { CarouselItem } from '@models'
 import { ApiConfigurationService } from '@services'
 import { IconComponent } from '../icon/icon.component'
@@ -17,26 +16,16 @@ import { IconComponent } from '../icon/icon.component'
 })
 export class CarouselComponent {
 	items = input.required<Observable<CarouselItem[]>>()
-	index = model(0)
 	duration = input(10000)
 	isDraggable = input(false)
 	addFade = input(false)
 	paginationSize = input<TuiSizeS | TuiSizeL>('s')
+	index = model(0)
 
 	imagesPath$ = this.apiConfigurationService.getImagesPath()
 	backdropSizes$ = this.apiConfigurationService.getBackdropSizes()
-	destroyRef$ = inject(DestroyRef)
 
 	constructor(private apiConfigurationService: ApiConfigurationService) {}
-
-	getImagePath(size: string, image: string) {
-		return this.imagesPath$.pipe(
-			takeUntilDestroyed(this.destroyRef$),
-			map(imagesPath => {
-				return `https://cinemafun.netlify.app/.netlify/images?url=${imagesPath}${size}${image}&fm=webp&fit=cover&w=1080&q=100`
-			})
-		)
-	}
 
 	getMediaQuery(size: string) {
 		const formattedSize = size.replace('w', '')

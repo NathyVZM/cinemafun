@@ -10,9 +10,16 @@
 				tuiHintPointer>
 				@for (size of backdropSizes$ | async; track $index) {
 					@if (size.includes('original')) {
-						<img [ngSrc]="(getImagePath(size, item.image) | async) || ''" [alt]="item.alt" priority placeholder fill />
+						<img
+							[ngSrc]="'/.netlify/images?fm=webp&fit=cover&w=1920&url=' + (imagesPath$ | async) + size + item.image"
+							[alt]="item.alt"
+							priority
+							placeholder
+							fill />
 					} @else {
-						<source [srcset]="(getImagePath(size, item.image) | async) || ''" [media]="getMediaQuery(size)" />
+						<source
+							[srcset]="'/.netlify/images?fm=webp&fit=cover&w=1920&url=' + (imagesPath$ | async) + size + item.image"
+							[media]="getMediaQuery(size)" />
 					}
 				}
 			</picture>

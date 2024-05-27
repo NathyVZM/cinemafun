@@ -2,13 +2,10 @@
 base = "/"
 publish = "dist/cinemafun/browser"
 
-[context.deploy-preview]
-publish = "dist/cinemafun/browser"
-
 [[redirects]]
 from = "/*"
 to = "/index.html"
 status = 200
 
 [images]
-remote_images = ["https://image.tmdb.org/t/p/*"]
+remote_images = ["https://image.tmdb.org/t/p/.*"]
