@@ -1,29 +1,33 @@
-<a tuiIsland [hoverable]="true" [routerLink]="['/movie', id()]">
-	<picture class="tui-island__figure">
-		@for (size of posterSizes$ | async; track $index) {
-			@if (size.includes('original')) {
-				<img
-					[ngSrc]="(imagesPath$ | async) + size + poster()"
-					[loaderParams]="{ width: 320, fit: 'cover' }"
-					[alt]="title() + 'poster'"
-					[priority]="isFirst()"
-					fill
-					placeholder />
-			} @else {
-				<source
-					[srcset]="(imagesPath$ | async) + size + poster() + '&fm=webp&fit=cover&w=640&q=80'"
-					[media]="getMediaQuery(size)" />
+@defer (on viewport) {
+	<a tuiIsland [hoverable]="true" [routerLink]="['/movie', id()]">
+		<picture class="tui-island__figure">
+			@for (size of posterSizes$ | async; track $index) {
+				@if (size.includes('original')) {
+					<img
+						[ngSrc]="(imagesPath$ | async) + size + poster()"
+						[loaderParams]="{ width: 266, height: 400, fit: 'cover' }"
+						[alt]="title() + 'poster'"
+						[priority]="isFirst()"
+						fill
+						placeholder />
+				} @else {
+					<source
+						[srcset]="(imagesPath$ | async) + size + poster() + '&fm=webp&fit=cover&w=640&q=80'"
+						[media]="getMediaQuery(size)" />
+				}
 			}
-		}
-	</picture>
-	<section class="tui-island__content">
-		<div>
-			<tui-line-clamp class="tui-island__title" [content]="title()" [lineHeight]="16" [linesLimit]="1" />
-			<tui-line-clamp class="tui-island__paragraph" [content]="genre() | genre" [lineHeight]="14" [linesLimit]="1" />
-		</div>
-		<p class="tui-island__paragraph">
-			<span>{{ runtime() | runtime }}</span>
-			<span [ngClass]="classificationColor()" [tuiHint]="meaning()">{{ classification() | classification }}</span>
-		</p>
-	</section>
-</a>
+		</picture>
+		<section class="tui-island__content">
+			<div>
+				<tui-line-clamp class="tui-island__title" [content]="title()" [lineHeight]="16" [linesLimit]="1" />
+				<tui-line-clamp class="tui-island__paragraph" [content]="genre() | genre" [lineHeight]="14" [linesLimit]="1" />
+			</div>
+			<p class="tui-island__paragraph">
+				<span>{{ runtime() | runtime }}</span>
+				<span [ngClass]="classificationColor()" [tuiHint]="meaning()">{{ classification() | classification }}</span>
+			</p>
+		</section>
+	</a>
+} @placeholder {
+	<p>loading</p>
+}

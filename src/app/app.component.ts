@@ -28,9 +28,11 @@ import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify'
 				const queryParams = new URLSearchParams([])
 				const paramMapping = new Map([
 					['width', 'w'],
+					['height', 'h'],
 					['format', 'fm'],
 					['quality', 'q'],
-					['fit', 'fit']
+					['fit', 'fit'],
+					['position', 'position']
 				])
 
 				paramMapping.forEach((value, key) => {
