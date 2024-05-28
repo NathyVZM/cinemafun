@@ -1,4 +1,4 @@
-import { Component, input, model } from '@angular/core'
+import { AfterViewInit, Component, ElementRef, input, model, Renderer2, viewChild } from '@angular/core'
 import { AsyncPipe, NgClass, NgOptimizedImage } from '@angular/common'
 import { TuiHintModule, TuiSizeL, TuiSizeS } from '@taiga-ui/core'
 import { TuiCarouselModule, TuiPaginationModule } from '@taiga-ui/kit'
@@ -14,7 +14,7 @@ import { IconComponent } from '../icon/icon.component'
 	templateUrl: './carousel.component.html',
 	styleUrl: './carousel.component.scss'
 })
-export class CarouselComponent {
+export class CarouselComponent implements AfterViewInit {
 	items = input.required<Observable<CarouselItem[]>>()
 	duration = input(10000)
 	isDraggable = input(false)
@@ -22,10 +22,22 @@ export class CarouselComponent {
 	paginationSize = input<TuiSizeS | TuiSizeL>('s')
 	index = model(0)
 
+	pagination = viewChild<{ el: ElementRef<HTMLDivElement> }>('pagination')
+
 	imagesPath$ = this.apiConfigurationService.getImagesPath()
 	backdropSizes$ = this.apiConfigurationService.getBackdropSizes()
 
-	constructor(private apiConfigurationService: ApiConfigurationService) {}
+	constructor(
+		private apiConfigurationService: ApiConfigurationService,
+		private renderer: Renderer2
+	) {}
+
+	ngAfterViewInit(): void {
+		const buttons = this.pagination()?.el.nativeElement.querySelectorAll('button')
+		buttons?.forEach((button, index) => {
+			this.renderer.setAttribute(button, 'aria-label', `carousel-button-${index + 1}`)
+		})
+	}
 
 	getMediaQuery(size: string) {
 		const formattedSize = size.replace('w', '')
