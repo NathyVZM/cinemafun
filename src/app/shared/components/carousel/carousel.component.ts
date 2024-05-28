@@ -5,12 +5,11 @@ import { TuiCarouselModule, TuiPaginationModule } from '@taiga-ui/kit'
 import { Observable } from 'rxjs'
 import { CarouselItem } from '@models'
 import { ApiConfigurationService } from '@services'
-import { IconComponent } from '../icon/icon.component'
 
 @Component({
 	selector: 'cf-carousel',
 	standalone: true,
-	imports: [AsyncPipe, NgClass, NgOptimizedImage, TuiCarouselModule, TuiPaginationModule, TuiHintModule, IconComponent],
+	imports: [AsyncPipe, NgClass, NgOptimizedImage, TuiCarouselModule, TuiPaginationModule, TuiHintModule],
 	templateUrl: './carousel.component.html',
 	styleUrl: './carousel.component.scss'
 })

@@ -2,9 +2,8 @@
 @use 'variables' as v;
 
 :host {
-	width: 100%;
-	height: 100%;
 	position: relative;
+	@include m.square(100%);
 	@include m.flex($align: stretch, $direction: column, $gap: v.$sp-tiny);
 }
 
