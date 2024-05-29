@@ -43,6 +43,8 @@ export class MovieComponent {
 		['NC-17', 'adults-only']
 	])
 
+	isImageLoading = true
+
 	imagesPath$ = this.apiConfigurationService.getImagesPath()
 	posterSizes$ = this.apiConfigurationService.getPosterSizes()
 
@@ -51,5 +53,9 @@ export class MovieComponent {
 	getMediaQuery(size: string) {
 		const formattedSize = size.replace('w', '')
 		return `(max-width: ${formattedSize}px)`
+	}
+
+	onImageLoad() {
+		this.isImageLoading = false
 	}
 }

@@ -11,16 +11,16 @@
 }
 
 .pink {
-	@include m.size(80rem, 55rem);
 	background: radial-gradient(closest-side, rgba(255, 142, 212, 0.4) 0%, transparent 100%);
 	position: fixed;
+	@include m.size(80rem, 55rem);
 	@include m.position(-16rem, $right: -3rem);
 }
 
 .blue {
-	@include m.size(80rem, 60rem);
 	background: radial-gradient(closest-side, rgba(142, 153, 255, 0.4) 0%, transparent 100%);
 	position: fixed;
+	@include m.size(80rem, 60rem);
 	@include m.position(-17rem, $right: 40rem);
 }
 
@@ -69,5 +69,18 @@ tui-root {
 
 	.green {
 		display: none;
+	}
+}
+
+@media #{v.$bp-tablet} {
+	.pink {
+		top: -30dvh;
+		@include m.size(90rem, 65rem);
+	}
+
+	.blue {
+		top: 40dvh;
+		right: -80dvw;
+		@include m.size(90rem, 70rem);
 	}
 }

@@ -14,7 +14,7 @@ div {
 
 	section {
 		flex: 1;
-		@include m.flex(flex-start, stretch, column, wrap, v.$sp-big);
+		@include m.flex(flex-start, stretch, column, wrap, v.$sp-extra-large);
 
 		main {
 			flex: 1;

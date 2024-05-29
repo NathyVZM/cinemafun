@@ -23,14 +23,13 @@ a {
 		order: 0;
 		margin: 0;
 		flex: 1;
-		flex-basis: 25rem;
+		flex-basis: 26rem;
 		border-radius: calc(v.$sp-large / 2);
 		position: relative;
 
 		> img {
 			object-fit: cover;
 			border-radius: calc(v.$sp-large / 2);
-			overflow-clip-margin: unset;
 			@include m.square(100%);
 		}
 	}
@@ -41,6 +40,11 @@ a {
 
 	&__paragraph {
 		font-size: v.$fs-extra-small;
+		@include m.flex($gap: v.$sp-tiny);
+
+		span {
+			display: inline-block;
+		}
 	}
 
 	&__content {
@@ -73,7 +77,36 @@ a {
 }
 
 .skeleton {
-	display: inline-block;
-	width: 298px;
-	height: 500px;
+	background-color: c.$platinum;
+	border-radius: v.$sp-large;
+	padding: v.$sp-regular;
+	animation: loading-skeleton ease-in-out 0.8s infinite alternate;
+	@include m.size(298px, 516px);
+	@include m.flex(space-between, stretch, column, wrap, v.$sp-semi-small);
+
+	&__image {
+		flex: 1;
+		border-radius: calc(v.$sp-large / 2);
+		background-color: c.$platinum;
+	}
+
+	&__content {
+		@include m.flex(space-between, stretch, column, wrap, v.$sp-small);
+
+		> div:first-child {
+			@include m.flex(flex-start, stretch, column, wrap, v.$sp-tiny);
+		}
+	}
+
+	&__title {
+		@include m.skeleton-color($height: 1rem);
+	}
+
+	&__paragraph {
+		@include m.skeleton-color($height: 0.875rem);
+	}
+
+	&__footer {
+		@include m.skeleton-color(105px, 0.875rem);
+	}
 }

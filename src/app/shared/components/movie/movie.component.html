@@ -1,13 +1,14 @@
-@defer (on viewport) {
+@defer (prefetch on idle) {
 	<a tuiIsland [hoverable]="true" [routerLink]="['/movie', id()]">
-		<picture class="tui-island__figure">
+		<picture class="tui-island__figure" [ngClass]="{ 'skeleton-image': isImageLoading }">
 			@for (size of posterSizes$ | async; track $index) {
 				@if (size.includes('original')) {
 					<img
 						[ngSrc]="(imagesPath$ | async) + size + poster()"
-						[loaderParams]="{ width: 266, height: 400, fit: 'cover' }"
+						[loaderParams]="{ width: 266, height: 416, fit: 'cover' }"
 						[alt]="title() + 'poster'"
-						[priority]="isFirst()"
+						(load)="onImageLoad()"
+						priority
 						fill
 						placeholder />
 				} @else {
@@ -28,6 +29,26 @@
 			</p>
 		</section>
 	</a>
-} @placeholder {
-	<p>loading</p>
+} @placeholder (minimum 600ms) {
+	<div class="skeleton">
+		<div class="skeleton__image"></div>
+		<section class="skeleton__content">
+			<div>
+				<div class="skeleton__title"></div>
+				<div class="skeleton__paragraph"></div>
+			</div>
+			<div class="skeleton__footer"></div>
+		</section>
+	</div>
+} @loading (minimum 600ms) {
+	<div class="skeleton">
+		<div class="skeleton__image"></div>
+		<section class="skeleton__content">
+			<div>
+				<div class="skeleton__title"></div>
+				<div class="skeleton__paragraph"></div>
+			</div>
+			<div class="skeleton__footer"></div>
+		</section>
+	</div>
 }

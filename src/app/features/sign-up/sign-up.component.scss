@@ -16,8 +16,8 @@
 	}
 
 	@media #{v.$bp-phone} {
-		--tui-font-heading-5: 700 #{v.$fs-semi-small}/ 1 var(--tui-font-heading);
 		--tui-font-heading-3: bold #{v.$fs-big}/ 1 var(--tui-font-heading);
+		--tui-font-heading-5: 700 #{v.$fs-semi-small}/ 1 var(--tui-font-heading);
 		padding: v.$sp-large;
 		gap: v.$sp-big;
 	}
@@ -40,8 +40,8 @@ main {
 		width: 100%;
 	}
 
-	@media #{v.$bp-phone} {
-		gap: v.$sp-extra-big;
+	@media (height <= 667px) and (orientarion: portrait) {
+		gap: v.$sp-large;
 	}
 
 	> header {
@@ -59,12 +59,28 @@ main {
 				border-radius: 100%;
 				@include m.square(v.$fs-regular);
 			}
+
+			@media #{v.$bp-tablet} {
+				font-size: v.$fs-large;
+			}
+
+			@media #{v.$bp-phone} {
+				font-size: v.$fs-medium;
+
+				&::after {
+					@include m.square(v.$fs-semi-small);
+				}
+			}
 		}
 
 		h3 {
 			text-transform: uppercase;
 			color: c.$cool-gray;
 			font: 700 #{v.$fs-regular}/ 1 var(--tui-font-heading);
+
+			@media #{v.$bp-phone} {
+				font-size: v.$fs-semi-small;
+			}
 		}
 	}
 
@@ -96,6 +112,10 @@ main {
 				width: 100%;
 			}
 		}
+
+		@media (height <= 667px) and (orientarion: portrait) {
+			margin-top: auto;
+		}
 	}
 }
 
@@ -113,15 +133,8 @@ main {
 	position: absolute;
 	z-index: 0;
 	border-radius: 50px;
+	animation: loading-skeleton ease-in-out 0.5s infinite alternate;
+	background-color: c.$platinum;
 	@include m.position($right: 1.5rem, $bottom: 1.6rem);
 	@include m.size(53dvw, 95dvh);
-}
-
-@keyframes fadeIn {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
 }

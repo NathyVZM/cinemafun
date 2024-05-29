@@ -1,5 +1,6 @@
 @use 'variables' as v;
 @use 'colors' as c;
+@use 'mixins' as m;
 
 /// Font sizes
 /// List of font sizes used in the app
@@ -68,4 +69,8 @@ $-colors: (
 			fill: $color !important;
 		}
 	}
+}
+
+.skeleton-image {
+	@include m.skeleton-color(100%, 100%, calc(v.$sp-large / 2));
 }

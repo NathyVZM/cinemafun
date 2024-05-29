@@ -23,6 +23,8 @@ export class CarouselComponent implements AfterViewInit {
 
 	pagination = viewChild<{ el: ElementRef<HTMLDivElement> }>('pagination')
 
+	isImageLoading = true
+
 	imagesPath$ = this.apiConfigurationService.getImagesPath()
 	backdropSizes$ = this.apiConfigurationService.getBackdropSizes()
 
@@ -41,5 +43,9 @@ export class CarouselComponent implements AfterViewInit {
 	getMediaQuery(size: string) {
 		const formattedSize = size.replace('w', '')
 		return `(max-width: ${formattedSize}px)`
+	}
+
+	onImageLoad() {
+		this.isImageLoading = false
 	}
 }
