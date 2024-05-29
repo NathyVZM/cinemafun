@@ -13,7 +13,7 @@
 					@if (size.includes('original')) {
 						<img
 							[ngSrc]="(imagesPath$ | async) + size + item.image"
-							[loaderParams]="{ width: 1310, fit: 'cover', quality: 100 }"
+							[loaderParams]="{ width: 1310, fit: 'cover', quality: 80 }"
 							[alt]="item.alt"
 							(load)="onImageLoad()"
 							priority
@@ -21,7 +21,7 @@
 							fill />
 					} @else {
 						<source
-							[srcset]="(imagesPath$ | async) + size + item.image + '&fm=webp&w=1310&q=100&fit=cover'"
+							[srcset]="(imagesPath$ | async) + size + item.image + '&fm=webp&w=1310&q=80&fit=cover'"
 							[media]="getMediaQuery(size)" />
 					}
 				}
