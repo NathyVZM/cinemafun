@@ -32,7 +32,7 @@
 @if (isCarouselVisible) {
 	@defer {
 		<cf-carousel id="carousel" [items]="carouselItems$" [addFade]="true" />
-	} @loading (minimum 500ms) {
+	} @loading {
 		<div class="carousel-skeleton"></div>
 	} @placeholder {
 		<div class="carousel-skeleton"></div>
