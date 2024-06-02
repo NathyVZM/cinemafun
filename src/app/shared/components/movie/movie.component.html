@@ -13,7 +13,7 @@
 						placeholder />
 				} @else {
 					<source
-						[srcset]="(imagesPath$ | async) + size + poster() + '&fm=webp&fit=cover&w=640&q=80'"
+						[srcset]="(imagesPath$ | async) + size + poster() + '&fit=cover&w=640&q=80'"
 						[media]="getMediaQuery(size)" />
 				}
 			}

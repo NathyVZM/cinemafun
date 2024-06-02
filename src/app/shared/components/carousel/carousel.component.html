@@ -21,7 +21,7 @@
 							fill />
 					} @else {
 						<source
-							[srcset]="(imagesPath$ | async) + size + item.image + '&fm=webp&w=1310&fit=cover'"
+							[srcset]="(imagesPath$ | async) + size + item.image + '&w=1310&fit=cover'"
 							[media]="getMediaQuery(size)" />
 					}
 				}

@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, input, model, Renderer2, viewChil
 import { AsyncPipe, NgClass, NgOptimizedImage } from '@angular/common'
 import { TuiHintModule, TuiSizeL, TuiSizeS } from '@taiga-ui/core'
 import { TuiCarouselModule, TuiPaginationModule } from '@taiga-ui/kit'
-import { Observable } from 'rxjs'
+import { first, forkJoin, Observable } from 'rxjs'
 import { CarouselItem } from '@models'
 import { ApiConfigurationService } from '@services'
 
@@ -38,6 +38,22 @@ export class CarouselComponent implements AfterViewInit {
 		buttons?.forEach((button, index) => {
 			this.renderer.setAttribute(button, 'aria-label', `carousel-button-${index + 1}`)
 		})
+
+		forkJoin({ items: this.items().pipe(first()), imagesPath: this.imagesPath$.pipe(first()) })
+			.pipe(first())
+			.subscribe(({ items, imagesPath }) => {
+				const link = this.renderer.createElement('link')
+				this.renderer.setAttribute(link, 'rel', 'preload')
+				this.renderer.setAttribute(link, 'as', 'image')
+				this.renderer.setAttribute(link, 'type', 'image/avif')
+				this.renderer.setAttribute(link, 'crossOrigin', 'anonymous')
+				this.renderer.setAttribute(
+					link,
+					'href',
+					`https://cinemafun.netlify.app/.netlify/images?url=${imagesPath}original${items[0].image}&fm=avif&w=1310&fit=cover`
+				)
+				this.renderer.appendChild(document.head, link)
+			})
 	}
 
 	getMediaQuery(size: string) {

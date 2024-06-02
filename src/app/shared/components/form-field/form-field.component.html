@@ -2,6 +2,7 @@
 	@switch (type()) {
 		@case ('number') {
 			<tui-input-number
+				#formField
 				[nativeId]="nativeId()"
 				[tuiTextfieldLabelOutside]="true"
 				[tuiTextfieldCleaner]="showCleaner()"
@@ -21,6 +22,7 @@
 
 		@case ('password') {
 			<tui-input-password
+				#formField
 				[nativeId]="nativeId()"
 				[tuiTextfieldLabelOutside]="true"
 				[tuiTextfieldCleaner]="showCleaner()"
@@ -40,6 +42,7 @@
 
 		@default {
 			<tui-input
+				#formField
 				[nativeId]="nativeId()"
 				[tuiTextfieldLabelOutside]="true"
 				[tuiTextfieldCleaner]="showCleaner()"
