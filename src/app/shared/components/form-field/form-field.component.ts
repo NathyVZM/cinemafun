@@ -74,6 +74,7 @@ export class FormFieldComponent implements ControlValueAccessor, AfterViewInit {
 	ngAfterViewInit(): void {
 		const inputField = this.formField()?.textfield.el.nativeElement.querySelector('input')
 		inputField?.setAttribute('id', this.nativeId())
+		inputField?.setAttribute('autocomplete', 'true')
 	}
 
 	onNgModelChange(value: string | number) {
