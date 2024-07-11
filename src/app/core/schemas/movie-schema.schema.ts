@@ -26,6 +26,7 @@ export interface MovieSchema {
 	vote_average: number
 	vote_count: number
 	release_dates: ReleaseDates
+	images: Images
 }
 
 interface BelongsToCollection {
@@ -70,8 +71,24 @@ interface ReleaseDate {
 	type: number
 }
 
-export interface SpokenLanguage {
+interface SpokenLanguage {
 	english_name: string
 	iso_639_1: string
 	name: string
+}
+
+interface Images {
+	backdrops: ImageItem[]
+	logos: ImageItem[]
+	posters: ImageItem[]
+}
+
+interface ImageItem {
+	aspect_ratio: number
+	height: number
+	iso_639_1: null | string
+	file_path: string
+	vote_average: number
+	vote_count: number
+	width: number
 }

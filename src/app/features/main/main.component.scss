@@ -18,6 +18,7 @@ div {
 
 		main {
 			flex: 1;
+			@include m.flex;
 		}
 	}
 }

@@ -3,4 +3,5 @@ export interface CarouselItem {
 	image: string
 	alt: string
 	hint?: string
+	movie: { title: string; poster: string; genre: string[] }
 }

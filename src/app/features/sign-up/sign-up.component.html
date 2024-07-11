@@ -31,7 +31,11 @@
 
 @if (isCarouselVisible) {
 	@defer {
-		<cf-carousel id="carousel" [items]="carouselItems$" [addFade]="true" />
+		<cf-carousel
+			id="carousel"
+			[items]="(carousel$ | async) || []"
+			[loaderParams]="{ width: 1310, fit: 'cover' }"
+			[addFade]="true" />
 	} @loading {
 		<div class="carousel-skeleton"></div>
 	} @placeholder {

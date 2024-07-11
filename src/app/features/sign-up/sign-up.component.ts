@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
-import { NgClass } from '@angular/common'
+import { AsyncPipe, NgClass } from '@angular/common'
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
@@ -17,6 +17,7 @@ import { AuthService, CoreService, MovieService } from '@services'
 	selector: 'cf-sign-up',
 	standalone: true,
 	imports: [
+		AsyncPipe,
 		NgClass,
 		ReactiveFormsModule,
 		TuiSkeletonModule,
@@ -92,7 +93,7 @@ export class SignUpComponent {
 		}
 	]
 
-	carouselItems$ = this.movieService.getMoviesCarousel()
+	carousel$ = this.movieService.getMoviesCarousel(true)
 	isCarouselVisible = true
 
 	constructor(

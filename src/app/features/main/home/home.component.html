@@ -1,11 +1,15 @@
-@for (movie of movies$ | async; track movie.id; let first = $first) {
-	<cf-movie
-		[id]="movie.id"
-		[title]="movie.title"
-		[poster]="movie.poster"
-		[genre]="movie.genre"
-		[runtime]="movie.runtime"
-		[classification]="movie.classification.classification"
-		[meaning]="movie.classification.meaning"
-		[isFirst]="first" />
-}
+<cf-carousel [items]="(carousel$ | async) || []" [loaderParams]="{ width: 1570, height: 560, fit: 'cover' }" />
+
+<section>
+	@for (movie of movies$ | async; track movie.id; let first = $first) {
+		<cf-movie
+			[id]="movie.id"
+			[title]="movie.title"
+			[poster]="movie.poster"
+			[genre]="movie.genre"
+			[runtime]="movie.runtime"
+			[classification]="movie.classification.classification"
+			[meaning]="movie.classification.meaning"
+			[isFirst]="first" />
+	}
+</section>

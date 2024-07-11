@@ -1,32 +1,68 @@
-@if (items() | async; as items) {
-	<tui-carousel [duration]="duration()" [draggable]="isDraggable()" [(index)]="index" [ngClass]="{ fade: addFade() }">
-		@for (item of items; track item.id) {
-			<picture
-				*tuiItem
-				[tuiHint]="item.hint"
-				[tuiHintDescribe]="item.id"
-				[tuiHintDirection]="'top-left'"
-				[tuiHintShowDelay]="1000"
-				tuiHintPointer
-				[ngClass]="{ 'skeleton-image': isImageLoading }">
-				@for (size of backdropSizes$ | async; track $index) {
-					@if (size.includes('original')) {
-						<img
-							[ngSrc]="(imagesPath$ | async) + size + item.image"
-							[loaderParams]="{ width: 1310, fit: 'cover' }"
-							[alt]="item.alt"
-							(load)="onImageLoad()"
-							priority
-							placeholder
-							fill />
-					} @else {
-						<source
-							[srcset]="(imagesPath$ | async) + size + item.image + '&w=1310&fit=cover'"
-							[media]="getMediaQuery(size)" />
-					}
+<tui-carousel
+	[duration]="duration()"
+	[draggable]="isDraggable()"
+	[(index)]="index"
+	[ngClass]="{ fade: addFade(), rounded: !isSignUp }">
+	@for (item of items(); track item.id) {
+		<picture
+			*tuiItem
+			[tuiHint]="isSignUp ? item.hint : null"
+			[tuiHintDescribe]="item.id"
+			[tuiHintDirection]="'top-left'"
+			[tuiHintShowDelay]="1000"
+			tuiHintPointer
+			[ngClass]="{ 'skeleton-image': isImageLoading }">
+			@for (size of backdropSizes$ | async; track $index) {
+				@if (size.includes('original')) {
+					<img
+						[ngSrc]="(imagesPath$ | async) + size + item.image"
+						[loaderParams]="loaderParams()"
+						[alt]="item.alt"
+						(load)="onImageLoad()"
+						priority
+						placeholder
+						fill />
+				} @else {
+					<source [srcset]="(imagesPath$ | async) + size + item.image" [media]="getMediaQuery(size)" />
 				}
-			</picture>
-		}
-	</tui-carousel>
-	<tui-pagination #pagination [size]="paginationSize()" [(index)]="index" [length]="items.length" />
-}
+			}
+			@if (!isSignUp) {
+				<ng-container *ngTemplateOutlet="movieInfo; context: { item: item }" />
+			}
+		</picture>
+	}
+</tui-carousel>
+<tui-pagination
+	#pagination
+	[size]="paginationSize()"
+	[(index)]="index"
+	[length]="items().length"
+	[ngClass]="{ 'sign-up': isSignUp }" />
+
+<ng-template #movieInfo let-item="item">
+	<div class="movie-info">
+		<picture>
+			@for (size of posterSizes$ | async; track $index) {
+				@if (size.includes('original')) {
+					<img
+						[ngSrc]="(imagesPath$ | async) + size + item.movie.poster"
+						[alt]="item.movie.title + 'poster'"
+						[loaderParams]="{ width: 176, height: 288, fit: 'cover' }"
+						(load)="onImageLoad()"
+						priority
+						placeholder
+						fill />
+				} @else {
+					<source [srcset]="(imagesPath$ | async) + size + item.movie.poster" [media]="getMediaQuery(size)" />
+				}
+			}
+		</picture>
+		<section>
+			<article>
+				<p>{{ item.movie.title }}</p>
+				<p>{{ item.movie.genre | genre }}</p>
+			</article>
+			<cf-button [type]="'button'" [label]="'Watch the trailer'" />
+		</section>
+	</div>
+</ng-template>

@@ -35,10 +35,12 @@ export class MovieService {
 						id: movie.id,
 						title: movie.title,
 						poster: movie.poster_path,
-						banner: movie.backdrop_path,
+						backdrop: movie.backdrop_path,
 						classification: {} as Classification,
 						genre: [],
-						runtime: 0
+						runtime: 0,
+						banner: '',
+						logo: ''
 					}
 				})
 
@@ -46,7 +48,7 @@ export class MovieService {
 			}),
 			concatMap(movies => {
 				const moviesDetails = movies.map(movie => {
-					return this.http.get<MovieSchema>(`${this.apiUrl}/movie/${movie.id}?append_to_response=release_dates`).pipe(
+					return this.http.get<MovieSchema>(`${this.apiUrl}/movie/${movie.id}?append_to_response=release_dates,images`).pipe(
 						delay(200),
 						map(m => {
 							const releaseDates = m.release_dates.results
@@ -64,7 +66,15 @@ export class MovieService {
 									id: uuid(),
 									classification: certification?.certification || 'NR',
 									meaning: 'Not Rated'
-								}
+								},
+								banner:
+									(
+										m.images.backdrops.find(image => image.iso_639_1 === 'en') ||
+										m.images.backdrops.find(image => !image.iso_639_1)
+									)?.file_path || '',
+								logo:
+									(m.images.logos.find(image => image.iso_639_1 === 'en') || m.images.logos.find(image => !image.iso_639_1))
+										?.file_path || ''
 							}
 						})
 					)
@@ -105,6 +115,16 @@ export class MovieService {
 	}
 
 	/**
+	 * Returns a list of movies for display on the home page.
+	 * @returns {Observable<Movie[]>} An Observable that emits an array of `Movie` objects.
+	 *
+	 * The function randomly sorts the movies and selects the first five for display.
+	 */
+	getMoviesForHome() {
+		return this.movies$.asObservable().pipe(map(movies => movies.sort(() => Math.random() - 0.5).slice(0, 5)))
+	}
+
+	/**
 	 * Checks if the movies are already loaded.
 	 * @returns {boolean} A boolean value indicating whether the movies are loaded.
 	 */
@@ -122,14 +142,19 @@ export class MovieService {
 	 *
 	 * The function randomly sorts the movies and selects the first five for the carousel.
 	 */
-	getMoviesCarousel() {
+	getMoviesCarousel(isSignUp: boolean = false) {
 		const movies = this.movies$.value
 		const posters: CarouselItem[] = movies.flatMap(movie => {
 			return {
 				id: uuid(),
-				image: movie.banner || movie.poster,
+				image: isSignUp ? movie.backdrop : movie.banner,
 				alt: movie.title,
-				hint: `🎬 Movie: ${movie.title}`
+				hint: `🎬 Movie: ${movie.title}`,
+				movie: {
+					title: movie.title,
+					poster: movie.poster,
+					genre: movie.genre
+				}
 			}
 		})
 

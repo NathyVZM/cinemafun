@@ -1,5 +1,6 @@
 export * from './carousel-item.model'
 export * from './form-field.model'
+export * from './loader-params.model'
 export * from './movie.model'
 export * from './navigation-item.model'
 export * from './social-media.model'
