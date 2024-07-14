@@ -18,7 +18,7 @@ import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify'
 	imports: [RouterOutlet, TuiRootModule, TuiModeModule, TuiThemeNightModule, TuiAlertModule],
 	providers: [
 		{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer },
-		tuiSvgSrcInterceptors((svg: TuiSafeHtml) => (!String(svg).includes('tui') ? `assets/icons/${svg}-duotone.svg` : svg)),
+		tuiSvgSrcInterceptors((svg: TuiSafeHtml) => (!String(svg).includes('tui') ? `icons/${svg}-duotone.svg` : svg)),
 		{
 			provide: IMAGE_LOADER,
 			useValue: (config: ImageLoaderConfig) => {

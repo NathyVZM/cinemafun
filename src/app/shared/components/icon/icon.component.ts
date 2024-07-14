@@ -6,7 +6,7 @@ import { TuiIconModule, tuiIconResolverProvider } from '@taiga-ui/experimental'
 	selector: 'cf-icon',
 	standalone: true,
 	imports: [NgClass, TuiIconModule],
-	providers: [tuiIconResolverProvider(icon => `/assets/icons/${icon}-duotone.svg`)],
+	providers: [tuiIconResolverProvider(icon => `icons/${icon}-duotone.svg`)],
 	templateUrl: './icon.component.html',
 	styleUrl: './icon.component.scss'
 })
