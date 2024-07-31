@@ -13,7 +13,6 @@
 
 <!-- Carousel with pagination -->
 <tui-carousel
-	#carousel
 	[duration]="duration()"
 	[draggable]="isDraggable()"
 	[(index)]="index"
@@ -28,9 +27,11 @@
 			tuiHintPointer
 			[ngClass]="{ 'skeleton-image': isImageLoading }">
 			@for (size of backdropSizes$ | async; track $index) {
+				@let bannerPath = imagesPath + size + item.image;
+
 				@if (size.includes('original')) {
 					<img
-						[ngSrc]="imagesPath + size + item.image"
+						[ngSrc]="bannerPath"
 						[loaderParams]="loaderParams()"
 						[alt]="item.alt"
 						(load)="onImageLoad()"
@@ -38,7 +39,7 @@
 						placeholder
 						fill />
 				} @else {
-					<source [srcset]="imagesPath + size + item.image" [media]="getMediaQuery(size)" />
+					<source [srcset]="bannerPath" [media]="getMediaQuery(size)" />
 				}
 			}
 			@if (!isSignUp) {
@@ -70,9 +71,11 @@
 	<div class="movie-info">
 		<picture>
 			@for (size of posterSizes$ | async; track $index) {
+				@let posterPath = imagesPath + size + movie.movie.poster;
+
 				@if (size.includes('original')) {
 					<img
-						[ngSrc]="imagesPath + size + movie.movie.poster"
+						[ngSrc]="posterPath"
 						[alt]="movie.movie.title + 'poster'"
 						[loaderParams]="{ width: 176, height: 288, fit: 'cover' }"
 						(load)="onImageLoad()"
@@ -80,7 +83,7 @@
 						placeholder
 						fill />
 				} @else {
-					<source [srcset]="imagesPath + size + movie.movie.poster" [media]="getMediaQuery(size)" />
+					<source [srcset]="posterPath" [media]="getMediaQuery(size)" />
 				}
 			}
 		</picture>

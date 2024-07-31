@@ -3,8 +3,6 @@
 @forward 'fonts';
 @forward 'classes';
 @forward 'animations';
-@use 'variables' as v;
-@use 'colors' as c;
 
 :root {
 	scroll-behavior: smooth;
