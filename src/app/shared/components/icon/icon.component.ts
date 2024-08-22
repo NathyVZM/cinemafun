@@ -1,12 +1,12 @@
 import { Component, input } from '@angular/core'
 import { NgClass } from '@angular/common'
-import { TuiIconModule, tuiIconResolverProvider } from '@taiga-ui/experimental'
+import { TuiIcon, tuiIconResolverProvider } from '@taiga-ui/core'
 
 @Component({
 	selector: 'cf-icon',
 	standalone: true,
-	imports: [NgClass, TuiIconModule],
-	providers: [tuiIconResolverProvider(icon => `icons/${icon}-duotone.svg`)],
+	imports: [NgClass, TuiIcon],
+	providers: [tuiIconResolverProvider(icon => (icon.includes('@tui') ? icon : `icons/${icon}-duotone.svg`))],
 	templateUrl: './icon.component.html',
 	styleUrl: './icon.component.scss'
 })

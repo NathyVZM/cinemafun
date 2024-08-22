@@ -5,6 +5,7 @@
 	--tui-primary-text: #{c.$night};
 	--tui-font-text-m: 500 #{v.$fs-regular}/ 1 var(--tui-font-text);
 	width: fit-content;
+	height: fit-content;
 	display: inline-block;
 
 	.cf-button {

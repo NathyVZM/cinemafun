@@ -2,9 +2,7 @@ import { Component } from '@angular/core'
 import { AsyncPipe } from '@angular/common'
 import { Router } from '@angular/router'
 import { tuiNumberFormatProvider } from '@taiga-ui/core'
-import { TuiLineClampModule } from '@taiga-ui/kit'
-import { TuiMoneyModule } from '@taiga-ui/addon-commerce'
-import { TuiSkeletonModule } from '@taiga-ui/experimental'
+import { TuiLineClamp, TuiSkeleton } from '@taiga-ui/kit'
 import { catchError, EMPTY, first, map, timer } from 'rxjs'
 import { AuthService, CoreService, UserService } from '@services'
 import { ButtonComponent } from '../button/button.component'
@@ -14,15 +12,7 @@ import { NavigationItemComponent } from '../navigation-item/navigation-item.comp
 @Component({
 	selector: 'cf-sidebar',
 	standalone: true,
-	imports: [
-		AsyncPipe,
-		TuiLineClampModule,
-		TuiMoneyModule,
-		TuiSkeletonModule,
-		NavigationItemComponent,
-		IconComponent,
-		ButtonComponent
-	],
+	imports: [AsyncPipe, TuiLineClamp, TuiSkeleton, NavigationItemComponent, IconComponent, ButtonComponent],
 	providers: [
 		tuiNumberFormatProvider({
 			decimalSeparator: '.',

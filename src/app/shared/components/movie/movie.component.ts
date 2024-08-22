@@ -1,8 +1,9 @@
 import { Component, computed, input } from '@angular/core'
 import { AsyncPipe, NgClass, NgOptimizedImage } from '@angular/common'
 import { RouterLink } from '@angular/router'
-import { TuiHintModule } from '@taiga-ui/core'
-import { TuiIslandModule, TuiLineClampModule } from '@taiga-ui/kit'
+import { TuiHint } from '@taiga-ui/core'
+import { TuiLineClamp } from '@taiga-ui/kit'
+import { TuiIslandDirective } from '@taiga-ui/legacy'
 import { ClassificationPipe, GenrePipe, RuntimePipe } from '@pipes'
 import { ApiConfigurationService } from '@services'
 
@@ -14,9 +15,9 @@ import { ApiConfigurationService } from '@services'
 		RouterLink,
 		AsyncPipe,
 		NgOptimizedImage,
-		TuiIslandModule,
-		TuiLineClampModule,
-		TuiHintModule,
+		TuiIslandDirective,
+		TuiLineClamp,
+		TuiHint,
 		GenrePipe,
 		RuntimePipe,
 		ClassificationPipe

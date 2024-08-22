@@ -1,5 +1,5 @@
-import { SocialMedia } from '@models/models.index'
 import { v4 as uuid } from 'uuid'
+import { SocialMedia } from '@models'
 
 export const SOCIAL_MEDIA: SocialMedia[] = [
 	{ id: uuid(), icon: 'github-logo', link: 'https://github.com/NathyVZM' },

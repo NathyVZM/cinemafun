@@ -1,3 +1,17 @@
+@let imagesPath = imagesPath$ | async;
+
+<!-- Previous button -->
+@if (!isSignUp) {
+	<cf-button
+		[isIconButton]="true"
+		[type]="'button'"
+		[iconLeading]="'tuiIconChevronLeftLarge'"
+		[tuiHint]="'Previous'"
+		(buttonClick)="previousSlide()"
+		aria-label="Previous page" />
+}
+
+<!-- Carousel with pagination -->
 <tui-carousel
 	[duration]="duration()"
 	[draggable]="isDraggable()"
@@ -13,9 +27,11 @@
 			tuiHintPointer
 			[ngClass]="{ 'skeleton-image': isImageLoading }">
 			@for (size of backdropSizes$ | async; track $index) {
+				@let bannerPath = imagesPath + size + item.image;
+
 				@if (size.includes('original')) {
 					<img
-						[ngSrc]="(imagesPath$ | async) + size + item.image"
+						[ngSrc]="bannerPath"
 						[loaderParams]="loaderParams()"
 						[alt]="item.alt"
 						(load)="onImageLoad()"
@@ -23,11 +39,11 @@
 						placeholder
 						fill />
 				} @else {
-					<source [srcset]="(imagesPath$ | async) + size + item.image" [media]="getMediaQuery(size)" />
+					<source [srcset]="bannerPath" [media]="getMediaQuery(size)" />
 				}
 			}
 			@if (!isSignUp) {
-				<ng-container *ngTemplateOutlet="movieInfo; context: { item: item }" />
+				<ng-container *ngTemplateOutlet="movieInfo; context: { movie: item }" />
 			}
 		</picture>
 	}
@@ -39,30 +55,44 @@
 	[length]="items().length"
 	[ngClass]="{ 'sign-up': isSignUp }" />
 
-<ng-template #movieInfo let-item="item">
+<!-- Next button -->
+@if (!isSignUp) {
+	<cf-button
+		[isIconButton]="true"
+		[type]="'button'"
+		[iconLeading]="'tuiIconChevronRightLarge'"
+		[tuiHint]="'Next'"
+		(buttonClick)="nextSlide()"
+		aria-label="Next page" />
+}
+
+<!-- Movie poster -->
+<ng-template #movieInfo let-movie="movie">
 	<div class="movie-info">
 		<picture>
 			@for (size of posterSizes$ | async; track $index) {
+				@let posterPath = imagesPath + size + movie.movie.poster;
+
 				@if (size.includes('original')) {
 					<img
-						[ngSrc]="(imagesPath$ | async) + size + item.movie.poster"
-						[alt]="item.movie.title + 'poster'"
+						[ngSrc]="posterPath"
+						[alt]="movie.movie.title + 'poster'"
 						[loaderParams]="{ width: 176, height: 288, fit: 'cover' }"
 						(load)="onImageLoad()"
 						priority
 						placeholder
 						fill />
 				} @else {
-					<source [srcset]="(imagesPath$ | async) + size + item.movie.poster" [media]="getMediaQuery(size)" />
+					<source [srcset]="posterPath" [media]="getMediaQuery(size)" />
 				}
 			}
 		</picture>
 		<section>
 			<article>
-				<p>{{ item.movie.title }}</p>
-				<p>{{ item.movie.genre | genre }}</p>
+				<p>{{ movie.movie.title }}</p>
+				<p>{{ movie.movie.genre | genre }}</p>
 			</article>
-			<cf-button [type]="'button'" [label]="'Watch the trailer'" />
+			<cf-button [type]="'button'" [label]="'Watch the trailer'" [iconTrailing]="'play-circle'" />
 		</section>
 	</div>
 </ng-template>

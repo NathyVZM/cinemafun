@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router'
 import { movieResolver, apiConfigurationResolver, certificationsResolver } from '@services'
-import { noAuthGuard } from '@guards'
+import { authGuard, noAuthGuard } from '@guards'
 
 export const routes: Routes = [
 	{
@@ -21,6 +21,7 @@ export const routes: Routes = [
 	},
 	{
 		path: '',
-		loadChildren: () => import('./features/main/main.routes').then(m => m.mainRoutes)
+		loadChildren: () => import('./features/main/main.routes').then(m => m.mainRoutes),
+		canMatch: [authGuard]
 	}
 ]

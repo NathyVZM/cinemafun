@@ -2,15 +2,14 @@ import { AfterViewInit, booleanAttribute, Component, ElementRef, forwardRef, inp
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { CommonModule } from '@angular/common'
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms'
+import { TuiLabel, TuiError, TuiHint, TuiHintDirection, tuiNumberFormatProvider } from '@taiga-ui/core'
+import { TuiFieldErrorPipe } from '@taiga-ui/kit'
 import {
-	TuiLabelModule,
-	TuiTextfieldControllerModule,
-	TuiHintDirection,
-	TuiHintModule,
-	tuiNumberFormatProvider,
-	TuiErrorModule
-} from '@taiga-ui/core'
-import { TuiFieldErrorPipeModule, TuiInputModule, TuiInputNumberModule, TuiInputPasswordModule } from '@taiga-ui/kit'
+	TuiInputModule,
+	TuiInputNumberModule,
+	TuiInputPasswordModule,
+	TuiTextfieldControllerModule
+} from '@taiga-ui/legacy'
 import { CoreService } from '@services'
 
 @Component({
@@ -22,11 +21,11 @@ import { CoreService } from '@services'
 		TuiInputModule,
 		TuiInputNumberModule,
 		TuiInputPasswordModule,
-		TuiTextfieldControllerModule,
-		TuiLabelModule,
-		TuiHintModule,
-		TuiErrorModule,
-		TuiFieldErrorPipeModule
+		TuiHint,
+		TuiLabel,
+		TuiError,
+		TuiFieldErrorPipe,
+		TuiTextfieldControllerModule
 	],
 	providers: [
 		{

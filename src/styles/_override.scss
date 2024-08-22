@@ -18,17 +18,19 @@
 
 cf-button {
 	.cf-button {
-		.t-left {
-			@include m.square(v.$fs-extra-regular, true);
+		.t-left,
+		.t-right {
+			@include m.square(v.$fs-medium, true);
 
 			tui-svg {
-				@include m.square(v.$fs-extra-regular, true);
+				@include m.square(v.$fs-medium, true);
 			}
 		}
 	}
 
 	.cf-fab-button {
-		.t-left {
+		.t-left,
+		.t-right {
 			@include m.square(v.$fs-big, true);
 
 			tui-svg {
@@ -40,6 +42,11 @@ cf-button {
 	.t-src svg {
 		fill: #{c.$night};
 		@include m.square(inherit);
+	}
+
+	.t-right {
+		margin: 0 !important;
+		margin-left: 8px !important;
 	}
 }
 

@@ -1,7 +1,7 @@
 import { inject } from '@angular/core'
 import { CanMatchFn, Router } from '@angular/router'
-import { AuthService } from '@services'
 import { map, tap } from 'rxjs'
+import { AuthService } from '@services'
 
 export const noAuthGuard: CanMatchFn = (route, segments) => {
 	const authService = inject(AuthService)
