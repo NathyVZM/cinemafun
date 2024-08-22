@@ -6,7 +6,7 @@ import { Router } from '@angular/router'
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
 import { TuiAlertService } from '@taiga-ui/core'
 import { TUI_VALIDATION_ERRORS } from '@taiga-ui/kit'
-import { TuiSkeletonModule } from '@taiga-ui/experimental'
+import { TuiSkeleton } from '@taiga-ui/kit'
 import { catchError, delay, EMPTY, first, tap } from 'rxjs'
 import { FormField, User } from '@models'
 import { ButtonComponent, CarouselComponent, FormFieldComponent, LogoComponent } from '@components'
@@ -20,7 +20,7 @@ import { AuthService, CoreService, MovieService } from '@services'
 		AsyncPipe,
 		NgClass,
 		ReactiveFormsModule,
-		TuiSkeletonModule,
+		TuiSkeleton,
 		LogoComponent,
 		FormFieldComponent,
 		ButtonComponent,
@@ -146,7 +146,7 @@ export class SignUpComponent {
 				}),
 				tap(() => {
 					this.alerts
-						.open('You have successfully signed up!', { label: 'Success', status: 'success', autoClose: true })
+						.open('You have successfully signed up!', { label: 'Success', autoClose: 1000, appearance: 'success' })
 						.pipe(first())
 						.subscribe()
 				})

@@ -3,13 +3,12 @@
 		tuiButton
 		class="cf-button"
 		[type]="type()"
-		[appearance]="appearance()"
-		[icon]="icon()"
-		[iconRight]="iconRight()"
-		[shape]="shape()"
+		[appearance]="''"
+		[iconStart]="iconLeading()"
+		[iconEnd]="iconTrailing()"
 		[size]="size()"
 		[disabled]="isDisabled()"
-		[showLoader]="isLoading()"
+		[loading]="isLoading()"
 		[attr.form]="form()"
 		(click)="onButtonClick()">
 		{{ label() }}
@@ -20,11 +19,10 @@
 		class="cf-fab-button"
 		[type]="type()"
 		[appearance]="appearance()"
-		[icon]="icon()"
-		[shape]="shape()"
+		[iconStart]="iconLeading()"
 		[size]="size()"
 		[disabled]="isDisabled()"
-		[showLoader]="isLoading()"
+		[loading]="isLoading()"
 		[attr.form]="form()"
 		(click)="onButtonClick()"></button>
 }

@@ -1,24 +1,15 @@
 import { Component } from '@angular/core'
 import { IMAGE_LOADER, ImageLoaderConfig } from '@angular/common'
 import { RouterOutlet } from '@angular/router'
-import {
-	TUI_SANITIZER,
-	TuiAlertModule,
-	TuiModeModule,
-	TuiRootModule,
-	tuiSvgSrcInterceptors,
-	TuiThemeNightModule
-} from '@taiga-ui/core'
-import { TuiSafeHtml } from '@taiga-ui/cdk'
-import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify'
+import { tuiIconResolverProvider, TuiRoot } from '@taiga-ui/core'
 
 @Component({
 	selector: 'app-root',
 	standalone: true,
-	imports: [RouterOutlet, TuiRootModule, TuiModeModule, TuiThemeNightModule, TuiAlertModule],
+	imports: [RouterOutlet, TuiRoot],
 	providers: [
-		{ provide: TUI_SANITIZER, useClass: NgDompurifySanitizer },
-		tuiSvgSrcInterceptors((svg: TuiSafeHtml) => (!String(svg).includes('tui') ? `icons/${svg}-duotone.svg` : svg)),
+		// { provide: TUI_SANITIZER, useClass: NgDompurifySanitizer },
+		// tuiIconResolverProvider(icon => (icon.includes('@tui') ? icon : `icons/${icon}-duotone.svg`)),
 		{
 			provide: IMAGE_LOADER,
 			useValue: (config: ImageLoaderConfig) => {

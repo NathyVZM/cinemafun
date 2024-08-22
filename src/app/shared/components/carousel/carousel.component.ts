@@ -1,10 +1,10 @@
 import { AfterViewInit, Component, ElementRef, input, model, Renderer2, viewChild } from '@angular/core'
 import { AsyncPipe, NgClass, NgOptimizedImage, NgTemplateOutlet } from '@angular/common'
-import { TuiHintModule, TuiSizeL, TuiSizeS } from '@taiga-ui/core'
-import { TuiCarouselModule, TuiPaginationModule } from '@taiga-ui/kit'
+import { Router } from '@angular/router'
+import { TuiHint, TuiSizeL, TuiSizeS } from '@taiga-ui/core'
+import { TuiCarousel, TuiPagination } from '@taiga-ui/kit'
 import { CarouselItem, LoaderParams } from '@models'
 import { ApiConfigurationService } from '@services'
-import { Router } from '@angular/router'
 import { GenrePipe } from '@pipes'
 import { ButtonComponent } from '../button/button.component'
 
@@ -16,9 +16,9 @@ import { ButtonComponent } from '../button/button.component'
 		NgClass,
 		NgOptimizedImage,
 		NgTemplateOutlet,
-		TuiCarouselModule,
-		TuiPaginationModule,
-		TuiHintModule,
+		TuiCarousel,
+		TuiPagination,
+		TuiHint,
 		ButtonComponent,
 		GenrePipe
 	],

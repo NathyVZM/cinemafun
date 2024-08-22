@@ -1,4 +1,5 @@
-<label [tuiLabel]="formFieldLabel" [htmlFor]="nativeId()" [ngClass]="{ 'no-margin': label() === '' }">
+<label tuiLabel [htmlFor]="nativeId()" [ngClass]="{ 'no-margin': label() === '' }">
+	<ng-container *ngTemplateOutlet="formFieldLabel"></ng-container>
 	@switch (type()) {
 		@case ('number') {
 			<tui-input-number
@@ -72,3 +73,23 @@
 		<span class="required" [tuiHint]="'🔴 Field is required'" [tuiHintDirection]="'top-right'">*</span>
 	}
 </ng-template>
+
+<!-- <tui-textfield
+	#formField
+	[id]="nativeId()"
+	[iconStart]="iconLeft()"
+	[iconEnd]="iconRight()"
+	[filler]="filler()"
+	[autocapitalize]="autoCapitalize()"
+	[spellcheck]="spellCheck()"
+	[tuiTextfieldCleaner]="showCleaner()"
+	[tuiHintContent]="hint()"
+	[tuiHintDirection]="hintDirection()">
+	<input
+		tuiTextfield
+		[type]="type()"
+		[placeholder]="placeholder()"
+		[disabled]="isDisabled"
+		[(ngModel)]="value"
+		(ngModelChange)="onNgModelChange($event)" />
+</tui-textfield> -->

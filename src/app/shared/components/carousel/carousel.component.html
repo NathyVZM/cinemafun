@@ -5,7 +5,7 @@
 	<cf-button
 		[isIconButton]="true"
 		[type]="'button'"
-		[icon]="'tuiIconChevronLeftLarge'"
+		[iconLeading]="'tuiIconChevronLeftLarge'"
 		[tuiHint]="'Previous'"
 		(buttonClick)="previousSlide()"
 		aria-label="Previous page" />
@@ -60,7 +60,7 @@
 	<cf-button
 		[isIconButton]="true"
 		[type]="'button'"
-		[icon]="'tuiIconChevronRightLarge'"
+		[iconLeading]="'tuiIconChevronRightLarge'"
 		[tuiHint]="'Next'"
 		(buttonClick)="nextSlide()"
 		aria-label="Next page" />
@@ -92,7 +92,7 @@
 				<p>{{ movie.movie.title }}</p>
 				<p>{{ movie.movie.genre | genre }}</p>
 			</article>
-			<cf-button [type]="'button'" [label]="'Watch the trailer'" [iconRight]="'play-circle'" />
+			<cf-button [type]="'button'" [label]="'Watch the trailer'" [iconTrailing]="'play-circle'" />
 		</section>
 	</div>
 </ng-template>
