@@ -1,4 +1,4 @@
-import { AfterViewInit, booleanAttribute, Component, ElementRef, forwardRef, input, viewChild } from '@angular/core'
+import { booleanAttribute, Component, ElementRef, forwardRef, input, viewChild } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { CommonModule } from '@angular/common'
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms'
@@ -41,13 +41,13 @@ import { CoreService } from '@services'
 	templateUrl: './form-field.component.html',
 	styleUrl: './form-field.component.scss'
 })
-export class FormFieldComponent implements ControlValueAccessor, AfterViewInit {
+export class FormFieldComponent implements ControlValueAccessor {
 	nativeId = input.required<string>()
 	placeholder = input.required<string>()
 	type = input.required<'text' | 'email' | 'password' | 'number'>()
 	label = input('')
-	iconLeft = input('')
-	iconRight = input('')
+	iconLeading = input('')
+	iconTrailing = input('')
 	filler = input('')
 	hint = input<string | undefined>('')
 	hintDirection = input<TuiHintDirection>('bottom')
@@ -70,11 +70,11 @@ export class FormFieldComponent implements ControlValueAccessor, AfterViewInit {
 			.subscribe(_isDisabled => (this.isDisabled = _isDisabled))
 	}
 
-	ngAfterViewInit(): void {
-		const inputField = this.formField()?.textfield.el.nativeElement.querySelector('input')
-		inputField?.setAttribute('id', this.nativeId())
-		inputField?.setAttribute('autocomplete', 'true')
-	}
+	// ngAfterViewInit(): void {
+	// 	const inputField = this.formField()?.textfield.el.nativeElement.querySelector('input')
+	// 	inputField?.setAttribute('id', this.nativeId())
+	// 	inputField?.setAttribute('autocomplete', 'true')
+	// }
 
 	onNgModelChange(value: string | number) {
 		this.value = value || null

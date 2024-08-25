@@ -19,7 +19,6 @@ export class ButtonComponent {
 	appearance = input<'primary' | 'accent'>('primary')
 	iconLeading = input('')
 	iconTrailing = input('')
-	shape = input<'rounded' | 'square'>('rounded')
 	size = input<TuiSizeXS | TuiSizeXL>('l')
 	isIconButton = input(false, { transform: booleanAttribute })
 	isDisabled = model(false)

@@ -2,11 +2,14 @@
 @use 'variables' as v;
 
 :host {
-	--tui-primary-text: #{c.$night};
-	--tui-font-text-m: 500 #{v.$fs-regular}/ 1 var(--tui-font-text);
+	--tui-radius-xs: 20rem;
+	--tui-radius-s: 20rem;
+	--tui-radius-m: 20rem;
+	--tui-radius-l: 20rem;
+
 	width: fit-content;
 	height: fit-content;
-	display: inline-block;
+	display: inline-flex;
 
 	.cf-button {
 		--tui-height-l: 3.5rem;
@@ -15,19 +18,19 @@
 
 	.cf-fab-button {
 		--tui-height-l: 3.5rem;
+		--tui-radius-xs: #{v.$sp-medium};
+		--tui-radius-s: #{v.$sp-medium};
+		--tui-radius-m: #{v.$sp-medium};
+		--tui-radius-l: #{v.$sp-medium};
+	}
+
+	[tuiIcons]:after,
+	[tuiIcons]:before {
+		font-size: v.$fs-medium;
 	}
 }
 
 button {
 	font-weight: 500 !important;
 	font-size: v.$fs-regular;
-
-	&.cf-button {
-		width: inherit !important;
-		min-width: 9rem;
-	}
-
-	&.cf-fab-button {
-		border-radius: v.$sp-medium;
-	}
 }

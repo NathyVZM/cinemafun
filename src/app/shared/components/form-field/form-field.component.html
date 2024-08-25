@@ -7,8 +7,8 @@
 				[nativeId]="nativeId()"
 				[tuiTextfieldLabelOutside]="true"
 				[tuiTextfieldCleaner]="showCleaner()"
-				[tuiTextfieldIconLeft]="iconLeft()"
-				[tuiTextfieldIcon]="iconRight()"
+				[tuiTextfieldIconLeft]="iconLeading()"
+				[tuiTextfieldIcon]="iconTrailing()"
 				[tuiTextfieldFiller]="filler()"
 				[tuiTextfieldPrefix]="prefix()"
 				[tuiTextfieldPostfix]="postfix()"
@@ -27,8 +27,8 @@
 				[nativeId]="nativeId()"
 				[tuiTextfieldLabelOutside]="true"
 				[tuiTextfieldCleaner]="showCleaner()"
-				[tuiTextfieldIconLeft]="iconLeft()"
-				[tuiTextfieldIcon]="iconRight()"
+				[tuiTextfieldIconLeft]="iconLeading()"
+				[tuiTextfieldIcon]="iconTrailing()"
 				[tuiTextfieldFiller]="filler()"
 				[tuiTextfieldPrefix]="prefix()"
 				[tuiTextfieldPostfix]="postfix()"
@@ -46,9 +46,9 @@
 				#formField
 				[nativeId]="nativeId()"
 				[tuiTextfieldLabelOutside]="true"
-				[tuiTextfieldCleaner]="showCleaner()"
-				[tuiTextfieldIconLeft]="iconLeft()"
-				[tuiTextfieldIcon]="iconRight()"
+				[tuiTextfieldCleaner]="true"
+				[tuiTextfieldIconLeft]="iconLeading()"
+				[tuiTextfieldIcon]="iconTrailing()"
 				[tuiTextfieldFiller]="filler()"
 				[tuiTextfieldPrefix]="prefix()"
 				[tuiTextfieldPostfix]="postfix()"
@@ -73,23 +73,3 @@
 		<span class="required" [tuiHint]="'🔴 Field is required'" [tuiHintDirection]="'top-right'">*</span>
 	}
 </ng-template>
-
-<!-- <tui-textfield
-	#formField
-	[id]="nativeId()"
-	[iconStart]="iconLeft()"
-	[iconEnd]="iconRight()"
-	[filler]="filler()"
-	[autocapitalize]="autoCapitalize()"
-	[spellcheck]="spellCheck()"
-	[tuiTextfieldCleaner]="showCleaner()"
-	[tuiHintContent]="hint()"
-	[tuiHintDirection]="hintDirection()">
-	<input
-		tuiTextfield
-		[type]="type()"
-		[placeholder]="placeholder()"
-		[disabled]="isDisabled"
-		[(ngModel)]="value"
-		(ngModelChange)="onNgModelChange($event)" />
-</tui-textfield> -->
