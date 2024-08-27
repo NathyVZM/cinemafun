@@ -15,14 +15,8 @@
 	--tui-radius-m: 6.25rem;
 	--tui-radius-l: 6.25rem;
 	--tui-radius-xl: 6.25rem;
-	// --tui-text-02-night: #{c.$cool-gray};
-	// --tui-text-03-night: #{lighten(c.$cool-gray, 10%)};
-	// --tui-clear-active: #{c.$platinum};
-	// --tui-clear-inverse: #{c.$platinum};
-	// --tui-clear-inverse-hover: #{opacify(c.$platinum, 0.02)};
-	// --tui-autofill-night: #{desaturate(darken(c.$deep-sky-blue, 40%), 70%)};
-	// --tui-font-text-s: normal #{v.$fs-regular}/ 1 var(--tui-font-text);
-	// --tui-disabled-opacity: 0.5;
+	--tui-font-text-s: normal #{v.$fs-regular}/ 1 var(--tui-font-text);
+	--tui-service-autofill-background: #{desaturate(darken(c.$deep-sky-blue, 40%), 70%)};
 }
 
 tui-input {
@@ -31,6 +25,10 @@ tui-input {
 	input::placeholder {
 		color: c.$cool-gray;
 	}
+}
+
+.label {
+	margin-left: v.$sp-semi-small;
 }
 
 .required {

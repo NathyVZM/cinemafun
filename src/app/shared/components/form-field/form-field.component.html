@@ -46,7 +46,7 @@
 				#formField
 				[nativeId]="nativeId()"
 				[tuiTextfieldLabelOutside]="true"
-				[tuiTextfieldCleaner]="true"
+				[tuiTextfieldCleaner]="showCleaner()"
 				[tuiTextfieldIconLeft]="iconLeading()"
 				[tuiTextfieldIcon]="iconTrailing()"
 				[tuiTextfieldFiller]="filler()"
@@ -67,9 +67,11 @@
 </label>
 
 <ng-template #formFieldLabel>
-	{{ label() }}
+	<div class="label">
+		{{ label() }}
 
-	@if (isRequired()) {
-		<span class="required" [tuiHint]="'🔴 Field is required'" [tuiHintDirection]="'top-right'">*</span>
-	}
+		@if (isRequired()) {
+			<span class="required" [tuiHint]="'🔴 Field is required'" [tuiHintDirection]="'top-right'">*</span>
+		}
+	</div>
 </ng-template>

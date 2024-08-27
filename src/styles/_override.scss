@@ -18,17 +18,42 @@
 		--tui-background-base: #{c.$night};
 		--tui-text-primary: #{c.$white};
 	}
+
+	[data-appearance=dark] {
+		--tui-background-accent-opposite-hover: #{c.$night};
+		--tui-background-base: #{c.$white};
+	}
 }
 
 // form field
 
 cf-form-field {
-	.t-icon {
+	tui-icon {
 		@include m.square(v.$fs-extra-regular, true);
+		font-size: v.$fs-extra-regular;
+	}
+
+	tui-tooltip {
+		.t-tooltip-icon {
+			@include m.flex(center, center, $important: true);
+		}
 
 		tui-icon {
 			@include m.square(v.$fs-extra-regular, true);
+			font-size: v.$fs-extra-regular;
 		}
+
+		.t-icon {
+			border: none !important;
+		}
+	}
+
+	tui-value-decoration {
+		line-height: var(--tui-height) !important;
+	}
+
+	.t-input:-webkit-autofill {
+		caret-color: c.$white;
 	}
 }
 
@@ -56,18 +81,12 @@ cf-form-field {
 	}
 }
 
-// label .t-label {
-// 	margin-left: v.$sp-semi-small;
-// 	margin-bottom: v.$sp-small !important;
-// }
+tui-hint {
+	@include m.flex(center, center);
+}
 
 // .t-filler {
 // 	line-height: v.$fs-extra-great !important;
-// }
-
-// tui-hint {
-// 	line-height: v.$fs-medium !important;
-// 	--tui-elevation-02: #{c.$night};
 // }
 
 // .no-margin {

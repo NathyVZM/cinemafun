@@ -155,7 +155,25 @@ const meta: Meta<FormFieldComponent> = {
 				type: { summary: 'boolean' },
 				defaultValue: { summary: 'false' }
 			}
-		}
+		},
+		isDisabled: {
+			type: 'boolean',
+			control: 'boolean',
+			table: {
+				category: 'inputs',
+				type: { summary: 'boolean' },
+				defaultValue: { summary: 'false' }
+			}
+		},
+		formField: { table: { disable: true } },
+		value: { table: { disable: true } },
+		onNgModelChange: { table: { disable: true } },
+		onChange: { table: { disable: true } },
+		onTouched: { table: { disable: true } },
+		writeValue: { table: { disable: true } },
+		registerOnChange: { table: { disable: true } },
+		registerOnTouched: { table: { disable: true } },
+		setDisabledState: { table: { disable: true } }
 	}
 }
 
@@ -171,6 +189,7 @@ export const Default: Story = {
 		hint: 'Please enter your name',
 		hintDirection: 'bottom',
 		showCleaner: false,
-		isRequired: false
+		isRequired: false,
+		isDisabled: false
 	}
 }
