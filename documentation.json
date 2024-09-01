@@ -4251,18 +4251,13 @@
         },
         {
             "name": "IconComponent",
-            "id": "component-IconComponent-b9944e3acaa713828f7b51dd00c689748fc672e635a50a03e9849c1ddcb08e17446935bce1ad09b1a5e4b2578960d625e056a67d147662172c85f3526a9ce4a1",
+            "id": "component-IconComponent-d9e4585905c48b85231f7c83697674b69718d4852a626f8b2857f20b51a18be59beaab6491456373ab8db46615997749513d8e652ec6a9d610cf4c13d0e1e0fd",
             "file": "src/app/shared/components/icon/icon.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
-            "providers": [
-                {
-                    "name": "tuiIconResolverProvider(icon => (icon.includes() ? icon : icon))",
-                    "ns": "tuiIconResolverProvider(icon => (icon"
-                }
-            ],
+            "providers": [],
             "selector": "cf-icon",
             "styleUrls": [],
             "styles": [],
@@ -4279,15 +4274,35 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 14,
+                    "line": 13,
                     "required": true
                 }
             ],
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "classes",
-                    "defaultValue": "input<string | string[] | Set<string> | { [klass: string]: any } | null | undefined>(null)",
+                    "name": "background",
+                    "defaultValue": "input('')",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "backgroundColor",
+                    "defaultValue": "input('')",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                },
+                {
+                    "name": "color",
+                    "defaultValue": "input('')",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -4296,14 +4311,34 @@
                     "line": 15
                 },
                 {
+                    "name": "colorPalette",
+                    "defaultValue": "computed(() => {\r\n\t\tconst colors = new Map([\r\n\t\t\t['night', 'var(--cf-night)'],\r\n\t\t\t['platinum', 'var(--cf-platinum)'],\r\n\t\t\t['ghost-white', 'var(--cf-ghost-white)'],\r\n\t\t\t['brilliant-rose', 'var(--cf-brilliant-rose)'],\r\n\t\t\t['deep-sky-blue', 'var(--cf-deep-sky-blue)'],\r\n\t\t\t['sunglow', 'var(--cf-sunglow)'],\r\n\t\t\t['spring-green', 'var(--cf-spring-green)'],\r\n\t\t\t['folly', 'var(--cf-folly)'],\r\n\t\t\t['cool-gray', 'var(--cf-cool-gray)']\r\n\t\t])\r\n\t\treturn colors.get(this.color()) || this.color()\r\n\t})",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19
+                },
+                {
                     "name": "icon",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 14,
+                    "line": 13,
                     "required": true
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "input(24, { transform: numberAttribute })",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17
                 }
             ],
             "methodsClass": [],
@@ -4323,13 +4358,13 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, input } from '@angular/core'\r\nimport { NgClass } from '@angular/common'\r\nimport { TuiIcon, tuiIconResolverProvider } from '@taiga-ui/core'\r\n\r\n@Component({\r\n\tselector: 'cf-icon',\r\n\tstandalone: true,\r\n\timports: [NgClass, TuiIcon],\r\n\tproviders: [tuiIconResolverProvider(icon => (icon.includes('@tui') ? icon : `icons/${icon}-duotone.svg`))],\r\n\ttemplateUrl: './icon.component.html',\r\n\tstyleUrl: './icon.component.scss'\r\n})\r\nexport class IconComponent {\r\n\ticon = input.required<string>()\r\n\tclasses = input<string | string[] | Set<string> | { [klass: string]: any } | null | undefined>(null)\r\n}\r\n",
+            "sourceCode": "import { Component, computed, input, numberAttribute } from '@angular/core'\r\nimport { NgClass } from '@angular/common'\r\nimport { TuiIcon } from '@taiga-ui/core'\r\n\r\n@Component({\r\n\tselector: 'cf-icon',\r\n\tstandalone: true,\r\n\timports: [NgClass, TuiIcon],\r\n\ttemplateUrl: './icon.component.html',\r\n\tstyleUrl: './icon.component.scss'\r\n})\r\nexport class IconComponent {\r\n\ticon = input.required<string>()\r\n\tbackground = input('')\r\n\tcolor = input('')\r\n\tbackgroundColor = input('')\r\n\tsize = input(24, { transform: numberAttribute })\r\n\r\n\tcolorPalette = computed(() => {\r\n\t\tconst colors = new Map([\r\n\t\t\t['night', 'var(--cf-night)'],\r\n\t\t\t['platinum', 'var(--cf-platinum)'],\r\n\t\t\t['ghost-white', 'var(--cf-ghost-white)'],\r\n\t\t\t['brilliant-rose', 'var(--cf-brilliant-rose)'],\r\n\t\t\t['deep-sky-blue', 'var(--cf-deep-sky-blue)'],\r\n\t\t\t['sunglow', 'var(--cf-sunglow)'],\r\n\t\t\t['spring-green', 'var(--cf-spring-green)'],\r\n\t\t\t['folly', 'var(--cf-folly)'],\r\n\t\t\t['cool-gray', 'var(--cf-cool-gray)']\r\n\t\t])\r\n\t\treturn colors.get(this.color()) || this.color()\r\n\t})\r\n}\r\n",
             "styleUrl": "./icon.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<tui-icon [icon]=\"icon()\" [ngClass]=\"classes()\" />\r\n"
+            "templateData": "<tui-icon\r\n\t[icon]=\"icon()\"\r\n\t[background]=\"background()\"\r\n\t[style.color]=\"colorPalette()\"\r\n\t[style.background]=\"backgroundColor()\"\r\n\t[style.width.px]=\"size()\"\r\n\t[style.height.px]=\"size()\" />\r\n"
         },
         {
             "name": "LogoComponent",
@@ -6635,7 +6670,7 @@
                 "linktype": "component",
                 "name": "IconComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {

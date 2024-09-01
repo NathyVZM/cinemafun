@@ -1,12 +1,17 @@
 import { Meta, StoryObj } from '@storybook/angular'
 import { FormFieldComponent } from './form-field.component'
 
+/**
+ * A versatile **form field component** that supports various input types, appearances, and states, including required and disabled states.
+ * It can also include leading and trailing icons, hints, and additional content like prefixes and postfixes.
+ */
 const meta: Meta<FormFieldComponent> = {
 	component: FormFieldComponent,
 	title: 'Form Field',
 	tags: ['autodocs'],
 	argTypes: {
 		nativeId: {
+			description: 'The **ID** attribute for the form field, used to uniquely identify the element.',
 			type: 'string',
 			control: 'text',
 			table: {
@@ -16,6 +21,7 @@ const meta: Meta<FormFieldComponent> = {
 			}
 		},
 		placeholder: {
+			description: 'The **placeholder** text displayed inside the form field when it is empty.',
 			type: 'string',
 			control: 'text',
 			table: {
@@ -25,6 +31,7 @@ const meta: Meta<FormFieldComponent> = {
 			}
 		},
 		type: {
+			description: 'Specifies the **type** of input control to display, such as text, email, password, or number.',
 			type: 'string',
 			control: 'select',
 			options: ['text', 'email', 'password', 'number'],
@@ -35,6 +42,7 @@ const meta: Meta<FormFieldComponent> = {
 			}
 		},
 		label: {
+			description: 'The **label** text for the form field, providing a description or name for the input.',
 			type: 'string',
 			control: 'text',
 			table: {
@@ -44,6 +52,7 @@ const meta: Meta<FormFieldComponent> = {
 			}
 		},
 		iconLeading: {
+			description: 'The **icon** displayed at the beginning of the form field.',
 			type: 'string',
 			control: 'text',
 			table: {
@@ -53,6 +62,7 @@ const meta: Meta<FormFieldComponent> = {
 			}
 		},
 		iconTrailing: {
+			description: 'The **icon** displayed at the end of the form field.',
 			type: 'string',
 			control: 'text',
 			table: {
@@ -62,6 +72,7 @@ const meta: Meta<FormFieldComponent> = {
 			}
 		},
 		filler: {
+			description: 'A **filler** text or content for the form field, often used for additional information or decoration.',
 			type: 'string',
 			control: 'text',
 			table: {
@@ -71,6 +82,7 @@ const meta: Meta<FormFieldComponent> = {
 			}
 		},
 		hint: {
+			description: 'A **hint** text providing additional guidance or information about the form field.',
 			type: 'string',
 			control: 'text',
 			table: {
@@ -80,6 +92,7 @@ const meta: Meta<FormFieldComponent> = {
 			}
 		},
 		hintDirection: {
+			description: 'Specifies the **direction** in which the hint text should appear relative to the form field.',
 			type: 'string',
 			control: 'select',
 			options: [
@@ -103,6 +116,7 @@ const meta: Meta<FormFieldComponent> = {
 			}
 		},
 		prefix: {
+			description: 'A **prefix** text or content displayed before the form field value.',
 			type: 'string',
 			control: 'text',
 			table: {
@@ -112,6 +126,7 @@ const meta: Meta<FormFieldComponent> = {
 			}
 		},
 		postfix: {
+			description: 'A **postfix** text or content displayed after the form field value.',
 			type: 'string',
 			control: 'text',
 			table: {
@@ -121,6 +136,7 @@ const meta: Meta<FormFieldComponent> = {
 			}
 		},
 		showCleaner: {
+			description: 'Determines whether a **cleaner** button is displayed to clear the form field value.',
 			type: 'boolean',
 			control: 'boolean',
 			table: {
@@ -130,6 +146,7 @@ const meta: Meta<FormFieldComponent> = {
 			}
 		},
 		spellCheck: {
+			description: 'Enables or disables **spell check** for the form field.',
 			type: 'boolean',
 			control: 'boolean',
 			table: {
@@ -139,6 +156,7 @@ const meta: Meta<FormFieldComponent> = {
 			}
 		},
 		autoCapitalize: {
+			description: 'Enables or disables **auto-capitalization** for the form field.',
 			type: 'boolean',
 			control: 'boolean',
 			table: {
@@ -148,6 +166,7 @@ const meta: Meta<FormFieldComponent> = {
 			}
 		},
 		isRequired: {
+			description: 'Indicates whether the form field is **required** for form submission.',
 			type: 'boolean',
 			control: 'boolean',
 			table: {
@@ -157,6 +176,7 @@ const meta: Meta<FormFieldComponent> = {
 			}
 		},
 		isDisabled: {
+			description: 'Determines if the form field is **disabled** and non-interactive.',
 			type: 'boolean',
 			control: 'boolean',
 			table: {
