@@ -3,7 +3,7 @@ import { setCompodocJson } from '@storybook/addon-docs/angular'
 import { themes } from '@storybook/theming'
 import docJson from '../documentation.json'
 
-import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations'
+import { provideAnimations } from '@angular/platform-browser/animations'
 import { tuiIconResolverProvider, TuiRoot } from '@taiga-ui/core'
 import { NG_EVENT_PLUGINS } from '@taiga-ui/event-plugins'
 
