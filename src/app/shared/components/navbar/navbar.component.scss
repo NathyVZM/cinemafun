@@ -12,7 +12,7 @@
 
 header {
 	@include m.flex(space-between, stretch, row, wrap, v.$fs-medium);
-	padding: v.$sp-medium;
+	// padding: v.$sp-medium;
 }
 
 form {

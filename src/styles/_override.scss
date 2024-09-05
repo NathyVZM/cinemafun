@@ -33,6 +33,11 @@ cf-form-field {
 		font-size: v.$fs-extra-regular;
 	}
 
+	.t-cleaner tui-icon {
+		@include m.square(v.$fs-big, true);
+		font-size: v.$fs-big;
+	}
+
 	tui-tooltip {
 		.t-tooltip-icon {
 			@include m.flex(center, center, $important: true);

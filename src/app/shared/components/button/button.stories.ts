@@ -115,6 +115,11 @@ const meta: Meta<ButtonComponent> = {
 				type: { summary: 'boolean' },
 				defaultValue: { summary: 'false' }
 			}
+		},
+		onButtonClick: {
+			table: {
+				disable: true
+			}
 		}
 	}
 }

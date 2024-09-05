@@ -3,9 +3,13 @@ import { setCompodocJson } from '@storybook/addon-docs/angular'
 import { themes } from '@storybook/theming'
 import docJson from '../documentation.json'
 
+import { provideRouter } from '@angular/router'
 import { provideAnimations } from '@angular/platform-browser/animations'
 import { tuiIconResolverProvider, TuiRoot } from '@taiga-ui/core'
 import { NG_EVENT_PLUGINS } from '@taiga-ui/event-plugins'
+
+import { routes } from '../src/app/app.routes'
+import { provideHttpClient } from '@angular/common/http'
 
 setCompodocJson(docJson)
 
@@ -40,7 +44,7 @@ const preview: Preview = {
 				})
 			]
 		}),
-		applicationConfig({ providers: [provideAnimations(), NG_EVENT_PLUGINS] }),
+		applicationConfig({ providers: [provideRouter([]), provideAnimations(), NG_EVENT_PLUGINS] }),
 		componentWrapperDecorator(story => `<tui-root tuiTheme="dark">${story}</tui-root>`)
 	]
 }

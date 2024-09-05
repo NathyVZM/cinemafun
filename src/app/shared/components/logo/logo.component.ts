@@ -1,4 +1,4 @@
-import { booleanAttribute, Component, input } from '@angular/core'
+import { Component } from '@angular/core'
 import { RouterLink } from '@angular/router'
 import { TuiTitle } from '@taiga-ui/core'
 import { IconComponent } from '../icon/icon.component'
@@ -10,6 +10,4 @@ import { IconComponent } from '../icon/icon.component'
 	templateUrl: './logo.component.html',
 	styleUrl: './logo.component.scss'
 })
-export class LogoComponent {
-	isSubtitle = input(false, { transform: booleanAttribute })
-}
+export class LogoComponent {}
