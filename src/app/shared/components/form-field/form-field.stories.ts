@@ -7,7 +7,7 @@ import { FormFieldComponent } from './form-field.component'
  */
 const meta: Meta<FormFieldComponent> = {
 	component: FormFieldComponent,
-	title: 'Form Field',
+	title: 'FormField',
 	tags: ['autodocs'],
 	argTypes: {
 		nativeId: {

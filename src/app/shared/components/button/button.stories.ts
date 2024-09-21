@@ -66,6 +66,7 @@ const meta: Meta<ButtonComponent> = {
 			description: 'The **icon** displayed at the end of the button.',
 			type: 'string',
 			control: 'text',
+			if: { arg: 'isIconButton', truthy: false },
 			table: {
 				category: 'inputs',
 				type: { summary: 'string' },
@@ -116,10 +117,33 @@ const meta: Meta<ButtonComponent> = {
 				defaultValue: { summary: 'false' }
 			}
 		},
+		buttonClick: {
+			table: {
+				category: 'outputs',
+				type: { summary: 'EventEmitter<void>' }
+			}
+		},
 		onButtonClick: {
 			table: {
 				disable: true
 			}
+		}
+	},
+	parameters: {
+		designToken: {
+			tabs: [
+				'Button Color',
+				'Button Spacing',
+				'Button BorderRadius',
+				'Button FontWeight',
+				'Button FontSize',
+				'Icon Button Spacing',
+				'Icon Button BorderRadius',
+				'Colors',
+				'Spacings',
+				'Font Sizes',
+				'SVG Icons'
+			]
 		}
 	}
 }

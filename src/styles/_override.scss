@@ -11,17 +11,19 @@
 	--tui-background-accent-1-pressed: #{darken(c.$brilliant-rose, 10%)};
 	--tui-text-primary-on-accent-1: #{c.$night};
 	--tui-text-primary: #{c.$white};
-	// --tui-negative: #{c.$folly};
-	// --tui-negative-night: #{c.$folly};
 
-	[tuiTheme=dark] {
+	[tuiTheme='dark'] {
 		--tui-background-base: #{c.$night};
 		--tui-text-primary: #{c.$white};
 	}
 
-	[data-appearance=dark] {
+	[data-appearance='dark'] {
 		--tui-background-accent-opposite-hover: #{c.$night};
 		--tui-background-base: #{c.$white};
+	}
+
+	[tuiAppearance]:focus-visible:not([data-focus='false']) {
+		--tui-border-focus: #{darken(c.$brilliant-rose, 10%)};
 	}
 }
 
@@ -62,7 +64,7 @@ cf-form-field {
 	}
 }
 
-[tuiTheme=dark] [tuiWrapper][data-appearance=textfield]._focused._focused {
+[tuiTheme='dark'] [tuiWrapper][data-appearance='textfield']._focused._focused {
 	background: c.$platinum;
 }
 
@@ -79,7 +81,6 @@ cf-form-field {
 }
 
 @media (hover: hover) {
-
 	[tuiWrapper][data-appearance='textfield']:hover:not(._no-hover),
 	[tuiWrapper][data-appearance='textfield'][data-state='hover'] {
 		box-shadow: none;
@@ -111,7 +112,6 @@ tui-hint {
 // carousel
 
 tui-carousel {
-
 	.t-scroller,
 	.t-wrapper,
 	.t-items {
@@ -141,13 +141,12 @@ tui-loader .t-loader {
 // money
 
 tui-money {
-
 	span[automation-id='tui-money__integer-part'],
 	span[automation-id='tui-money__decimal-part'] {
 		@include m.truncate-text;
 	}
 
-	.t-container>span:not([automation-id='tui-money__currency']) {
+	.t-container > span:not([automation-id='tui-money__currency']) {
 		@include m.truncate-text;
 		flex: 1;
 	}

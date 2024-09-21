@@ -8,9 +8,6 @@ import { provideAnimations } from '@angular/platform-browser/animations'
 import { tuiIconResolverProvider, TuiRoot } from '@taiga-ui/core'
 import { NG_EVENT_PLUGINS } from '@taiga-ui/event-plugins'
 
-import { routes } from '../src/app/app.routes'
-import { provideHttpClient } from '@angular/common/http'
-
 setCompodocJson(docJson)
 
 const preview: Preview = {

@@ -3,53 +3,114 @@
 @use 'variables' as v;
 
 :host {
+	/**
+	 * @tokens Navigation Item Color
+	 * @presenter Color
+	*/
+
+	--cf-navigation-item-color: transparent;
+	--cf-navigation-item-icon-color: #{c.$brilliant-rose};
+	--cf-navigation-item-label-color: #{c.$white};
+	--cf-navigation-item-hover-color: #{c.$brilliant-rose};
+	--cf-navigation-item-hover-label-color: #{c.$night};
+	--cf-navigation-item-pressed-color: #{desaturate(darken(c.$brilliant-rose, 8%), 14%)};
+	--cf-navigation-item-loading-color: #{c.$brilliant-rose};
+
+	/**
+	 * @tokens Navigation Item Spacing
+	 * @presenter Spacing
+	*/
+
+	--cf-navigation-item-width: 100%;
+	--cf-navigation-item-height: 3.25rem;
+	--cf-navigation-item-padding-block: #{v.$sp-extra-small};
+	--cf-navigation-item-padding-inline: #{v.$sp-semi-large};
+	--cf-navigation-item-space: #{v.$sp-semi-small};
+
+	/**
+	 * @tokens Navigation Item BorderRadius
+	 * @presenter BorderRadius
+	*/
+
+	--cf-navigation-item-shape: 6.25rem;
+
+	/**
+	 * @tokens Navigation Item FontSize
+	 * @presenter FontSize
+	*/
+
+	--cf-navigation-item-label-font-size: 1rem;
+
+	/**
+	 * @tokens Navigation Item FontWeight
+	 * @presenter FontWeight
+	*/
+
+	--cf-navigation-item-label-font-weight: 500;
+
+	/**
+	 * @tokens-end
+	*/
+
+	width: var(--cf-navigation-item-width);
+	height: var(--cf-navigation-item-height);
 	@include m.flex(center, stretch, column, wrap);
-	--tui-radius-xl: 6.25rem;
 }
 
-a,
-button {
+a {
+	background-color: var(--cf-navigation-item-color);
+	padding: var(--cf-navigation-item-padding-block) var(--cf-navigation-item-padding-inline);
+	border-radius: var(--cf-navigation-item-shape);
+	text-decoration: none;
 	outline: none;
-	box-shadow: none;
-	font-weight: 500;
+	border: none;
+	text-align: start;
+	cursor: pointer;
 	transition: all 0.4s ease;
-	padding: v.$sp-extra-small v.$sp-semi-large;
-	@include m.flex(center, center, row, wrap, v.$sp-semi-small);
+	@include m.square(100%);
+	@include m.flex(center, center, row, wrap, var(--cf-navigation-item-space));
 
-	span {
-		color: c.$white;
+	> span {
 		flex: 1;
-	}
-
-	cf-icon {
-		color: c.$brilliant-rose;
+		color: var(--cf-navigation-item-label-color);
+		font-weight: var(--cf-navigation-item-label-font-weight);
+		font-size: var(--cf-navigation-item-label-font-size);
 	}
 
 	&:hover {
-		background-color: c.$brilliant-rose;
-		transform: none;
-		box-shadow: none;
+		background-color: var(--cf-navigation-item-hover-color);
 
 		> * {
-			color: c.$night;
+			color: var(--cf-navigation-item-hover-label-color);
+			--cf-navigation-item-icon-color: #{c.$night};
 		}
 	}
-}
 
-.is-loading {
-	background-color: c.$brilliant-rose;
-	color: c.$night;
-	height: 3.25rem;
-}
-
-.active {
-	background-color: c.$brilliant-rose;
-
-	span {
-		color: c.$night;
+	&:active {
+		background-color: var(--cf-navigation-item-pressed-color);
 	}
+}
 
-	cf-icon {
-		color: c.$night;
+cf-button {
+	--cf-button-width: var(--cf-navigation-item-width);
+	--cf-button-height: var(--cf-navigation-item-height);
+	--cf-button-space: var(--cf-navigation-item-space);
+	--cf-button-padding-block: var(--cf-navigation-item-padding-block);
+	--cf-button-padding-inline: var(--cf-navigation-item-padding-inline);
+	--cf-button-align: flex-start;
+	--cf-button-label-align: start;
+
+	--cf-button-color: var(--cf-navigation-item-color);
+	--cf-button-label-color: var(--cf-navigation-item-label-color);
+	--cf-button-icon-color: var(--cf-navigation-item-icon-color);
+
+	--cf-button-hover-color: var(--cf-navigation-item-hover-color);
+	--cf-button-hover-label-color: var(--cf-navigation-item-hover-label-color);
+	--cf-button-hover-icon-color: var(--cf-navigation-item-hover-label-color);
+
+	--cf-button-shape: var(--cf-navigation-item-shape);
+
+	&.is-loading {
+		--cf-button-color: var(--cf-navigation-item-loading-color);
 	}
 }
