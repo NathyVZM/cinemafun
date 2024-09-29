@@ -10,7 +10,6 @@ const config: StorybookConfig = {
 		'@storybook/addon-interactions',
 		'@storybook/addon-a11y',
 		'@storybook/addon-actions',
-		'@storybook/addon-styling-webpack',
 		'@storybook/addon-storysource',
 		'storybook-design-token'
 	],
