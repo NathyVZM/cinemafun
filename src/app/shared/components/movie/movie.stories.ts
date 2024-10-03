@@ -97,6 +97,21 @@ const meta: Meta<MovieComponent> = {
 				disable: true
 			}
 		}
+	},
+	parameters: {
+		designToken: {
+			tabs: [
+				'Movie Color',
+				'Movie Spacing',
+				'Movie BorderRadius',
+				'Movie FontSize',
+				'Movie FontWeight',
+				'Colors',
+				'Spacings',
+				'Font Sizes',
+				'SVG Icons'
+			]
+		}
 	}
 }
 

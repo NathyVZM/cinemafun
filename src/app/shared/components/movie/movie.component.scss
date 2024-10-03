@@ -3,29 +3,82 @@
 @use 'mixins' as m;
 
 :host {
+	/**
+	 * @tokens Movie Color
+	 * @presenter Color
+	*/
+
+	--cf-movie-color: #{c.$night};
+	--cf-movie-title-color: #{c.$white};
+	--cf-movie-paragraph-color: #ffffffb8;
+
+	/**
+	 * @tokens Movie Spacing
+	 * @presenter Spacing
+	*/
+
+	--cf-movie-padding: #{v.$sp-regular};
+	--cf-movie-space: #{v.$sp-semi-small};
+	--cf-movie-image-size: 26rem;
+	--cf-movie-content-space: #{v.$sp-small};
+	--cf-movie-text-space: #{v.$sp-tiny};
+
+	/**
+	 * @tokens Movie BorderRadius
+	 * @presenter BorderRadius
+	*/
+
+	--cf-movie-shape: #{v.$sp-large};
+	--cf-movie-image-shape: calc(var(--cf-movie-shape) / 2);
+
+	/**
+	 * @tokens Movie FontSize
+	 * @presenter FontSize
+	*/
+
+	--cf-movie-title-font-size: #{v.$fs-regular};
+	--cf-movie-paragraph-font-size: #{v.$fs-extra-small};
+
+	/**
+	 * @tokens Movie FontWeight
+	 * @presenter FontWeight
+	*/
+
+	--cf-movie-title-font-weight: 500;
+
+	/**
+	 * @tokens-end
+	*/
+
 	--tui-font-text-m: normal #{v.$fs-regular} / 1 var(--tui-font-text);
 	@include m.size(19rem, fit-content);
 	@include m.flex;
-	border-radius: v.$sp-large;
-	background-color: c.$night;
+	border-radius: var(--cf-movie-shape);
+	background-color: var(--cf-movie-color);
+	transition: all 0.2s ease-in-out;
+
+	&:hover {
+		translate: 0px -0.25rem;
+		box-shadow: 0 0 2.25rem transparentize($color: c.$night, $amount: 0.7);
+	}
 }
 
 [tuiCardLarge][data-space][data-space='normal'] {
-	--t-radius: #{v.$sp-large};
-	--t-padding: #{v.$sp-regular};
-	--t-space: #{v.$sp-semi-small};
+	--t-radius: var(--cf-movie-shape);
+	--t-padding: var(--cf-movie-padding);
+	--t-space: var(--cf-movie-space);
 }
 
 a {
 	@include m.square(100%);
-	@include m.flex(space-between, stretch, column, wrap, v.$sp-semi-small);
+	@include m.flex(space-between, stretch, column, wrap);
 	border-radius: inherit;
 
 	> picture {
 		position: relative;
 		flex: 1;
-		flex-basis: 26rem;
-		border-radius: calc(v.$sp-large / 2);
+		flex-basis: var(--cf-movie-image-size);
+		border-radius: var(--cf-movie-image-shape);
 
 		img {
 			@include m.square(100%);
@@ -35,19 +88,19 @@ a {
 	}
 
 	> section {
-		@include m.flex(space-between, stretch, column, wrap, v.$sp-small);
+		@include m.flex(space-between, stretch, column, wrap, var(--cf-movie-content-space));
 
 		> div {
-			@include m.flex(flex-start, stretch, column, wrap, v.$sp-tiny);
+			@include m.flex(flex-start, stretch, column, wrap, var(--cf-movie-text-space));
 
 			tui-line-clamp[title] {
-				color: c.$white;
-				font-weight: 500;
+				color: var(--cf-movie-title-color);
+				font-weight: var(--cf-movie-title-font-weight);
 			}
 		}
 
 		> p {
-			@include m.flex(flex-start, center, row, wrap, v.$sp-tiny);
+			@include m.flex(flex-start, center, row, wrap, var(--cf-movie-text-space));
 
 			span {
 				display: inline-block;
@@ -57,8 +110,8 @@ a {
 }
 
 .paragraph {
-	color: #ffffffb8;
-	font-size: v.$fs-extra-small;
+	color: var(--cf-movie-paragraph-color);
+	font-size: var(--cf-movie-paragraph-font-size);
 }
 
 .general {
