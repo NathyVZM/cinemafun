@@ -1,4 +1,16 @@
-@if (!isIconButton()) {
+@if (isIconButton()) {
+	<button
+		tuiIconButton
+		[type]="type()"
+		[appearance]="appearance()"
+		[size]="size()"
+		[disabled]="isDisabled()"
+		[loading]="isLoading()"
+		[attr.form]="form()"
+		(click)="onButtonClick()">
+		<cf-icon [icon]="iconLeading()" />
+	</button>
+} @else {
 	<button
 		tuiButton
 		[type]="type()"
@@ -12,15 +24,4 @@
 		(click)="onButtonClick()">
 		{{ label() }}
 	</button>
-} @else {
-	<button
-		tuiIconButton
-		[type]="type()"
-		[appearance]="appearance()"
-		[iconStart]="iconLeading()"
-		[size]="size()"
-		[disabled]="isDisabled()"
-		[loading]="isLoading()"
-		[attr.form]="form()"
-		(click)="onButtonClick()"></button>
 }

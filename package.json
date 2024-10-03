@@ -67,11 +67,18 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "msw": "^2.4.9",
+    "msw-storybook-addon": "^2.0.3",
     "netlify-cli": "^17.33.3",
     "prettier": "^3.3.3",
     "sass": "^1.77.8",
     "storybook": "^8.3.4",
     "storybook-design-token": "^3.1.0",
     "typescript": "~5.4.2"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

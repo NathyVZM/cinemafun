@@ -4,11 +4,12 @@ import { TuiButton, TuiSizeXL, TuiSizeXS } from '@taiga-ui/core'
 import { TuiButtonLoading } from '@taiga-ui/kit'
 import { combineLatest } from 'rxjs'
 import { CoreService } from '@services'
+import { IconComponent } from '../icon/icon.component'
 
 @Component({
 	selector: 'cf-button',
 	standalone: true,
-	imports: [TuiButton, TuiButtonLoading],
+	imports: [TuiButton, TuiButtonLoading, IconComponent],
 	templateUrl: './button.component.html',
 	styleUrl: './button.component.scss'
 })

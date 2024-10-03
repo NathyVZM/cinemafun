@@ -3,57 +3,62 @@
 @use 'mixins' as m;
 
 :host {
-	--tui-elevation-02: #{c.$night};
-	--tui-font-heading-6: 500 #{v.$fs-regular}/ 1 var(--tui-font-text);
-	width: 100%;
+	--tui-font-text-m: normal #{v.$fs-regular} / 1 var(--tui-font-text);
+	@include m.size(19rem, fit-content);
+	@include m.flex;
+	border-radius: v.$sp-large;
+	background-color: c.$night;
+}
+
+[tuiCardLarge][data-space][data-space='normal'] {
+	--t-radius: #{v.$sp-large};
+	--t-padding: #{v.$sp-regular};
+	--t-space: #{v.$sp-semi-small};
 }
 
 a {
 	@include m.square(100%);
-}
-
-.tui-island_size_m {
-	--tui-radius-xl: #{v.$sp-large};
-}
-
-.tui-island {
 	@include m.flex(space-between, stretch, column, wrap, v.$sp-semi-small);
+	border-radius: inherit;
 
-	&__figure {
-		order: 0;
-		margin: 0;
+	> picture {
+		position: relative;
 		flex: 1;
 		flex-basis: 26rem;
 		border-radius: calc(v.$sp-large / 2);
-		position: relative;
 
-		> img {
-			object-fit: cover;
-			border-radius: calc(v.$sp-large / 2);
+		img {
 			@include m.square(100%);
+			object-fit: cover;
+			border-radius: inherit;
 		}
 	}
 
-	&__title {
-		margin: 0;
-	}
-
-	&__paragraph {
-		font-size: v.$fs-extra-small;
-		@include m.flex($gap: v.$sp-tiny);
-
-		span {
-			display: inline-block;
-		}
-	}
-
-	&__content {
+	> section {
 		@include m.flex(space-between, stretch, column, wrap, v.$sp-small);
 
 		> div {
 			@include m.flex(flex-start, stretch, column, wrap, v.$sp-tiny);
+
+			tui-line-clamp[title] {
+				color: c.$white;
+				font-weight: 500;
+			}
+		}
+
+		> p {
+			@include m.flex(flex-start, center, row, wrap, v.$sp-tiny);
+
+			span {
+				display: inline-block;
+			}
 		}
 	}
+}
+
+.paragraph {
+	color: #ffffffb8;
+	font-size: v.$fs-extra-small;
 }
 
 .general {
