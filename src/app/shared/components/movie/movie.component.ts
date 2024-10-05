@@ -44,14 +44,8 @@ export class MovieComponent {
 		['NC-17', 'adults-only']
 	])
 
-	isImageLoading = true
-
 	getMediaQuery(size: string) {
 		const formattedSize = size.replace('w', '')
 		return `(max-width: ${formattedSize}px)`
-	}
-
-	onImageLoad() {
-		this.isImageLoading = false
 	}
 }

@@ -51,8 +51,8 @@
 	*/
 
 	--tui-font-text-m: normal #{v.$fs-regular} / 1 var(--tui-font-text);
-	@include m.size(19rem, fit-content);
 	@include m.flex;
+	height: fit-content;
 	border-radius: var(--cf-movie-shape);
 	background-color: var(--cf-movie-color);
 	transition: all 0.2s ease-in-out;

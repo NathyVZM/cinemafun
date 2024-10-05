@@ -1,6 +1,10 @@
-import { Meta, StoryObj } from '@storybook/angular'
+import { componentWrapperDecorator, Meta, StoryObj } from '@storybook/angular'
 import { MovieComponent } from './movie.component'
 
+/**
+ * The **Movie component** displays detailed information about a movie, including its title, poster, genre, runtime, and classification.
+ * It supports various states and integrates with the media query for responsive design.
+ */
 const meta: Meta<MovieComponent> = {
 	component: MovieComponent,
 	title: 'Movie',
@@ -9,66 +13,84 @@ const meta: Meta<MovieComponent> = {
 		id: {
 			type: 'number',
 			control: 'number',
+			description: 'The **ID** of the movie.',
 			table: {
-				category: 'inputs'
+				category: 'inputs',
+				type: { summary: 'number' }
 			}
 		},
 		title: {
 			type: 'string',
 			control: 'text',
+			description: 'The **title** of the movie.',
 			table: {
-				category: 'inputs'
+				category: 'inputs',
+				type: { summary: 'string' }
 			}
 		},
 		poster: {
 			type: 'string',
 			control: 'text',
+			description: 'The **poster URL** of the movie.',
 			table: {
-				category: 'inputs'
+				category: 'inputs',
+				type: { summary: 'string' }
 			}
 		},
 		genre: {
 			type: 'symbol',
 			control: 'object',
+			description: 'The **genre** of the movie, represented as an array of strings.',
 			table: {
 				category: 'inputs',
+				type: { summary: 'string[]' },
 				defaultValue: { summary: 'undefined' }
 			}
 		},
 		runtime: {
 			type: 'number',
 			control: 'number',
+			description: 'The **runtime** of the movie in minutes.',
 			table: {
-				category: 'inputs'
+				category: 'inputs',
+				type: { summary: 'number' }
 			}
 		},
 		classification: {
 			type: 'string',
 			control: 'text',
+			description: 'The **classification** of the movie, such as PG, R, etc.',
 			table: {
-				category: 'inputs'
+				category: 'inputs',
+				type: { summary: 'string' }
 			}
 		},
 		imagePath: {
 			type: 'string',
 			control: 'text',
+			description: 'The **base URL** for the movie poster images.',
 			table: {
-				category: 'inputs'
+				category: 'inputs',
+				type: { summary: 'string' }
 			}
 		},
 		posterSizes: {
 			type: 'symbol',
 			control: 'object',
+			description: 'An array of **available poster sizes**.',
 			table: {
 				category: 'inputs',
+				type: { summary: 'string[]' },
 				defaultValue: { summary: 'undefined' }
 			}
 		},
 		meaning: {
 			type: 'string',
 			control: 'text',
+			description: 'The **meaning** or description of the classification.',
 			table: {
 				category: 'inputs',
+				type: { summary: 'string' },
 				defaultValue: { summary: '' }
 			}
 		},
@@ -82,17 +104,7 @@ const meta: Meta<MovieComponent> = {
 				disable: true
 			}
 		},
-		isImageLoading: {
-			table: {
-				disable: true
-			}
-		},
 		getMediaQuery: {
-			table: {
-				disable: true
-			}
-		},
-		onImageLoad: {
 			table: {
 				disable: true
 			}
@@ -112,7 +124,19 @@ const meta: Meta<MovieComponent> = {
 				'SVG Icons'
 			]
 		}
-	}
+	},
+	decorators: [
+		componentWrapperDecorator(
+			story => `
+		<style>
+			cf-movie {
+				width: 19rem;
+			}
+		</style>
+		${story}
+		`
+		)
+	]
 }
 
 export default meta

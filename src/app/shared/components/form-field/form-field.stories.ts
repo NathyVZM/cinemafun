@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/angular'
 import { FormFieldComponent } from './form-field.component'
+import { withActions } from '@storybook/addon-actions/decorator'
 
 /**
  * A versatile **form field component** that supports various input types, appearances, and states, including required and disabled states.
@@ -194,7 +195,11 @@ const meta: Meta<FormFieldComponent> = {
 		registerOnChange: { table: { disable: true } },
 		registerOnTouched: { table: { disable: true } },
 		setDisabledState: { table: { disable: true } }
-	}
+	},
+	parameters: {
+		actions: { handles: ['input'] }
+	},
+	decorators: [withActions]
 }
 
 export default meta
