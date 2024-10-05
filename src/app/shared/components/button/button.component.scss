@@ -71,7 +71,6 @@
 
 	width: fit-content;
 	height: fit-content;
-	min-width: var(--cf-button-width);
 	display: inline-flex;
 }
 
@@ -97,7 +96,7 @@
 		--t-radius: var(--cf-button-shape);
 		--t-padding: var(--cf-button-padding-block) var(--cf-button-padding-inline);
 		--t-margin: 0;
-		min-width: inherit;
+		min-width: var(--cf-button-width);
 		gap: var(--cf-button-space);
 		justify-content: var(--cf-button-align);
 		text-align: var(--cf-button-label-align);

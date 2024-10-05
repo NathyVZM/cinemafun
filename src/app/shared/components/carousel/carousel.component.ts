@@ -1,10 +1,9 @@
-import { AfterViewInit, Component, ElementRef, input, model, Renderer2, viewChild } from '@angular/core'
+import { Component, ElementRef, input, model, Renderer2, viewChild } from '@angular/core'
 import { AsyncPipe, NgClass, NgOptimizedImage, NgTemplateOutlet } from '@angular/common'
 import { Router } from '@angular/router'
 import { TuiHint, TuiSizeL, TuiSizeS } from '@taiga-ui/core'
 import { TuiCarousel, TuiPagination } from '@taiga-ui/kit'
 import { CarouselItem, LoaderParams } from '@models'
-import { ApiConfigurationService } from '@services'
 import { GenrePipe } from '@pipes'
 import { ButtonComponent } from '../button/button.component'
 
@@ -25,13 +24,15 @@ import { ButtonComponent } from '../button/button.component'
 	templateUrl: './carousel.component.html',
 	styleUrl: './carousel.component.scss'
 })
-export class CarouselComponent implements AfterViewInit {
+export class CarouselComponent {
 	items = input.required<CarouselItem[]>()
 	duration = input(10000)
 	isDraggable = input(false)
-	addFade = input(false)
 	paginationSize = input<TuiSizeS | TuiSizeL>('s')
 	loaderParams = input<LoaderParams>()
+	imagePath = input.required<string>()
+	backdropSizes = input.required<string[]>()
+	posterSizes = input<string[] | null>([])
 	index = model(0)
 
 	pagination = viewChild<{ el: ElementRef<HTMLDivElement> }>('pagination')
@@ -39,24 +40,19 @@ export class CarouselComponent implements AfterViewInit {
 	isImageLoading = true
 	isSignUp = false
 
-	imagesPath$ = this.apiConfigurationService.getImagesPath()
-	backdropSizes$ = this.apiConfigurationService.getBackdropSizes()
-	posterSizes$ = this.apiConfigurationService.getPosterSizes()
-
 	constructor(
-		private apiConfigurationService: ApiConfigurationService,
 		private renderer: Renderer2,
 		private router: Router
 	) {
 		this.isSignUp = this.router.url.includes('sign-up')
 	}
 
-	ngAfterViewInit(): void {
-		const buttons = this.pagination()?.el.nativeElement.querySelectorAll('button')
-		buttons?.forEach((button, index) => {
-			this.renderer.setAttribute(button, 'aria-label', `carousel-button-${index + 1}`)
-		})
-	}
+	// ngAfterViewInit(): void {
+	// 	const buttons = this.pagination()?.el.nativeElement.querySelectorAll('button')
+	// 	buttons?.forEach((button, index) => {
+	// 		this.renderer.setAttribute(button, 'aria-label', `carousel-button-${index + 1}`)
+	// 	})
+	// }
 
 	/**
 	 * Returns a media query string based on the provided size.

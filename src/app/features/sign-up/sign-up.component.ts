@@ -11,7 +11,7 @@ import { catchError, delay, EMPTY, first, tap } from 'rxjs'
 import { FormField, User } from '@models'
 import { ButtonComponent, CarouselComponent, FormFieldComponent, LogoComponent } from '@components'
 import { customMinLengthValidator, customRequiredValidator } from '@validators'
-import { AuthService, CoreService, MovieService } from '@services'
+import { ApiConfigurationService, AuthService, CoreService, MovieService } from '@services'
 
 @Component({
 	selector: 'cf-sign-up',
@@ -94,12 +94,15 @@ export class SignUpComponent {
 	]
 
 	carousel$ = this.movieService.getMoviesCarousel(true)
+	imagePath$ = this.apiConfigurationService.getImagePath()
+	backdropSizes$ = this.apiConfigurationService.getBackdropSizes()
 	isCarouselVisible = true
 
 	constructor(
 		private movieService: MovieService,
 		private coreService: CoreService,
 		private authService: AuthService,
+		private apiConfigurationService: ApiConfigurationService,
 		private router: Router,
 		private responsive: BreakpointObserver,
 		@Inject(TuiAlertService) private readonly alerts: TuiAlertService

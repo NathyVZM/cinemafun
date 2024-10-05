@@ -35,7 +35,8 @@
 			id="carousel"
 			[items]="(carousel$ | async) || []"
 			[loaderParams]="{ width: 1310, fit: 'cover' }"
-			[addFade]="true" />
+			[imagePath]="(imagePath$ | async)!"
+			[backdropSizes]="(backdropSizes$ | async)!" />
 	} @loading {
 		<div class="carousel-skeleton"></div>
 	} @placeholder {

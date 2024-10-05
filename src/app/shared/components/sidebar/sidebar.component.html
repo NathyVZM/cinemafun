@@ -13,10 +13,13 @@
 					<p>Balance</p>
 					<div>
 						<cf-icon [icon]="'money'" />
-						<!-- <tui-money [currency]="'USD'" [currencyAlign]="'left'" [value]="user.balance" /> -->
+						<p>
+							<span [tuiNumberFormat]="{ precision: 0 }">{{ user.balance | tuiAmount: 'USD' | async }}</span>
+							<span decimal>{{ user.balance | tuiDecimal | async }}</span>
+						</p>
 					</div>
 				</div>
-				<cf-button [type]="'button'" [label]="'A button'" [iconLeading]="'pencil-simple'" [isIconButton]="true" />
+				<cf-button [type]="'button'" [iconLeading]="'pencil-simple'" [isIconButton]="true" />
 			</article>
 		</section>
 	}
@@ -28,6 +31,6 @@
 		}
 	</menu>
 	<footer>
-		<cf-navigation-item [label]="'Sign out'" [icon]="'sign-out'" [isButton]="true" (buttonClick)="signOut()" />
+		<cf-navigation-item [label]="'Sign out'" [icon]="'sign-out'" [isButton]="true" (navigationItemClick)="signOut()" />
 	</footer>
 </nav>

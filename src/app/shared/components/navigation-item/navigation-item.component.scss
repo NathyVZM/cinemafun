@@ -92,6 +92,7 @@ a {
 }
 
 cf-button {
+	min-width: var(--cf-navigation-item-width);
 	--cf-button-width: var(--cf-navigation-item-width);
 	--cf-button-height: var(--cf-navigation-item-height);
 	--cf-button-space: var(--cf-navigation-item-space);
