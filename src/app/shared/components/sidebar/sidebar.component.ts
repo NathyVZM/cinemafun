@@ -6,9 +6,8 @@ import { TuiLineClamp, TuiSkeleton } from '@taiga-ui/kit'
 import { TuiAmountPipe, TuiDecimalPipe } from '@taiga-ui/addon-commerce'
 import { catchError, EMPTY, first, map, timer } from 'rxjs'
 import { AuthService, CoreService, UserService } from '@services'
-import { ButtonComponent } from '../button/button.component'
-import { IconComponent } from '../icon/icon.component'
 import { NavigationItemComponent } from '../navigation-item/navigation-item.component'
+import { UserInfoComponent } from '../user-info/user-info.component'
 
 @Component({
 	selector: 'cf-sidebar',
@@ -21,8 +20,7 @@ import { NavigationItemComponent } from '../navigation-item/navigation-item.comp
 		TuiDecimalPipe,
 		TuiNumberFormat,
 		NavigationItemComponent,
-		IconComponent,
-		ButtonComponent
+		UserInfoComponent
 	],
 	providers: [
 		tuiNumberFormatProvider({

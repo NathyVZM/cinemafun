@@ -3,21 +3,18 @@ import { of } from 'rxjs'
 import { User } from '@models'
 import { SidebarComponent } from './sidebar.component'
 
+/**
+ * The **Sidebar component** provides a collapsible sidebar that includes user information and navigation links.
+ * It integrates with the router for navigation and supports user sign-out functionality.
+ */
 const meta: Meta<SidebarComponent> = {
 	component: SidebarComponent,
 	title: 'Sidebar',
 	tags: ['autodocs'],
 	argTypes: {
-		navigation$: {
-			table: {
-				disable: true
-			}
-		},
-		user$: {
-			table: {
-				disable: true
-			}
-		}
+		navigation$: { table: { disable: true } },
+		user$: { table: { disable: true } },
+		signOut: { table: { disable: true } }
 	}
 }
 

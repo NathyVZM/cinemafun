@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/angular'
-import { FooterComponent } from '@components'
+import { FooterComponent } from './footer.component'
 
 /**
  * The **footer component** displays the site's footer, including the current year and social media links.

@@ -1,4 +1,4 @@
-import { Component, ElementRef, input, model, Renderer2, viewChild } from '@angular/core'
+import { Component, ElementRef, input, model, viewChild } from '@angular/core'
 import { AsyncPipe, NgClass, NgOptimizedImage, NgTemplateOutlet } from '@angular/common'
 import { Router } from '@angular/router'
 import { TuiHint, TuiSizeL, TuiSizeS } from '@taiga-ui/core'
@@ -40,19 +40,9 @@ export class CarouselComponent {
 	isImageLoading = true
 	isSignUp = false
 
-	constructor(
-		private renderer: Renderer2,
-		private router: Router
-	) {
+	constructor(private router: Router) {
 		this.isSignUp = this.router.url.includes('sign-up')
 	}
-
-	// ngAfterViewInit(): void {
-	// 	const buttons = this.pagination()?.el.nativeElement.querySelectorAll('button')
-	// 	buttons?.forEach((button, index) => {
-	// 		this.renderer.setAttribute(button, 'aria-label', `carousel-button-${index + 1}`)
-	// 	})
-	// }
 
 	/**
 	 * Returns a media query string based on the provided size.

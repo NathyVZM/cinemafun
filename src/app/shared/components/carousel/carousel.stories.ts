@@ -119,14 +119,14 @@ const meta: Meta<CarouselComponent> = {
 	decorators: [
 		componentWrapperDecorator(
 			story => `
-        <style>
-            cf-carousel {
-                width: 100%;
-                height: 560px;
-            }
-        </style>
+			<style>
+				cf-carousel {
+					width: 100%;
+					height: 560px;
+				}
+			</style>
 
-        ${story}
+        	${story}
         `
 		)
 	]

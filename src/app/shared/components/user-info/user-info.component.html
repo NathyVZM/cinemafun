@@ -1,0 +1,20 @@
+<section name>
+	<cf-icon [icon]="'user'" [color]="'var(--cf-night)'" />
+	<article>
+		<tui-line-clamp [content]="name()" [lineHeight]="16" [linesLimit]="1" />
+		<tui-line-clamp [content]="email()" [lineHeight]="12" [linesLimit]="1" />
+	</article>
+</section>
+<section balance>
+	<article>
+		<p>Balance</p>
+		<div>
+			<cf-icon [icon]="'money'" [size]="28" [color]="'var(--cf-brilliant-rose)'" />
+			<p>
+				<span [tuiNumberFormat]="{ precision: 0 }">{{ balance() | tuiAmount: 'USD' | async }}</span>
+				<span decimal>{{ balance() | tuiDecimal | async }}</span>
+			</p>
+		</div>
+	</article>
+	<cf-button [type]="'button'" [iconLeading]="'pencil-simple'" [isIconButton]="true" />
+</section>
