@@ -4,11 +4,12 @@ import { TuiButton, TuiSizeXL, TuiSizeXS } from '@taiga-ui/core'
 import { TuiButtonLoading } from '@taiga-ui/kit'
 import { combineLatest } from 'rxjs'
 import { CoreService } from '@services'
+import { IconComponent } from '../icon/icon.component'
 
 @Component({
 	selector: 'cf-button',
 	standalone: true,
-	imports: [TuiButton, TuiButtonLoading],
+	imports: [TuiButton, TuiButtonLoading, IconComponent],
 	templateUrl: './button.component.html',
 	styleUrl: './button.component.scss'
 })
@@ -19,7 +20,6 @@ export class ButtonComponent {
 	appearance = input<'primary' | 'accent'>('primary')
 	iconLeading = input('')
 	iconTrailing = input('')
-	shape = input<'rounded' | 'square'>('rounded')
 	size = input<TuiSizeXS | TuiSizeXL>('l')
 	isIconButton = input(false, { transform: booleanAttribute })
 	isDisabled = model(false)

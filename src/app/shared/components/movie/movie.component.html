@@ -1,54 +1,27 @@
-@defer (prefetch on idle) {
-	<a tuiIsland [hoverable]="true" [routerLink]="['/movie', id()]">
-		<picture class="tui-island__figure" [ngClass]="{ 'skeleton-image': isImageLoading }">
-			@for (size of posterSizes$ | async; track $index) {
-				@if (size.includes('original')) {
-					<img
-						[ngSrc]="(imagesPath$ | async) + size + poster()"
-						[loaderParams]="{ width: 266, height: 416, fit: 'cover' }"
-						[alt]="title() + 'poster'"
-						(load)="onImageLoad()"
-						priority
-						fill
-						placeholder />
-				} @else {
-					<source
-						[srcset]="(imagesPath$ | async) + size + poster() + '&fit=cover&w=640&q=80'"
-						[media]="getMediaQuery(size)" />
-				}
+<a tuiCardLarge [routerLink]="['/movie', id()]">
+	<picture>
+		@for (size of posterSizes(); track $index) {
+			@if (size.includes('original')) {
+				<img
+					[ngSrc]="imagePath() + size + poster()"
+					[alt]="title() + poster()"
+					[loaderParams]="{ width: 320, height: 416, fit: 'cover' }"
+					priority
+					fill
+					placeholder />
+			} @else {
+				<source [srcset]="imagePath() + size + poster()" [media]="getMediaQuery(size)" />
 			}
-		</picture>
-		<section class="tui-island__content">
-			<div>
-				<tui-line-clamp class="tui-island__title" [content]="title()" [lineHeight]="16" [linesLimit]="1" />
-				<tui-line-clamp class="tui-island__paragraph" [content]="genre() | genre" [lineHeight]="14" [linesLimit]="1" />
-			</div>
-			<p class="tui-island__paragraph">
-				<span>{{ runtime() | runtime }}</span>
-				<span [ngClass]="classificationColor()" [tuiHint]="meaning()">{{ classification() | classification }}</span>
-			</p>
-		</section>
-	</a>
-} @placeholder (minimum 600ms) {
-	<div class="skeleton">
-		<div class="skeleton__image"></div>
-		<section class="skeleton__content">
-			<div>
-				<div class="skeleton__title"></div>
-				<div class="skeleton__paragraph"></div>
-			</div>
-			<div class="skeleton__footer"></div>
-		</section>
-	</div>
-} @loading (minimum 600ms) {
-	<div class="skeleton">
-		<div class="skeleton__image"></div>
-		<section class="skeleton__content">
-			<div>
-				<div class="skeleton__title"></div>
-				<div class="skeleton__paragraph"></div>
-			</div>
-			<div class="skeleton__footer"></div>
-		</section>
-	</div>
-}
+		}
+	</picture>
+	<section>
+		<div>
+			<tui-line-clamp title [content]="title()" [lineHeight]="16" [linesLimit]="1" />
+			<tui-line-clamp class="paragraph" [content]="genre() | genre" [lineHeight]="14" [linesLimit]="1" />
+		</div>
+		<p class="paragraph">
+			<span>{{ runtime() | runtime }}</span>
+			<span [ngClass]="classificationColor()" [tuiHint]="meaning()">{{ classification() | classification }}</span>
+		</p>
+	</section>
+</a>

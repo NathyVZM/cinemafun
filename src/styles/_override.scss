@@ -3,93 +3,76 @@
 @use 'mixins' as m;
 
 :root {
-	--tui-base-01: #{c.$night} !important;
-	--tui-primary: #{c.$brilliant-rose};
-	--tui-primary-hover: #{darken(c.$brilliant-rose, 5%)};
-	--tui-primary-active: #{darken(c.$brilliant-rose, 10%)};
-	--tui-text-font: 'Hind Madurai', sans-serif;
-	--tui-text-heading: 'Montserrat', sans-serif;
+	--tui-background-base: #{c.$night};
+	--tui-font-text: 'Hind Madurai', sans-serif;
 	--tui-font-heading: 'Montserrat', sans-serif;
-	--tui-negative: #{c.$folly};
-	--tui-negative-night: #{c.$folly};
-}
+	--tui-background-accent-1: #{c.$brilliant-rose};
+	--tui-background-accent-1-hover: #{lighten(c.$brilliant-rose, 5%)};
+	--tui-background-accent-1-pressed: #{darken(c.$brilliant-rose, 10%)};
+	--tui-text-primary-on-accent-1: #{c.$night};
+	--tui-text-primary: #{c.$white};
 
-// button
-
-cf-button {
-	.cf-button {
-		.t-left,
-		.t-right {
-			@include m.square(v.$fs-medium, true);
-
-			tui-svg {
-				@include m.square(v.$fs-medium, true);
-			}
-		}
+	[tuiTheme='dark'] {
+		--tui-background-base: #{c.$night};
+		--tui-text-primary: #{c.$white};
 	}
 
-	.cf-fab-button {
-		.t-left,
-		.t-right {
-			@include m.square(v.$fs-big, true);
-
-			tui-svg {
-				@include m.square(v.$fs-big, true);
-			}
-		}
+	[data-appearance='dark'] {
+		--tui-background-accent-opposite-hover: #{c.$night};
+		--tui-background-base: #{c.$white};
 	}
 
-	.t-src svg {
-		fill: #{c.$night};
-		@include m.square(inherit);
-	}
-
-	.t-right {
-		margin: 0 !important;
-		margin-left: 8px !important;
-	}
-}
-
-button {
-	&.cf-button .t-wrapper {
-		padding: v.$sp-regular v.$sp-large !important;
-	}
-
-	&.cf-fab-button .t-wrapper {
-		padding: v.$sp-regular !important;
-	}
-}
-
-tui-loader {
-	.t-content {
-		@include m.flex(center, stretch, column, wrap, $important: true);
-		outline: none;
-		border: none;
-	}
-
-	.t-content_loading {
-		@include m.flex(center, stretch, column, wrap, $important: true);
+	[tuiAppearance]:focus-visible:not([data-focus='false']) {
+		--tui-border-focus: #{darken(c.$brilliant-rose, 10%)};
 	}
 }
 
 // form field
 
 cf-form-field {
-	.t-icon_left tui-svg {
+	tui-icon {
 		@include m.square(v.$fs-extra-regular, true);
+		font-size: v.$fs-extra-regular;
 	}
 
-	.t-src svg {
-		fill: c.$white;
-		@include m.square(inherit);
+	.t-cleaner tui-icon {
+		@include m.square(v.$fs-big, true);
+		font-size: v.$fs-big;
 	}
+
+	tui-tooltip {
+		.t-tooltip-icon {
+			@include m.flex(center, center, $important: true);
+		}
+
+		tui-icon {
+			@include m.square(v.$fs-extra-regular, true);
+			font-size: v.$fs-extra-regular;
+		}
+
+		.t-icon {
+			border: none !important;
+		}
+	}
+
+	tui-value-decoration {
+		line-height: var(--tui-height) !important;
+	}
+
+	.t-input:-webkit-autofill {
+		caret-color: c.$white;
+	}
+}
+
+[tuiTheme='dark'] [tuiWrapper][data-appearance='textfield']._focused._focused {
+	background: c.$platinum;
 }
 
 [tuiWrapper]::after {
 	border: none !important;
 }
 
-[tuiWrapper][data-appearance='textfield'][data-mode='onDark'] {
+[tuiWrapper][data-appearance='textfield'] {
 	box-shadow: none;
 
 	&:hover {
@@ -97,33 +80,34 @@ cf-form-field {
 	}
 }
 
-label .t-label {
-	margin-left: v.$sp-semi-small;
-	margin-bottom: v.$sp-small !important;
-}
-
-.t-filler {
-	line-height: v.$fs-extra-great !important;
+@media (hover: hover) {
+	[tuiWrapper][data-appearance='textfield']:hover:not(._no-hover),
+	[tuiWrapper][data-appearance='textfield'][data-state='hover'] {
+		box-shadow: none;
+	}
 }
 
 tui-hint {
-	line-height: v.$fs-medium !important;
-	--tui-elevation-02: #{c.$night};
+	@include m.flex(center, center);
 }
 
-.no-margin {
-	.t-label {
-		margin-bottom: 0 !important;
-	}
-}
+// .t-filler {
+// 	line-height: v.$fs-extra-great !important;
+// }
 
-tui-error {
-	--tui-font-text-s: 500 #{v.$fs-regular}/ 1 var(--tui-font-text);
+// .no-margin {
+// 	.t-label {
+// 		margin-bottom: 0 !important;
+// 	}
+// }
 
-	.t-message-text {
-		margin-left: v.$sp-semi-small;
-	}
-}
+// tui-error {
+// 	--tui-font-text-s: 500 #{v.$fs-regular}/ 1 var(--tui-font-text);
+
+// 	.t-message-text {
+// 		margin-left: v.$sp-semi-small;
+// 	}
+// }
 
 // carousel
 

@@ -3,57 +3,115 @@
 @use 'mixins' as m;
 
 :host {
-	--tui-elevation-02: #{c.$night};
-	--tui-font-heading-6: 500 #{v.$fs-regular}/ 1 var(--tui-font-text);
-	width: 100%;
+	/**
+	 * @tokens Movie Color
+	 * @presenter Color
+	*/
+
+	--cf-movie-color: #{c.$night};
+	--cf-movie-title-color: #{c.$white};
+	--cf-movie-paragraph-color: #ffffffb8;
+
+	/**
+	 * @tokens Movie Spacing
+	 * @presenter Spacing
+	*/
+
+	--cf-movie-padding: #{v.$sp-regular};
+	--cf-movie-space: #{v.$sp-semi-small};
+	--cf-movie-image-size: 26rem;
+	--cf-movie-content-space: #{v.$sp-small};
+	--cf-movie-text-space: #{v.$sp-tiny};
+
+	/**
+	 * @tokens Movie BorderRadius
+	 * @presenter BorderRadius
+	*/
+
+	--cf-movie-shape: #{v.$sp-large};
+	--cf-movie-image-shape: calc(var(--cf-movie-shape) / 2);
+
+	/**
+	 * @tokens Movie FontSize
+	 * @presenter FontSize
+	*/
+
+	--cf-movie-title-font-size: #{v.$fs-regular};
+	--cf-movie-paragraph-font-size: #{v.$fs-extra-small};
+
+	/**
+	 * @tokens Movie FontWeight
+	 * @presenter FontWeight
+	*/
+
+	--cf-movie-title-font-weight: 500;
+
+	/**
+	 * @tokens-end
+	*/
+
+	--tui-font-text-m: normal #{v.$fs-regular} / 1 var(--tui-font-text);
+	@include m.flex;
+	height: fit-content;
+	border-radius: var(--cf-movie-shape);
+	background-color: var(--cf-movie-color);
+	transition: all 0.2s ease-in-out;
+
+	&:hover {
+		translate: 0px -0.25rem;
+		box-shadow: 0 0 2.25rem transparentize($color: c.$night, $amount: 0.7);
+	}
+}
+
+[tuiCardLarge][data-space][data-space='normal'] {
+	--t-radius: var(--cf-movie-shape);
+	--t-padding: var(--cf-movie-padding);
+	--t-space: var(--cf-movie-space);
 }
 
 a {
 	@include m.square(100%);
-}
+	@include m.flex(space-between, stretch, column, wrap);
+	border-radius: inherit;
 
-.tui-island_size_m {
-	--tui-radius-xl: #{v.$sp-large};
-}
-
-.tui-island {
-	@include m.flex(space-between, stretch, column, wrap, v.$sp-semi-small);
-
-	&__figure {
-		order: 0;
-		margin: 0;
-		flex: 1;
-		flex-basis: 26rem;
-		border-radius: calc(v.$sp-large / 2);
+	> picture {
 		position: relative;
+		flex: 1;
+		flex-basis: var(--cf-movie-image-size);
+		border-radius: var(--cf-movie-image-shape);
 
-		> img {
-			object-fit: cover;
-			border-radius: calc(v.$sp-large / 2);
+		img {
 			@include m.square(100%);
+			object-fit: cover;
+			border-radius: inherit;
 		}
 	}
 
-	&__title {
-		margin: 0;
-	}
-
-	&__paragraph {
-		font-size: v.$fs-extra-small;
-		@include m.flex($gap: v.$sp-tiny);
-
-		span {
-			display: inline-block;
-		}
-	}
-
-	&__content {
-		@include m.flex(space-between, stretch, column, wrap, v.$sp-small);
+	> section {
+		@include m.flex(space-between, stretch, column, wrap, var(--cf-movie-content-space));
 
 		> div {
-			@include m.flex(flex-start, stretch, column, wrap, v.$sp-tiny);
+			@include m.flex(flex-start, stretch, column, wrap, var(--cf-movie-text-space));
+
+			tui-line-clamp[title] {
+				color: var(--cf-movie-title-color);
+				font-weight: var(--cf-movie-title-font-weight);
+			}
+		}
+
+		> p {
+			@include m.flex(flex-start, center, row, wrap, var(--cf-movie-text-space));
+
+			span {
+				display: inline-block;
+			}
 		}
 	}
+}
+
+.paragraph {
+	color: var(--cf-movie-paragraph-color);
+	font-size: var(--cf-movie-paragraph-font-size);
 }
 
 .general {

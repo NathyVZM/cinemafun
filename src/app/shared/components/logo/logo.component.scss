@@ -4,7 +4,6 @@
 
 :host {
 	--tui-font-heading-5: 600 #{v.$fs-big}/ 1.75rem var(--tui-font-heading);
-	--tui-font-text-s: 600 #{v.$fs-medium}/ 1 var(--tui-font-heading);
 	@include m.flex(center, center);
 }
 
@@ -17,6 +16,5 @@ a {
 
 h1,
 h2 {
-	color: c.$brilliant-rose;
 	text-transform: uppercase;
 }

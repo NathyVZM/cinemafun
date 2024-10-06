@@ -1,4 +1,9 @@
-<cf-carousel [items]="(carousel$ | async) || []" [loaderParams]="{ width: 1570, height: 560, fit: 'cover' }" />
+<cf-carousel
+	[items]="(carousel$ | async) || []"
+	[loaderParams]="{ width: 1570, height: 560, fit: 'cover' }"
+	[imagePath]="(imagePath$ | async)!"
+	[backdropSizes]="(backdropSizes$ | async)!"
+	[posterSizes]="posterSizes$ | async" />
 
 <section>
 	@for (movie of movies$ | async; track movie.id; let first = $first) {
@@ -10,6 +15,7 @@
 			[runtime]="movie.runtime"
 			[classification]="movie.classification.classification"
 			[meaning]="movie.classification.meaning"
-			[isFirst]="first" />
+			[imagePath]="(imagePath$ | async)!"
+			[posterSizes]="(posterSizes$ | async)!" />
 	}
 </section>

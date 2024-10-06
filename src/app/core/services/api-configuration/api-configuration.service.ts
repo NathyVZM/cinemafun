@@ -10,7 +10,7 @@ import { ConfigurationSchema } from '@schemas'
 export class ApiConfigurationService {
 	private apiUrl = environment.apiUrl
 
-	private imagesPath$ = new BehaviorSubject<string>('')
+	private imagePath$ = new BehaviorSubject<string>('')
 	private posterSizes$ = new BehaviorSubject<string[]>([])
 	private backdropSizes$ = new BehaviorSubject<string[]>([])
 
@@ -24,7 +24,7 @@ export class ApiConfigurationService {
 		return this.http.get<ConfigurationSchema>(`${this.apiUrl}/configuration`).pipe(
 			map(result => result.images),
 			tap(configuration => {
-				this.imagesPath$.next(configuration.secure_base_url)
+				this.imagePath$.next(configuration.secure_base_url)
 				this.posterSizes$.next(configuration.poster_sizes)
 				this.backdropSizes$.next(configuration.backdrop_sizes)
 			}),
@@ -36,8 +36,8 @@ export class ApiConfigurationService {
 	 * Returns the base URL for images.
 	 * @returns {Observable<string>} An Observable that emits a string value.
 	 */
-	getImagesPath() {
-		return this.imagesPath$.asObservable()
+	getImagePath() {
+		return this.imagePath$.asObservable()
 	}
 
 	/**
@@ -61,6 +61,6 @@ export class ApiConfigurationService {
 	 * @returns {boolean} Returns `true` if the API configuration has been loaded, `false` otherwise.
 	 */
 	isApiConfigurationLoaded() {
-		return this.imagesPath$.value !== '' && this.posterSizes$.value.length > 0 && this.backdropSizes$.value.length > 0
+		return this.imagePath$.value !== '' && this.posterSizes$.value.length > 0 && this.backdropSizes$.value.length > 0
 	}
 }

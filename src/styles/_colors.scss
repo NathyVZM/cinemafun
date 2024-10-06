@@ -1,62 +1,35 @@
-/// Color for the app background and texts
-/// @type Color
-/// @access public
-/// @group Colors
+/**
+ * @tokens Colors
+ * @presenter Color
+ */
+
 $night: #1c1c27;
-
-/// Color for the containers and sections
-/// @type Color
-/// @access public
-/// @group Colors
 $platinum: #ffffff0d;
-
-/// Lighter color for containers and sections
-/// @type Color
-/// @access public
-/// @group Colors
 $ghost-white: #ffffff12;
-
-/// Primary color for CTAs and buttons
-/// @type Color
-/// @access public
-/// @group Colors
 $brilliant-rose: #ff4ab0;
-
-/// Secondary color for CTAs and buttons
-/// @type Color
-/// @access public
-/// @group Colors
 $deep-sky-blue: #5cc8ff;
-
-/// Tertiary color for CTAs, buttons and warning events
-/// @type Color
-/// @access public
-/// @group Colors
 $sunglow: #ffcc70;
-
-/// Color for successful events
-/// @type Color
-/// @access public
-/// @group Colors
 $spring-green: #40f99b;
-
-/// Color for faulty events
-/// @type Color
-/// @access public
-/// @group Colors
 $folly: #ff384f;
-
-/// Color for primary texts
-/// @type Color
-/// @access public
-/// @group Colors
 $white: white;
-
-// Color for secondary texts
-/// @type Color
-/// @access public
-/// @group Colors
 $cool-gray: #8e92aa;
+
+/**
+ * @tokens-end
+*/
+
+:root {
+	--cf-night: #{$night};
+	--cf-platinum: #{$platinum};
+	--cf-ghost-white: #{$ghost-white};
+	--cf-brilliant-rose: #{$brilliant-rose};
+	--cf-deep-sky-blue: #{$deep-sky-blue};
+	--cf-sunglow: #{$sunglow};
+	--cf-spring-green: #{$spring-green};
+	--cf-folly: #{$folly};
+	--cf-white: #{$white};
+	--cf-cool-gray: #{$cool-gray};
+}
 
 // Old color for background
 /// #0f0f15

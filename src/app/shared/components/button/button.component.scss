@@ -2,32 +2,132 @@
 @use 'variables' as v;
 
 :host {
-	--tui-primary-text: #{c.$night};
-	--tui-font-text-m: 500 #{v.$fs-regular}/ 1 var(--tui-font-text);
+	/**
+	 * @tokens Button Color
+	 * @presenter Color
+	*/
+
+	--cf-button-color: #{c.$brilliant-rose};
+	--cf-button-label-color: #{c.$night};
+	--cf-button-icon-color: #{c.$night};
+	--cf-button-hover-color: #{desaturate(darken(c.$brilliant-rose, 4%), 14%)};
+	--cf-button-hover-label-color: #{c.$night};
+	--cf-button-hover-icon-color: #{c.$night};
+	--cf-button-pressed-color: #{desaturate(darken(c.$brilliant-rose, 8%), 14%)};
+
+	/**
+	 * @tokens Button Spacing
+	 * @presenter Spacing
+	*/
+
+	--cf-button-width: 12rem;
+	--cf-button-height: 3.5rem;
+	--cf-button-padding-block: 0;
+	--cf-button-padding-inline: #{v.$sp-medium};
+	--cf-button-space: #{v.$sp-small}; /* 0.25rem ~ 4px */
+	--cf-button-icon-size: #{v.$fs-medium}; /* 1.25rem ~ 20px */
+	--cf-button-label-align: center;
+	--cf-button-align: center;
+
+	/**
+	 * @tokens Button BorderRadius
+	 * @presenter BorderRadius
+	*/
+
+	--cf-button-shape: 20rem;
+
+	/**
+	 * @tokens Button FontWeight
+	 * @presenter FontWeight
+	*/
+
+	--cf-button-label-font-weight: 500;
+
+	/**
+	 * @tokens Button FontSize
+	 * @presenter FontSize
+	*/
+
+	--cf-button-label-font-size: #{v.$fs-regular}; /* 1rem ~ 16px */
+
+	/**
+	 * @tokens Icon Button Spacing
+	 * @presenter Spacing
+	*/
+
+	--cf-icon-button-width: 3.5rem;
+	--cf-icon-button-height: 3.5rem;
+
+	/**
+	 * @tokens Icon Button BorderRadius
+	 * @presenter BorderRadius
+	*/
+
+	--cf-icon-button-shape: #{v.$sp-medium}; /* 1.25rem ~ 20px */
+
+	/**
+	 * @tokens-end
+	*/
+
 	width: fit-content;
 	height: fit-content;
-	display: inline-block;
+	display: inline-flex;
+}
 
-	.cf-button {
-		--tui-height-l: 3.5rem;
-		min-width: 12rem;
+[tuiAppearance][data-appearance='primary'] {
+	--t-bg: var(--cf-button-color);
+	color: var(--cf-button-label-color);
+
+	&:hover:not(:disabled):not([data-state]) {
+		--t-bg: var(--cf-button-hover-color);
+		color: var(--cf-button-hover-label-color);
 	}
 
-	.cf-fab-button {
-		--tui-height-l: 3.5rem;
+	&:active:not(:disabled):not([data-state]) {
+		--t-bg: var(--cf-button-pressed-color);
+	}
+}
+
+[tuiButton] {
+	--t-size: var(--cf-button-height);
+
+	&[data-size] {
+		--t-gap: var(--cf-button-space);
+		--t-radius: var(--cf-button-shape);
+		--t-padding: var(--cf-button-padding-block) var(--cf-button-padding-inline);
+		--t-margin: 0;
+		min-width: var(--cf-button-width);
+		gap: var(--cf-button-space);
+		justify-content: var(--cf-button-align);
+		text-align: var(--cf-button-label-align);
+	}
+}
+
+[tuiIconButton] {
+	--t-size: var(--cf-icon-button-height);
+	--t-radius: var(--cf-icon-button-shape);
+}
+
+[tuiIcons] {
+	&::after,
+	&::before {
+		font-size: var(--cf-button-icon-size);
+		block-size: var(--cf-button-icon-size);
+		inline-size: var(--cf-button-icon-size);
+		line-height: var(--cf-button-icon-size);
+		color: var(--cf-button-icon-color);
+		transition:
+			color 0.3s ease-in-out,
+			background 0.3s ease-in-out;
+	}
+
+	&:hover::before,
+	&:hover::after {
+		color: var(--cf-button-hover-icon-color);
 	}
 }
 
 button {
-	font-weight: 500 !important;
-	font-size: v.$fs-regular;
-
-	&.cf-button {
-		width: inherit !important;
-		min-width: 9rem;
-	}
-
-	&.cf-fab-button {
-		border-radius: v.$sp-medium;
-	}
+	font-weight: var(--cf-button-label-font-weight);
+	font-size: var(--cf-button-label-font-size);
 }

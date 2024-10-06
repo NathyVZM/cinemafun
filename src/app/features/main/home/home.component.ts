@@ -1,7 +1,7 @@
 import { AsyncPipe } from '@angular/common'
 import { Component, inject } from '@angular/core'
 import { CarouselComponent, MovieComponent } from '@components'
-import { MovieService } from '@services'
+import { ApiConfigurationService, MovieService } from '@services'
 
 @Component({
 	selector: 'cf-home',
@@ -12,6 +12,11 @@ import { MovieService } from '@services'
 })
 export class HomeComponent {
 	movieService = inject(MovieService)
+	apiConfigurationService = inject(ApiConfigurationService)
+
 	movies$ = this.movieService.getMoviesForHome()
 	carousel$ = this.movieService.getMoviesCarousel()
+	imagePath$ = this.apiConfigurationService.getImagePath()
+	backdropSizes$ = this.apiConfigurationService.getBackdropSizes()
+	posterSizes$ = this.apiConfigurationService.getPosterSizes()
 }

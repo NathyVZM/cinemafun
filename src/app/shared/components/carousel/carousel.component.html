@@ -1,11 +1,9 @@
-@let imagesPath = imagesPath$ | async;
-
 <!-- Previous button -->
 @if (!isSignUp) {
 	<cf-button
 		[isIconButton]="true"
 		[type]="'button'"
-		[iconLeading]="'tuiIconChevronLeftLarge'"
+		[iconLeading]="'@tui.chevron-left'"
 		[tuiHint]="'Previous'"
 		(buttonClick)="previousSlide()"
 		aria-label="Previous page" />
@@ -16,7 +14,7 @@
 	[duration]="duration()"
 	[draggable]="isDraggable()"
 	[(index)]="index"
-	[ngClass]="{ fade: addFade(), rounded: !isSignUp }">
+	[ngClass]="{ fade: isSignUp, rounded: !isSignUp }">
 	@for (item of items(); track item.id) {
 		<picture
 			*tuiItem
@@ -26,14 +24,14 @@
 			[tuiHintShowDelay]="1000"
 			tuiHintPointer
 			[ngClass]="{ 'skeleton-image': isImageLoading }">
-			@for (size of backdropSizes$ | async; track $index) {
-				@let bannerPath = imagesPath + size + item.image;
+			@for (size of backdropSizes(); track $index) {
+				@let bannerPath = imagePath() + size + item.image;
 
 				@if (size.includes('original')) {
 					<img
 						[ngSrc]="bannerPath"
-						[loaderParams]="loaderParams()"
 						[alt]="item.alt"
+						[loaderParams]="loaderParams()"
 						(load)="onImageLoad()"
 						priority
 						placeholder
@@ -60,7 +58,7 @@
 	<cf-button
 		[isIconButton]="true"
 		[type]="'button'"
-		[iconLeading]="'tuiIconChevronRightLarge'"
+		[iconLeading]="'@tui.chevron-right'"
 		[tuiHint]="'Next'"
 		(buttonClick)="nextSlide()"
 		aria-label="Next page" />
@@ -70,14 +68,14 @@
 <ng-template #movieInfo let-movie="movie">
 	<div class="movie-info">
 		<picture>
-			@for (size of posterSizes$ | async; track $index) {
-				@let posterPath = imagesPath + size + movie.movie.poster;
+			@for (size of posterSizes(); track $index) {
+				@let posterPath = imagePath() + size + movie.movie.poster;
 
 				@if (size.includes('original')) {
 					<img
 						[ngSrc]="posterPath"
 						[alt]="movie.movie.title + 'poster'"
-						[loaderParams]="{ width: 176, height: 288, fit: 'cover' }"
+						[loaderParams]="{ width: 240, height: 340, fit: 'cover' }"
 						(load)="onImageLoad()"
 						priority
 						placeholder

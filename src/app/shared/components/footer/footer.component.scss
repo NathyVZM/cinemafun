@@ -4,7 +4,7 @@
 
 footer {
 	width: 100%;
-	padding-bottom: 20px;
+	// padding-bottom: v.$sp-medium;
 	@include m.flex(center, center, column, wrap, v.$sp-regular);
 }
 
@@ -29,7 +29,7 @@ section {
 	@include m.flex(center, stretch, column, wrap, v.$sp-small);
 	text-align: center;
 
-	> small {
+	>small {
 		font-size: v.$fs-extra-small;
 		color: c.$cool-gray;
 	}

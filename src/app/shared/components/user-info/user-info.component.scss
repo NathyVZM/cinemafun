@@ -1,0 +1,71 @@
+@use 'colors' as c;
+@use 'variables' as v;
+@use 'mixins' as m;
+
+:host {
+	@include m.size(100%, fit-content);
+	@include m.flex(space-between, stretch, column, wrap, v.$sp-small);
+	background-color: c.$platinum;
+	border-radius: v.$sp-large;
+	padding: v.$sp-extra-regular;
+}
+
+section[name] {
+	@include m.flex(flex-start, center, row, wrap, v.$sp-semi-small);
+	width: 100%;
+	flex: 1;
+
+	> cf-icon {
+		background-color: c.$brilliant-rose;
+		padding: v.$sp-extra-small;
+		border-radius: 100%;
+	}
+
+	> article {
+		@include m.flex(center, stretch, column, wrap, v.$sp-tiny);
+		flex: 1;
+
+		tui-line-clamp:first-child {
+			font-size: v.$fs-regular;
+			width: 100%;
+		}
+
+		tui-line-clamp:last-child {
+			font-size: v.$fs-semi-small;
+			color: c.$cool-gray;
+			font-weight: 500;
+			width: 100%;
+		}
+	}
+}
+
+section[balance] {
+	@include m.flex(space-between, flex-end, row, wrap, v.$sp-small);
+	width: 100%;
+	flex: 1;
+
+	> article {
+		@include m.flex(center, stretch, column, wrap, v.$sp-tiny);
+		flex: 1;
+
+		> p {
+			font-size: v.$fs-semi-small;
+			color: c.$cool-gray;
+		}
+
+		> div {
+			@include m.flex(flex-start, center, row, wrap, v.$sp-small);
+
+			> p {
+				flex: 1;
+				color: c.$brilliant-rose;
+				font-size: v.$fs-medium;
+				font-weight: 500;
+
+				> span[decimal] {
+					opacity: 0.6;
+				}
+			}
+		}
+	}
+}

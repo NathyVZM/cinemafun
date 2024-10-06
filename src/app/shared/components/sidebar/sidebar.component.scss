@@ -3,7 +3,8 @@
 @use 'variables' as v;
 
 :host {
-	width: 14.5rem;
+	@include m.flex;
+	width: 15rem;
 	height: 88.608dvh;
 	position: sticky;
 	top: 100px;
@@ -83,11 +84,15 @@ section {
 					color: c.$brilliant-rose;
 				}
 
-				tui-money {
+				p {
 					flex: 1;
 					color: c.$brilliant-rose;
 					font-size: v.$fs-medium;
 					font-weight: 500;
+
+					> span[decimal] {
+						color: transparentize($color: c.$brilliant-rose, $amount: 0.4);
+					}
 				}
 			}
 		}

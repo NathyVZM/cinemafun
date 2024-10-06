@@ -2,10 +2,9 @@ import { Component, computed, input } from '@angular/core'
 import { AsyncPipe, NgClass, NgOptimizedImage } from '@angular/common'
 import { RouterLink } from '@angular/router'
 import { TuiHint } from '@taiga-ui/core'
+import { TuiCardLarge } from '@taiga-ui/layout'
 import { TuiLineClamp } from '@taiga-ui/kit'
-import { TuiIslandDirective } from '@taiga-ui/legacy'
-import { ClassificationPipe, GenrePipe, RuntimePipe } from '@pipes'
-import { ApiConfigurationService } from '@services'
+import { RuntimePipe, ClassificationPipe, GenrePipe } from '@pipes'
 
 @Component({
 	selector: 'cf-movie',
@@ -15,9 +14,9 @@ import { ApiConfigurationService } from '@services'
 		RouterLink,
 		AsyncPipe,
 		NgOptimizedImage,
-		TuiIslandDirective,
-		TuiLineClamp,
+		TuiCardLarge,
 		TuiHint,
+		TuiLineClamp,
 		GenrePipe,
 		RuntimePipe,
 		ClassificationPipe
@@ -32,8 +31,9 @@ export class MovieComponent {
 	genre = input.required<string[]>()
 	runtime = input.required<number>()
 	classification = input.required<string>()
+	imagePath = input.required<string>()
+	posterSizes = input.required<string[]>()
 	meaning = input('')
-	isFirst = input(false)
 
 	classificationColor = computed(() => this.classifications.get(this.classification()))
 	classifications = new Map([
@@ -44,19 +44,8 @@ export class MovieComponent {
 		['NC-17', 'adults-only']
 	])
 
-	isImageLoading = true
-
-	imagesPath$ = this.apiConfigurationService.getImagesPath()
-	posterSizes$ = this.apiConfigurationService.getPosterSizes()
-
-	constructor(private apiConfigurationService: ApiConfigurationService) {}
-
 	getMediaQuery(size: string) {
 		const formattedSize = size.replace('w', '')
 		return `(max-width: ${formattedSize}px)`
-	}
-
-	onImageLoad() {
-		this.isImageLoading = false
 	}
 }

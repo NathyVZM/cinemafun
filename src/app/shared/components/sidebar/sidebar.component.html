@@ -1,24 +1,11 @@
 <nav>
 	@if (user$ | async; as user) {
-		<section>
-			<article id="info">
-				<cf-icon [icon]="'user'" />
-				<div>
-					<tui-line-clamp [content]="user.name" [lineHeight]="16" [linesLimit]="1" />
-					<tui-line-clamp [content]="user.email" [lineHeight]="12" [linesLimit]="1" />
-				</div>
-			</article>
-			<article id="balance">
-				<div>
-					<p>Balance</p>
-					<div>
-						<cf-icon [icon]="'money'" />
-						<!-- <tui-money [currency]="'USD'" [currencyAlign]="'left'" [value]="user.balance" /> -->
-					</div>
-				</div>
-				<cf-button [type]="'button'" [label]="'A button'" [iconLeading]="'pencil-simple'" [isIconButton]="true" />
-			</article>
-		</section>
+		<cf-user-info
+			[id]="user.id"
+			[name]="user.name"
+			[email]="user.email"
+			[balance]="user.balance"
+			[ticket]="user.ticket" />
 	}
 	<menu>
 		@for (item of navigation$ | async; track item.id) {
@@ -28,6 +15,6 @@
 		}
 	</menu>
 	<footer>
-		<cf-navigation-item [label]="'Sign out'" [icon]="'sign-out'" [isButton]="true" (buttonClick)="signOut()" />
+		<cf-navigation-item [label]="'Sign out'" [icon]="'sign-out'" [isButton]="true" (navigationItemClick)="signOut()" />
 	</footer>
 </nav>

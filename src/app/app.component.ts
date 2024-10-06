@@ -8,8 +8,9 @@ import { tuiIconResolverProvider, TuiRoot } from '@taiga-ui/core'
 	standalone: true,
 	imports: [RouterOutlet, TuiRoot],
 	providers: [
-		// { provide: TUI_SANITIZER, useClass: NgDompurifySanitizer },
-		// tuiIconResolverProvider(icon => (icon.includes('@tui') ? icon : `icons/${icon}-duotone.svg`)),
+		tuiIconResolverProvider(icon => {
+			return icon.includes('tui') ? `assets/taiga-ui/icons/${icon.replace('@tui.', '')}.svg` : `icons/${icon}-duotone.svg`
+		}),
 		{
 			provide: IMAGE_LOADER,
 			useValue: (config: ImageLoaderConfig) => {
